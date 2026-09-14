@@ -2130,20 +2130,22 @@ async function loadHistory(){
 
                 /* UPLOADER */
 
-                const uploader =
-                    document.createElement(
-                        "div"
-                    );
-
                 uploader.className =
-                    "history-uploader";
+    "history-uploader";
 
-                uploader.textContent =
-                    "👤 Di-upload oleh: " +
-                    (
-                        item.uploader_username ||
-                        "Tidak diketahui"
-                    );
+const uploaderUsername =
+    item.uploader_username ||
+    "Tidak diketahui";
+
+const uploaderEmoji =
+    uploaderUsername === "daligroupmaster"
+        ? "👑"
+        : "👤";
+
+uploader.textContent =
+    uploaderEmoji +
+    " Di-upload oleh: " +
+    uploaderUsername;
 
 
                 /* STORY */
