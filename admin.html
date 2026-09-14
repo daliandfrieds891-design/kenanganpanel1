@@ -17,14 +17,14 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#080a0f;
     color:#fff;
     min-height:100vh;
 }
 
 header{
-    padding:22px;
+    padding:20px;
     border-bottom:1px solid rgba(246,196,83,.2);
     display:flex;
     justify-content:space-between;
@@ -83,7 +83,7 @@ input,
 textarea{
     width:100%;
     background:#080a0f;
-    color:white;
+    color:#fff;
     border:1px solid #303746;
     border-radius:10px;
     padding:14px;
@@ -119,11 +119,11 @@ input[type="file"]{
     border:1px solid #333;
 }
 
-button.post{
+.post{
     width:100%;
     margin-top:25px;
     padding:15px;
-    border:none;
+    border:0;
     border-radius:12px;
     background:linear-gradient(135deg,#f6c453,#d99d2b);
     color:#080a0f;
@@ -132,7 +132,7 @@ button.post{
     cursor:pointer;
 }
 
-button.post:disabled{
+.post:disabled{
     opacity:.5;
     cursor:not-allowed;
 }
@@ -158,10 +158,6 @@ button.post:disabled{
     border:1px solid rgba(231,76,60,.3);
 }
 
-#adminPanel{
-    display:none;
-}
-
 #loginPanel{
     max-width:450px;
     margin:100px auto;
@@ -173,6 +169,7 @@ button.post:disabled{
     padding:30px;
     border-radius:20px;
     border:1px solid rgba(246,196,83,.15);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
 }
 
 .login-card h1{
@@ -184,7 +181,7 @@ button.post:disabled{
     width:100%;
     margin-top:20px;
     padding:14px;
-    border:none;
+    border:0;
     border-radius:10px;
     background:#f6c453;
     color:#080a0f;
@@ -192,13 +189,12 @@ button.post:disabled{
     cursor:pointer;
 }
 
-.loading{
-    text-align:center;
-    padding:30px;
-    color:#aaa;
+#adminPanel{
+    display:none;
 }
 
 @media(max-width:600px){
+
     .container{
         margin:20px auto;
         padding:12px;
@@ -215,20 +211,30 @@ button.post:disabled{
     .logo{
         font-size:17px;
     }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<!-- =========================
+     LOGIN ADMIN
+========================= -->
+
 <div id="loginPanel">
 
     <div class="login-card">
 
-        <h1>ADMIN <span style="color:#f6c453;">KENANGAN</span></h1>
+        <h1>
+            ADMIN
+            <span style="color:#f6c453;">
+                KENANGAN
+            </span>
+        </h1>
 
         <label>Email</label>
+
         <input
             type="email"
             id="email"
@@ -236,24 +242,34 @@ button.post:disabled{
         >
 
         <label>Password</label>
+
         <input
             type="password"
             id="password"
-            placeholder="Password"
+            placeholder="Password admin"
         >
 
-        <button class="login-btn" id="loginBtn">
+        <button
+            class="login-btn"
+            id="loginBtn"
+        >
             LOGIN
         </button>
 
-        <div id="loginStatus" class="status"></div>
+        <div
+            id="loginStatus"
+            class="status"
+        ></div>
 
     </div>
 
 </div>
 
 
-<!-- ADMIN PANEL -->
+<!-- =========================
+     PANEL ADMIN
+========================= -->
+
 <div id="adminPanel">
 
 <header>
@@ -262,7 +278,10 @@ button.post:disabled{
         KENANGAN <span>ADMIN</span>
     </div>
 
-    <button class="logout" id="logoutBtn">
+    <button
+        class="logout"
+        id="logoutBtn"
+    >
         LOGOUT
     </button>
 
@@ -276,7 +295,7 @@ button.post:disabled{
     <h1>Tambah Kenangan</h1>
 
     <p class="subtitle">
-        Upload foto dan simpan cerita kenangan ke database.
+        Upload foto dan simpan cerita kenangan.
     </p>
 
 
@@ -289,7 +308,10 @@ button.post:disabled{
         multiple
     >
 
-    <div id="previewGrid" class="preview"></div>
+    <div
+        id="previewGrid"
+        class="preview"
+    ></div>
 
 
     <label>Judul Kenangan</label>
@@ -339,9 +361,18 @@ button.post:disabled{
 
 <script>
 
-const photoInput = document.getElementById("photoInput");
-const previewGrid = document.getElementById("previewGrid");
-const postBtn = document.getElementById("postBtn");
+/* =========================
+   ELEMENT
+========================= */
+
+const photoInput =
+    document.getElementById("photoInput");
+
+const previewGrid =
+    document.getElementById("previewGrid");
+
+const postBtn =
+    document.getElementById("postBtn");
 
 let selectedPhotos = [];
 
@@ -350,44 +381,83 @@ let selectedPhotos = [];
    PREVIEW FOTO
 ========================= */
 
-photoInput.addEventListener("change", function(){
+photoInput.addEventListener(
+    "change",
+    function(){
 
-    selectedPhotos = Array.from(this.files);
+        selectedPhotos =
+            Array.from(this.files);
 
-    previewGrid.innerHTML = "";
+        previewGrid.innerHTML = "";
 
-    selectedPhotos.forEach(file => {
+        selectedPhotos.forEach(file => {
 
-        const reader = new FileReader();
+            const reader =
+                new FileReader();
 
-        reader.onload = function(e){
+            reader.onload =
+                function(event){
 
-            const img = document.createElement("img");
+                    const img =
+                        document.createElement("img");
 
-            img.src = e.target.result;
+                    img.src =
+                        event.target.result;
 
-            previewGrid.appendChild(img);
+                    previewGrid.appendChild(img);
 
-        };
+                };
 
-        reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
 
-    });
+        });
 
-});
+    }
+);
 
 
 /* =========================
-   STATUS
+   STATUS LOGIN
 ========================= */
 
-function showStatus(message, type){
+function showLoginStatus(
+    message,
+    type
+){
 
-    const status = document.getElementById("status");
+    const status =
+        document.getElementById(
+            "loginStatus"
+        );
 
-    status.textContent = message;
+    status.textContent =
+        message;
 
-    status.className = "status " + type;
+    status.className =
+        "status " + type;
+
+}
+
+
+/* =========================
+   STATUS POSTING
+========================= */
+
+function showStatus(
+    message,
+    type
+){
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+    status.textContent =
+        message;
+
+    status.className =
+        "status " + type;
 
 }
 
@@ -396,78 +466,108 @@ function showStatus(message, type){
    LOGIN
 ========================= */
 
-document.getElementById("loginBtn").addEventListener("click", async function(){
+document
+.getElementById("loginBtn")
+.addEventListener(
+    "click",
+    async function(){
 
-    const email =
-        document.getElementById("email").value.trim();
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim();
 
-    const password =
-        document.getElementById("password").value;
+        const password =
+            document
+            .getElementById("password")
+            .value;
 
-    const loginStatus =
-        document.getElementById("loginStatus");
+        if(!email || !password){
 
+            showLoginStatus(
+                "Email dan password wajib diisi.",
+                "error"
+            );
 
-    loginStatus.style.display = "block";
+            return;
 
-    loginStatus.className = "status";
-
-    loginStatus.textContent = "Sedang login...";
-
-
-    if(!email || !password){
-
-        loginStatus.className = "status error";
-
-        loginStatus.textContent =
-            "Email dan password wajib diisi.";
-
-        return;
-    }
+        }
 
 
-    const { data, error } =
-        await supabaseClient.auth.signInWithPassword({
-            email: email,
-            password: password
+        showLoginStatus(
+            "Sedang login...",
+            "success"
+        );
+
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+        .auth
+        .signInWithPassword({
+
+            email:email,
+
+            password:password
+
         });
 
 
-    if(error){
+        if(error){
 
-        loginStatus.className = "status error";
+            showLoginStatus(
+                error.message,
+                "error"
+            );
 
-        loginStatus.textContent =
-            error.message;
+            return;
 
-        return;
+        }
+
+
+        const {
+            data:isAdmin,
+            error:adminError
+        } =
+        await supabaseClient
+        .rpc("is_admin");
+
+
+        if(
+            adminError ||
+            !isAdmin
+        ){
+
+            await supabaseClient
+            .auth
+            .signOut();
+
+            showLoginStatus(
+                "Akun ini bukan admin.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        document
+        .getElementById("loginPanel")
+        .style
+        .display = "none";
+
+
+        document
+        .getElementById("adminPanel")
+        .style
+        .display = "block";
+
     }
-
-
-    const { data: isAdmin, error: adminError } =
-        await supabaseClient.rpc("is_admin");
-
-
-    if(adminError || !isAdmin){
-
-        await supabaseClient.auth.signOut();
-
-        loginStatus.className = "status error";
-
-        loginStatus.textContent =
-            "Akun ini bukan admin.";
-
-        return;
-    }
-
-
-    document.getElementById("loginPanel").style.display =
-        "none";
-
-    document.getElementById("adminPanel").style.display =
-        "block";
-
-});
+);
 
 
 /* =========================
@@ -477,42 +577,64 @@ document.getElementById("loginBtn").addEventListener("click", async function(){
 async function checkAdmin(){
 
     const {
-        data: { session }
-    } = await supabaseClient.auth.getSession();
+        data:{
+            session
+        }
+    } =
+    await supabaseClient
+    .auth
+    .getSession();
 
 
     if(!session){
 
-        document.getElementById("loginPanel").style.display =
-            "block";
+        document
+        .getElementById("loginPanel")
+        .style
+        .display = "block";
 
-        document.getElementById("adminPanel").style.display =
-            "none";
+        document
+        .getElementById("adminPanel")
+        .style
+        .display = "none";
 
         return;
+
     }
 
 
-    const { data: isAdmin, error } =
-        await supabaseClient.rpc("is_admin");
+    const {
+        data:isAdmin,
+        error
+    } =
+    await supabaseClient
+    .rpc("is_admin");
 
 
-    if(error || !isAdmin){
+    if(
+        error ||
+        !isAdmin
+    ){
 
-        await supabaseClient.auth.signOut();
-
-        document.getElementById("loginPanel").style.display =
-            "block";
+        await supabaseClient
+        .auth
+        .signOut();
 
         return;
+
     }
 
 
-    document.getElementById("loginPanel").style.display =
-        "none";
+    document
+    .getElementById("loginPanel")
+    .style
+    .display = "none";
 
-    document.getElementById("adminPanel").style.display =
-        "block";
+
+    document
+    .getElementById("adminPanel")
+    .style
+    .display = "block";
 
 }
 
@@ -524,91 +646,120 @@ checkAdmin();
    LOGOUT
 ========================= */
 
-document.getElementById("logoutBtn").addEventListener("click", async function(){
+document
+.getElementById("logoutBtn")
+.addEventListener(
+    "click",
+    async function(){
 
-    await supabaseClient.auth.signOut();
+        await supabaseClient
+        .auth
+        .signOut();
 
-    location.reload();
+        location.reload();
 
-});
+    }
+);
 
 
 /* =========================
    POSTING KENANGAN
 ========================= */
 
-postBtn.addEventListener("click", async function(){
+postBtn.addEventListener(
+    "click",
+    async function(){
 
-    const judul =
-        document.getElementById("judul").value.trim();
+        const judul =
+            document
+            .getElementById("judul")
+            .value
+            .trim();
 
-    const tanggal =
-        document.getElementById("tanggal").value;
+        const tanggal =
+            document
+            .getElementById("tanggal")
+            .value;
 
-    const cerita =
-        document.getElementById("cerita").value.trim();
+        const cerita =
+            document
+            .getElementById("cerita")
+            .value
+            .trim();
 
 
-    if(selectedPhotos.length === 0){
+        if(selectedPhotos.length === 0){
+
+            showStatus(
+                "Silakan pilih foto terlebih dahulu.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!judul){
+
+            showStatus(
+                "Judul kenangan wajib diisi.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        postBtn.disabled = true;
+
 
         showStatus(
-            "Silakan pilih foto terlebih dahulu.",
-            "error"
+            "Sedang mengupload...",
+            "success"
         );
 
-        return;
-    }
+
+        try{
+
+            for(
+                let i = 0;
+                i < selectedPhotos.length;
+                i++
+            ){
+
+                const file =
+                    selectedPhotos[i];
 
 
-    if(!judul){
-
-        showStatus(
-            "Judul kenangan wajib diisi.",
-            "error"
-        );
-
-        return;
-    }
+                const extension =
+                    file.name
+                    .split(".")
+                    .pop();
 
 
-    postBtn.disabled = true;
-
-    showStatus(
-        "Sedang mengupload kenangan...",
-        "success"
-    );
-
-
-    try{
-
-        for(let i = 0; i < selectedPhotos.length; i++){
-
-            const file = selectedPhotos[i];
-
-
-            const extension =
-                file.name.split(".").pop();
-
-
-            const fileName =
-                Date.now() +
-                "-" +
-                Math.random()
+                const fileName =
+                    Date.now()
+                    + "-"
+                    + Math.random()
                     .toString(36)
-                    .substring(2) +
-                "." +
-                extension;
+                    .substring(2)
+                    + "."
+                    + extension;
 
 
-            const filePath =
-                "kenangan/" + fileName;
+                const filePath =
+                    fileName;
 
 
-            /* UPLOAD STORAGE */
+                /* =========================
+                   UPLOAD STORAGE
+                ========================= */
 
-            const {
-                error: uploadError
-            } =
+                const {
+                    error:uploadError
+                } =
                 await supabaseClient
                 .storage
                 .from("kenangan")
@@ -622,40 +773,46 @@ postBtn.addEventListener("click", async function(){
                 );
 
 
-            if(uploadError){
+                if(uploadError){
 
-                throw uploadError;
+                    throw uploadError;
 
-            }
+                }
 
 
-            /* PUBLIC URL */
+                /* =========================
+                   PUBLIC URL
+                ========================= */
 
-            const {
-                data: publicData
-            } =
+                const {
+                    data:publicData
+                } =
                 supabaseClient
                 .storage
                 .from("kenangan")
-                .getPublicUrl(filePath);
+                .getPublicUrl(
+                    filePath
+                );
 
 
-            const fotoUrl =
-                publicData.publicUrl;
+                const fotoUrl =
+                    publicData.publicUrl;
 
 
-            /* INSERT DATABASE */
+                /* =========================
+                   INSERT DATABASE
+                ========================= */
 
-            const {
-                error: databaseError
-            } =
+                const {
+                    error:databaseError
+                } =
                 await supabaseClient
                 .from("kenangan")
                 .insert({
 
-                    judul: judul,
+                    judul:judul,
 
-                    cerita: cerita,
+                    cerita:cerita,
 
                     tanggal:
                         tanggal || null,
@@ -669,54 +826,59 @@ postBtn.addEventListener("click", async function(){
                 });
 
 
-            if(databaseError){
+                if(databaseError){
 
-                throw databaseError;
+                    throw databaseError;
+
+                }
 
             }
 
+
+            showStatus(
+                "✓ KENANGAN BERHASIL DIPOSTING!",
+                "success"
+            );
+
+
+            photoInput.value = "";
+
+            selectedPhotos = [];
+
+            previewGrid.innerHTML = "";
+
+            document
+            .getElementById("judul")
+            .value = "";
+
+            document
+            .getElementById("tanggal")
+            .value = "";
+
+            document
+            .getElementById("cerita")
+            .value = "";
+
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            showStatus(
+                "Gagal: " + error.message,
+                "error"
+            );
+
+        }
+        finally{
+
+            postBtn.disabled = false;
+
         }
 
-
-        showStatus(
-            "✓ KENANGAN BERHASIL DIPOSTING!",
-            "success"
-        );
-
-
-        /* RESET */
-
-        photoInput.value = "";
-
-        selectedPhotos = [];
-
-        previewGrid.innerHTML = "";
-
-        document.getElementById("judul").value = "";
-
-        document.getElementById("tanggal").value = "";
-
-        document.getElementById("cerita").value = "";
-
-
     }
-    catch(error){
-
-        console.error(error);
-
-        showStatus(
-            "Gagal: " + error.message,
-            "error"
-        );
-
-    }
-    finally{
-
-        postBtn.disabled = false;
-
-    }
-
-});
+);
 
 </script>
 
