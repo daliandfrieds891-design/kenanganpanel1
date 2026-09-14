@@ -1,26 +1,20 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KENANGAN — A Collection of Moments</title>
+<title>PRAN MUSIC ENTERTAIMENT — A Collection of Moments</title>
 
-<meta
-    name="description"
-    content="KENANGAN — Sebuah ruang untuk menyimpan dan mengabadikan momen-momen berharga."
->
+<meta name="description" content="PRAN MUSIC ENTERTAIMENT — Dokumentasi dan koleksi momen berharga.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="config.js"></script>
 
 <style>
@@ -41,10 +35,6 @@ body{
     font-family:"Inter",sans-serif;
     overflow-x:hidden;
 }
-
-/* =========================
-   BACKGROUND
-========================= */
 
 body::before{
     content:"";
@@ -81,7 +71,7 @@ header{
 
 .logo{
     font-size:15px;
-    letter-spacing:5px;
+    letter-spacing:4px;
     font-weight:600;
     color:#f6c453;
 }
@@ -113,12 +103,12 @@ header{
 }
 
 .hero h1{
-    max-width:850px;
+    max-width:1000px;
     font-family:"Cormorant Garamond",serif;
-    font-size:clamp(70px,12vw,170px);
+    font-size:clamp(58px,9vw,125px);
     font-weight:500;
-    line-height:.78;
-    letter-spacing:-5px;
+    line-height:.85;
+    letter-spacing:-3px;
 }
 
 .hero h1 span{
@@ -127,7 +117,7 @@ header{
 }
 
 .hero-text{
-    max-width:600px;
+    max-width:650px;
     margin-top:45px;
     color:#9a9da5;
     font-size:14px;
@@ -215,8 +205,7 @@ header{
 .memory-card:hover{
     transform:translateY(-6px);
     border-color:rgba(246,196,83,.3);
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.5);
+    box-shadow:0 25px 70px rgba(0,0,0,.5);
 }
 
 .photo-wrap{
@@ -245,12 +234,11 @@ header{
     position:absolute;
     inset:0;
     pointer-events:none;
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.65),
-            transparent 50%
-        );
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.65),
+        transparent 50%
+    );
 }
 
 /* =========================
@@ -296,7 +284,7 @@ header{
 }
 
 /* =========================
-   EMPTY / LOADING
+   LOADING / EMPTY
 ========================= */
 
 .state{
@@ -320,7 +308,7 @@ header{
 }
 
 /* =========================
-   FULLSCREEN PHOTO MODAL
+   FULLSCREEN PHOTO
 ========================= */
 
 .photo-modal{
@@ -351,7 +339,6 @@ header{
 }
 
 @keyframes zoomIn{
-
     from{
         opacity:0;
         transform:scale(.92);
@@ -361,7 +348,6 @@ header{
         opacity:1;
         transform:scale(1);
     }
-
 }
 
 .modal-close{
@@ -422,7 +408,7 @@ footer{
 
 .footer-logo{
     color:#f6c453;
-    letter-spacing:5px;
+    letter-spacing:4px;
     font-size:13px;
 }
 
@@ -454,13 +440,18 @@ footer{
         padding:22px 6%;
     }
 
+    .logo{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
     .hero{
         padding:80px 7% 60px;
     }
 
     .hero h1{
-        font-size:78px;
-        letter-spacing:-3px;
+        font-size:64px;
+        letter-spacing:-2px;
     }
 
     .hero-text{
@@ -546,7 +537,7 @@ footer{
         id="modalImage"
         class="modal-image"
         src=""
-        alt="Kenangan"
+        alt="PRAN MUSIC ENTERTAIMENT"
     >
 
     <div class="modal-info">
@@ -573,7 +564,7 @@ footer{
 <header>
 
     <div class="logo">
-        KENANGAN<span>.</span>
+        PRAN MUSIC <span>ENTERTAIMENT.</span>
     </div>
 
 </header>
@@ -586,22 +577,22 @@ footer{
 <section class="hero">
 
     <div class="hero-label">
-        A Collection of Moments
+        PRAN MUSIC ENTERTAIMENT
     </div>
 
     <h1>
-        KENANGAN
-        <span>.</span>
+        PRAN MUSIC
+        <span>ENTERTAIMENT.</span>
     </h1>
 
     <p class="hero-text">
-        Beberapa momen datang dan pergi.
-        Beberapa lainnya tinggal lebih lama,
-        tersimpan dalam sebuah foto,
-        cerita, dan perasaan yang tidak mudah dilupakan.
+        Setiap acara memiliki cerita.
+        Setiap cerita memiliki momen.
+        Dan setiap momen layak untuk dikenang.
         <br><br>
-        Selamat datang di ruang kecil
-        tempat setiap kenangan mendapatkan tempatnya.
+        Ruang ini menjadi tempat untuk menyimpan
+        dokumentasi, perjalanan, dan berbagai momen
+        berharga bersama PRAN MUSIC ENTERTAIMENT.
     </p>
 
     <a
@@ -639,9 +630,9 @@ footer{
         </div>
 
         <p class="section-description">
-            Kumpulan foto dan cerita yang pernah menjadi
-            bagian dari perjalanan. Klik foto untuk melihat
-            kenangan dalam ukuran penuh.
+            Kumpulan foto dan cerita dari berbagai momen
+            bersama PRAN MUSIC ENTERTAIMENT.
+            Klik foto untuk melihat dalam ukuran penuh.
         </p>
 
     </div>
@@ -655,7 +646,7 @@ footer{
         <div class="state">
 
             <div class="state-title">
-                Memuat kenangan...
+                Memuat dokumentasi...
             </div>
 
             <div class="state-text">
@@ -676,11 +667,11 @@ footer{
 <footer>
 
     <div class="footer-logo">
-        KENANGAN.
+        PRAN MUSIC ENTERTAIMENT.
     </div>
 
     <div class="footer-text">
-        A collection of moments worth remembering.
+        Professional Music & Event Entertainment
     </div>
 
 </footer>
@@ -688,21 +679,24 @@ footer{
 
 <script>
 
-/* ==========================================
+/* =========================
    SUPABASE
-========================================== */
+========================= */
 
 const memoriesContainer =
     document.getElementById("memories");
 
 
-/* ==========================================
+/* =========================
    ESCAPE HTML
-========================================== */
+========================= */
 
 function escapeHtml(value){
 
-    if(value === null || value === undefined){
+    if(
+        value === null ||
+        value === undefined
+    ){
         return "";
     }
 
@@ -715,9 +709,9 @@ function escapeHtml(value){
 }
 
 
-/* ==========================================
-   FORMAT DATE
-========================================== */
+/* =========================
+   DATE
+========================= */
 
 function formatDate(date){
 
@@ -742,9 +736,9 @@ function formatDate(date){
 }
 
 
-/* ==========================================
-   OPEN PHOTO
-========================================== */
+/* =========================
+   MODAL
+========================= */
 
 const photoModal =
     document.getElementById("photoModal");
@@ -768,7 +762,7 @@ function openPhoto(item){
         item.foto_url || "";
 
     modalImage.alt =
-        item.judul || "Kenangan";
+        item.judul || "PRAN MUSIC ENTERTAIMENT";
 
     modalTitle.textContent =
         item.judul || "";
@@ -783,10 +777,6 @@ function openPhoto(item){
 }
 
 
-/* ==========================================
-   CLOSE PHOTO
-========================================== */
-
 function closePhoto(){
 
     photoModal.classList.remove("active");
@@ -798,19 +788,11 @@ function closePhoto(){
 }
 
 
-/* ==========================================
-   CLOSE BUTTON
-========================================== */
-
 modalClose.addEventListener(
     "click",
     closePhoto
 );
 
-
-/* ==========================================
-   CLICK BACKGROUND
-========================================== */
 
 photoModal.addEventListener(
     "click",
@@ -826,27 +808,21 @@ photoModal.addEventListener(
 );
 
 
-/* ==========================================
-   ESC KEY
-========================================== */
-
 document.addEventListener(
     "keydown",
     function(event){
 
         if(event.key === "Escape"){
-
             closePhoto();
-
         }
 
     }
 );
 
 
-/* ==========================================
-   LOAD MEMORIES
-========================================== */
+/* =========================
+   LOAD DATA
+========================= */
 
 async function loadMemories(){
 
@@ -854,7 +830,7 @@ async function loadMemories(){
         <div class="state">
 
             <div class="state-title">
-                Memuat kenangan...
+                Memuat dokumentasi...
             </div>
 
             <div class="state-text">
@@ -864,18 +840,14 @@ async function loadMemories(){
         </div>
     `;
 
-
     try{
 
         const {
             data,
             error
         } = await supabaseClient
-
             .from("kenangan")
-
             .select("*")
-
             .order(
                 "created_at",
                 {
@@ -885,48 +857,42 @@ async function loadMemories(){
 
 
         if(error){
-
-            console.error(
-                "Supabase error:",
-                error
-            );
-
             throw error;
-
         }
 
 
-        if(!data || data.length === 0){
+        if(
+            !data ||
+            data.length === 0
+        ){
 
             memoriesContainer.innerHTML = `
                 <div class="state">
 
                     <div class="state-title">
-                        Belum Ada Kenangan
+                        Belum Ada Dokumentasi
                     </div>
 
                     <div class="state-text">
-                        Koleksi foto akan muncul di sini
-                        setelah ditambahkan.
+                        Dokumentasi PRAN MUSIC ENTERTAIMENT
+                        akan muncul di sini.
                     </div>
 
                 </div>
             `;
 
             return;
-
         }
 
 
         memoriesContainer.innerHTML =
-            data.map(
-                item => createMemoryCard(item)
-            ).join("");
+            data
+            .map(
+                item =>
+                    createMemoryCard(item)
+            )
+            .join("");
 
-
-        /* ==================================
-           PHOTO CLICK EVENTS
-        ================================== */
 
         document
             .querySelectorAll(".photo")
@@ -937,12 +903,23 @@ async function loadMemories(){
                         "click",
                         function(){
 
-                            const item =
-                                JSON.parse(
-                                    this.dataset.item
-                                );
+                            try{
 
-                            openPhoto(item);
+                                const item =
+                                    JSON.parse(
+                                        decodeURIComponent(
+                                            this.dataset.item
+                                        )
+                                    );
+
+                                openPhoto(item);
+
+                            }
+                            catch(error){
+
+                                console.error(error);
+
+                            }
 
                         }
                     );
@@ -950,10 +927,6 @@ async function loadMemories(){
                 }
             );
 
-
-        /* ==================================
-           VIEW PHOTO BUTTON
-        ================================== */
 
         document
             .querySelectorAll(".view-photo")
@@ -964,12 +937,23 @@ async function loadMemories(){
                         "click",
                         function(){
 
-                            const item =
-                                JSON.parse(
-                                    this.dataset.item
-                                );
+                            try{
 
-                            openPhoto(item);
+                                const item =
+                                    JSON.parse(
+                                        decodeURIComponent(
+                                            this.dataset.item
+                                        )
+                                    );
+
+                                openPhoto(item);
+
+                            }
+                            catch(error){
+
+                                console.error(error);
+
+                            }
 
                         }
                     );
@@ -981,18 +965,21 @@ async function loadMemories(){
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Supabase error:",
+            error
+        );
 
         memoriesContainer.innerHTML = `
             <div class="state">
 
                 <div class="state-title">
-                    Kenangan Belum Bisa Ditampilkan
+                    Dokumentasi Belum Bisa Ditampilkan
                 </div>
 
                 <div class="state-text">
-                    Periksa koneksi Supabase
-                    atau konfigurasi website.
+                    Silakan periksa koneksi
+                    Supabase dan konfigurasi website.
                 </div>
 
             </div>
@@ -1003,13 +990,13 @@ async function loadMemories(){
 }
 
 
-/* ==========================================
-   CREATE MEMORY CARD
-========================================== */
+/* =========================
+   CARD
+========================= */
 
 function createMemoryCard(item){
 
-    const safeItem =
+    const itemData =
         encodeURIComponent(
             JSON.stringify(item)
         );
@@ -1024,9 +1011,12 @@ function createMemoryCard(item){
                 <img
                     class="photo"
                     src="${escapeHtml(item.foto_url)}"
-                    alt="${escapeHtml(item.judul || "Kenangan")}"
+                    alt="${escapeHtml(
+                        item.judul ||
+                        "PRAN MUSIC ENTERTAIMENT"
+                    )}"
                     loading="lazy"
-                    data-item="${safeItem}"
+                    data-item="${itemData}"
                 >
 
                 <div class="photo-overlay"></div>
@@ -1054,7 +1044,8 @@ function createMemoryCard(item){
                 <div class="memory-title">
 
                     ${escapeHtml(
-                        item.judul || "Tanpa Judul"
+                        item.judul ||
+                        "PRAN MUSIC ENTERTAIMENT"
                     )}
 
                 </div>
@@ -1079,7 +1070,7 @@ function createMemoryCard(item){
 
                 <div
                     class="view-photo"
-                    data-item="${safeItem}"
+                    data-item="${itemData}"
                 >
 
                     LIHAT FOTO
@@ -1097,52 +1088,9 @@ function createMemoryCard(item){
 }
 
 
-/* ==========================================
-   FIX ENCODED JSON
-========================================== */
-
-document.addEventListener(
-    "click",
-    function(event){
-
-        const target =
-            event.target.closest(
-                "[data-item]"
-            );
-
-        if(!target){
-            return;
-        }
-
-        try{
-
-            const item =
-                JSON.parse(
-                    decodeURIComponent(
-                        target.dataset.item
-                    )
-                );
-
-            openPhoto(item);
-
-        }
-
-        catch(error){
-
-            console.error(
-                "Data foto tidak valid:",
-                error
-            );
-
-        }
-
-    }
-);
-
-
-/* ==========================================
-   START
-========================================== */
+/* =========================
+   START WEBSITE
+========================= */
 
 loadMemories();
 
@@ -1150,3 +1098,4 @@ loadMemories();
 
 </body>
 </html>
+```
