@@ -1293,14 +1293,19 @@ loginForm.addEventListener(
             }
 
 
-            currentUsername = data.username;
+           currentUsername = data.username;
 
-if (currentUsername === "daligroupmaster") {
-    currentUserBadge.textContent =
-        "👑 " + currentUsername;
-} else if (currentUsername === "pranmusicentertaiment") {
-    currentUserBadge.textContent =
-        "👤 " + currentUsername;
+const emoji =
+    currentUsername === "daligroupmaster"
+        ? "👑"
+        : "👤";
+
+currentUserBadge.textContent =
+    emoji + " " + currentUsername;
+
+            showAdminPage();
+
+            await loadHistory();
 
 
         }catch(error){
