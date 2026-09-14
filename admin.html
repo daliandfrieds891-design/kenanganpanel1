@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -7,6 +8,7 @@
 <title>Admin Kenangan | PRAN MUSIC ENTAERTAIMENT</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="config.js"></script>
 
 <style>
@@ -57,7 +59,7 @@ header{
 }
 
 .container{
-    max-width:900px;
+    max-width:1100px;
     margin:40px auto;
     padding:20px;
 }
@@ -74,42 +76,13 @@ h1{
     margin-bottom:10px;
 }
 
-.subtitle{
-    color:#aaa;
-    margin-bottom:25px;
-}
-
-/* LOGIN */
-
-#loginPage{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.login-card{
-    width:100%;
-    max-width:430px;
-}
-
-.login-logo{
-    text-align:center;
-    font-size:26px;
-    font-weight:bold;
-    letter-spacing:2px;
+h2{
     margin-bottom:10px;
 }
 
-.login-logo span{
-    color:#f6c453;
-}
-
-.login-subtitle{
-    text-align:center;
-    color:#999;
-    margin-bottom:30px;
+.subtitle{
+    color:#aaa;
+    margin-bottom:25px;
 }
 
 label{
@@ -177,7 +150,36 @@ textarea{
     display:none;
 }
 
-/* ADMIN */
+#loginPage{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-card{
+    width:100%;
+    max-width:430px;
+}
+
+.login-logo{
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.login-logo span{
+    color:#f6c453;
+}
+
+.login-subtitle{
+    text-align:center;
+    color:#999;
+    margin-bottom:30px;
+}
 
 #adminPage{
     display:none;
@@ -251,6 +253,137 @@ textarea{
     color:#ff8585;
 }
 
+/* HISTORY */
+
+.history-section{
+    margin-top:30px;
+}
+
+.history-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.history-header h2{
+    color:#fff;
+}
+
+.refresh-btn{
+    border:1px solid #f6c453;
+    background:transparent;
+    color:#f6c453;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.refresh-btn:hover{
+    background:#f6c453;
+    color:#080a0f;
+}
+
+.history-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.history-item{
+    background:#080a0f;
+    border:1px solid #292f3a;
+    border-radius:16px;
+    overflow:hidden;
+}
+
+.history-media{
+    width:100%;
+    height:210px;
+    background:#05070a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.history-media img,
+.history-media video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.history-content{
+    padding:16px;
+}
+
+.history-title{
+    color:#f6c453;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.history-date{
+    color:#888;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.history-story{
+    color:#bbb;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:15px;
+    white-space:pre-wrap;
+}
+
+.media-badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:rgba(246,196,83,.1);
+    color:#f6c453;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.delete-btn{
+    width:100%;
+    padding:11px;
+    border:1px solid #ff5555;
+    background:rgba(255,70,70,.08);
+    color:#ff7777;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.delete-btn:hover{
+    background:#ff5555;
+    color:#fff;
+}
+
+.empty-history{
+    grid-column:1/-1;
+    text-align:center;
+    padding:40px 20px;
+    border:1px dashed #343b47;
+    border-radius:15px;
+    color:#888;
+}
+
+.loading-history{
+    grid-column:1/-1;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
 @media(max-width:600px){
 
     header{
@@ -278,96 +411,89 @@ textarea{
     h1{
         font-size:24px;
     }
+
+    .history-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .refresh-btn{
+        width:100%;
+    }
+
+    .history-grid{
+        grid-template-columns:1fr;
+    }
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- =========================
-     LOGIN
-========================= -->
-
 <section id="loginPage">
 
-    <div class="card login-card">
+```
+<div class="card login-card">
 
-        <div class="login-logo">
-            PRAN <span>MUSIC</span>
-        </div>
-
-        <div class="login-subtitle">
-            ADMIN KENANGAN
-        </div>
-
-        <label for="username">
-            Username
-        </label>
-
-        <input
-            type="text"
-            id="username"
-            placeholder="Masukkan username"
-            autocomplete="username"
-        >
-
-        <label for="password">
-            Password
-        </label>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Masukkan password"
-            autocomplete="current-password"
-        >
-
-        <button
-            class="login-btn"
-            id="loginBtn"
-        >
-            LOGIN
-        </button>
-
-        <div
-            id="loginError"
-            class="error"
-        ></div>
-
+    <div class="login-logo">
+        PRAN <span>MUSIC</span>
     </div>
 
+    <div class="login-subtitle">
+        ADMIN KENANGAN
+    </div>
+
+    <label for="username">Username</label>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Masukkan username"
+        autocomplete="username"
+    >
+
+    <label for="password">Password</label>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Masukkan password"
+        autocomplete="current-password"
+    >
+
+    <button class="login-btn" id="loginBtn">
+        LOGIN
+    </button>
+
+    <div id="loginError" class="error"></div>
+
+</div>
+```
+
 </section>
-
-
-<!-- =========================
-     ADMIN PAGE
-========================= -->
 
 <section id="adminPage">
 
 <header>
 
-    <div class="logo">
-        PRAN <span>MUSIC</span>
-    </div>
+```
+<div class="logo">
+    PRAN <span>MUSIC</span>
+</div>
 
-    <button
-        class="logout"
-        id="logoutBtn"
-    >
-        LOGOUT
-    </button>
+<button class="logout" id="logoutBtn">
+    LOGOUT
+</button>
+```
 
 </header>
-
 
 <div class="container">
 
 <div class="card">
 
-<h1>
-    Upload Kenangan
-</h1>
+<h1>Upload Kenangan</h1>
 
 <p class="subtitle">
     Tambahkan foto atau video kenangan PRAN MUSIC ENTAERTAIMENT.
@@ -378,46 +504,39 @@ textarea{
     <strong id="loggedUsername">Admin</strong>
 </div>
 
-
-<!-- MEDIA TYPE -->
-
 <label for="mediaType">
     Jenis Media
 </label>
 
 <select id="mediaType">
 
-    <option value="foto">
-        Foto
-    </option>
+```
+<option value="foto">
+    Foto
+</option>
 
-    <option value="video">
-        Video
-    </option>
+<option value="video">
+    Video
+</option>
+```
 
 </select>
-
-
-<!-- FILE -->
 
 <label for="mediaInput">
     Pilih Foto / Video
 </label>
 
 <input
-    type="file"
-    id="mediaInput"
-    multiple
-    accept="image/*"
+type="file"
+id="mediaInput"
+multiple
+accept="image/*"
+
 >
 
-<div
-    class="file-info"
-    id="fileInfo"
->
+<div class="file-info" id="fileInfo">
     Belum ada file dipilih
 </div>
-
 
 <h3
     class="media-preview-title"
@@ -432,33 +551,26 @@ textarea{
     id="previewGrid"
 ></div>
 
-
-<!-- JUDUL -->
-
 <label for="judul">
     Judul Kenangan
 </label>
 
 <input
-    type="text"
-    id="judul"
-    placeholder="Contoh: Acara Pernikahan"
+type="text"
+id="judul"
+placeholder="Contoh: Acara Pernikahan"
+
 >
-
-
-<!-- TANGGAL -->
 
 <label for="tanggal">
     Tanggal
 </label>
 
 <input
-    type="date"
-    id="tanggal"
+type="date"
+id="tanggal"
+
 >
-
-
-<!-- CERITA -->
 
 <label for="cerita">
     Cerita / Keterangan
@@ -469,19 +581,43 @@ textarea{
     placeholder="Tulis cerita atau keterangan kenangan..."
 ></textarea>
 
-
-<button
-    class="post-btn"
-    id="postBtn"
->
+<button class="post-btn" id="postBtn">
     POST KENANGAN
 </button>
 
+<div id="status" class="status"></div>
+
+<!-- HISTORY -->
+
+<div class="history-section">
+
+```
+<div class="history-header">
+
+    <h2>
+        History Upload
+    </h2>
+
+    <button
+        class="refresh-btn"
+        id="refreshHistoryBtn"
+    >
+        ↻ REFRESH
+    </button>
+
+</div>
 
 <div
-    id="status"
-    class="status"
-></div>
+    class="history-grid"
+    id="historyGrid"
+>
+    <div class="loading-history">
+        Memuat history...
+    </div>
+</div>
+```
+
+</div>
 
 </div>
 
@@ -489,12 +625,7 @@ textarea{
 
 </section>
 
-
 <script>
-
-/* =========================
-   ELEMENT
-========================= */
 
 const loginPage =
     document.getElementById("loginPage");
@@ -541,6 +672,12 @@ const postBtn =
 const statusBox =
     document.getElementById("status");
 
+const historyGrid =
+    document.getElementById("historyGrid");
+
+const refreshHistoryBtn =
+    document.getElementById("refreshHistoryBtn");
+
 
 let selectedMedia = [];
 
@@ -549,20 +686,14 @@ let selectedMedia = [];
    LOGIN
 ========================= */
 
-loginBtn.addEventListener(
-    "click",
-    login
-);
-
+loginBtn.addEventListener("click", login);
 
 passwordInput.addEventListener(
     "keydown",
     function(e){
-
         if(e.key === "Enter"){
             login();
         }
-
     }
 );
 
@@ -575,10 +706,7 @@ async function login(){
     const password =
         passwordInput.value;
 
-
-    loginError.style.display =
-        "none";
-
+    loginError.style.display = "none";
 
     if(!username || !password){
 
@@ -589,19 +717,10 @@ async function login(){
         return;
     }
 
-
-    loginBtn.disabled =
-        true;
-
-    loginBtn.textContent =
-        "MEMERIKSA...";
-
+    loginBtn.disabled = true;
+    loginBtn.textContent = "MEMERIKSA...";
 
     try{
-
-        /*
-         * Cari email berdasarkan username.
-         */
 
         const {
             data,
@@ -613,54 +732,30 @@ async function login(){
             .eq("username", username)
             .maybeSingle();
 
-
         if(error){
-
             throw error;
-
         }
 
-
         if(!data){
-
             throw new Error(
                 "Username tidak ditemukan."
             );
-
         }
 
-
-        /*
-         * Login sebenarnya dilakukan
-         * oleh Supabase Auth.
-         */
-
         const {
-            data:authData,
             error:authError
         } =
         await supabaseClient.auth
             .signInWithPassword({
 
-                email:
-                    data.login_email,
-
-                password:
-                    password
+                email:data.login_email,
+                password:password
 
             });
 
-
         if(authError){
-
             throw authError;
-
         }
-
-
-        /*
-         * Pastikan user adalah admin.
-         */
 
         const {
             data:isAdmin,
@@ -669,7 +764,6 @@ async function login(){
         await supabaseClient
             .rpc("is_admin");
 
-
         if(adminError){
 
             await supabaseClient.auth.signOut();
@@ -677,7 +771,6 @@ async function login(){
             throw adminError;
 
         }
-
 
         if(!isAdmin){
 
@@ -689,17 +782,13 @@ async function login(){
 
         }
 
-
         loggedUsername.textContent =
             data.username;
 
+        loginPage.style.display = "none";
+        adminPage.style.display = "block";
 
-        loginPage.style.display =
-            "none";
-
-        adminPage.style.display =
-            "block";
-
+        await loadHistory();
 
     }
     catch(error){
@@ -714,11 +803,8 @@ async function login(){
     }
     finally{
 
-        loginBtn.disabled =
-            false;
-
-        loginBtn.textContent =
-            "LOGIN";
+        loginBtn.disabled = false;
+        loginBtn.textContent = "LOGIN";
 
     }
 
@@ -727,11 +813,8 @@ async function login(){
 
 function showLoginError(message){
 
-    loginError.textContent =
-        message;
-
-    loginError.style.display =
-        "block";
+    loginError.textContent = message;
+    loginError.style.display = "block";
 
 }
 
@@ -749,7 +832,6 @@ async function checkSession(){
         .auth
         .getSession();
 
-
     if(data.session){
 
         const {
@@ -758,16 +840,10 @@ async function checkSession(){
         await supabaseClient
             .rpc("is_admin");
 
-
         if(isAdmin){
-
-            /*
-             * Ambil username berdasarkan email
-             */
 
             const email =
                 data.session.user.email;
-
 
             const {
                 data:userData
@@ -778,17 +854,13 @@ async function checkSession(){
                 .eq("login_email", email)
                 .maybeSingle();
 
-
             loggedUsername.textContent =
-                userData?.username ||
-                "Admin";
+                userData?.username || "Admin";
 
+            loginPage.style.display = "none";
+            adminPage.style.display = "block";
 
-            loginPage.style.display =
-                "none";
-
-            adminPage.style.display =
-                "block";
+            await loadHistory();
 
         }
         else{
@@ -816,17 +888,13 @@ logoutBtn.addEventListener(
             .auth
             .signOut();
 
-        adminPage.style.display =
-            "none";
+        adminPage.style.display = "none";
+        loginPage.style.display = "flex";
 
-        loginPage.style.display =
-            "flex";
+        usernameInput.value = "";
+        passwordInput.value = "";
 
-        usernameInput.value =
-            "";
-
-        passwordInput.value =
-            "";
+        historyGrid.innerHTML = "";
 
     }
 );
@@ -841,30 +909,17 @@ mediaType.addEventListener(
     function(){
 
         if(mediaType.value === "video"){
-
-            mediaInput.accept =
-                "video/*";
-
+            mediaInput.accept = "video/*";
         }
         else{
-
-            mediaInput.accept =
-                "image/*";
-
+            mediaInput.accept = "image/*";
         }
 
+        mediaInput.value = "";
+        selectedMedia = [];
 
-        mediaInput.value =
-            "";
-
-        selectedMedia =
-            [];
-
-        previewGrid.innerHTML =
-            "";
-
-        previewTitle.style.display =
-            "none";
+        previewGrid.innerHTML = "";
+        previewTitle.style.display = "none";
 
         fileInfo.textContent =
             "Belum ada file dipilih";
@@ -884,7 +939,6 @@ mediaInput.addEventListener(
         selectedMedia =
             Array.from(mediaInput.files);
 
-
         if(selectedMedia.length === 0){
 
             fileInfo.textContent =
@@ -894,18 +948,12 @@ mediaInput.addEventListener(
 
         }
 
-
         fileInfo.textContent =
             selectedMedia.length +
             " file dipilih";
 
-
-        previewGrid.innerHTML =
-            "";
-
-        previewTitle.style.display =
-            "block";
-
+        previewGrid.innerHTML = "";
+        previewTitle.style.display = "block";
 
         selectedMedia.forEach(
             function(file){
@@ -916,25 +964,18 @@ mediaInput.addEventListener(
                 item.className =
                     "preview-item";
 
-
                 const url =
                     URL.createObjectURL(file);
-
 
                 if(file.type.startsWith("video/")){
 
                     const video =
                         document.createElement("video");
 
-                    video.src =
-                        url;
+                    video.src = url;
+                    video.controls = true;
 
-                    video.controls =
-                        true;
-
-                    item.appendChild(
-                        video
-                    );
+                    item.appendChild(video);
 
                 }
                 else{
@@ -942,19 +983,13 @@ mediaInput.addEventListener(
                     const img =
                         document.createElement("img");
 
-                    img.src =
-                        url;
+                    img.src = url;
 
-                    item.appendChild(
-                        img
-                    );
+                    item.appendChild(img);
 
                 }
 
-
-                previewGrid.appendChild(
-                    item
-                );
+                previewGrid.appendChild(item);
 
             }
         );
@@ -967,17 +1002,12 @@ mediaInput.addEventListener(
    STATUS
 ========================= */
 
-function showStatus(
-    message,
-    type
-){
+function showStatus(message,type){
 
-    statusBox.textContent =
-        message;
+    statusBox.textContent = message;
 
     statusBox.className =
-        "status " +
-        type;
+        "status " + type;
 
 }
 
@@ -1001,26 +1031,22 @@ postBtn.addEventListener(
 
         }
 
-
         const judul =
             document
                 .getElementById("judul")
                 .value
                 .trim();
 
-
         const tanggal =
             document
                 .getElementById("tanggal")
                 .value;
-
 
         const cerita =
             document
                 .getElementById("cerita")
                 .value
                 .trim();
-
 
         if(!judul){
 
@@ -1033,28 +1059,18 @@ postBtn.addEventListener(
 
         }
 
-
-        postBtn.disabled =
-            true;
-
-        postBtn.textContent =
-            "MENGUPLOAD...";
-
+        postBtn.disabled = true;
+        postBtn.textContent = "MENGUPLOAD...";
 
         try{
 
-            for(
-                const file
-                of selectedMedia
-            ){
+            for(const file of selectedMedia){
 
                 const safeName =
-                    file.name
-                        .replace(
-                            /[^a-zA-Z0-9._-]/g,
-                            "_"
-                        );
-
+                    file.name.replace(
+                        /[^a-zA-Z0-9._-]/g,
+                        "_"
+                    );
 
                 const filePath =
                     Date.now() +
@@ -1064,11 +1080,6 @@ postBtn.addEventListener(
                         .substring(2,8) +
                     "_" +
                     safeName;
-
-
-                /*
-                 * Upload Storage
-                 */
 
                 const {
                     error:uploadError
@@ -1080,25 +1091,14 @@ postBtn.addEventListener(
                         filePath,
                         file,
                         {
-                            cacheControl:
-                                "3600",
-
-                            upsert:
-                                false
+                            cacheControl:"3600",
+                            upsert:false
                         }
                     );
 
-
                 if(uploadError){
-
                     throw uploadError;
-
                 }
-
-
-                /*
-                 * URL publik
-                 */
 
                 const {
                     data:urlData
@@ -1106,18 +1106,10 @@ postBtn.addEventListener(
                 supabaseClient
                     .storage
                     .from("kenangan")
-                    .getPublicUrl(
-                        filePath
-                    );
-
+                    .getPublicUrl(filePath);
 
                 const mediaUrl =
                     urlData.publicUrl;
-
-
-                /*
-                 * Simpan database
-                 */
 
                 const {
                     error:databaseError
@@ -1126,15 +1118,12 @@ postBtn.addEventListener(
                     .from("kenangan")
                     .insert({
 
-                        judul:
-                            judul,
+                        judul:judul,
 
-                        cerita:
-                            cerita,
+                        cerita:cerita,
 
                         tanggal:
-                            tanggal ||
-                            null,
+                            tanggal || null,
 
                         foto_path:
                             filePath,
@@ -1143,14 +1132,11 @@ postBtn.addEventListener(
                             mediaUrl,
 
                         media_type:
-                            file.type.startsWith(
-                                "video/"
-                            )
+                            file.type.startsWith("video/")
                             ? "video"
                             : "foto"
 
                     });
-
 
                 if(databaseError){
 
@@ -1160,7 +1146,6 @@ postBtn.addEventListener(
 
             }
 
-
             showStatus(
                 "✓ " +
                 selectedMedia.length +
@@ -1168,37 +1153,20 @@ postBtn.addEventListener(
                 "success"
             );
 
+            mediaInput.value = "";
+            selectedMedia = [];
 
-            mediaInput.value =
-                "";
-
-            selectedMedia =
-                [];
-
-            previewGrid.innerHTML =
-                "";
-
-            previewTitle.style.display =
-                "none";
+            previewGrid.innerHTML = "";
+            previewTitle.style.display = "none";
 
             fileInfo.textContent =
                 "Belum ada file dipilih";
 
-            document
-                .getElementById("judul")
-                .value =
-                "";
+            document.getElementById("judul").value = "";
+            document.getElementById("tanggal").value = "";
+            document.getElementById("cerita").value = "";
 
-            document
-                .getElementById("tanggal")
-                .value =
-                "";
-
-            document
-                .getElementById("cerita")
-                .value =
-                "";
-
+            await loadHistory();
 
         }
         catch(error){
@@ -1214,16 +1182,323 @@ postBtn.addEventListener(
         }
         finally{
 
-            postBtn.disabled =
-                false;
-
-            postBtn.textContent =
-                "POST KENANGAN";
+            postBtn.disabled = false;
+            postBtn.textContent = "POST KENANGAN";
 
         }
 
     }
 );
+
+
+/* =========================
+   LOAD HISTORY
+========================= */
+
+async function loadHistory(){
+
+    historyGrid.innerHTML =
+        `
+        <div class="loading-history">
+            Memuat history...
+        </div>
+        `;
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+            .from("kenangan")
+            .select("*")
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
+
+        if(error){
+            throw error;
+        }
+
+        if(!data || data.length === 0){
+
+            historyGrid.innerHTML =
+                `
+                <div class="empty-history">
+                    Belum ada foto atau video yang diupload.
+                </div>
+                `;
+
+            return;
+
+        }
+
+        historyGrid.innerHTML = "";
+
+        data.forEach(
+            function(item){
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "history-item";
+
+                const media =
+                    item.media_type === "video"
+                    ? `
+                        <video
+                            src="${escapeHtml(item.foto_url)}"
+                            controls
+                            preload="metadata"
+                        ></video>
+                      `
+                    : `
+                        <img
+                            src="${escapeHtml(item.foto_url)}"
+                            alt="${escapeHtml(item.judul)}"
+                        >
+                      `;
+
+                const tanggal =
+                    item.tanggal
+                    ? formatDate(item.tanggal)
+                    : "Tanggal tidak diisi";
+
+                card.innerHTML =
+                    `
+                    <div class="history-media">
+                        ${media}
+                    </div>
+
+                    <div class="history-content">
+
+                        <div class="media-badge">
+                            ${item.media_type === "video" ? "VIDEO" : "FOTO"}
+                        </div>
+
+                        <div class="history-title">
+                            ${escapeHtml(item.judul || "Tanpa Judul")}
+                        </div>
+
+                        <div class="history-date">
+                            ${tanggal}
+                        </div>
+
+                        <div class="history-story">
+                            ${escapeHtml(item.cerita || "Tidak ada keterangan.")}
+                        </div>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteMemory('${item.id}')"
+                        >
+                            🗑 HAPUS MEDIA
+                        </button>
+
+                    </div>
+                    `;
+
+                historyGrid.appendChild(card);
+
+            }
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        historyGrid.innerHTML =
+            `
+            <div class="empty-history">
+                Gagal memuat history.<br>
+                ${escapeHtml(error.message)}
+            </div>
+            `;
+
+    }
+
+}
+
+
+/* =========================
+   DELETE MEMORY
+========================= */
+
+async function deleteMemory(id){
+
+    const confirmed =
+        confirm(
+            "Yakin ingin menghapus foto/video ini?\n\n" +
+            "File akan dihapus dari history dan Storage."
+        );
+
+    if(!confirmed){
+        return;
+    }
+
+    try{
+
+        /*
+         * Ambil data terlebih dahulu
+         * supaya kita mendapatkan foto_path.
+         */
+
+        const {
+            data:item,
+            error:findError
+        } =
+        await supabaseClient
+            .from("kenangan")
+            .select("id, foto_path, media_type, judul")
+            .eq("id", id)
+            .maybeSingle();
+
+        if(findError){
+            throw findError;
+        }
+
+        if(!item){
+
+            alert(
+                "Data tidak ditemukan."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Hapus file dari Storage
+         */
+
+        if(item.foto_path){
+
+            const {
+                error:storageError
+            } =
+            await supabaseClient
+                .storage
+                .from("kenangan")
+                .remove([
+                    item.foto_path
+                ]);
+
+            if(storageError){
+
+                throw storageError;
+
+            }
+
+        }
+
+
+        /*
+         * Hapus data dari database
+         */
+
+        const {
+            error:deleteError
+        } =
+        await supabaseClient
+            .from("kenangan")
+            .delete()
+            .eq("id", id);
+
+        if(deleteError){
+
+            throw deleteError;
+
+        }
+
+
+        showStatus(
+            "✓ " +
+            (item.media_type === "video"
+                ? "Video"
+                : "Foto") +
+            " berhasil dihapus.",
+            "success"
+        );
+
+
+        await loadHistory();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showStatus(
+            "Gagal menghapus: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   REFRESH HISTORY
+========================= */
+
+refreshHistoryBtn.addEventListener(
+    "click",
+    async function(){
+
+        refreshHistoryBtn.disabled = true;
+        refreshHistoryBtn.textContent = "MEMUAT...";
+
+        await loadHistory();
+
+        refreshHistoryBtn.disabled = false;
+        refreshHistoryBtn.textContent = "↻ REFRESH";
+
+    }
+);
+
+
+/* =========================
+   HELPER
+========================= */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function formatDate(dateString){
+
+    const date =
+        new Date(
+            dateString + "T00:00:00"
+        );
+
+    return date.toLocaleDateString(
+        "id-ID",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
 
 
 /* =========================
