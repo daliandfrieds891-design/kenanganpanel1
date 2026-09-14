@@ -658,10 +658,6 @@ select{
 
 <body>
 
-<!-- =========================
-     LOGIN
-========================= -->
-
 <section id="loginPage">
 
     <div class="login-box">
@@ -732,10 +728,6 @@ select{
 </section>
 
 
-<!-- =========================
-     ADMIN PAGE
-========================= -->
-
 <section id="adminPage">
 
     <header class="topbar">
@@ -796,8 +788,6 @@ select{
 
         </div>
 
-
-        <!-- UPLOAD -->
 
         <div class="panel">
 
@@ -899,8 +889,6 @@ select{
         </div>
 
 
-        <!-- HISTORY -->
-
         <div class="panel">
 
             <div class="history-header">
@@ -930,10 +918,6 @@ select{
 
 </section>
 
-
-<!-- =========================
-     EDIT MODAL
-========================= -->
 
 <div
     id="editModal"
@@ -1293,15 +1277,22 @@ loginForm.addEventListener(
             }
 
 
-           currentUsername = data.username;
+            currentUsername =
+                data.username;
 
-const emoji =
-    currentUsername === "daligroupmaster"
-        ? "👑"
-        : "👤";
 
-currentUserBadge.textContent =
-    emoji + " " + currentUsername;
+            const emoji =
+                currentUsername ===
+                "daligroupmaster"
+                    ? "👑"
+                    : "👤";
+
+
+            currentUserBadge.textContent =
+                emoji +
+                " " +
+                currentUsername;
+
 
             showAdminPage();
 
@@ -1514,8 +1505,16 @@ async function checkSession(){
         }
 
 
+        const emoji =
+            currentUsername ===
+            "daligroupmaster"
+                ? "👑"
+                : "👤";
+
+
         currentUserBadge.textContent =
-            "👤 " +
+            emoji +
+            " " +
             currentUsername;
 
 
@@ -2130,22 +2129,31 @@ async function loadHistory(){
 
                 /* UPLOADER */
 
+                const uploader =
+                    document.createElement(
+                        "div"
+                    );
+
                 uploader.className =
-    "history-uploader";
+                    "history-uploader";
 
-const uploaderUsername =
-    item.uploader_username ||
-    "Tidak diketahui";
 
-const uploaderEmoji =
-    uploaderUsername === "daligroupmaster"
-        ? "👑"
-        : "👤";
+                const uploaderUsername =
+                    item.uploader_username ||
+                    "Tidak diketahui";
 
-uploader.textContent =
-    uploaderEmoji +
-    " Di-upload oleh: " +
-    uploaderUsername;
+
+                const uploaderEmoji =
+                    uploaderUsername ===
+                    "daligroupmaster"
+                        ? "👑"
+                        : "👤";
+
+
+                uploader.textContent =
+                    uploaderEmoji +
+                    " Di-upload oleh: " +
+                    uploaderUsername;
 
 
                 /* STORY */
@@ -2300,11 +2308,6 @@ uploader.textContent =
 
 function openEditMemory(item){
 
-    /*
-        PENGAMAN:
-        HANYA DALIGROUP
-    */
-
     if(!canManagePosts()){
 
         alert(
@@ -2420,11 +2423,6 @@ document.addEventListener(
 saveEditBtn.addEventListener(
     "click",
     async function(){
-
-        /*
-            PENGAMAN:
-            HANYA DALIGROUP
-        */
 
         if(!canManagePosts()){
 
@@ -2544,11 +2542,6 @@ saveEditBtn.addEventListener(
 ========================================================= */
 
 async function deleteMemory(id){
-
-    /*
-        PENGAMAN:
-        HANYA DALIGROUP
-    */
 
     if(!canManagePosts()){
 
