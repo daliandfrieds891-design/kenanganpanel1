@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +7,6 @@
 <title>Admin Kenangan | PRAN MUSIC ENTAERTAIMENT</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="config.js"></script>
 
 <style>
@@ -306,6 +304,7 @@ textarea{
     display:flex;
     align-items:center;
     justify-content:center;
+    overflow:hidden;
 }
 
 .history-media img,
@@ -339,6 +338,7 @@ textarea{
     line-height:1.5;
     margin-bottom:15px;
     white-space:pre-wrap;
+    overflow-wrap:anywhere;
 }
 
 .media-badge{
@@ -384,6 +384,11 @@ textarea{
     color:#aaa;
 }
 
+/* HILANGKAN LINK / TEKS URL */
+.history-item a{
+    display:none !important;
+}
+
 @media(max-width:600px){
 
     header{
@@ -426,7 +431,6 @@ textarea{
     }
 }
 </style>
-
 </head>
 
 <body>
@@ -468,15 +472,14 @@ textarea{
     <div id="loginError" class="error"></div>
 
 </div>
-```
 
 </section>
+
 
 <section id="adminPage">
 
 <header>
 
-```
 <div class="logo">
     PRAN <span>MUSIC</span>
 </div>
@@ -484,9 +487,9 @@ textarea{
 <button class="logout" id="logoutBtn">
     LOGOUT
 </button>
-```
 
 </header>
+
 
 <div class="container">
 
@@ -498,10 +501,12 @@ textarea{
     Tambahkan foto atau video kenangan PRAN MUSIC ENTAERTAIMENT.
 </p>
 
+
 <div class="admin-info">
     Login sebagai:
     <strong id="loggedUsername">Admin</strong>
 </div>
+
 
 <label for="mediaType">
     Jenis Media
@@ -509,7 +514,6 @@ textarea{
 
 <select id="mediaType">
 
-```
 <option value="foto">
     Foto
 </option>
@@ -517,25 +521,25 @@ textarea{
 <option value="video">
     Video
 </option>
-```
 
 </select>
+
 
 <label for="mediaInput">
     Pilih Foto / Video
 </label>
 
 <input
-type="file"
-id="mediaInput"
-multiple
-accept="image/*"
-
+    type="file"
+    id="mediaInput"
+    multiple
+    accept="image/*"
 >
 
 <div class="file-info" id="fileInfo">
     Belum ada file dipilih
 </div>
+
 
 <h3
     class="media-preview-title"
@@ -550,26 +554,27 @@ accept="image/*"
     id="previewGrid"
 ></div>
 
+
 <label for="judul">
     Judul Kenangan
 </label>
 
 <input
-type="text"
-id="judul"
-placeholder="Contoh: Acara Pernikahan"
-
+    type="text"
+    id="judul"
+    placeholder="Contoh: Acara Pernikahan"
 >
+
 
 <label for="tanggal">
     Tanggal
 </label>
 
 <input
-type="date"
-id="tanggal"
-
+    type="date"
+    id="tanggal"
 >
+
 
 <label for="cerita">
     Cerita / Keterangan
@@ -580,17 +585,18 @@ id="tanggal"
     placeholder="Tulis cerita atau keterangan kenangan..."
 ></textarea>
 
+
 <button class="post-btn" id="postBtn">
     POST KENANGAN
 </button>
 
 <div id="status" class="status"></div>
 
+
 <!-- HISTORY -->
 
 <div class="history-section">
 
-```
 <div class="history-header">
 
     <h2>
@@ -606,6 +612,7 @@ id="tanggal"
 
 </div>
 
+
 <div
     class="history-grid"
     id="historyGrid"
@@ -614,7 +621,6 @@ id="tanggal"
         Memuat history...
     </div>
 </div>
-```
 
 </div>
 
@@ -623,6 +629,7 @@ id="tanggal"
 </div>
 
 </section>
+
 
 <script>
 
@@ -685,14 +692,20 @@ let selectedMedia = [];
    LOGIN
 ========================= */
 
-loginBtn.addEventListener("click", login);
+loginBtn.addEventListener(
+    "click",
+    login
+);
+
 
 passwordInput.addEventListener(
     "keydown",
     function(e){
+
         if(e.key === "Enter"){
             login();
         }
+
     }
 );
 
@@ -707,6 +720,7 @@ async function login(){
 
     loginError.style.display = "none";
 
+
     if(!username || !password){
 
         showLoginError(
@@ -714,10 +728,13 @@ async function login(){
         );
 
         return;
+
     }
+
 
     loginBtn.disabled = true;
     loginBtn.textContent = "MEMERIKSA...";
+
 
     try{
 
@@ -727,24 +744,35 @@ async function login(){
         } =
         await supabaseClient
             .from("admin_login")
-            .select("username, login_email")
-            .eq("username", username)
+            .select(
+                "username, login_email"
+            )
+            .eq(
+                "username",
+                username
+            )
             .maybeSingle();
+
 
         if(error){
             throw error;
         }
 
+
         if(!data){
+
             throw new Error(
                 "Username tidak ditemukan."
             );
+
         }
+
 
         const {
             error:authError
         } =
-        await supabaseClient.auth
+        await supabaseClient
+            .auth
             .signInWithPassword({
 
                 email:data.login_email,
@@ -752,9 +780,11 @@ async function login(){
 
             });
 
+
         if(authError){
             throw authError;
         }
+
 
         const {
             data:isAdmin,
@@ -763,17 +793,23 @@ async function login(){
         await supabaseClient
             .rpc("is_admin");
 
+
         if(adminError){
 
-            await supabaseClient.auth.signOut();
+            await supabaseClient
+                .auth
+                .signOut();
 
             throw adminError;
 
         }
 
+
         if(!isAdmin){
 
-            await supabaseClient.auth.signOut();
+            await supabaseClient
+                .auth
+                .signOut();
 
             throw new Error(
                 "Akun ini belum terdaftar sebagai admin."
@@ -781,11 +817,17 @@ async function login(){
 
         }
 
+
         loggedUsername.textContent =
             data.username;
 
-        loginPage.style.display = "none";
-        adminPage.style.display = "block";
+
+        loginPage.style.display =
+            "none";
+
+        adminPage.style.display =
+            "block";
+
 
         await loadHistory();
 
@@ -812,8 +854,11 @@ async function login(){
 
 function showLoginError(message){
 
-    loginError.textContent = message;
-    loginError.style.display = "block";
+    loginError.textContent =
+        message;
+
+    loginError.style.display =
+        "block";
 
 }
 
@@ -831,6 +876,7 @@ async function checkSession(){
         .auth
         .getSession();
 
+
     if(data.session){
 
         const {
@@ -839,10 +885,12 @@ async function checkSession(){
         await supabaseClient
             .rpc("is_admin");
 
+
         if(isAdmin){
 
             const email =
                 data.session.user.email;
+
 
             const {
                 data:userData
@@ -850,14 +898,24 @@ async function checkSession(){
             await supabaseClient
                 .from("admin_login")
                 .select("username")
-                .eq("login_email", email)
+                .eq(
+                    "login_email",
+                    email
+                )
                 .maybeSingle();
 
-            loggedUsername.textContent =
-                userData?.username || "Admin";
 
-            loginPage.style.display = "none";
-            adminPage.style.display = "block";
+            loggedUsername.textContent =
+                userData?.username ||
+                "Admin";
+
+
+            loginPage.style.display =
+                "none";
+
+            adminPage.style.display =
+                "block";
+
 
             await loadHistory();
 
@@ -887,8 +945,13 @@ logoutBtn.addEventListener(
             .auth
             .signOut();
 
-        adminPage.style.display = "none";
-        loginPage.style.display = "flex";
+
+        adminPage.style.display =
+            "none";
+
+        loginPage.style.display =
+            "flex";
+
 
         usernameInput.value = "";
         passwordInput.value = "";
@@ -907,18 +970,31 @@ mediaType.addEventListener(
     "change",
     function(){
 
-        if(mediaType.value === "video"){
-            mediaInput.accept = "video/*";
+        if(
+            mediaType.value ===
+            "video"
+        ){
+
+            mediaInput.accept =
+                "video/*";
+
         }
         else{
-            mediaInput.accept = "image/*";
+
+            mediaInput.accept =
+                "image/*";
+
         }
 
+
         mediaInput.value = "";
+
         selectedMedia = [];
 
         previewGrid.innerHTML = "";
-        previewTitle.style.display = "none";
+
+        previewTitle.style.display =
+            "none";
 
         fileInfo.textContent =
             "Belum ada file dipilih";
@@ -936,9 +1012,14 @@ mediaInput.addEventListener(
     function(){
 
         selectedMedia =
-            Array.from(mediaInput.files);
+            Array.from(
+                mediaInput.files
+            );
 
-        if(selectedMedia.length === 0){
+
+        if(
+            selectedMedia.length === 0
+        ){
 
             fileInfo.textContent =
                 "Belum ada file dipilih";
@@ -947,31 +1028,49 @@ mediaInput.addEventListener(
 
         }
 
+
         fileInfo.textContent =
             selectedMedia.length +
             " file dipilih";
 
+
         previewGrid.innerHTML = "";
-        previewTitle.style.display = "block";
+
+        previewTitle.style.display =
+            "block";
+
 
         selectedMedia.forEach(
             function(file){
 
                 const item =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
                 item.className =
                     "preview-item";
 
-                const url =
-                    URL.createObjectURL(file);
 
-                if(file.type.startsWith("video/")){
+                const url =
+                    URL.createObjectURL(
+                        file
+                    );
+
+
+                if(
+                    file.type.startsWith(
+                        "video/"
+                    )
+                ){
 
                     const video =
-                        document.createElement("video");
+                        document.createElement(
+                            "video"
+                        );
 
                     video.src = url;
+
                     video.controls = true;
 
                     item.appendChild(video);
@@ -980,7 +1079,9 @@ mediaInput.addEventListener(
                 else{
 
                     const img =
-                        document.createElement("img");
+                        document.createElement(
+                            "img"
+                        );
 
                     img.src = url;
 
@@ -988,7 +1089,10 @@ mediaInput.addEventListener(
 
                 }
 
-                previewGrid.appendChild(item);
+
+                previewGrid.appendChild(
+                    item
+                );
 
             }
         );
@@ -1001,9 +1105,13 @@ mediaInput.addEventListener(
    STATUS
 ========================= */
 
-function showStatus(message,type){
+function showStatus(
+    message,
+    type
+){
 
-    statusBox.textContent = message;
+    statusBox.textContent =
+        message;
 
     statusBox.className =
         "status " + type;
@@ -1019,7 +1127,9 @@ postBtn.addEventListener(
     "click",
     async function(){
 
-        if(selectedMedia.length === 0){
+        if(
+            selectedMedia.length === 0
+        ){
 
             showStatus(
                 "Pilih foto atau video terlebih dahulu.",
@@ -1030,22 +1140,26 @@ postBtn.addEventListener(
 
         }
 
+
         const judul =
             document
                 .getElementById("judul")
                 .value
                 .trim();
 
+
         const tanggal =
             document
                 .getElementById("tanggal")
                 .value;
+
 
         const cerita =
             document
                 .getElementById("cerita")
                 .value
                 .trim();
+
 
         if(!judul){
 
@@ -1058,18 +1172,25 @@ postBtn.addEventListener(
 
         }
 
+
         postBtn.disabled = true;
-        postBtn.textContent = "MENGUPLOAD...";
+
+        postBtn.textContent =
+            "MENGUPLOAD...";
+
 
         try{
 
-            for(const file of selectedMedia){
+            for(
+                const file of selectedMedia
+            ){
 
                 const safeName =
                     file.name.replace(
                         /[^a-zA-Z0-9._-]/g,
                         "_"
                     );
+
 
                 const filePath =
                     Date.now() +
@@ -1079,6 +1200,7 @@ postBtn.addEventListener(
                         .substring(2,8) +
                     "_" +
                     safeName;
+
 
                 const {
                     error:uploadError
@@ -1095,9 +1217,11 @@ postBtn.addEventListener(
                         }
                     );
 
+
                 if(uploadError){
                     throw uploadError;
                 }
+
 
                 const {
                     data:urlData
@@ -1105,10 +1229,14 @@ postBtn.addEventListener(
                 supabaseClient
                     .storage
                     .from("kenangan")
-                    .getPublicUrl(filePath);
+                    .getPublicUrl(
+                        filePath
+                    );
+
 
                 const mediaUrl =
                     urlData.publicUrl;
+
 
                 const {
                     error:databaseError
@@ -1131,19 +1259,21 @@ postBtn.addEventListener(
                             mediaUrl,
 
                         media_type:
-                            file.type.startsWith("video/")
+                            file.type.startsWith(
+                                "video/"
+                            )
                             ? "video"
                             : "foto"
 
                     });
 
+
                 if(databaseError){
-
                     throw databaseError;
-
                 }
 
             }
+
 
             showStatus(
                 "✓ " +
@@ -1152,18 +1282,32 @@ postBtn.addEventListener(
                 "success"
             );
 
+
             mediaInput.value = "";
+
             selectedMedia = [];
 
             previewGrid.innerHTML = "";
-            previewTitle.style.display = "none";
+
+            previewTitle.style.display =
+                "none";
 
             fileInfo.textContent =
                 "Belum ada file dipilih";
 
-            document.getElementById("judul").value = "";
-            document.getElementById("tanggal").value = "";
-            document.getElementById("cerita").value = "";
+
+            document
+                .getElementById("judul")
+                .value = "";
+
+            document
+                .getElementById("tanggal")
+                .value = "";
+
+            document
+                .getElementById("cerita")
+                .value = "";
+
 
             await loadHistory();
 
@@ -1182,7 +1326,9 @@ postBtn.addEventListener(
         finally{
 
             postBtn.disabled = false;
-            postBtn.textContent = "POST KENANGAN";
+
+            postBtn.textContent =
+                "POST KENANGAN";
 
         }
 
@@ -1203,6 +1349,7 @@ async function loadHistory(){
         </div>
         `;
 
+
     try{
 
         const {
@@ -1211,7 +1358,9 @@ async function loadHistory(){
         } =
         await supabaseClient
             .from("kenangan")
-            .select("*")
+            .select(
+                "*"
+            )
             .order(
                 "created_at",
                 {
@@ -1219,11 +1368,16 @@ async function loadHistory(){
                 }
             );
 
+
         if(error){
             throw error;
         }
 
-        if(!data || data.length === 0){
+
+        if(
+            !data ||
+            data.length === 0
+        ){
 
             historyGrid.innerHTML =
                 `
@@ -1236,73 +1390,215 @@ async function loadHistory(){
 
         }
 
-        historyGrid.innerHTML = "";
+
+        historyGrid.innerHTML =
+            "";
+
 
         data.forEach(
             function(item){
 
                 const card =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
                 card.className =
                     "history-item";
 
-                const media =
-                    item.media_type === "video"
-                    ? `
-                        <video
-                            src="${escapeHtml(item.foto_url)}"
-                            controls
-                            preload="metadata"
-                        ></video>
-                      `
-                    : `
-                        <img
-                            src="${escapeHtml(item.foto_url)}"
-                            alt="${escapeHtml(item.judul)}"
-                        >
-                      `;
 
-                const tanggal =
+                /*
+                 * URL tetap dipakai sebagai
+                 * sumber media, tetapi tidak
+                 * pernah dibuat sebagai teks/link.
+                 */
+
+                let media;
+
+
+                if(
+                    item.media_type ===
+                    "video"
+                ){
+
+                    const video =
+                        document.createElement(
+                            "video"
+                        );
+
+                    video.src =
+                        item.foto_url;
+
+                    video.controls =
+                        true;
+
+                    video.preload =
+                        "metadata";
+
+                    video.playsInline =
+                        true;
+
+                    media =
+                        video;
+
+                }
+                else{
+
+                    const img =
+                        document.createElement(
+                            "img"
+                        );
+
+                    img.src =
+                        item.foto_url;
+
+                    img.alt =
+                        item.judul ||
+                        "Foto Kenangan";
+
+                    media =
+                        img;
+
+                }
+
+
+                const mediaBox =
+                    document.createElement(
+                        "div"
+                    );
+
+                mediaBox.className =
+                    "history-media";
+
+
+                mediaBox.appendChild(
+                    media
+                );
+
+
+                const content =
+                    document.createElement(
+                        "div"
+                    );
+
+                content.className =
+                    "history-content";
+
+
+                const badge =
+                    document.createElement(
+                        "div"
+                    );
+
+                badge.className =
+                    "media-badge";
+
+                badge.textContent =
+                    item.media_type ===
+                    "video"
+                    ? "VIDEO"
+                    : "FOTO";
+
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+                title.className =
+                    "history-title";
+
+                title.textContent =
+                    item.judul ||
+                    "Tanpa Judul";
+
+
+                const date =
+                    document.createElement(
+                        "div"
+                    );
+
+                date.className =
+                    "history-date";
+
+                date.textContent =
                     item.tanggal
-                    ? formatDate(item.tanggal)
+                    ? formatDate(
+                        item.tanggal
+                    )
                     : "Tanggal tidak diisi";
 
-                card.innerHTML =
-                    `
-                    <div class="history-media">
-                        ${media}
-                    </div>
 
-                    <div class="history-content">
+                const story =
+                    document.createElement(
+                        "div"
+                    );
 
-                        <div class="media-badge">
-                            ${item.media_type === "video" ? "VIDEO" : "FOTO"}
-                        </div>
+                story.className =
+                    "history-story";
 
-                        <div class="history-title">
-                            ${escapeHtml(item.judul || "Tanpa Judul")}
-                        </div>
+                story.textContent =
+                    item.cerita ||
+                    "Tidak ada keterangan.";
 
-                        <div class="history-date">
-                            ${tanggal}
-                        </div>
 
-                        <div class="history-story">
-                            ${escapeHtml(item.cerita || "Tidak ada keterangan.")}
-                        </div>
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
 
-                        <button
-                            class="delete-btn"
-                            onclick="deleteMemory('${item.id}')"
-                        >
-                            🗑 HAPUS MEDIA
-                        </button>
+                deleteButton.className =
+                    "delete-btn";
 
-                    </div>
-                    `;
+                deleteButton.textContent =
+                    "🗑 HAPUS MEDIA";
 
-                historyGrid.appendChild(card);
+
+                deleteButton.addEventListener(
+                    "click",
+                    function(){
+
+                        deleteMemory(
+                            item.id
+                        );
+
+                    }
+                );
+
+
+                content.appendChild(
+                    badge
+                );
+
+                content.appendChild(
+                    title
+                );
+
+                content.appendChild(
+                    date
+                );
+
+                content.appendChild(
+                    story
+                );
+
+                content.appendChild(
+                    deleteButton
+                );
+
+
+                card.appendChild(
+                    mediaBox
+                );
+
+                card.appendChild(
+                    content
+                );
+
+
+                historyGrid.appendChild(
+                    card
+                );
 
             }
         );
@@ -1316,7 +1612,9 @@ async function loadHistory(){
             `
             <div class="empty-history">
                 Gagal memuat history.<br>
-                ${escapeHtml(error.message)}
+                ${escapeHtml(
+                    error.message
+                )}
             </div>
             `;
 
@@ -1337,16 +1635,13 @@ async function deleteMemory(id){
             "File akan dihapus dari history dan Storage."
         );
 
+
     if(!confirmed){
         return;
     }
 
-    try{
 
-        /*
-         * Ambil data terlebih dahulu
-         * supaya kita mendapatkan foto_path.
-         */
+    try{
 
         const {
             data:item,
@@ -1354,13 +1649,20 @@ async function deleteMemory(id){
         } =
         await supabaseClient
             .from("kenangan")
-            .select("id, foto_path, media_type, judul")
-            .eq("id", id)
+            .select(
+                "id, foto_path, media_type, judul"
+            )
+            .eq(
+                "id",
+                id
+            )
             .maybeSingle();
+
 
         if(findError){
             throw findError;
         }
+
 
         if(!item){
 
@@ -1372,10 +1674,6 @@ async function deleteMemory(id){
 
         }
 
-
-        /*
-         * Hapus file dari Storage
-         */
 
         if(item.foto_path){
 
@@ -1389,18 +1687,13 @@ async function deleteMemory(id){
                     item.foto_path
                 ]);
 
+
             if(storageError){
-
                 throw storageError;
-
             }
 
         }
 
-
-        /*
-         * Hapus data dari database
-         */
 
         const {
             error:deleteError
@@ -1408,20 +1701,25 @@ async function deleteMemory(id){
         await supabaseClient
             .from("kenangan")
             .delete()
-            .eq("id", id);
+            .eq(
+                "id",
+                id
+            );
+
 
         if(deleteError){
-
             throw deleteError;
-
         }
 
 
         showStatus(
             "✓ " +
-            (item.media_type === "video"
+            (
+                item.media_type ===
+                "video"
                 ? "Video"
-                : "Foto") +
+                : "Foto"
+            ) +
             " berhasil dihapus.",
             "success"
         );
@@ -1453,13 +1751,21 @@ refreshHistoryBtn.addEventListener(
     "click",
     async function(){
 
-        refreshHistoryBtn.disabled = true;
-        refreshHistoryBtn.textContent = "MEMUAT...";
+        refreshHistoryBtn.disabled =
+            true;
+
+        refreshHistoryBtn.textContent =
+            "MEMUAT...";
+
 
         await loadHistory();
 
-        refreshHistoryBtn.disabled = false;
-        refreshHistoryBtn.textContent = "↻ REFRESH";
+
+        refreshHistoryBtn.disabled =
+            false;
+
+        refreshHistoryBtn.textContent =
+            "↻ REFRESH";
 
     }
 );
@@ -1471,12 +1777,29 @@ refreshHistoryBtn.addEventListener(
 
 function escapeHtml(value){
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
@@ -1485,8 +1808,10 @@ function formatDate(dateString){
 
     const date =
         new Date(
-            dateString + "T00:00:00"
+            dateString +
+            "T00:00:00"
         );
+
 
     return date.toLocaleDateString(
         "id-ID",
