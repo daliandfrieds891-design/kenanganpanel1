@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Admin — KENANGAN</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -47,7 +51,118 @@ body:before{
     pointer-events:none;
 }
 
-/* HEADER */
+/* LOGIN */
+
+#loginScreen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.login-box{
+    width:min(430px,100%);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:40px;
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.login-logo{
+    text-align:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    letter-spacing:5px;
+    margin-bottom:8px;
+}
+
+.login-logo span{
+    color:var(--gold);
+}
+
+.login-label{
+    text-align:center;
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:35px;
+}
+
+.login-box h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:34px;
+    font-weight:500;
+    margin-bottom:8px;
+}
+
+.login-box p{
+    color:#666;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.login-group{
+    margin-bottom:18px;
+}
+
+.login-group label{
+    display:block;
+    color:#aaa;
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+.login-group input{
+    width:100%;
+    background:#0c0c0c;
+    border:1px solid var(--line);
+    border-radius:12px;
+    color:#fff;
+    padding:14px;
+    outline:none;
+    font-family:Inter,Arial,sans-serif;
+}
+
+.login-group input:focus{
+    border-color:rgba(201,164,92,.6);
+}
+
+.login-btn{
+    width:100%;
+    border:0;
+    border-radius:12px;
+    padding:15px;
+    background:var(--gold);
+    color:#111;
+    font-weight:600;
+    cursor:pointer;
+    letter-spacing:1px;
+}
+
+.login-btn:hover{
+    background:var(--gold2);
+}
+
+.login-error{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    border-radius:10px;
+    background:rgba(200,109,109,.08);
+    border:1px solid rgba(200,109,109,.25);
+    color:#df9999;
+    font-size:11px;
+    text-align:center;
+}
+
+/* ADMIN */
+
+#adminScreen{
+    display:none;
+}
 
 header{
     height:78px;
@@ -73,6 +188,12 @@ header{
     color:var(--gold);
 }
 
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
 .back{
     color:#888;
     text-decoration:none;
@@ -85,7 +206,15 @@ header{
     color:var(--gold);
 }
 
-/* LAYOUT */
+.logout-btn{
+    border:1px solid rgba(200,109,109,.35);
+    background:transparent;
+    color:#c98b8b;
+    border-radius:9px;
+    padding:8px 12px;
+    font-size:10px;
+    cursor:pointer;
+}
 
 .container{
     width:min(1200px,90%);
@@ -117,8 +246,6 @@ header{
     margin-top:8px;
 }
 
-/* GRID */
-
 .admin-grid{
     display:grid;
     grid-template-columns:1.25fr .75fr;
@@ -143,8 +270,6 @@ header{
     font-size:11px;
     margin-bottom:25px;
 }
-
-/* UPLOAD */
 
 .upload-area{
     border:1px dashed rgba(201,164,92,.4);
@@ -186,8 +311,6 @@ header{
     display:none;
 }
 
-/* PREVIEW */
-
 .preview-title{
     margin-top:25px;
     margin-bottom:15px;
@@ -227,8 +350,6 @@ header{
     font-size:9px;
 }
 
-/* FORM */
-
 .form-group{
     margin-bottom:20px;
 }
@@ -240,8 +361,8 @@ header{
     margin-bottom:8px;
 }
 
-input,
-textarea{
+.form-group input,
+.form-group textarea{
     width:100%;
     background:#0c0c0c;
     border:1px solid var(--line);
@@ -254,12 +375,12 @@ textarea{
     transition:.3s;
 }
 
-input:focus,
-textarea:focus{
+.form-group input:focus,
+.form-group textarea:focus{
     border-color:rgba(201,164,92,.6);
 }
 
-textarea{
+.form-group textarea{
     min-height:130px;
     resize:vertical;
 }
@@ -288,8 +409,6 @@ textarea{
     transform:none;
 }
 
-/* STATUS */
-
 .status{
     display:none;
     margin-top:15px;
@@ -301,8 +420,6 @@ textarea{
     font-size:11px;
     text-align:center;
 }
-
-/* INFO */
 
 .info-box{
     margin-top:25px;
@@ -324,10 +441,7 @@ textarea{
     margin-top:7px;
 }
 
-/* MOBILE */
-
 @media(max-width:850px){
-
     .admin-grid{
         grid-template-columns:1fr;
     }
@@ -339,13 +453,23 @@ textarea{
     .preview-grid{
         grid-template-columns:repeat(3,1fr);
     }
-
 }
 
 @media(max-width:500px){
-
     header{
         padding:0 5%;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .header-actions{
+        gap:8px;
+    }
+
+    .back{
+        display:none;
     }
 
     .container{
@@ -365,23 +489,93 @@ textarea{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .login-box{
+        padding:28px 22px;
+    }
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script>
 </head>
 
 <body>
 
+<!-- LOGIN -->
+
+<div id="loginScreen">
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            KENANGAN<span>.</span>
+        </div>
+
+        <div class="login-label">
+            Private Memory Archive
+        </div>
+
+        <h1>Admin Login</h1>
+
+        <p>
+            Masuk untuk mengelola foto dan cerita kenangan.
+        </p>
+
+        <div class="login-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email admin"
+                autocomplete="email"
+            >
+
+        </div>
+
+        <div class="login-group">
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                autocomplete="current-password"
+            >
+
+        </div>
+
+        <button class="login-btn" id="loginBtn">
+            MASUK KE PANEL
+        </button>
+
+        <div class="login-error" id="loginError"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminScreen">
+
 <header>
 
     <div class="logo">
-        PRANMUSICENTERTAIMENT<span></span>
+        KENANGAN<span>.</span>
     </div>
 
-    <a href="index.html" class="back">
-        ← Website
-    </a>
+    <div class="header-actions">
+
+        <a href="index.html" class="back">
+            ← Website
+        </a>
+
+        <button class="logout-btn" id="logoutBtn">
+            LOGOUT
+        </button>
+
+    </div>
 
 </header>
 
@@ -407,7 +601,6 @@ textarea{
 
     <div class="admin-grid">
 
-
         <!-- UPLOAD -->
 
         <section class="panel">
@@ -419,7 +612,6 @@ textarea{
             <div class="panel-subtitle">
                 Pilih satu atau banyak foto sekaligus.
             </div>
-
 
             <label class="upload-area">
 
@@ -444,7 +636,6 @@ textarea{
 
             </label>
 
-
             <div id="previewTitle" class="preview-title" style="display:none;">
                 Foto yang dipilih
             </div>
@@ -466,7 +657,6 @@ textarea{
                 Ceritakan sedikit tentang momen ini.
             </div>
 
-
             <div class="form-group">
 
                 <label>
@@ -481,7 +671,6 @@ textarea{
 
             </div>
 
-
             <div class="form-group">
 
                 <label>
@@ -494,7 +683,6 @@ textarea{
                 >
 
             </div>
-
 
             <div class="form-group">
 
@@ -509,7 +697,6 @@ textarea{
 
             </div>
 
-
             <button
                 class="post-btn"
                 id="postBtn"
@@ -518,12 +705,10 @@ textarea{
                 POSTING KENANGAN
             </button>
 
-
             <div
                 class="status"
                 id="status"
             ></div>
-
 
             <div class="info-box">
 
@@ -532,10 +717,9 @@ textarea{
                 </strong>
 
                 <p>
-                    Setelah Supabase disambungkan,
-                    semua foto yang diposting dari panel
-                    ini akan tersimpan secara online dan
-                    otomatis tampil di website KENANGAN.
+                    Foto yang diposting akan tersimpan di
+                    Supabase dan nantinya tampil otomatis
+                    di website KENANGAN.
                 </p>
 
             </div>
@@ -546,35 +730,229 @@ textarea{
 
 </main>
 
+</div>
+
 
 <script>
 
-<script>
+/* =========================
+   ELEMENT
+========================= */
+
+const loginScreen = document.getElementById("loginScreen");
+const adminScreen = document.getElementById("adminScreen");
+
+const loginEmail = document.getElementById("loginEmail");
+const loginPassword = document.getElementById("loginPassword");
+const loginBtn = document.getElementById("loginBtn");
+const loginError = document.getElementById("loginError");
+
+const logoutBtn = document.getElementById("logoutBtn");
 
 const photoInput = document.getElementById("photoInput");
 const previewGrid = document.getElementById("previewGrid");
 const previewTitle = document.getElementById("previewTitle");
 const postBtn = document.getElementById("postBtn");
 
+const statusBox = document.getElementById("status");
+
 let selectedPhotos = [];
 
-photoInput.addEventListener("change", function () {
+
+/* =========================
+   LOGIN CHECK
+========================= */
+
+async function checkAdmin(){
+
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
+
+    if(!session){
+        showLogin();
+        return;
+    }
+
+    const { data, error } =
+        await supabaseClient.rpc("is_admin");
+
+    if(error || data !== true){
+
+        await supabaseClient.auth.signOut();
+
+        showLogin();
+
+        showLoginError(
+            "Akun ini bukan Admin."
+        );
+
+        return;
+    }
+
+    showAdmin();
+
+}
+
+
+/* =========================
+   SHOW LOGIN
+========================= */
+
+function showLogin(){
+
+    loginScreen.style.display = "flex";
+    adminScreen.style.display = "none";
+
+}
+
+
+/* =========================
+   SHOW ADMIN
+========================= */
+
+function showAdmin(){
+
+    loginScreen.style.display = "none";
+    adminScreen.style.display = "block";
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+loginBtn.addEventListener("click", async function(){
+
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value;
+
+    if(!email || !password){
+
+        showLoginError(
+            "Masukkan email dan password."
+        );
+
+        return;
+    }
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = "MEMERIKSA...";
+
+    loginError.style.display = "none";
+
+    const {
+        data,
+        error
+    } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+    });
+
+    if(error){
+
+        showLoginError(
+            "Login gagal. Periksa email dan password."
+        );
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = "MASUK KE PANEL";
+
+        return;
+    }
+
+    const {
+        data: adminCheck,
+        error: adminError
+    } = await supabaseClient.rpc("is_admin");
+
+    if(adminError || adminCheck !== true){
+
+        await supabaseClient.auth.signOut();
+
+        showLoginError(
+            "Akun berhasil login, tetapi bukan akun Admin."
+        );
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = "MASUK KE PANEL";
+
+        return;
+    }
+
+    loginBtn.disabled = false;
+    loginBtn.textContent = "MASUK KE PANEL";
+
+    showAdmin();
+
+});
+
+
+/* =========================
+   ENTER TO LOGIN
+========================= */
+
+loginPassword.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter"){
+        loginBtn.click();
+    }
+
+});
+
+
+/* =========================
+   LOGIN ERROR
+========================= */
+
+function showLoginError(message){
+
+    loginError.textContent = message;
+    loginError.style.display = "block";
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+logoutBtn.addEventListener("click", async function(){
+
+    await supabaseClient.auth.signOut();
+
+    selectedPhotos = [];
+    previewGrid.innerHTML = "";
+    photoInput.value = "";
+
+    showLogin();
+
+});
+
+
+/* =========================
+   PHOTO PREVIEW
+========================= */
+
+photoInput.addEventListener("change", function(){
 
     selectedPhotos = Array.from(this.files);
 
     previewGrid.innerHTML = "";
 
-    if (selectedPhotos.length > 0) {
+    if(selectedPhotos.length > 0){
 
         previewTitle.style.display = "block";
 
-        selectedPhotos.forEach((file, index) => {
+        selectedPhotos.forEach((file,index)=>{
 
             const reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e){
 
-                const item = document.createElement("div");
+                const item =
+                    document.createElement("div");
 
                 item.className = "preview-item";
 
@@ -595,7 +973,7 @@ photoInput.addEventListener("change", function () {
 
         postBtn.disabled = false;
 
-    } else {
+    }else{
 
         previewTitle.style.display = "none";
         postBtn.disabled = true;
@@ -605,105 +983,190 @@ photoInput.addEventListener("change", function () {
 });
 
 
-postBtn.addEventListener("click", async function () {
+/* =========================
+   POST KENANGAN
+========================= */
 
-    const judul = document.getElementById("judul").value.trim();
-    const tanggal = document.getElementById("tanggal").value;
-    const cerita = document.getElementById("cerita").value.trim();
-    const status = document.getElementById("status");
+postBtn.addEventListener("click", async function(){
 
-    if (!judul) {
+    const judul =
+        document.getElementById("judul")
+        .value
+        .trim();
+
+    const tanggal =
+        document.getElementById("tanggal")
+        .value;
+
+    const cerita =
+        document.getElementById("cerita")
+        .value
+        .trim();
+
+
+    if(!judul){
+
         alert("Isi judul kenangan terlebih dahulu.");
+
         return;
+
     }
 
-    if (selectedPhotos.length === 0) {
+
+    if(selectedPhotos.length === 0){
+
         alert("Pilih foto terlebih dahulu.");
+
         return;
+
     }
+
 
     postBtn.disabled = true;
 
-    status.style.display = "block";
-    status.innerHTML = "⏳ Sedang mengupload foto...";
+    statusBox.style.display = "block";
+    statusBox.innerHTML =
+        "⏳ Sedang mengupload foto...";
 
-    try {
 
-        for (const file of selectedPhotos) {
+    try{
 
-            const fileName =
-                Date.now() + "-" +
-                Math.random().toString(36).substring(2, 10) +
+        for(let i = 0; i < selectedPhotos.length; i++){
+
+            const file = selectedPhotos[i];
+
+            statusBox.innerHTML =
+                "⏳ Upload foto " +
+                (i + 1) +
+                " dari " +
+                selectedPhotos.length +
+                "...";
+
+
+            const safeName =
+                file.name
+                .replace(/[^a-zA-Z0-9._-]/g, "-");
+
+
+            const filePath =
+                Date.now() +
                 "-" +
-                file.name.replace(/\s+/g, "-");
+                Math.random()
+                .toString(36)
+                .substring(2,10) +
+                "-" +
+                safeName;
 
-            const filePath = fileName;
 
-            const { error: uploadError } =
-                await supabaseClient.storage
-                    .from("kenangan")
-                    .upload(filePath, file, {
-                        cacheControl: "3600",
-                        upsert: false
-                    });
+            const {
+                error: uploadError
+            } =
+                await supabaseClient
+                .storage
+                .from("kenangan")
+                .upload(
+                    filePath,
+                    file,
+                    {
+                        cacheControl:"3600",
+                        upsert:false
+                    }
+                );
 
-            if (uploadError) {
+
+            if(uploadError){
                 throw uploadError;
             }
 
-            const { data: publicData } =
-                supabaseClient.storage
-                    .from("kenangan")
-                    .getPublicUrl(filePath);
 
-            const fotoUrl = publicData.publicUrl;
+            const {
+                data: publicData
+            } =
+                supabaseClient
+                .storage
+                .from("kenangan")
+                .getPublicUrl(filePath);
 
-            const { error: databaseError } =
+
+            const fotoUrl =
+                publicData.publicUrl;
+
+
+            const {
+                error: databaseError
+            } =
                 await supabaseClient
-                    .from("kenangan")
-                    .insert({
-                        judul: judul,
-                        cerita: cerita,
-                        tanggal: tanggal || null,
-                        foto_path: filePath,
-                        foto_url: fotoUrl
-                    });
+                .from("kenangan")
+                .insert({
 
-            if (databaseError) {
+                    judul: judul,
+
+                    cerita: cerita,
+
+                    tanggal:
+                        tanggal || null,
+
+                    foto_path:
+                        filePath,
+
+                    foto_url:
+                        fotoUrl
+
+                });
+
+
+            if(databaseError){
+
                 throw databaseError;
+
             }
 
         }
 
-        status.innerHTML =
+
+        statusBox.innerHTML =
             "✓ KENANGAN BERHASIL DIPOSTING!";
 
+
         photoInput.value = "";
+
         selectedPhotos = [];
+
         previewGrid.innerHTML = "";
+
         previewTitle.style.display = "none";
 
         document.getElementById("judul").value = "";
+
         document.getElementById("tanggal").value = "";
+
         document.getElementById("cerita").value = "";
 
-    } catch (error) {
+
+    }catch(error){
 
         console.error(error);
 
-        status.innerHTML =
-            "❌ Gagal mengupload: " + error.message;
+        statusBox.innerHTML =
+            "❌ Gagal: " +
+            error.message;
 
     }
+
 
     postBtn.disabled = false;
 
 });
 
-</script>
 
+/* =========================
+   START
+========================= */
+
+checkAdmin();
 
 </script>
 
 </body>
 </html>
+```
