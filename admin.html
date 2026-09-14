@@ -1293,18 +1293,14 @@ loginForm.addEventListener(
             }
 
 
-            currentUsername =
-                data.username;
+            currentUsername = data.username;
 
-
-            currentUserBadge.textContent =
-                "👤 " +
-                currentUsername;
-
-
-            showAdminPage();
-
-            await loadHistory();
+if (currentUsername === "daligroupmaster") {
+    currentUserBadge.textContent =
+        "👑 " + currentUsername;
+} else if (currentUsername === "pranmusicentertaiment") {
+    currentUserBadge.textContent =
+        "👤 " + currentUsername;
 
 
         }catch(error){
