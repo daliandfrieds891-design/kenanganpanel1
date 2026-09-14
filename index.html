@@ -4,367 +4,165 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin — KENANGAN</title>
+<title>KENANGAN — Cerita yang Tak Terlupakan</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
-:root{
-    --bg:#090909;
-    --panel:#121212;
-    --panel2:#171717;
-    --gold:#c9a45c;
-    --gold2:#e0c47e;
-    --white:#f5f2eb;
-    --muted:#858585;
-    --line:rgba(255,255,255,.08);
-    --danger:#c86d6d;
-}
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
-    background:var(--bg);
-    color:var(--white);
-    font-family:Inter,Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080a0f;
+    color:#fff;
     min-height:100vh;
 }
 
-body:before{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    top:-250px;
-    right:-200px;
-    border-radius:50%;
-    background:rgba(201,164,92,.07);
-    filter:blur(100px);
-    pointer-events:none;
-}
-
-/* HEADER */
-
 header{
-    height:78px;
-    padding:0 6%;
-    border-bottom:1px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(9,9,9,.85);
-    backdrop-filter:blur(18px);
+    text-align:center;
+    padding:55px 20px 35px;
+    background:
+        radial-gradient(circle at top,#29200b 0%,#080a0f 55%);
 }
 
 .logo{
-    font-family:"Cormorant Garamond",serif;
-    font-size:29px;
-    letter-spacing:5px;
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:8px;
+    color:#f6c453;
 }
 
-.logo span{
-    color:var(--gold);
-}
-
-.back{
-    color:#888;
-    text-decoration:none;
-    font-size:11px;
+.subtitle{
+    margin-top:12px;
+    color:#aaa;
+    font-size:14px;
     letter-spacing:2px;
-    text-transform:uppercase;
 }
 
-.back:hover{
-    color:var(--gold);
+.line{
+    width:80px;
+    height:3px;
+    background:#f6c453;
+    margin:25px auto 0;
+    border-radius:10px;
 }
-
-/* LAYOUT */
 
 .container{
-    width:min(1200px,90%);
-    margin:0 auto;
-    padding:55px 0 100px;
+    width:min(1100px,92%);
+    margin:40px auto 70px;
 }
 
-.heading{
-    margin-bottom:40px;
+.loading{
+    text-align:center;
+    color:#aaa;
+    padding:50px 20px;
 }
 
-.label{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin-bottom:10px;
+.empty{
+    text-align:center;
+    padding:70px 20px;
+    color:#aaa;
 }
 
-.heading h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:58px;
-    font-weight:500;
-}
-
-.heading p{
-    color:#777;
-    font-size:13px;
-    margin-top:8px;
-}
-
-/* GRID */
-
-.admin-grid{
+.grid{
     display:grid;
-    grid-template-columns:1.25fr .75fr;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
 
-.panel{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:30px;
-}
-
-.panel-title{
-    font-family:"Cormorant Garamond",serif;
-    font-size:28px;
-    margin-bottom:6px;
-}
-
-.panel-subtitle{
-    color:#666;
-    font-size:11px;
-    margin-bottom:25px;
-}
-
-/* UPLOAD */
-
-.upload-area{
-    border:1px dashed rgba(201,164,92,.4);
-    border-radius:18px;
-    min-height:220px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.upload-area:hover{
-    border-color:var(--gold);
-    background:rgba(201,164,92,.03);
-}
-
-.upload-icon{
-    font-size:42px;
-    margin-bottom:15px;
-    color:var(--gold);
-}
-
-.upload-area h3{
-    font-size:15px;
-    font-weight:500;
-}
-
-.upload-area p{
-    color:#666;
-    font-size:11px;
-    margin-top:8px;
-}
-
-.upload-area input{
-    display:none;
-}
-
-/* PREVIEW */
-
-.preview-title{
-    margin-top:25px;
-    margin-bottom:15px;
-    font-size:11px;
-    color:#777;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-.preview-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-}
-
-.preview-item{
-    aspect-ratio:1/1;
-    border-radius:12px;
-    overflow:hidden;
-    background:#1b1b1b;
-    position:relative;
-}
-
-.preview-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.preview-number{
-    position:absolute;
-    left:7px;
-    top:7px;
-    background:rgba(0,0,0,.7);
+.card{
+    background:#11151e;
+    border:1px solid rgba(246,196,83,.18);
     border-radius:20px;
-    padding:4px 7px;
-    font-size:9px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    transition:.3s;
 }
 
-/* FORM */
-
-.form-group{
-    margin-bottom:20px;
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(246,196,83,.5);
 }
 
-.form-group label{
+.photo{
+    width:100%;
+    height:260px;
+    object-fit:cover;
     display:block;
-    color:#aaa;
-    font-size:11px;
-    margin-bottom:8px;
+    background:#171b24;
 }
 
-input,
-textarea{
-    width:100%;
-    background:#0c0c0c;
-    border:1px solid var(--line);
-    border-radius:12px;
-    color:#fff;
-    padding:13px 14px;
-    outline:none;
-    font-family:Inter,Arial,sans-serif;
-    font-size:13px;
-    transition:.3s;
+.content{
+    padding:22px;
 }
 
-input:focus,
-textarea:focus{
-    border-color:rgba(201,164,92,.6);
-}
-
-textarea{
-    min-height:130px;
-    resize:vertical;
-}
-
-.post-btn{
-    width:100%;
-    border:0;
-    border-radius:12px;
-    padding:15px;
-    background:var(--gold);
-    color:#111;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
+.date{
+    color:#f6c453;
+    font-size:12px;
     letter-spacing:1px;
+    margin-bottom:10px;
 }
 
-.post-btn:hover{
-    background:var(--gold2);
-    transform:translateY(-2px);
+.title{
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:12px;
 }
 
-.post-btn:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-    transform:none;
-}
-
-/* STATUS */
-
-.status{
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    border-radius:10px;
-    background:rgba(201,164,92,.08);
-    border:1px solid rgba(201,164,92,.2);
-    color:var(--gold2);
-    font-size:11px;
-    text-align:center;
-}
-
-/* INFO */
-
-.info-box{
-    margin-top:25px;
-    padding:18px;
-    border-radius:14px;
-    background:#0d0d0d;
-    border:1px solid var(--line);
-}
-
-.info-box strong{
-    color:var(--gold);
-    font-size:11px;
-}
-
-.info-box p{
-    color:#666;
-    font-size:11px;
+.story{
+    color:#b8bcc5;
+    font-size:14px;
     line-height:1.7;
-    margin-top:7px;
+    white-space:pre-line;
 }
 
-/* MOBILE */
-
-@media(max-width:850px){
-
-    .admin-grid{
-        grid-template-columns:1fr;
-    }
-
-    .heading h1{
-        font-size:48px;
-    }
-
-    .preview-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
+footer{
+    text-align:center;
+    padding:25px;
+    color:#666;
+    font-size:12px;
+    border-top:1px solid #171b24;
 }
 
-@media(max-width:500px){
+.admin-link{
+    display:inline-block;
+    margin-top:12px;
+    color:#777;
+    text-decoration:none;
+    font-size:11px;
+}
+
+.admin-link:hover{
+    color:#f6c453;
+}
+
+@media(max-width:600px){
+    .logo{
+        font-size:30px;
+        letter-spacing:5px;
+    }
 
     header{
-        padding:0 5%;
+        padding:40px 15px 30px;
     }
 
     .container{
-        width:92%;
-        padding-top:35px;
+        width:94%;
+        margin-top:25px;
     }
 
-    .panel{
-        padding:20px;
+    .grid{
+        grid-template-columns:1fr;
     }
 
-    .heading h1{
-        font-size:42px;
+    .photo{
+        height:240px;
     }
-
-    .preview-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
 }
 </style>
 </head>
@@ -372,271 +170,139 @@ textarea{
 <body>
 
 <header>
-
-    <div class="logo">
-        PRANMUSICENTERTAIMENT<span></span>
-    </div>
-
-    <a href="index.html" class="back">
-        ← Website
-    </a>
-
+    <div class="logo">KENANGAN</div>
+    <div class="subtitle">CERITA YANG TAK TERLUPAKAN</div>
+    <div class="line"></div>
 </header>
-
 
 <main class="container">
 
-    <div class="heading">
-
-        <div class="label">
-            Private Memory Archive
-        </div>
-
-        <h1>
-            Admin Panel
-        </h1>
-
-        <p>
-            Kelola foto dan cerita kenangan dari satu tempat.
-        </p>
-
+    <div id="loading" class="loading">
+        Memuat kenangan...
     </div>
 
-
-    <div class="admin-grid">
-
-
-        <!-- UPLOAD -->
-
-        <section class="panel">
-
-            <div class="panel-title">
-                Tambahkan Kenangan
-            </div>
-
-            <div class="panel-subtitle">
-                Pilih satu atau banyak foto sekaligus.
-            </div>
-
-
-            <label class="upload-area">
-
-                <input
-                    type="file"
-                    id="photoInput"
-                    accept="image/*"
-                    multiple
-                >
-
-                <div class="upload-icon">
-                    ＋
-                </div>
-
-                <h3>
-                    Pilih Foto Kenangan
-                </h3>
-
-                <p>
-                    Bisa memilih banyak foto sekaligus
-                </p>
-
-            </label>
-
-
-            <div id="previewTitle" class="preview-title" style="display:none;">
-                Foto yang dipilih
-            </div>
-
-            <div id="previewGrid" class="preview-grid"></div>
-
-        </section>
-
-
-        <!-- FORM -->
-
-        <section class="panel">
-
-            <div class="panel-title">
-                Detail Kenangan
-            </div>
-
-            <div class="panel-subtitle">
-                Ceritakan sedikit tentang momen ini.
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Judul Kenangan
-                </label>
-
-                <input
-                    type="text"
-                    id="judul"
-                    placeholder="Contoh: Liburan Bersama"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Tanggal
-                </label>
-
-                <input
-                    type="date"
-                    id="tanggal"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Cerita
-                </label>
-
-                <textarea
-                    id="cerita"
-                    placeholder="Tulis cerita di balik foto ini..."
-                ></textarea>
-
-            </div>
-
-
-            <button
-                class="post-btn"
-                id="postBtn"
-                disabled
-            >
-                POSTING KENANGAN
-            </button>
-
-
-            <div
-                class="status"
-                id="status"
-            ></div>
-
-
-            <div class="info-box">
-
-                <strong>
-                    ℹ CATATAN
-                </strong>
-
-                <p>
-                    Setelah Supabase disambungkan,
-                    semua foto yang diposting dari panel
-                    ini akan tersimpan secara online dan
-                    otomatis tampil di website KENANGAN.
-                </p>
-
-            </div>
-
-        </section>
-
+    <div id="empty" class="empty" style="display:none;">
+        Belum ada kenangan yang diposting.
     </div>
+
+    <div id="gallery" class="grid"></div>
 
 </main>
 
+<footer>
+    © 2026 KENANGAN — Semua cerita tetap tersimpan.
+    <br>
+    <a href="admin.html" class="admin-link">Admin</a>
+</footer>
 
 <script>
 
-const photoInput = document.getElementById("photoInput");
-const previewGrid = document.getElementById("previewGrid");
-const previewTitle = document.getElementById("previewTitle");
-const postBtn = document.getElementById("postBtn");
+async function loadKenangan(){
 
-let selectedPhotos = [];
+    const loading = document.getElementById("loading");
+    const empty = document.getElementById("empty");
+    const gallery = document.getElementById("gallery");
 
+    try{
 
-photoInput.addEventListener("change", function(){
+        const { data, error } = await supabaseClient
+            .from("kenangan")
+            .select("*")
+            .order("created_at", { ascending:false });
 
-    selectedPhotos = Array.from(this.files);
+        if(error){
+            throw error;
+        }
 
-    previewGrid.innerHTML = "";
+        loading.style.display = "none";
 
-    if(selectedPhotos.length > 0){
+        if(!data || data.length === 0){
+            empty.style.display = "block";
+            return;
+        }
 
-        previewTitle.style.display = "block";
+        gallery.innerHTML = "";
 
-        selectedPhotos.forEach((file,index)=>{
+        data.forEach(item => {
 
-            const reader = new FileReader();
+            const card = document.createElement("article");
+            card.className = "card";
 
-            reader.onload = function(e){
+            let tanggal = "";
 
-                const item = document.createElement("div");
+            if(item.tanggal){
+                const d = new Date(item.tanggal + "T00:00:00");
 
-                item.className = "preview-item";
+                tanggal = d.toLocaleDateString("id-ID", {
+                    day:"2-digit",
+                    month:"long",
+                    year:"numeric"
+                });
+            }
 
-                item.innerHTML = `
-                    <img src="${e.target.result}">
-                    <div class="preview-number">
-                        ${index + 1}
+            card.innerHTML = `
+                <img
+                    class="photo"
+                    src="${escapeHtml(item.foto_url)}"
+                    alt="${escapeHtml(item.judul || "Kenangan")}"
+                    loading="lazy"
+                >
+
+                <div class="content">
+
+                    ${tanggal ? `
+                    <div class="date">
+                        ${escapeHtml(tanggal)}
                     </div>
-                `;
+                    ` : ""}
 
-                previewGrid.appendChild(item);
+                    <div class="title">
+                        ${escapeHtml(item.judul || "Tanpa Judul")}
+                    </div>
 
-            };
+                    <div class="story">
+                        ${escapeHtml(item.cerita || "")}
+                    </div>
 
-            reader.readAsDataURL(file);
+                </div>
+            `;
+
+            gallery.appendChild(card);
 
         });
 
-        postBtn.disabled = false;
+    }catch(error){
 
-    }else{
+        loading.style.display = "none";
 
-        previewTitle.style.display = "none";
-        postBtn.disabled = true;
+        gallery.innerHTML = `
+            <div class="empty" style="display:block;">
+                Gagal memuat kenangan.<br><br>
+                <small>${escapeHtml(error.message)}</small>
+            </div>
+        `;
 
+        console.error(error);
+    }
+}
+
+
+function escapeHtml(text){
+
+    if(text === null || text === undefined){
+        return "";
     }
 
-});
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
 
 
-postBtn.addEventListener("click", function(){
-
-    const judul = document.getElementById("judul").value.trim();
-    const tanggal = document.getElementById("tanggal").value;
-    const cerita = document.getElementById("cerita").value.trim();
-    const status = document.getElementById("status");
-
-
-    if(!judul){
-
-        alert("Isi judul kenangan terlebih dahulu.");
-        return;
-
-    }
-
-
-    if(selectedPhotos.length === 0){
-
-        alert("Pilih foto terlebih dahulu.");
-        return;
-
-    }
-
-
-    /*
-       SUPABASE AKAN DISAMBUNGKAN DI TAHAP BERIKUTNYA.
-    */
-
-    status.style.display = "block";
-
-    status.innerHTML =
-        "✓ Data siap diposting. Supabase akan kita sambungkan berikutnya.";
-
-});
-
+loadKenangan();
 
 </script>
 
