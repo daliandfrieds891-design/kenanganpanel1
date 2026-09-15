@@ -7,42 +7,38 @@
 
 <meta name="google-site-verification" content="O575BgqqM9e7ZTqVVcRt0LHqE4EuPG3M5x4h66rZWIo">
 
-<title>PRAN MUSIC ENTERTAINMENT | PRAN MUSIC ENTAERTAIMENT</title>
+<title>PRAN MUSIC ENTERTAINMENT | Sound System & Event Entertainment</title>
 
 <meta name="description" content="PRAN MUSIC ENTERTAINMENT menyediakan jasa sound system dan event entertainment untuk wedding, ulang tahun, khitanan, konser, gathering, acara desa, dan berbagai event lainnya.">
 
-<meta name="keywords" content="PRAN MUSIC ENTERTAINMENT, PRAN MUSIC ENTAERTAIMENT, PRAN MUSIC, sound system PRAN, sound system, sewa sound system, jasa sound system, sound system wedding, sound system event, event entertainment">
+<meta name="keywords" content="PRAN MUSIC ENTERTAINMENT, sound system, sewa sound system, jasa sound system, sound system wedding, sound system event, event entertainment">
 
 <meta name="author" content="PRAN MUSIC ENTERTAINMENT">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
-
-<meta name="theme-color" content="#080a0f">
+<meta name="theme-color" content="#070707">
 
 <link rel="canonical" href="https://daliandfrieds891-design.github.io/kenanganpanel1/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="PRAN MUSIC ENTERTAINMENT | PRAN MUSIC ENTAERTAIMENT">
-<meta property="og:description" content="PRAN MUSIC ENTERTAINMENT menyediakan sound system dan event entertainment untuk berbagai acara.">
+<meta property="og:title" content="PRAN MUSIC ENTERTAINMENT">
+<meta property="og:description" content="Sound System & Event Entertainment untuk berbagai acara.">
 <meta property="og:url" content="https://daliandfrieds891-design.github.io/kenanganpanel1/">
 <meta property="og:site_name" content="PRAN MUSIC ENTERTAINMENT">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PRAN MUSIC ENTERTAINMENT | PRAN MUSIC ENTAERTAIMENT">
+<meta name="twitter:title" content="PRAN MUSIC ENTERTAINMENT">
 <meta name="twitter:description" content="Sound System & Event Entertainment untuk berbagai acara.">
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "EntertainmentBusiness",
-  "name": "PRAN MUSIC ENTERTAINMENT",
-  "alternateName": [
-    "PRAN MUSIC ENTAERTAINMENT",
-    "PRAN MUSIC"
-  ],
-  "description": "PRAN MUSIC ENTERTAINMENT menyediakan jasa sound system dan event entertainment untuk wedding, ulang tahun, khitanan, konser, gathering, acara desa, dan berbagai event lainnya.",
-  "url": "https://daliandfrieds891-design.github.io/kenanganpanel1/",
-  "serviceType": [
+  "@context":"https://schema.org",
+  "@type":"EntertainmentBusiness",
+  "name":"PRAN MUSIC ENTERTAINMENT",
+  "alternateName":"PRAN MUSIC ENTERTAINMENT",
+  "description":"PRAN MUSIC ENTERTAINMENT menyediakan jasa sound system dan event entertainment untuk berbagai acara.",
+  "url":"https://daliandfrieds891-design.github.io/kenanganpanel1/",
+  "serviceType":[
     "Sound System",
     "Event Entertainment",
     "Wedding Sound System",
@@ -54,15 +50,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -72,245 +69,829 @@
 
 html{
     scroll-behavior:smooth;
-    width:100%;
+    background:#070707;
 }
 
 body{
-    background:#080a0f;
+    background:#070707;
     color:#fff;
-    font-family:"Inter",sans-serif;
+    font-family:"Inter",Arial,Helvetica,sans-serif;
     overflow-x:hidden;
-    width:100%;
-    min-width:0;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
 }
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+a{
+    color:inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
+    z-index:-5;
 
     background:
         radial-gradient(
-            circle at 15% 20%,
-            rgba(246,196,83,.08),
+            circle at 50% -10%,
+            rgba(246,196,83,.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 0% 60%,
+            rgba(246,196,83,.045),
             transparent 28%
         ),
         radial-gradient(
-            circle at 85% 75%,
-            rgba(246,196,83,.05),
+            circle at 100% 80%,
+            rgba(246,196,83,.04),
             transparent 30%
         );
+}
 
-    z-index:-1;
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-4;
+    opacity:.15;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
+    position:fixed;
+    top:0;
+    left:0;
     width:100%;
-    padding:28px 6%;
+    height:78px;
+    z-index:500;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    border-bottom:1px solid rgba(246,196,83,.12);
+
+    padding:0 5%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(7,7,7,.92),
+            rgba(7,7,7,.45),
+            transparent
+        );
+
+    transition:.3s ease;
 }
 
 .logo{
-    font-size:15px;
-    letter-spacing:4px;
-    font-weight:600;
     color:#f6c453;
-    text-align:center;
+
+    font-size:14px;
+    font-weight:900;
+
+    letter-spacing:2.5px;
+
+    white-space:nowrap;
+
+    text-shadow:none;
+    filter:none;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-    max-width:1200px;
-    margin:auto;
-    padding:110px 6% 80px;
-    text-align:center;
+    min-height:100vh;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    padding:130px 6% 90px;
+
+    isolation:isolate;
 }
 
-.hero-label{
-    color:#f6c453;
-    font-size:12px;
-    letter-spacing:5px;
-    margin-bottom:25px;
-    text-transform:uppercase;
+.stage-light{
+    position:absolute;
+    top:-25%;
+
+    width:30%;
+    height:125%;
+
+    opacity:.22;
+
+    filter:blur(1px);
+
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(246,196,83,.38),
+            rgba(246,196,83,.03) 65%,
+            transparent
+        );
+
+    clip-path:polygon(
+        44% 0,
+        56% 0,
+        82% 100%,
+        18% 100%
+    );
 }
+
+.stage-light.left{
+    left:2%;
+    transform:rotate(16deg);
+}
+
+.stage-light.right{
+    right:2%;
+    transform:rotate(-16deg);
+}
+
+.stage-light.center{
+    left:35%;
+    width:30%;
+    opacity:.10;
+}
+
+.hero-glow{
+    position:absolute;
+
+    left:50%;
+    top:52%;
+
+    width:600px;
+    height:600px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(246,196,83,.13),
+            transparent 65%
+        );
+
+    filter:blur(15px);
+
+    z-index:-2;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1200px;
+
+    text-align:center;
+
+    position:relative;
+    z-index:5;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:9px 16px;
+
+    border:1px solid rgba(246,196,83,.3);
+    border-radius:30px;
+
+    background:rgba(246,196,83,.045);
+
+    color:#f6c453;
+
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2.5px;
+
+    margin-bottom:28px;
+
+    text-shadow:none;
+    filter:none;
+
+    text-rendering:optimizeLegibility;
+}
+
+.hero-badge-dot{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#f6c453;
+
+    box-shadow:
+        0 0 12px rgba(246,196,83,.8);
+
+    animation:livePulse 1.5s infinite;
+}
+
+@keyframes livePulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.45;
+        transform:scale(.65);
+    }
+}
+
+
+/* =========================================================
+   HERO TITLE — TAJAM & JELAS
+========================================================= */
 
 .hero h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:clamp(55px,9vw,125px);
-    line-height:.82;
-    font-weight:500;
-    letter-spacing:-4px;
+    width:100%;
+
+    margin:0 auto;
+
+    font-family:"Inter",Arial,Helvetica,sans-serif;
+
+    font-size:clamp(45px,7.2vw,96px);
+
+    line-height:1;
+
+    letter-spacing:-1px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    color:#fff;
+
+    white-space:normal;
+    word-spacing:0;
+
+    text-shadow:none;
+    filter:none;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
 }
 
-.hero h1 span{
+.hero h1 .gold{
     display:block;
+
     color:#f6c453;
+
+    font-weight:900;
+
+    letter-spacing:-.5px;
+
+    white-space:nowrap;
+
+    text-shadow:none;
+    filter:none;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
 }
 
-.hero-text{
-    max-width:720px;
-    margin:35px auto 0;
-    color:#8f949d;
+.hero-subtitle{
+    margin:25px auto 0;
+
+    color:#a5a5a5;
+
+    font-size:11px;
     line-height:1.8;
-    font-size:14px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    font-weight:600;
+
+    text-shadow:none;
+    filter:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 
-/* =========================
-   SEO
-========================= */
+/* =========================================================
+   EQUALIZER
+========================================================= */
 
-.seo-intro{
-    max-width:900px;
-    margin:0 auto 70px;
-    padding:0 6%;
+.equalizer{
+    position:absolute;
+
+    left:50%;
+    bottom:32px;
+
+    transform:translateX(-50%);
+
+    height:32px;
+
+    display:flex;
+    align-items:center;
+
+    gap:3px;
+
+    opacity:.55;
+}
+
+.equalizer span{
+    width:3px;
+    height:10px;
+
+    border-radius:5px;
+
+    background:#f6c453;
+
+    animation:eq 1s ease-in-out infinite alternate;
+}
+
+.equalizer span:nth-child(2){animation-delay:.1s}
+.equalizer span:nth-child(3){animation-delay:.2s}
+.equalizer span:nth-child(4){animation-delay:.3s}
+.equalizer span:nth-child(5){animation-delay:.4s}
+.equalizer span:nth-child(6){animation-delay:.25s}
+.equalizer span:nth-child(7){animation-delay:.15s}
+.equalizer span:nth-child(8){animation-delay:.35s}
+.equalizer span:nth-child(9){animation-delay:.2s}
+.equalizer span:nth-child(10){animation-delay:.05s}
+.equalizer span:nth-child(11){animation-delay:.3s}
+
+@keyframes eq{
+
+    from{
+        height:6px;
+        opacity:.35;
+    }
+
+    to{
+        height:30px;
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   EVENT STRIP
+========================================================= */
+
+.event-strip{
+    border-top:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    background:#0a0a0a;
+}
+
+.event-item{
+    padding:22px 15px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    border-right:1px solid rgba(255,255,255,.06);
+
+    text-rendering:optimizeLegibility;
+}
+
+.event-item:last-child{
+    border-right:0;
+}
+
+.event-item strong{
+    display:block;
+
+    color:#f6c453;
+
+    font-size:9px;
+
+    margin-bottom:6px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:110px 6% 70px;
+
     text-align:center;
 }
 
-.seo-intro h2{
-    font-family:"Cormorant Garamond",serif;
-    font-size:36px;
-    font-weight:500;
-    margin-bottom:15px;
+.intro-kicker{
+    color:#f6c453;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    margin-bottom:18px;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
 }
 
-.seo-intro p{
-    color:#858a94;
-    font-size:14px;
+.intro h2{
+    font-family:"Inter",Arial,Helvetica,sans-serif;
+
+    font-size:clamp(32px,5vw,55px);
+
+    line-height:1.02;
+
+    letter-spacing:-1.5px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    text-shadow:none;
+    filter:none;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
+}
+
+.intro h2 span{
+    color:#f6c453;
+
+    text-shadow:none;
+}
+
+.intro p{
+    max-width:760px;
+
+    margin:25px auto 0;
+
+    color:#9a9a9a;
+
+    font-size:13px;
+
     line-height:1.9;
+
+    font-weight:500;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 
-/* =========================
+/* =========================================================
    SECTION
-========================= */
+========================================================= */
 
 .section{
-    max-width:1250px;
+    max-width:1400px;
+
     margin:auto;
-    padding:40px 6% 100px;
+
+    padding:55px 5% 110px;
 }
 
 .section-head{
     display:flex;
+
     justify-content:space-between;
-    align-items:end;
-    gap:20px;
+
+    align-items:flex-end;
+
+    gap:30px;
+
     margin-bottom:35px;
 }
 
+.section-kicker{
+    color:#f6c453;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
+}
+
+
+/* =========================================================
+   THE MOMENTS — FIX UTAMA TEKS BLUR
+========================================================= */
+
 .section-title{
-    font-family:"Cormorant Garamond",serif;
-    font-size:45px;
-    font-weight:500;
+    font-family:"Inter",Arial,Helvetica,sans-serif;
+
+    display:block;
+
+    font-size:clamp(35px,5vw,60px);
+
+    line-height:1;
+
+    letter-spacing:-1px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    color:#ffffff;
+
+    text-shadow:none !important;
+
+    filter:none !important;
+
+    opacity:1;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
+
+    transform:none;
+}
+
+.section-title span{
+    display:inline-block;
+
+    color:#f6c453;
+
+    font-weight:900;
+
+    letter-spacing:-1px;
+
+    text-shadow:none !important;
+
+    filter:none !important;
+
+    opacity:1;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
+
+    transform:none;
 }
 
 .section-subtitle{
-    color:#777;
-    font-size:12px;
-    letter-spacing:2px;
+    max-width:300px;
+
+    color:#999;
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    letter-spacing:1.5px;
+
+    text-align:right;
+
+    font-weight:600;
+
+    text-shadow:none;
+
+    filter:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 
-/* =========================
+/* =========================================================
    LOADING
-========================= */
+========================================================= */
 
 .loading{
+    padding:90px 20px;
+
     text-align:center;
-    padding:70px 20px;
-    color:#777;
+
+    color:#999;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+
+    text-rendering:optimizeLegibility;
 }
 
 .loading-spinner{
-    width:35px;
-    height:35px;
-    border:2px solid rgba(246,196,83,.15);
+    width:42px;
+    height:42px;
+
+    border:2px solid rgba(246,196,83,.12);
+
     border-top-color:#f6c453;
+
     border-radius:50%;
+
     margin:0 auto 20px;
+
     animation:spin 1s linear infinite;
 }
 
 @keyframes spin{
+
     to{
         transform:rotate(360deg);
     }
 }
 
 
-/* =========================
+/* =========================================================
    EMPTY
-========================= */
+========================================================= */
 
 .empty{
+    padding:90px 20px;
+
+    border:1px solid rgba(255,255,255,.07);
+
     text-align:center;
-    padding:80px 20px;
-    border:1px solid rgba(246,196,83,.1);
-    border-radius:20px;
-    color:#777;
+
+    color:#999;
+
+    font-weight:500;
+
+    text-rendering:optimizeLegibility;
 }
 
 .empty-icon{
     font-size:40px;
+
+    color:#f6c453;
+
     margin-bottom:15px;
 }
 
 
-/* =========================
-   GRID
-========================= */
+/* =========================================================
+   MEMORY GRID
+========================================================= */
 
 .memory-grid{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:25px;
+
+    grid-template-columns:
+        repeat(12,minmax(0,1fr));
+
+    grid-auto-rows:90px;
+
+    gap:12px;
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* =========================================================
+   MEMORY CARD
+========================================================= */
 
 .memory-card{
-    background:#10141d;
-    border:1px solid rgba(246,196,83,.12);
-    border-radius:18px;
-    overflow:hidden;
-    transition:.35s ease;
+    position:relative;
+
+    grid-column:span 4;
+
+    grid-row:span 5;
+
     min-width:0;
+
+    overflow:hidden;
+
+    background:#101010;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+
+    animation:cardIn .7s ease both;
+}
+
+.memory-card:nth-child(2){
+    grid-row:span 6;
+}
+
+.memory-card:nth-child(5){
+    grid-row:span 6;
+}
+
+.memory-card:nth-child(7){
+    grid-row:span 6;
 }
 
 .memory-card:hover{
-    transform:translateY(-6px);
+    transform:translateY(-5px);
+
     border-color:rgba(246,196,83,.4);
-    box-shadow:0 25px 60px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.45);
+}
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
-/* =========================
+/* =========================================================
    MEDIA
-========================= */
+========================================================= */
 
 .media-wrap{
-    position:relative;
+    position:absolute;
+
+    inset:0;
+
     width:100%;
-    height:330px;
-    background:#050609;
-    overflow:hidden;
+    height:100%;
+
+    background:#050505;
+
     cursor:pointer;
 }
 
@@ -318,23 +899,34 @@ header{
 .media-wrap video{
     width:100%;
     height:100%;
-    object-fit:cover;
+
     display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .7s ease,
+        filter .5s ease;
 }
 
-.media-wrap video{
-    cursor:pointer;
+.memory-card:hover .media-wrap img,
+.memory-card:hover .media-wrap video{
+    transform:scale(1.055);
+
+    filter:brightness(.78);
 }
 
 .media-overlay{
     position:absolute;
+
     inset:0;
 
     background:
         linear-gradient(
             to bottom,
-            transparent 55%,
-            rgba(0,0,0,.55)
+            rgba(0,0,0,.05) 35%,
+            rgba(0,0,0,.25) 50%,
+            rgba(0,0,0,.92) 100%
         );
 
     pointer-events:none;
@@ -342,99 +934,178 @@ header{
 
 .media-type{
     position:absolute;
+
     top:15px;
     left:15px;
 
-    padding:7px 11px;
-    border-radius:20px;
+    padding:7px 10px;
 
-    background:rgba(0,0,0,.75);
+    border:1px solid rgba(246,196,83,.35);
+
+    background:rgba(5,5,5,.75);
+
     color:#f6c453;
 
-    font-size:10px;
-    letter-spacing:1px;
-    font-weight:600;
+    font-size:8px;
 
-    z-index:2;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    backdrop-filter:blur(8px);
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 .play-button{
     position:absolute;
+
     left:50%;
     top:50%;
 
     transform:translate(-50%,-50%);
 
-    width:65px;
-    height:65px;
-
-    border-radius:50%;
-    border:1px solid rgba(246,196,83,.8);
-
-    background:rgba(0,0,0,.65);
-    color:#f6c453;
+    width:62px;
+    height:62px;
 
     display:flex;
-    justify-content:center;
+
     align-items:center;
 
-    font-size:24px;
+    justify-content:center;
+
+    border:1px solid rgba(246,196,83,.65);
+
+    border-radius:50%;
+
+    background:rgba(5,5,5,.6);
+
+    color:#f6c453;
+
+    font-size:20px;
+
     pointer-events:none;
+
+    transition:.3s ease;
+}
+
+.memory-card:hover .play-button{
+    background:#f6c453;
+
+    color:#070707;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
 }
 
 
-/* =========================
-   INFO
-========================= */
+/* =========================================================
+   MEMORY INFO
+========================================================= */
 
 .memory-info{
-    padding:22px;
-    min-width:0;
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:25px;
+
+    z-index:3;
+
+    pointer-events:none;
 }
 
 .memory-date{
     color:#f6c453;
-    font-size:10px;
+
+    font-size:8px;
+
+    font-weight:800;
+
     letter-spacing:2px;
-    margin-bottom:10px;
+
+    margin-bottom:7px;
+
     text-transform:uppercase;
+
+    text-shadow:none;
 }
 
 .memory-title{
-    font-family:"Cormorant Garamond",serif;
-    font-size:28px;
-    margin-bottom:10px;
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    line-height:1.05;
+
+    text-transform:uppercase;
+
     overflow-wrap:anywhere;
+
+    text-shadow:none;
+
+    filter:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 .memory-story{
-    color:#858a94;
-    font-size:13px;
-    line-height:1.7;
+    margin-top:7px;
+
+    color:#aaa;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+    font-weight:500;
 
     display:-webkit-box;
-    -webkit-line-clamp:3;
+
+    -webkit-line-clamp:2;
+
     -webkit-box-orient:vertical;
 
     overflow:hidden;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 .view-media{
-    margin-top:20px;
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:13px;
 
     color:#f6c453;
-    font-size:11px;
-    letter-spacing:2px;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    pointer-events:auto;
 
     cursor:pointer;
 
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
+    text-shadow:none;
 }
 
 .view-media span{
-    transition:.3s;
+    transition:.25s ease;
 }
 
 .view-media:hover span{
@@ -442,24 +1113,142 @@ header{
 }
 
 
-/* =========================
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:0 5% 100px;
+}
+
+.cta-box{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:65px 7%;
+
+    background:
+        linear-gradient(
+            110deg,
+            #f6c453,
+            #dca936
+        );
+
+    color:#070707;
+}
+
+.cta-box::before{
+    content:"";
+
+    position:absolute;
+
+    right:-100px;
+    top:-100px;
+
+    width:400px;
+    height:400px;
+
+    border:1px solid rgba(0,0,0,.15);
+
+    border-radius:50%;
+}
+
+.cta-box::after{
+    content:"";
+
+    position:absolute;
+
+    right:-40px;
+    bottom:-150px;
+
+    width:450px;
+    height:450px;
+
+    border:1px solid rgba(0,0,0,.12);
+
+    border-radius:50%;
+}
+
+.cta-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:750px;
+}
+
+.cta-kicker{
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    margin-bottom:13px;
+}
+
+.cta h2{
+    font-family:"Inter",Arial,Helvetica,sans-serif;
+
+    font-size:clamp(35px,5vw,65px);
+
+    line-height:1;
+
+    letter-spacing:-1.5px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    text-shadow:none;
+
+    filter:none;
+
+    text-rendering:optimizeLegibility;
+}
+
+.cta p{
+    max-width:600px;
+
+    margin-top:18px;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    opacity:.7;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 .modal{
     position:fixed;
-    inset:0;
 
-    background:rgba(0,0,0,.94);
+    inset:0;
 
     z-index:9999;
 
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
-    padding:25px;
+    padding:20px;
+
+    background:rgba(0,0,0,.96);
+
+    backdrop-filter:blur(10px);
 }
 
 .modal.active{
@@ -467,12 +1256,16 @@ header{
 }
 
 .modal-content{
-    max-width:1200px;
-    max-height:92vh;
     width:100%;
 
+    max-width:1300px;
+
+    max-height:92vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     position:relative;
@@ -481,29 +1274,32 @@ header{
 .modal-content img,
 .modal-content video{
     max-width:100%;
+
     max-height:88vh;
 
     object-fit:contain;
 
-    border-radius:8px;
+    border-radius:3px;
 
-    box-shadow:0 30px 100px rgba(0,0,0,.7);
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.8);
 }
 
 .modal-close{
     position:fixed;
 
-    top:25px;
-    right:30px;
+    top:20px;
+    right:25px;
 
-    width:45px;
-    height:45px;
+    width:48px;
+    height:48px;
 
     border-radius:50%;
 
     border:1px solid rgba(246,196,83,.5);
 
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.75);
+
     color:#f6c453;
 
     font-size:25px;
@@ -511,122 +1307,113 @@ header{
     cursor:pointer;
 
     z-index:10000;
+
+    transition:.25s ease;
 }
 
 .modal-close:hover{
     background:#f6c453;
-    color:#080a0f;
+
+    color:#070707;
 }
 
 
-/* =========================
-   KONTAK WHATSAPP
-========================= */
+/* =========================================================
+   WHATSAPP CONTACT
+========================================================= */
 
 .whatsapp-contact{
     position:fixed;
+
     right:22px;
     bottom:22px;
+
     z-index:9998;
+
     font-family:"Inter",sans-serif;
 }
 
 .contact-toggle{
-    width:60px;
-    height:60px;
+    height:58px;
 
-    border-radius:50%;
+    padding:0 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
 
     border:1px solid rgba(246,196,83,.7);
 
-    background:#10141d;
+    border-radius:35px;
+
+    background:#101010;
+
     color:#f6c453;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    font-size:10px;
 
-    font-size:25px;
+    font-weight:900;
+
+    letter-spacing:1px;
 
     cursor:pointer;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,.5);
+        0 12px 35px rgba(0,0,0,.6);
 
     transition:.3s ease;
 
-    position:relative;
+    text-shadow:none;
 }
 
 .contact-toggle:hover{
-    transform:scale(1.08);
     background:#f6c453;
-    color:#080a0f;
+
+    color:#070707;
+
+    transform:translateY(-3px);
 }
 
-.contact-toggle::after{
-    content:"";
-
-    position:absolute;
-    inset:-5px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(246,196,83,.25);
-
-    animation:pulseContact 2s infinite;
-}
-
-@keyframes pulseContact{
-
-    0%{
-        transform:scale(.9);
-        opacity:.8;
-    }
-
-    70%{
-        transform:scale(1.2);
-        opacity:0;
-    }
-
-    100%{
-        transform:scale(1.2);
-        opacity:0;
-    }
-
+.contact-toggle-icon{
+    font-size:19px;
 }
 
 .contact-box{
     position:absolute;
 
     right:0;
-    bottom:75px;
 
-    width:270px;
+    bottom:70px;
 
-    background:#10141d;
-
-    border:1px solid rgba(246,196,83,.25);
-
-    border-radius:18px;
+    width:290px;
 
     padding:16px;
 
+    background:#111;
+
+    border:1px solid rgba(246,196,83,.25);
+
     box-shadow:
-        0 20px 50px rgba(0,0,0,.65);
+        0 25px 70px rgba(0,0,0,.7);
 
     opacity:0;
+
     visibility:hidden;
 
     transform:
         translateY(12px)
-        scale(.95);
+        scale(.96);
 
     transition:.3s ease;
 }
 
 .whatsapp-contact.active .contact-box{
     opacity:1;
+
     visibility:visible;
 
     transform:
@@ -636,421 +1423,701 @@ header{
 
 .contact-title{
     color:#f6c453;
-    font-size:12px;
+
+    font-size:10px;
+
+    font-weight:900;
+
     letter-spacing:2px;
-    margin-bottom:12px;
+
     text-align:center;
-    font-weight:600;
+
+    margin-bottom:12px;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 .contact-number{
     display:flex;
+
     align-items:center;
+
     gap:10px;
-
-    text-decoration:none;
-    color:#fff;
-
-    background:#080a0f;
-
-    border:1px solid rgba(246,196,83,.12);
 
     padding:12px;
 
-    border-radius:12px;
-
     margin-top:8px;
 
-    font-size:12px;
+    background:#080808;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    text-decoration:none;
 
     transition:.25s ease;
 }
 
 .contact-number:hover{
-    border-color:rgba(246,196,83,.5);
+    border-color:rgba(246,196,83,.45);
+
     transform:translateX(-3px);
 }
 
 .contact-icon{
-    width:34px;
-    height:34px;
+    width:35px;
+    height:35px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     border-radius:50%;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
     background:#f6c453;
-    color:#080a0f;
+
+    color:#070707;
 
     font-size:17px;
-
-    flex-shrink:0;
 }
 
 .contact-info{
     display:flex;
+
     flex-direction:column;
+
     gap:3px;
+
     min-width:0;
 }
 
 .contact-label{
-    color:#777;
-    font-size:9px;
+    color:#999;
+
+    font-size:8px;
+
+    font-weight:800;
+
     letter-spacing:1px;
 }
 
 .contact-number-text{
     color:#fff;
-    font-size:12px;
-    white-space:nowrap;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    border-top:1px solid rgba(246,196,83,.1);
-
-    padding:40px 6%;
-
-    text-align:center;
-
-    color:#555;
 
     font-size:11px;
 
-    letter-spacing:1px;
+    font-weight:700;
+
+    white-space:nowrap;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
 }
 
 
-/* =========================
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+
+    padding:45px 5% 40px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:9px;
+
+    line-height:2;
+
+    letter-spacing:1.2px;
+
+    font-weight:500;
+
+    text-rendering:optimizeLegibility;
+}
+
+.footer-brand{
+    color:#f6c453;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+    text-shadow:none;
+
+    text-rendering:optimizeLegibility;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media(max-width:900px){
 
     .memory-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        grid-auto-rows:250px;
+    }
+
+    .memory-card{
+        grid-column:span 1;
+
+        grid-row:span 1 !important;
     }
 
     .section{
         padding-left:5%;
         padding-right:5%;
     }
-
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:600px){
 
     header{
-        padding:18px 15px;
-        min-height:55px;
+        height:65px;
+
+        padding:0 15px;
     }
 
     .logo{
-        font-size:10px;
-        letter-spacing:2px;
-        line-height:1.4;
+        font-size:9px;
+
+        letter-spacing:1.5px;
+
+        font-weight:900;
+    }
+
+
+    .hero{
+        min-height:100svh;
+
+        padding:
+            105px
+            12px
+            80px;
+    }
+
+    .stage-light{
+        width:55%;
+
+        opacity:.14;
+    }
+
+    .stage-light.center{
+        width:50%;
+
+        left:25%;
+    }
+
+    .hero-glow{
+        width:350px;
+
+        height:350px;
+    }
+
+
+    .hero-badge{
+        padding:8px 12px;
+
+        font-size:8px;
+
+        letter-spacing:1.8px;
+
+        margin-bottom:23px;
+
+        font-weight:800;
     }
 
 
     /* HERO HP */
 
-    .hero{
-        width:100%;
-        padding:55px 18px 45px;
-    }
-
-    .hero-label{
-        font-size:9px;
-        letter-spacing:2.5px;
-        margin-bottom:20px;
-        line-height:1.5;
-    }
-
     .hero h1{
-        font-size:clamp(43px,14vw,58px);
-        line-height:.9;
-        letter-spacing:-2px;
-        word-break:normal;
-    }
-
-    .hero h1 span{
-        margin-top:4px;
-    }
-
-    .hero-text{
         width:100%;
-        max-width:430px;
-        margin:25px auto 0;
-        font-size:12px;
-        line-height:1.75;
+
+        font-size:clamp(37px,11.5vw,56px);
+
+        line-height:1;
+
+        letter-spacing:-.7px;
+
+        font-weight:900;
+
+        white-space:normal;
+    }
+
+    .hero h1 .gold{
+        display:block;
+
+        font-size:clamp(35px,11vw,54px);
+
+        line-height:1;
+
+        letter-spacing:-.4px;
+
+        font-weight:900;
+
+        white-space:nowrap;
     }
 
 
-    /* SEO HP */
+    .hero-subtitle{
+        margin-top:20px;
 
-    .seo-intro{
-        width:100%;
-        margin:0 auto 45px;
-        padding:0 20px;
-    }
+        font-size:8px;
 
-    .seo-intro h2{
-        font-size:29px;
-        line-height:1.1;
-        margin-bottom:13px;
-    }
+        letter-spacing:1.7px;
 
-    .seo-intro p{
-        font-size:12px;
         line-height:1.8;
+
+        font-weight:600;
     }
 
 
-    /* SECTION HP */
+    .equalizer{
+        bottom:22px;
+    }
+
+
+    /* EVENT STRIP */
+
+    .event-strip{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .event-item{
+        padding:17px 10px;
+
+        font-size:8px;
+
+        letter-spacing:1.5px;
+
+        font-weight:800;
+    }
+
+    .event-item:nth-child(2){
+        border-right:0;
+    }
+
+    .event-item:nth-child(-n+2){
+        border-bottom:
+            1px solid rgba(255,255,255,.06);
+    }
+
+
+    /* INTRO */
+
+    .intro{
+        padding:70px 20px 40px;
+    }
+
+    .intro-kicker{
+        font-size:8px;
+
+        letter-spacing:2.5px;
+
+        font-weight:800;
+    }
+
+    .intro h2{
+        font-size:31px;
+
+        letter-spacing:-.8px;
+
+        line-height:1.02;
+
+        font-weight:900;
+    }
+
+    .intro p{
+        margin-top:18px;
+
+        font-size:11px;
+
+        line-height:1.8;
+
+        font-weight:500;
+    }
+
+
+    /* =====================================================
+       THE MOMENTS HP — SUPER JELAS
+    ===================================================== */
 
     .section{
-        width:100%;
-        padding:25px 15px 65px;
+        padding:
+            40px
+            15px
+            70px;
     }
 
     .section-head{
         display:block;
+
         margin-bottom:25px;
     }
 
+    .section-kicker{
+        font-size:8px;
+
+        letter-spacing:2px;
+
+        font-weight:800;
+
+        margin-bottom:9px;
+    }
+
     .section-title{
-        font-size:36px;
+        display:block;
+
+        font-family:"Inter",Arial,Helvetica,sans-serif;
+
+        font-size:37px;
+
+        letter-spacing:-.7px;
+
         line-height:1;
+
+        font-weight:900;
+
+        color:#fff;
+
+        text-shadow:none !important;
+
+        filter:none !important;
+
+        opacity:1;
+
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+
+        text-rendering:optimizeLegibility;
+
+        transform:none;
+    }
+
+    .section-title span{
+        display:inline-block;
+
+        color:#f6c453;
+
+        font-size:37px;
+
+        letter-spacing:-.7px;
+
+        line-height:1;
+
+        font-weight:900;
+
+        text-shadow:none !important;
+
+        filter:none !important;
+
+        opacity:1;
+
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+
+        text-rendering:optimizeLegibility;
+
+        transform:none;
     }
 
     .section-subtitle{
-        font-size:9px;
-        letter-spacing:1.5px;
-        margin-top:8px;
+        margin-top:12px;
+
+        max-width:none;
+
+        text-align:left;
+
+        font-size:8px;
+
+        font-weight:600;
+
+        color:#999;
+
+        letter-spacing:1.3px;
+
+        line-height:1.7;
+
+        text-shadow:none;
+
+        filter:none;
     }
 
-    .section-head > .section-subtitle{
-        margin-top:10px;
-    }
 
-
-    /* GRID HP */
+    /* GRID */
 
     .memory-grid{
         grid-template-columns:1fr;
-        gap:18px;
-        width:100%;
+
+        grid-auto-rows:auto;
+
+        gap:10px;
     }
 
     .memory-card{
-        width:100%;
-        border-radius:15px;
-    }
+        grid-column:span 1;
 
+        height:370px;
 
-    /* FOTO / VIDEO HP */
-
-    .media-wrap{
-        width:100%;
-        height:auto;
-        aspect-ratio:16 / 11;
-        min-height:230px;
-        max-height:360px;
+        border-radius:2px;
     }
 
     .media-type{
         top:12px;
+
         left:12px;
-        padding:6px 9px;
-        font-size:9px;
+
+        font-size:7px;
+
+        padding:6px 8px;
     }
 
     .play-button{
-        width:58px;
-        height:58px;
-        font-size:21px;
+        width:54px;
+
+        height:54px;
+
+        font-size:18px;
     }
 
-
-    /* INFO HP */
-
     .memory-info{
-        padding:17px 16px 19px;
+        padding:20px;
     }
 
     .memory-date{
-        font-size:9px;
+        font-size:7px;
+
         letter-spacing:1.5px;
-        margin-bottom:8px;
+
+        font-weight:800;
     }
 
     .memory-title{
-        font-size:25px;
+        font-size:21px;
+
         line-height:1.05;
-        margin-bottom:8px;
+
+        font-weight:900;
     }
 
     .memory-story{
-        font-size:12px;
-        line-height:1.65;
+        font-size:9px;
+
+        font-weight:500;
     }
 
     .view-media{
-        margin-top:15px;
-        font-size:9px;
-        letter-spacing:1.5px;
+        font-size:7px;
+
+        font-weight:900;
     }
 
 
-    /* LOADING HP */
+    /* CTA */
 
-    .loading{
-        padding:55px 15px;
-        font-size:11px;
-        line-height:1.5;
+    .cta{
+        padding:
+            0
+            15px
+            70px;
+    }
+
+    .cta-box{
+        padding:45px 25px;
+    }
+
+    .cta h2{
+        font-size:36px;
+
+        letter-spacing:-1px;
+
+        font-weight:900;
+    }
+
+    .cta p{
+        font-size:10px;
+
+        font-weight:600;
     }
 
 
-    /* EMPTY HP */
-
-    .empty{
-        padding:55px 15px;
-        border-radius:15px;
-        font-size:12px;
-    }
-
-
-    /* MODAL HP */
+    /* MODAL */
 
     .modal{
-        padding:8px;
+        padding:7px;
     }
 
     .modal-content{
-        width:100%;
-        max-width:100%;
         max-height:90vh;
     }
 
     .modal-content img,
     .modal-content video{
         width:100%;
-        max-width:100%;
+
         max-height:85vh;
-        border-radius:6px;
     }
 
     .modal-close{
-        top:12px;
-        right:12px;
+        top:10px;
+
+        right:10px;
+
         width:42px;
+
         height:42px;
-        font-size:23px;
     }
 
 
-    /* KONTAK HP */
+    /* CONTACT */
 
     .whatsapp-contact{
         right:14px;
+
         bottom:14px;
     }
 
     .contact-toggle{
         width:55px;
+
         height:55px;
-        font-size:22px;
+
+        padding:0;
+
+        border-radius:50%;
+
+        font-size:0;
+    }
+
+    .contact-toggle-icon{
+        font-size:21px;
     }
 
     .contact-box{
         right:0;
-        bottom:67px;
-        width:calc(100vw - 30px);
-        max-width:280px;
-        padding:14px;
-        border-radius:16px;
-    }
 
-    .contact-title{
-        font-size:11px;
-        letter-spacing:1.5px;
-        margin-bottom:10px;
-    }
+        bottom:66px;
 
-    .contact-number{
-        padding:11px;
-        gap:9px;
-    }
+        width:
+            calc(100vw - 28px);
 
-    .contact-icon{
-        width:32px;
-        height:32px;
-        font-size:16px;
-    }
+        max-width:285px;
 
-    .contact-number-text{
-        font-size:11px;
+        padding:13px;
     }
 
 
-    /* FOOTER HP */
+    /* FOOTER */
 
     footer{
-        padding:30px 15px 85px;
+        padding:
+            35px
+            15px
+            90px;
+
+        font-size:8px;
+    }
+
+    .footer-brand{
         font-size:9px;
-        line-height:1.8;
-        letter-spacing:.8px;
+
+        font-weight:900;
     }
 
 }
 
 
-/* =========================
-   HP SANGAT KECIL
-========================= */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:380px){
 
-    .hero{
-        padding-left:15px;
-        padding-right:15px;
+    .logo{
+        font-size:8px;
+
+        letter-spacing:1px;
+
+        font-weight:900;
     }
 
     .hero h1{
-        font-size:43px;
+        font-size:36px;
+
+        letter-spacing:-.5px;
+
+        line-height:1;
     }
 
-    .hero-label{
-        font-size:8px;
+    .hero h1 .gold{
+        font-size:34px;
+
+        letter-spacing:-.3px;
+
+        line-height:1;
     }
 
-    .section{
-        padding-left:12px;
-        padding-right:12px;
+    .hero-subtitle{
+        font-size:7px;
+    }
+
+    .memory-card{
+        height:330px;
     }
 
     .section-title{
         font-size:33px;
+
+        letter-spacing:-.5px;
     }
 
-    .media-wrap{
-        min-height:210px;
-    }
+    .section-title span{
+        font-size:33px;
 
-    .contact-box{
-        width:calc(100vw - 25px);
+        letter-spacing:-.5px;
     }
 
 }
@@ -1061,87 +2128,183 @@ footer{
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
 
     <div class="logo">
-        PRAN MUSIC ENTAERTAINMENT
+        PRAN MUSIC ENTERTAINMENT
     </div>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-    <div class="hero-label">
-        PRAN MUSIC ENTAERTAINMENT
+    <div class="stage-light left"></div>
+
+    <div class="stage-light center"></div>
+
+    <div class="stage-light right"></div>
+
+    <div class="hero-glow"></div>
+
+
+    <div class="hero-content reveal">
+
+        <div class="hero-badge">
+
+            <span class="hero-badge-dot"></span>
+
+            SOUND SYSTEM • EVENT ENTERTAINMENT
+
+        </div>
+
+
+        <h1>
+
+            PRAN MUSIC
+
+            <span class="gold">
+                ENTERTAINMENT
+            </span>
+
+        </h1>
+
+
+        <div class="hero-subtitle">
+
+            LIVE EXPERIENCE • SOUND • EVENT • MOMENTS
+
+        </div>
+
     </div>
 
-    <h1>
-        PRAN MUSIC
-        <span>ENTAERTAINMENT</span>
-    </h1>
 
-    <p class="hero-text">
+    <div class="equalizer">
 
-        PRAN MUSIC ENTERTAINMENT adalah layanan
-        sound system dan event entertainment untuk
-        berbagai acara, sekaligus tempat dokumentasi
-        foto dan video perjalanan PRAN MUSIC.
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-    </p>
+    </div>
 
 </section>
 
 
-<section class="seo-intro">
+<!-- EVENT STRIP -->
+
+<div class="event-strip">
+
+    <div class="event-item">
+        <strong>01</strong>
+        WEDDING
+    </div>
+
+    <div class="event-item">
+        <strong>02</strong>
+        GATHERING
+    </div>
+
+    <div class="event-item">
+        <strong>03</strong>
+        PARTY
+    </div>
+
+    <div class="event-item">
+        <strong>04</strong>
+        EVENT
+    </div>
+
+</div>
+
+
+<!-- INTRO -->
+
+<section class="intro reveal">
+
+    <div class="intro-kicker">
+        PRAN MUSIC ENTERTAINMENT
+    </div>
 
     <h2>
-        PRAN MUSIC ENTERTAINMENT
+
+        BUKAN SEKADAR
+        <span>SUARA.</span>
+        <br>
+        INI SEBUAH EXPERIENCE.
+
     </h2>
+
 
     <p>
 
-        PRAN MUSIC ENTERTAINMENT menyediakan
-        sound system dan event entertainment untuk
-        wedding, ulang tahun, khitanan, konser,
-        gathering, acara desa, dan berbagai event lainnya.
-
-        Lihat koleksi dokumentasi foto dan video
-        PRAN MUSIC ENTAERTAINMENT di halaman ini.
+        PRAN MUSIC ENTERTAINMENT hadir untuk
+        memberikan pengalaman sound system dan
+        event entertainment yang berkesan untuk
+        berbagai jenis acara. Setiap event memiliki
+        cerita, dan kami membantu membuat momennya
+        terdengar serta terasa lebih istimewa.
 
     </p>
 
 </section>
 
 
-<section class="section">
+<!-- DOCUMENTATION -->
 
-    <div class="section-head">
+<section
+    class="section"
+    id="dokumentasi"
+>
+
+    <div class="section-head reveal">
 
         <div>
 
-            <div class="section-title">
-                Our Memories
+            <div class="section-kicker">
+                PRAN MUSIC ENTERTAINMENT
             </div>
 
-            <div class="section-subtitle">
-                PRAN MUSIC ENTAERTAINMENT
+            <div class="section-title">
+                THE <span>MOMENTS</span>
             </div>
 
         </div>
 
+
         <div class="section-subtitle">
-            PHOTO & VIDEO COLLECTION
+
+            PHOTO & VIDEO COLLECTION<br>
+
+            DOKUMENTASI EVENT
+            PRAN MUSIC ENTERTAINMENT
+
         </div>
 
     </div>
 
 
-    <div id="loading" class="loading">
+    <div
+        id="loading"
+        class="loading"
+    >
 
         <div class="loading-spinner"></div>
 
-        MEMUAT KENANGAN PRAN MUSIC ENTAERTAINMENT...
+        MEMUAT DOKUMENTASI
+        PRAN MUSIC ENTERTAINMENT...
 
     </div>
 
@@ -1156,7 +2319,9 @@ footer{
             ✦
         </div>
 
-        Belum ada kenangan yang diposting.
+        <div>
+            Belum ada dokumentasi yang diposting.
+        </div>
 
     </div>
 
@@ -1169,9 +2334,52 @@ footer{
 </section>
 
 
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="cta-box reveal">
+
+        <div class="cta-content">
+
+            <div class="cta-kicker">
+                PRAN MUSIC ENTERTAINMENT
+            </div>
+
+
+            <h2>
+
+                SIAP BUAT EVENT
+                JADI LEBIH
+                BERKESAN?
+
+            </h2>
+
+
+            <p>
+
+                Hubungi PRAN MUSIC ENTERTAINMENT
+                melalui gelembung kontak WhatsApp
+                di bagian bawah halaman.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
 
-    © 2026 PRAN MUSIC ENTAERTAINMENT
+    <div class="footer-brand">
+        PRAN MUSIC ENTERTAINMENT
+    </div>
+
+    © 2026 PRAN MUSIC ENTERTAINMENT
 
     <br>
 
@@ -1184,7 +2392,12 @@ footer{
 </footer>
 
 
-<div id="modal" class="modal">
+<!-- MODAL -->
+
+<div
+    id="modal"
+    class="modal"
+>
 
     <button
         id="modalClose"
@@ -1194,6 +2407,7 @@ footer{
         ×
     </button>
 
+
     <div
         id="modalContent"
         class="modal-content"
@@ -1201,6 +2415,8 @@ footer{
 
 </div>
 
+
+<!-- WHATSAPP CONTACT -->
 
 <div
     class="whatsapp-contact"
@@ -1210,8 +2426,11 @@ footer{
     <div class="contact-box">
 
         <div class="contact-title">
-            HUBUNGI KAMI
+
+            HUBUNGI PRAN MUSIC ENTERTAINMENT
+
         </div>
+
 
         <a
             class="contact-number"
@@ -1273,13 +2492,25 @@ footer{
         aria-label="Buka kontak WhatsApp"
         type="button"
     >
-        ☎
+
+        <span class="contact-toggle-icon">
+            ☎
+        </span>
+
+        <span>
+            BOOKING SEKARANG
+        </span>
+
     </button>
 
 </div>
 
 
 <script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
 const memoryGrid =
     document.getElementById("memoryGrid");
@@ -1299,6 +2530,10 @@ const modalContent =
 const modalClose =
     document.getElementById("modalClose");
 
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(value){
 
@@ -1322,21 +2557,21 @@ function escapeHtml(value){
 }
 
 
+/* =========================================================
+   DATE
+========================================================= */
+
 function formatDate(date){
 
     if(!date){
-
         return "";
-
     }
 
     const d =
         new Date(date + "T00:00:00");
 
     if(isNaN(d.getTime())){
-
         return date;
-
     }
 
     return d.toLocaleDateString(
@@ -1351,6 +2586,10 @@ function formatDate(date){
 }
 
 
+/* =========================================================
+   MEMORY CARD
+========================================================= */
+
 function createMemoryCard(item){
 
     const isVideo =
@@ -1361,16 +2600,19 @@ function createMemoryCard(item){
         ? "🎥 VIDEO"
         : "📸 FOTO";
 
+
     const safeUrl =
         escapeHtml(
             item.foto_url || ""
         );
+
 
     const safeTitle =
         escapeHtml(
             item.judul ||
             "PRAN MUSIC ENTERTAINMENT"
         );
+
 
     let mediaHTML = "";
 
@@ -1436,6 +2678,7 @@ function createMemoryCard(item){
 
             ${mediaHTML}
 
+
             <div class="memory-info">
 
                 ${
@@ -1458,7 +2701,6 @@ function createMemoryCard(item){
                     :
 
                     ""
-
                 }
 
 
@@ -1487,7 +2729,6 @@ function createMemoryCard(item){
                     :
 
                     ""
-
                 }
 
 
@@ -1519,6 +2760,10 @@ function createMemoryCard(item){
 }
 
 
+/* =========================================================
+   MODAL
+========================================================= */
+
 function openModal(url,type,title){
 
     modalContent.innerHTML = "";
@@ -1532,7 +2777,9 @@ function openModal(url,type,title){
         video.src = url;
 
         video.controls = true;
+
         video.autoplay = true;
+
         video.playsInline = true;
 
         modalContent.appendChild(video);
@@ -1606,6 +2853,10 @@ document.addEventListener(
 );
 
 
+/* =========================================================
+   OPEN MEDIA
+========================================================= */
+
 memoryGrid.addEventListener(
     "click",
     function(e){
@@ -1652,8 +2903,10 @@ memoryGrid.addEventListener(
         const url =
             viewButton.dataset.url;
 
+
         const type =
             viewButton.dataset.type;
+
 
         const title =
             viewButton.dataset.title;
@@ -1672,6 +2925,10 @@ memoryGrid.addEventListener(
     }
 );
 
+
+/* =========================================================
+   LOAD SUPABASE MEMORIES
+========================================================= */
 
 async function loadMemories(){
 
@@ -1753,6 +3010,9 @@ async function loadMemories(){
         );
 
 
+        observeReveals();
+
+
     }catch(error){
 
         console.error(
@@ -1776,15 +3036,17 @@ async function loadMemories(){
             </div>
 
             <div>
-                Kenangan belum dapat dimuat.
+                Dokumentasi belum dapat dimuat.
             </div>
 
             <div style="
                 margin-top:10px;
-                font-size:11px;
-                color:#555;
+                font-size:10px;
+                color:#777;
             ">
+
                 Silakan coba refresh halaman.
+
             </div>
 
         `;
@@ -1794,10 +3056,15 @@ async function loadMemories(){
 }
 
 
+/* =========================================================
+   WHATSAPP CONTACT
+========================================================= */
+
 const whatsappContact =
     document.getElementById(
         "whatsappContact"
     );
+
 
 const contactToggle =
     document.getElementById(
@@ -1839,9 +3106,83 @@ document.addEventListener(
 );
 
 
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+function observeReveals(){
+
+    const elements =
+        document.querySelectorAll(
+            ".reveal:not(.show)"
+        );
+
+
+    if(
+        !("IntersectionObserver" in window)
+    ){
+
+        elements.forEach(
+            el => el.classList.add("show")
+        );
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(
+                    function(entry){
+
+                        if(
+                            entry.isIntersecting
+                        ){
+
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:.08
+            }
+        );
+
+
+    elements.forEach(
+        function(el){
+
+            observer.observe(el);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
 document.addEventListener(
     "DOMContentLoaded",
     function(){
+
+        observeReveals();
 
         loadMemories();
 
