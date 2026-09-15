@@ -14,7 +14,6 @@
 <meta name="keywords" content="PRAN MUSIC ENTERTAINMENT, PRAN MUSIC ENTAERTAIMENT, PRAN MUSIC, sound system PRAN, sound system, sewa sound system, jasa sound system, sound system wedding, sound system event, event entertainment">
 
 <meta name="author" content="PRAN MUSIC ENTERTAINMENT">
-
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 
@@ -58,12 +57,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -87,6 +93,7 @@ body::before{
     position:fixed;
     inset:0;
     pointer-events:none;
+
     background:
         radial-gradient(
             circle at 15% 20%,
@@ -98,10 +105,14 @@ body::before{
             rgba(246,196,83,.05),
             transparent 30%
         );
+
     z-index:-1;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     width:100%;
@@ -119,7 +130,10 @@ header{
     color:#f6c453;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     max-width:1200px;
@@ -157,7 +171,10 @@ header{
     font-size:14px;
 }
 
-/* SEO SERVICE TEXT */
+
+/* =========================
+   SEO
+========================= */
 
 .seo-intro{
     max-width:900px;
@@ -179,7 +196,10 @@ header{
     line-height:1.9;
 }
 
-/* SECTION */
+
+/* =========================
+   SECTION
+========================= */
 
 .section{
     max-width:1250px;
@@ -207,7 +227,10 @@ header{
     letter-spacing:2px;
 }
 
-/* LOADING */
+
+/* =========================
+   LOADING
+========================= */
 
 .loading{
     text-align:center;
@@ -231,7 +254,10 @@ header{
     }
 }
 
-/* EMPTY */
+
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
     text-align:center;
@@ -246,7 +272,10 @@ header{
     margin-bottom:15px;
 }
 
-/* GRID */
+
+/* =========================
+   GRID
+========================= */
 
 .memory-grid{
     display:grid;
@@ -254,7 +283,10 @@ header{
     gap:25px;
 }
 
-/* CARD */
+
+/* =========================
+   CARD
+========================= */
 
 .memory-card{
     background:#10141d;
@@ -270,7 +302,10 @@ header{
     box-shadow:0 25px 60px rgba(0,0,0,.4);
 }
 
-/* MEDIA */
+
+/* =========================
+   MEDIA
+========================= */
 
 .media-wrap{
     position:relative;
@@ -278,6 +313,7 @@ header{
     height:330px;
     background:#050609;
     overflow:hidden;
+    cursor:pointer;
 }
 
 .media-wrap img,
@@ -295,11 +331,14 @@ header{
 .media-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        to bottom,
-        transparent 55%,
-        rgba(0,0,0,.55)
-    );
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(0,0,0,.55)
+        );
+
     pointer-events:none;
 }
 
@@ -307,13 +346,17 @@ header{
     position:absolute;
     top:15px;
     left:15px;
+
     padding:7px 11px;
     border-radius:20px;
+
     background:rgba(0,0,0,.75);
     color:#f6c453;
+
     font-size:10px;
     letter-spacing:1px;
     font-weight:600;
+
     z-index:2;
 }
 
@@ -321,21 +364,30 @@ header{
     position:absolute;
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
+
     width:65px;
     height:65px;
+
     border-radius:50%;
     border:1px solid rgba(246,196,83,.8);
+
     background:rgba(0,0,0,.65);
     color:#f6c453;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     font-size:24px;
     pointer-events:none;
 }
 
-/* INFO */
+
+/* =========================
+   INFO
+========================= */
 
 .memory-info{
     padding:22px;
@@ -359,18 +411,23 @@ header{
     color:#858a94;
     font-size:13px;
     line-height:1.7;
+
     display:-webkit-box;
     -webkit-line-clamp:3;
     -webkit-box-orient:vertical;
+
     overflow:hidden;
 }
 
 .view-media{
     margin-top:20px;
+
     color:#f6c453;
     font-size:11px;
     letter-spacing:2px;
+
     cursor:pointer;
+
     display:inline-flex;
     align-items:center;
     gap:10px;
@@ -384,16 +441,24 @@ header{
     transform:translateX(5px);
 }
 
-/* MODAL */
+
+/* =========================
+   MODAL
+========================= */
 
 .modal{
     position:fixed;
     inset:0;
+
     background:rgba(0,0,0,.94);
+
     z-index:9999;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:25px;
 }
 
@@ -405,9 +470,11 @@ header{
     max-width:1200px;
     max-height:92vh;
     width:100%;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     position:relative;
 }
 
@@ -415,23 +482,34 @@ header{
 .modal-content video{
     max-width:100%;
     max-height:88vh;
+
     object-fit:contain;
+
     border-radius:8px;
+
     box-shadow:0 30px 100px rgba(0,0,0,.7);
 }
 
 .modal-close{
     position:fixed;
+
     top:25px;
     right:30px;
+
     width:45px;
     height:45px;
+
     border-radius:50%;
+
     border:1px solid rgba(246,196,83,.5);
+
     background:rgba(0,0,0,.7);
     color:#f6c453;
+
     font-size:25px;
+
     cursor:pointer;
+
     z-index:10000;
 }
 
@@ -440,26 +518,265 @@ header{
     color:#080a0f;
 }
 
-/* FOOTER */
 
-footer{
-    border-top:1px solid rgba(246,196,83,.1);
-    padding:40px 6%;
+/* =========================
+   KONTAK WHATSAPP
+========================= */
+
+.whatsapp-contact{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    z-index:9998;
+
+    font-family:"Inter",sans-serif;
+}
+
+
+/* TOMBOL GELEMBUNG */
+
+.contact-toggle{
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(246,196,83,.7);
+
+    background:#10141d;
+    color:#f6c453;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.5);
+
+    transition:.3s ease;
+
+    position:relative;
+}
+
+.contact-toggle:hover{
+    transform:scale(1.08);
+
+    background:#f6c453;
+    color:#080a0f;
+}
+
+
+/* EFEK GELEMBUNG */
+
+.contact-toggle::after{
+    content:"";
+
+    position:absolute;
+    inset:-5px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(246,196,83,.25);
+
+    animation:pulseContact 2s infinite;
+}
+
+@keyframes pulseContact{
+
+    0%{
+        transform:scale(.9);
+        opacity:.8;
+    }
+
+    70%{
+        transform:scale(1.2);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1.2);
+        opacity:0;
+    }
+
+}
+
+
+/* BOX KONTAK */
+
+.contact-box{
+    position:absolute;
+
+    right:0;
+    bottom:75px;
+
+    width:270px;
+
+    background:#10141d;
+
+    border:1px solid rgba(246,196,83,.25);
+
+    border-radius:18px;
+
+    padding:16px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.65);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        translateY(12px)
+        scale(.95);
+
+    transition:.3s ease;
+}
+
+.whatsapp-contact.active .contact-box{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* JUDUL KONTAK */
+
+.contact-title{
+    color:#f6c453;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+
     text-align:center;
-    color:#555;
-    font-size:11px;
+
+    font-weight:600;
+}
+
+
+/* NOMOR */
+
+.contact-number{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:#080a0f;
+
+    border:1px solid rgba(246,196,83,.12);
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    transition:.25s ease;
+}
+
+.contact-number:hover{
+    border-color:rgba(246,196,83,.5);
+
+    transform:translateX(-3px);
+}
+
+
+/* ICON */
+
+.contact-icon{
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f6c453;
+
+    color:#080a0f;
+
+    font-size:17px;
+
+    flex-shrink:0;
+}
+
+
+/* TEXT */
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+.contact-label{
+    color:#777;
+
+    font-size:9px;
+
     letter-spacing:1px;
 }
 
-/* MOBILE */
+.contact-number-text{
+    color:#fff;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid rgba(246,196,83,.1);
+
+    padding:40px 6%;
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
     .memory-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
     }
 
 }
+
 
 @media(max-width:600px){
 
@@ -531,13 +848,37 @@ footer{
         right:15px;
     }
 
+    /* KONTAK MOBILE */
+
+    .whatsapp-contact{
+        right:16px;
+        bottom:16px;
+    }
+
+    .contact-toggle{
+        width:56px;
+        height:56px;
+        font-size:23px;
+    }
+
+    .contact-box{
+        width:245px;
+        bottom:70px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -546,6 +887,11 @@ footer{
     </div>
 
 </header>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -559,13 +905,20 @@ footer{
     </h1>
 
     <p class="hero-text">
+
         PRAN MUSIC ENTERTAINMENT adalah layanan
         sound system dan event entertainment untuk
         berbagai acara, sekaligus tempat dokumentasi
         foto dan video perjalanan PRAN MUSIC.
+
     </p>
 
 </section>
+
+
+<!-- =========================
+     SEO INTRO
+========================= -->
 
 <section class="seo-intro">
 
@@ -574,15 +927,23 @@ footer{
     </h2>
 
     <p>
+
         PRAN MUSIC ENTERTAINMENT menyediakan
         sound system dan event entertainment untuk
         wedding, ulang tahun, khitanan, konser,
         gathering, acara desa, dan berbagai event lainnya.
+
         Lihat koleksi dokumentasi foto dan video
         PRAN MUSIC ENTAERTAINMENT di halaman ini.
+
     </p>
 
 </section>
+
+
+<!-- =========================
+     MEMORY SECTION
+========================= -->
 
 <section class="section">
 
@@ -606,6 +967,7 @@ footer{
 
     </div>
 
+
     <div id="loading" class="loading">
 
         <div class="loading-spinner"></div>
@@ -614,7 +976,12 @@ footer{
 
     </div>
 
-    <div id="empty" class="empty" style="display:none;">
+
+    <div
+        id="empty"
+        class="empty"
+        style="display:none;"
+    >
 
         <div class="empty-icon">
             ✦
@@ -624,19 +991,37 @@ footer{
 
     </div>
 
-    <div id="memoryGrid" class="memory-grid"></div>
+
+    <div
+        id="memoryGrid"
+        class="memory-grid"
+    ></div>
 
 </section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     © 2026 PRAN MUSIC ENTAERTAINMENT
+
     <br>
+
     Sound System & Event Entertainment
+
     <br>
+
     A Collection of Moments
 
 </footer>
+
+
+<!-- =========================
+     MODAL MEDIA
+========================= -->
 
 <div id="modal" class="modal">
 
@@ -648,9 +1033,104 @@ footer{
         ×
     </button>
 
-    <div id="modalContent" class="modal-content"></div>
+    <div
+        id="modalContent"
+        class="modal-content"
+    ></div>
 
 </div>
+
+
+<!-- =========================
+     KONTAK WHATSAPP
+========================= -->
+
+<div
+    class="whatsapp-contact"
+    id="whatsappContact"
+>
+
+
+    <!-- BOX NOMOR -->
+
+    <div class="contact-box">
+
+        <div class="contact-title">
+            HUBUNGI KAMI
+        </div>
+
+
+        <!-- NOMOR 1 -->
+
+        <a
+            class="contact-number"
+            href="https://wa.me/6283185368626?text=Halo%20PRAN%20MUSIC%20ENTERTAINMENT%2C%20saya%20ingin%20menanyakan%20jasa%20sound%20system%20dan%20event%20entertainment."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="contact-icon">
+                ☏
+            </div>
+
+            <div class="contact-info">
+
+                <div class="contact-label">
+                    WHATSAPP
+                </div>
+
+                <div class="contact-number-text">
+                    0831 8536 8626
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- NOMOR 2 -->
+
+        <a
+            class="contact-number"
+            href="https://wa.me/62881024746780?text=Halo%20PRAN%20MUSIC%20ENTERTAINMENT%2C%20saya%20ingin%20menanyakan%20jasa%20sound%20system%20dan%20event%20entertainment."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="contact-icon">
+                ☏
+            </div>
+
+            <div class="contact-info">
+
+                <div class="contact-label">
+                    WHATSAPP
+                </div>
+
+                <div class="contact-number-text">
+                    0881 0247 46780
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- GELEMBUNG -->
+
+    <button
+        class="contact-toggle"
+        id="contactToggle"
+        aria-label="Buka kontak WhatsApp"
+        type="button"
+    >
+        ☎
+    </button>
+
+</div>
+
 
 <script>
 
@@ -687,10 +1167,13 @@ function escapeHtml(value){
         value === null ||
         value === undefined
     ){
+
         return "";
+
     }
 
     return String(value)
+
         .replace(/&/g,"&amp;")
         .replace(/</g,"&lt;")
         .replace(/>/g,"&gt;")
@@ -707,14 +1190,18 @@ function escapeHtml(value){
 function formatDate(date){
 
     if(!date){
+
         return "";
+
     }
 
     const d =
         new Date(date + "T00:00:00");
 
     if(isNaN(d.getTime())){
+
         return date;
+
     }
 
     return d.toLocaleDateString(
@@ -744,7 +1231,9 @@ function createMemoryCard(item){
         : "📸 FOTO";
 
     const safeUrl =
-        escapeHtml(item.foto_url || "");
+        escapeHtml(
+            item.foto_url || ""
+        );
 
     const safeTitle =
         escapeHtml(
@@ -753,6 +1242,7 @@ function createMemoryCard(item){
         );
 
     let mediaHTML = "";
+
 
     if(isVideo){
 
@@ -805,6 +1295,7 @@ function createMemoryCard(item){
 
     }
 
+
     return `
 
         <article
@@ -818,42 +1309,74 @@ function createMemoryCard(item){
 
                 ${
                     item.tanggal
+
                     ?
+
                     `
+
                     <div class="memory-date">
+
                         ${escapeHtml(
                             formatDate(item.tanggal)
                         )}
+
                     </div>
+
                     `
+
                     :
+
                     ""
+
                 }
 
+
                 <div class="memory-title">
+
                     ${safeTitle}
+
                 </div>
+
 
                 ${
                     item.cerita
+
                     ?
+
                     `
+
                     <div class="memory-story">
+
                         ${escapeHtml(item.cerita)}
+
                     </div>
+
                     `
+
                     :
+
                     ""
+
                 }
+
 
                 <div
                     class="view-media"
+
                     data-url="${safeUrl}"
+
                     data-type="${isVideo ? "video" : "foto"}"
+
                     data-title="${safeTitle}"
                 >
-                    LIHAT ${isVideo ? "VIDEO" : "FOTO"}
-                    <span>→</span>
+
+                    LIHAT
+                    ${isVideo ? "VIDEO" : "FOTO"}
+
+                    <span>
+                        →
+                    </span>
+
                 </div>
 
             </div>
@@ -873,12 +1396,14 @@ function openModal(url,type,title){
 
     modalContent.innerHTML = "";
 
+
     if(type === "video"){
 
         const video =
             document.createElement("video");
 
         video.src = url;
+
         video.controls = true;
         video.autoplay = true;
         video.playsInline = true;
@@ -891,6 +1416,7 @@ function openModal(url,type,title){
             document.createElement("img");
 
         img.src = url;
+
         img.alt =
             title ||
             "PRAN MUSIC ENTERTAINMENT";
@@ -899,9 +1425,11 @@ function openModal(url,type,title){
 
     }
 
+
     modal.classList.add("active");
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
 
 }
 
@@ -930,6 +1458,7 @@ modalClose.addEventListener(
     closeModal
 );
 
+
 modal.addEventListener(
     "click",
     function(e){
@@ -942,6 +1471,7 @@ modal.addEventListener(
 
     }
 );
+
 
 document.addEventListener(
     "keydown",
@@ -970,27 +1500,39 @@ memoryGrid.addEventListener(
                 ".view-media, .media-wrap"
             );
 
+
         if(!target){
+
             return;
+
         }
+
 
         const card =
             target.closest(
                 ".memory-card"
             );
 
+
         if(!card){
+
             return;
+
         }
+
 
         const viewButton =
             card.querySelector(
                 ".view-media"
             );
 
+
         if(!viewButton){
+
             return;
+
         }
+
 
         const url =
             viewButton.dataset.url;
@@ -1000,6 +1542,7 @@ memoryGrid.addEventListener(
 
         const title =
             viewButton.dataset.title;
+
 
         if(url){
 
@@ -1021,9 +1564,14 @@ memoryGrid.addEventListener(
 
 async function loadMemories(){
 
-    loading.style.display = "block";
-    empty.style.display = "none";
+    loading.style.display =
+        "block";
+
+    empty.style.display =
+        "none";
+
     memoryGrid.innerHTML = "";
+
 
     try{
 
@@ -1031,7 +1579,9 @@ async function loadMemories(){
             data,
             error
         } = await supabaseClient
+
             .from("kenangan")
+
             .select(`
                 id,
                 judul,
@@ -1042,12 +1592,14 @@ async function loadMemories(){
                 media_type,
                 created_at
             `)
+
             .order(
                 "created_at",
                 {
                     ascending:false
                 }
             );
+
 
         if(error){
 
@@ -1060,18 +1612,23 @@ async function loadMemories(){
 
         }
 
-        loading.style.display = "none";
+
+        loading.style.display =
+            "none";
+
 
         if(
             !data ||
             data.length === 0
         ){
 
-            empty.style.display = "block";
+            empty.style.display =
+                "block";
 
             return;
 
         }
+
 
         data.forEach(
             function(item){
@@ -1084,6 +1641,7 @@ async function loadMemories(){
             }
         );
 
+
     }catch(error){
 
         console.error(
@@ -1091,9 +1649,14 @@ async function loadMemories(){
             error
         );
 
-        loading.style.display = "none";
 
-        empty.style.display = "block";
+        loading.style.display =
+            "none";
+
+
+        empty.style.display =
+            "block";
+
 
         empty.innerHTML = `
 
@@ -1121,6 +1684,59 @@ async function loadMemories(){
 
 
 /* =========================
+   WHATSAPP CONTACT
+========================= */
+
+const whatsappContact =
+    document.getElementById(
+        "whatsappContact"
+    );
+
+const contactToggle =
+    document.getElementById(
+        "contactToggle"
+    );
+
+
+/* BUKA / TUTUP */
+
+contactToggle.addEventListener(
+    "click",
+    function(e){
+
+        e.stopPropagation();
+
+        whatsappContact.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+/* KLIK DI LUAR → TUTUP */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            !whatsappContact.contains(
+                e.target
+            )
+        ){
+
+            whatsappContact.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
    START
 ========================= */
 
@@ -1137,4 +1753,3 @@ document.addEventListener(
 
 </body>
 </html>
-```
