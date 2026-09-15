@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <meta name="google-site-verification" content="O575BgqqM9e7ZTqVVcRt0LHqE4EuPG3M5x4h66rZWIo">
 
@@ -21,19 +21,16 @@
 
 <link rel="canonical" href="https://daliandfrieds891-design.github.io/kenanganpanel1/">
 
-<!-- OPEN GRAPH -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="PRAN MUSIC ENTERTAINMENT | PRAN MUSIC ENTAERTAIMENT">
 <meta property="og:description" content="PRAN MUSIC ENTERTAINMENT menyediakan sound system dan event entertainment untuk berbagai acara.">
 <meta property="og:url" content="https://daliandfrieds891-design.github.io/kenanganpanel1/">
 <meta property="og:site_name" content="PRAN MUSIC ENTERTAINMENT">
 
-<!-- TWITTER -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PRAN MUSIC ENTERTAINMENT | PRAN MUSIC ENTAERTAIMENT">
 <meta name="twitter:description" content="Sound System & Event Entertainment untuk berbagai acara.">
 
-<!-- STRUCTURED DATA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -67,10 +64,6 @@
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -79,6 +72,7 @@
 
 html{
     scroll-behavior:smooth;
+    width:100%;
 }
 
 body{
@@ -86,6 +80,8 @@ body{
     color:#fff;
     font-family:"Inter",sans-serif;
     overflow-x:hidden;
+    width:100%;
+    min-width:0;
 }
 
 body::before{
@@ -128,6 +124,7 @@ header{
     letter-spacing:4px;
     font-weight:600;
     color:#f6c453;
+    text-align:center;
 }
 
 
@@ -294,6 +291,7 @@ header{
     border-radius:18px;
     overflow:hidden;
     transition:.35s ease;
+    min-width:0;
 }
 
 .memory-card:hover{
@@ -391,6 +389,7 @@ header{
 
 .memory-info{
     padding:22px;
+    min-width:0;
 }
 
 .memory-date{
@@ -405,6 +404,7 @@ header{
     font-family:"Cormorant Garamond",serif;
     font-size:28px;
     margin-bottom:10px;
+    overflow-wrap:anywhere;
 }
 
 .memory-story{
@@ -525,17 +525,11 @@ header{
 
 .whatsapp-contact{
     position:fixed;
-
     right:22px;
     bottom:22px;
-
     z-index:9998;
-
     font-family:"Inter",sans-serif;
 }
-
-
-/* TOMBOL GELEMBUNG */
 
 .contact-toggle{
     width:60px;
@@ -566,13 +560,9 @@ header{
 
 .contact-toggle:hover{
     transform:scale(1.08);
-
     background:#f6c453;
     color:#080a0f;
 }
-
-
-/* EFEK GELEMBUNG */
 
 .contact-toggle::after{
     content:"";
@@ -605,9 +595,6 @@ header{
     }
 
 }
-
-
-/* BOX KONTAK */
 
 .contact-box{
     position:absolute;
@@ -647,35 +634,21 @@ header{
         scale(1);
 }
 
-
-/* JUDUL KONTAK */
-
 .contact-title{
     color:#f6c453;
-
     font-size:12px;
-
     letter-spacing:2px;
-
     margin-bottom:12px;
-
     text-align:center;
-
     font-weight:600;
 }
 
-
-/* NOMOR */
-
 .contact-number{
     display:flex;
-
     align-items:center;
-
     gap:10px;
 
     text-decoration:none;
-
     color:#fff;
 
     background:#080a0f;
@@ -695,12 +668,8 @@ header{
 
 .contact-number:hover{
     border-color:rgba(246,196,83,.5);
-
     transform:translateX(-3px);
 }
-
-
-/* ICON */
 
 .contact-icon{
     width:34px;
@@ -713,7 +682,6 @@ header{
     justify-content:center;
 
     background:#f6c453;
-
     color:#080a0f;
 
     font-size:17px;
@@ -721,27 +689,23 @@ header{
     flex-shrink:0;
 }
 
-
-/* TEXT */
-
 .contact-info{
     display:flex;
     flex-direction:column;
     gap:3px;
+    min-width:0;
 }
 
 .contact-label{
     color:#777;
-
     font-size:9px;
-
     letter-spacing:1px;
 }
 
 .contact-number-text{
     color:#fff;
-
     font-size:12px;
+    white-space:nowrap;
 }
 
 
@@ -765,105 +729,328 @@ footer{
 
 
 /* =========================
-   MOBILE
+   TABLET
 ========================= */
 
 @media(max-width:900px){
 
     .memory-grid{
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .section{
+        padding-left:5%;
+        padding-right:5%;
     }
 
 }
 
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:600px){
 
     header{
-        padding:22px 5%;
+        padding:18px 15px;
+        min-height:55px;
     }
 
     .logo{
-        font-size:11px;
-        letter-spacing:3px;
+        font-size:10px;
+        letter-spacing:2px;
+        line-height:1.4;
     }
 
+
+    /* HERO HP */
+
     .hero{
-        padding:75px 6% 60px;
+        width:100%;
+        padding:55px 18px 45px;
+    }
+
+    .hero-label{
+        font-size:9px;
+        letter-spacing:2.5px;
+        margin-bottom:20px;
+        line-height:1.5;
     }
 
     .hero h1{
-        font-size:58px;
+        font-size:clamp(43px,14vw,58px);
+        line-height:.9;
         letter-spacing:-2px;
+        word-break:normal;
+    }
+
+    .hero h1 span{
+        margin-top:4px;
     }
 
     .hero-text{
-        font-size:13px;
+        width:100%;
+        max-width:430px;
+        margin:25px auto 0;
+        font-size:12px;
+        line-height:1.75;
     }
 
+
+    /* SEO HP */
+
     .seo-intro{
-        margin-bottom:50px;
+        width:100%;
+        margin:0 auto 45px;
+        padding:0 20px;
     }
 
     .seo-intro h2{
-        font-size:30px;
+        font-size:29px;
+        line-height:1.1;
+        margin-bottom:13px;
     }
 
+    .seo-intro p{
+        font-size:12px;
+        line-height:1.8;
+    }
+
+
+    /* SECTION HP */
+
     .section{
-        padding:30px 5% 70px;
+        width:100%;
+        padding:25px 15px 65px;
     }
 
     .section-head{
         display:block;
+        margin-bottom:25px;
     }
 
     .section-title{
-        font-size:38px;
+        font-size:36px;
+        line-height:1;
     }
 
     .section-subtitle{
+        font-size:9px;
+        letter-spacing:1.5px;
         margin-top:8px;
     }
 
-    .memory-grid{
-        grid-template-columns:1fr;
-        gap:20px;
+    .section-head > .section-subtitle{
+        margin-top:10px;
     }
 
+
+    /* GRID HP */
+
+    .memory-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+        width:100%;
+    }
+
+    .memory-card{
+        width:100%;
+        border-radius:15px;
+    }
+
+
+    /* FOTO / VIDEO HP */
+
     .media-wrap{
-        height:270px;
+        width:100%;
+        height:auto;
+        aspect-ratio:16 / 11;
+        min-height:230px;
+        max-height:360px;
+    }
+
+    .media-type{
+        top:12px;
+        left:12px;
+        padding:6px 9px;
+        font-size:9px;
+    }
+
+    .play-button{
+        width:58px;
+        height:58px;
+        font-size:21px;
+    }
+
+
+    /* INFO HP */
+
+    .memory-info{
+        padding:17px 16px 19px;
+    }
+
+    .memory-date{
+        font-size:9px;
+        letter-spacing:1.5px;
+        margin-bottom:8px;
     }
 
     .memory-title{
         font-size:25px;
+        line-height:1.05;
+        margin-bottom:8px;
     }
 
+    .memory-story{
+        font-size:12px;
+        line-height:1.65;
+    }
+
+    .view-media{
+        margin-top:15px;
+        font-size:9px;
+        letter-spacing:1.5px;
+    }
+
+
+    /* LOADING HP */
+
+    .loading{
+        padding:55px 15px;
+        font-size:11px;
+        line-height:1.5;
+    }
+
+
+    /* EMPTY HP */
+
+    .empty{
+        padding:55px 15px;
+        border-radius:15px;
+        font-size:12px;
+    }
+
+
+    /* MODAL HP */
+
     .modal{
-        padding:10px;
+        padding:8px;
+    }
+
+    .modal-content{
+        width:100%;
+        max-width:100%;
+        max-height:90vh;
+    }
+
+    .modal-content img,
+    .modal-content video{
+        width:100%;
+        max-width:100%;
+        max-height:85vh;
+        border-radius:6px;
     }
 
     .modal-close{
-        top:15px;
-        right:15px;
-    }
-
-    /* KONTAK MOBILE */
-
-    .whatsapp-contact{
-        right:16px;
-        bottom:16px;
-    }
-
-    .contact-toggle{
-        width:56px;
-        height:56px;
+        top:12px;
+        right:12px;
+        width:42px;
+        height:42px;
         font-size:23px;
     }
 
+
+    /* KONTAK HP */
+
+    .whatsapp-contact{
+        right:14px;
+        bottom:14px;
+    }
+
+    .contact-toggle{
+        width:55px;
+        height:55px;
+        font-size:22px;
+    }
+
     .contact-box{
-        width:245px;
-        bottom:70px;
+        right:0;
+        bottom:67px;
+        width:calc(100vw - 30px);
+        max-width:280px;
+        padding:14px;
+        border-radius:16px;
+    }
+
+    .contact-title{
+        font-size:11px;
+        letter-spacing:1.5px;
+        margin-bottom:10px;
+    }
+
+    .contact-number{
+        padding:11px;
+        gap:9px;
+    }
+
+    .contact-icon{
+        width:32px;
+        height:32px;
+        font-size:16px;
+    }
+
+    .contact-number-text{
+        font-size:11px;
+    }
+
+
+    /* FOOTER HP */
+
+    footer{
+        padding:30px 15px 85px;
+        font-size:9px;
+        line-height:1.8;
+        letter-spacing:.8px;
+    }
+
+}
+
+
+/* =========================
+   HP SANGAT KECIL
+========================= */
+
+@media(max-width:380px){
+
+    .hero{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero-label{
+        font-size:8px;
+    }
+
+    .section{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .section-title{
+        font-size:33px;
+    }
+
+    .media-wrap{
+        min-height:210px;
+    }
+
+    .contact-box{
+        width:calc(100vw - 25px);
     }
 
 }
@@ -872,13 +1059,7 @@ footer{
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -888,10 +1069,6 @@ footer{
 
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
 
 <section class="hero">
 
@@ -916,10 +1093,6 @@ footer{
 </section>
 
 
-<!-- =========================
-     SEO INTRO
-========================= -->
-
 <section class="seo-intro">
 
     <h2>
@@ -940,10 +1113,6 @@ footer{
 
 </section>
 
-
-<!-- =========================
-     MEMORY SECTION
-========================= -->
 
 <section class="section">
 
@@ -1000,10 +1169,6 @@ footer{
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
     © 2026 PRAN MUSIC ENTAERTAINMENT
@@ -1018,10 +1183,6 @@ footer{
 
 </footer>
 
-
-<!-- =========================
-     MODAL MEDIA
-========================= -->
 
 <div id="modal" class="modal">
 
@@ -1041,26 +1202,16 @@ footer{
 </div>
 
 
-<!-- =========================
-     KONTAK WHATSAPP
-========================= -->
-
 <div
     class="whatsapp-contact"
     id="whatsappContact"
 >
-
-
-    <!-- BOX NOMOR -->
 
     <div class="contact-box">
 
         <div class="contact-title">
             HUBUNGI KAMI
         </div>
-
-
-        <!-- NOMOR 1 -->
 
         <a
             class="contact-number"
@@ -1087,8 +1238,6 @@ footer{
 
         </a>
 
-
-        <!-- NOMOR 2 -->
 
         <a
             class="contact-number"
@@ -1118,8 +1267,6 @@ footer{
     </div>
 
 
-    <!-- GELEMBUNG -->
-
     <button
         class="contact-toggle"
         id="contactToggle"
@@ -1133,10 +1280,6 @@ footer{
 
 
 <script>
-
-/* =========================
-   ELEMENTS
-========================= */
 
 const memoryGrid =
     document.getElementById("memoryGrid");
@@ -1156,10 +1299,6 @@ const modalContent =
 const modalClose =
     document.getElementById("modalClose");
 
-
-/* =========================
-   ESCAPE HTML
-========================= */
 
 function escapeHtml(value){
 
@@ -1182,10 +1321,6 @@ function escapeHtml(value){
 
 }
 
-
-/* =========================
-   FORMAT DATE
-========================= */
 
 function formatDate(date){
 
@@ -1215,10 +1350,6 @@ function formatDate(date){
 
 }
 
-
-/* =========================
-   CREATE CARD
-========================= */
 
 function createMemoryCard(item){
 
@@ -1388,10 +1519,6 @@ function createMemoryCard(item){
 }
 
 
-/* =========================
-   OPEN MODAL
-========================= */
-
 function openModal(url,type,title){
 
     modalContent.innerHTML = "";
@@ -1434,10 +1561,6 @@ function openModal(url,type,title){
 }
 
 
-/* =========================
-   CLOSE MODAL
-========================= */
-
 function closeModal(){
 
     modal.classList.remove("active");
@@ -1448,10 +1571,6 @@ function closeModal(){
 
 }
 
-
-/* =========================
-   MODAL EVENTS
-========================= */
 
 modalClose.addEventListener(
     "click",
@@ -1486,10 +1605,6 @@ document.addEventListener(
     }
 );
 
-
-/* =========================
-   CARD CLICK
-========================= */
 
 memoryGrid.addEventListener(
     "click",
@@ -1557,10 +1672,6 @@ memoryGrid.addEventListener(
     }
 );
 
-
-/* =========================
-   LOAD MEMORIES
-========================= */
 
 async function loadMemories(){
 
@@ -1683,10 +1794,6 @@ async function loadMemories(){
 }
 
 
-/* =========================
-   WHATSAPP CONTACT
-========================= */
-
 const whatsappContact =
     document.getElementById(
         "whatsappContact"
@@ -1697,8 +1804,6 @@ const contactToggle =
         "contactToggle"
     );
 
-
-/* BUKA / TUTUP */
 
 contactToggle.addEventListener(
     "click",
@@ -1713,8 +1818,6 @@ contactToggle.addEventListener(
     }
 );
 
-
-/* KLIK DI LUAR → TUTUP */
 
 document.addEventListener(
     "click",
@@ -1735,10 +1838,6 @@ document.addEventListener(
     }
 );
 
-
-/* =========================
-   START
-========================= */
 
 document.addEventListener(
     "DOMContentLoaded",
