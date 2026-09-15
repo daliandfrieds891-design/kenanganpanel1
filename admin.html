@@ -1105,19 +1105,35 @@ const ALLOWED_USERNAMES = [
 
 
 /*
-    HANYA daligroupmaster YANG BOLEH
-    EDIT DAN HAPUS
+    HAK AKSES POSTINGAN
+
+    daligroupmaster         = EDIT + HAPUS
+    pranmusicentertaiment   = EDIT SAJA
 */
 
-const CAN_MANAGE_POSTS =
-    "daligroupmaster";
+const CAN_EDIT_POSTS = [
+    "daligroupmaster",
+    "pranmusicentertaiment"
+];
+
+const CAN_DELETE_POSTS = [
+    "daligroupmaster"
+];
 
 
-function canManagePosts(){
+function canEditPosts(){
 
-    return (
-        currentUsername ===
-        CAN_MANAGE_POSTS
+    return CAN_EDIT_POSTS.includes(
+        currentUsername
+    );
+
+}
+
+
+function canDeletePosts(){
+
+    return CAN_DELETE_POSTS.includes(
+        currentUsername
     );
 
 }
@@ -2247,19 +2263,22 @@ async function loadHistory(){
 
 
                 /*
-                    PENTING:
-                    HANYA DALIGROUP
-                    YANG MELIHAT
-                    TOMBOL EDIT & HAPUS
+                    HAK AKSES TOMBOL
                 */
 
                 if(
-                    canManagePosts()
+                    canEditPosts()
                 ){
 
                     content.appendChild(
                         editButton
                     );
+
+                }
+
+                if(
+                    canDeletePosts()
+                ){
 
                     content.appendChild(
                         deleteButton
@@ -2308,7 +2327,7 @@ async function loadHistory(){
 
 function openEditMemory(item){
 
-    if(!canManagePosts()){
+    if(!canEditPosts()){
 
         alert(
             "Anda tidak memiliki izin untuk mengedit postingan."
@@ -2424,7 +2443,7 @@ saveEditBtn.addEventListener(
     "click",
     async function(){
 
-        if(!canManagePosts()){
+        if(!canEditPosts()){
 
             alert(
                 "Anda tidak memiliki izin untuk mengedit postingan."
@@ -2543,7 +2562,7 @@ saveEditBtn.addEventListener(
 
 async function deleteMemory(id){
 
-    if(!canManagePosts()){
+    if(!canDeletePosts()){
 
         showStatus(
             "error",
