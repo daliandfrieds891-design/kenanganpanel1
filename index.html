@@ -12,7 +12,6 @@
 <meta name="description"
       content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
 
-
 <!-- =========================
      SUPABASE
 ========================= -->
@@ -65,47 +64,33 @@ body{
 ========================= */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     z-index:-3;
 
     background:
-
         radial-gradient(
             circle at 20% 20%,
             rgba(212,175,55,.10),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 80% 70%,
             rgba(212,175,55,.07),
             transparent 35%
         ),
-
         #050505;
 }
 
-
 body::after{
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     z-index:-2;
-
     pointer-events:none;
 
     background:
-
         linear-gradient(
             115deg,
             transparent 0%,
@@ -120,9 +105,7 @@ body::after{
 ========================= */
 
 header{
-
     position:fixed;
-
     top:0;
     left:0;
 
@@ -132,9 +115,7 @@ header{
     z-index:1000;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding:0 7%;
@@ -142,7 +123,6 @@ header{
     background:rgba(5,5,5,.72);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
     border-bottom:
@@ -151,21 +131,16 @@ header{
 
 
 .logo{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
 
     text-decoration:none;
-
     color:#fff;
 }
 
 
 .logo-mark{
-
     width:42px;
     height:42px;
 
@@ -175,43 +150,34 @@ header{
     border-radius:50%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     color:#d4af37;
 
     font-size:19px;
-
     font-weight:bold;
 
     box-shadow:
-
         0 0 20px rgba(212,175,55,.10),
-
         inset 0 0 15px rgba(212,175,55,.06);
 }
 
 
 .logo-text{
-
     line-height:1.05;
 }
 
 
 .logo-text strong{
-
     display:block;
 
     font-size:15px;
-
     letter-spacing:3px;
 }
 
 
 .logo-text span{
-
     display:block;
 
     margin-top:4px;
@@ -219,7 +185,6 @@ header{
     color:#d4af37;
 
     font-size:9px;
-
     letter-spacing:4px;
 }
 
@@ -229,17 +194,13 @@ header{
 ========================= */
 
 nav{
-
     display:flex;
-
     align-items:center;
-
     gap:30px;
 }
 
 
 nav a{
-
     position:relative;
 
     color:#bbb;
@@ -247,7 +208,6 @@ nav a{
     text-decoration:none;
 
     font-size:11px;
-
     letter-spacing:2px;
 
     transition:.3s;
@@ -255,17 +215,14 @@ nav a{
 
 
 nav a::after{
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     bottom:-8px;
 
     width:0;
-
     height:1px;
 
     background:#d4af37;
@@ -275,13 +232,11 @@ nav a::after{
 
 
 nav a:hover{
-
     color:#fff;
 }
 
 
 nav a:hover::after{
-
     width:100%;
 }
 
@@ -291,7 +246,6 @@ nav a:hover::after{
 ========================= */
 
 .hero{
-
     min-height:100vh;
 
     padding:
@@ -300,9 +254,7 @@ nav a:hover::after{
         100px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
@@ -312,7 +264,6 @@ nav a:hover::after{
 
 
 .hero-content{
-
     max-width:900px;
 
     animation:
@@ -321,7 +272,6 @@ nav a:hover::after{
 
 
 .hero-label{
-
     display:inline-block;
 
     margin-bottom:25px;
@@ -329,7 +279,6 @@ nav a:hover::after{
     color:#d4af37;
 
     font-size:11px;
-
     letter-spacing:6px;
 
     text-transform:uppercase;
@@ -337,7 +286,6 @@ nav a:hover::after{
 
 
 .hero h1{
-
     font-size:
         clamp(
             42px,
@@ -354,7 +302,6 @@ nav a:hover::after{
 
 
 .hero h1 span{
-
     display:block;
 
     color:#d4af37;
@@ -364,7 +311,6 @@ nav a:hover::after{
 
 
 .hero p{
-
     max-width:680px;
 
     margin:32px auto 0;
@@ -378,9 +324,7 @@ nav a:hover::after{
 
 
 .hero-line{
-
     width:70px;
-
     height:1px;
 
     background:#d4af37;
@@ -390,11 +334,9 @@ nav a:hover::after{
 
 
 .hero-button{
-
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     padding:
@@ -409,7 +351,6 @@ nav a:hover::after{
     text-decoration:none;
 
     font-size:10px;
-
     letter-spacing:3px;
 
     transition:.3s;
@@ -417,7 +358,6 @@ nav a:hover::after{
 
 
 .hero-button:hover{
-
     background:#d4af37;
 
     color:#050505;
@@ -433,7 +373,6 @@ nav a:hover::after{
 ========================= */
 
 section{
-
     padding:
         110px
         7%;
@@ -441,7 +380,6 @@ section{
 
 
 .section-label{
-
     color:#d4af37;
 
     font-size:10px;
@@ -455,7 +393,6 @@ section{
 
 
 .section-title{
-
     font-size:
         clamp(
             30px,
@@ -470,7 +407,6 @@ section{
 
 
 .section-desc{
-
     max-width:650px;
 
     color:#999;
@@ -486,20 +422,17 @@ section{
 ========================= */
 
 .about{
-
     border-top:
         1px solid rgba(255,255,255,.05);
 }
 
 
 .about-header{
-
     margin-bottom:55px;
 }
 
 
 .about-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -510,7 +443,6 @@ section{
 
 
 .about-card{
-
     min-height:240px;
 
     padding:30px;
@@ -530,17 +462,14 @@ section{
 
 
 .about-card::before{
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     top:0;
 
     width:2px;
-
     height:0;
 
     background:#d4af37;
@@ -550,7 +479,6 @@ section{
 
 
 .about-card:hover{
-
     transform:
         translateY(-7px);
 
@@ -563,13 +491,11 @@ section{
 
 
 .about-card:hover::before{
-
     height:100%;
 }
 
 
 .about-number{
-
     color:#d4af37;
 
     font-size:12px;
@@ -581,7 +507,6 @@ section{
 
 
 .about-card h3{
-
     font-size:20px;
 
     letter-spacing:1px;
@@ -591,7 +516,6 @@ section{
 
 
 .about-card p{
-
     color:#888;
 
     font-size:13px;
@@ -605,7 +529,6 @@ section{
 ========================= */
 
 .quote{
-
     text-align:center;
 
     border-top:
@@ -615,13 +538,11 @@ section{
         1px solid rgba(255,255,255,.05);
 
     padding-top:130px;
-
     padding-bottom:130px;
 }
 
 
 .quote-mark{
-
     color:#d4af37;
 
     font-size:45px;
@@ -633,7 +554,6 @@ section{
 
 
 .quote-text{
-
     max-width:850px;
 
     margin:auto;
@@ -652,13 +572,11 @@ section{
 
 
 .quote-text span{
-
     color:#d4af37;
 }
 
 
 .quote-small{
-
     margin-top:30px;
 
     color:#666;
@@ -674,13 +592,11 @@ section{
 ========================= */
 
 .posts{
-
     min-height:500px;
 }
 
 
 .posts-header{
-
     display:flex;
 
     justify-content:space-between;
@@ -694,7 +610,6 @@ section{
 
 
 .posts-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -709,7 +624,6 @@ section{
 ========================= */
 
 .post-card{
-
     background:#0b0b0b;
 
     border:
@@ -722,7 +636,6 @@ section{
 
 
 .post-card:hover{
-
     transform:
         translateY(-6px);
 
@@ -736,7 +649,6 @@ section{
 ========================= */
 
 .post-media{
-
     width:100%;
 
     aspect-ratio:16/10;
@@ -751,9 +663,7 @@ section{
 
 .post-media img,
 .post-media video{
-
     width:100%;
-
     height:100%;
 
     display:block;
@@ -762,10 +672,11 @@ section{
 }
 
 
-/* FOTO CLICK */
+/* =========================
+   FOTO
+========================= */
 
 .post-media img{
-
     cursor:zoom-in;
 
     transition:
@@ -775,18 +686,50 @@ section{
 
 
 .post-media img:hover{
-
     transform:scale(1.04);
 
     opacity:.9;
 }
 
 
-/* VIDEO CLICK */
+/* =========================
+   VIDEO
+========================= */
 
 .post-media video{
-
     cursor:pointer;
+}
+
+
+/* =========================
+   MEDIA HINT
+========================= */
+
+.media-hint{
+    position:absolute;
+
+    right:12px;
+    bottom:12px;
+
+    padding:
+        7px
+        10px;
+
+    background:
+        rgba(0,0,0,.72);
+
+    border:
+        1px solid rgba(212,175,55,.30);
+
+    color:#d4af37;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    pointer-events:none;
+
+    opacity:.9;
 }
 
 
@@ -795,13 +738,11 @@ section{
 ========================= */
 
 .post-content{
-
     padding:27px;
 }
 
 
 .post-type{
-
     color:#d4af37;
 
     font-size:9px;
@@ -815,7 +756,6 @@ section{
 
 
 .post-content h3{
-
     font-size:20px;
 
     line-height:1.35;
@@ -825,7 +765,6 @@ section{
 
 
 .post-content p{
-
     color:#888;
 
     font-size:13px;
@@ -841,7 +780,6 @@ section{
 ========================= */
 
 .empty-post{
-
     grid-column:1/-1;
 
     min-height:300px;
@@ -866,7 +804,6 @@ section{
 
 
 .empty-icon{
-
     color:#d4af37;
 
     font-size:38px;
@@ -876,7 +813,6 @@ section{
 
 
 .empty-post h3{
-
     color:#ddd;
 
     font-size:15px;
@@ -888,7 +824,6 @@ section{
 
 
 .empty-post p{
-
     max-width:500px;
 
     margin-top:15px;
@@ -906,7 +841,6 @@ section{
 ========================= */
 
 .loading-post{
-
     grid-column:1/-1;
 
     min-height:250px;
@@ -926,7 +860,6 @@ section{
 
 
 .loading-dot{
-
     margin-left:8px;
 
     color:#d4af37;
@@ -938,7 +871,6 @@ section{
 ========================= */
 
 .media-viewer{
-
     position:fixed;
 
     inset:0;
@@ -954,78 +886,83 @@ section{
     padding:30px;
 
     background:
-        rgba(0,0,0,.94);
+        rgba(0,0,0,.95);
 
     backdrop-filter:
-        blur(10px);
+        blur(12px);
 
     -webkit-backdrop-filter:
-        blur(10px);
+        blur(12px);
 }
 
 
 .media-viewer.active{
-
     display:flex;
 }
 
 
-.media-viewer img{
+.media-viewer-content{
+    width:100%;
 
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+.media-viewer img{
     max-width:95vw;
 
-    max-height:90vh;
+    max-height:88vh;
 
     width:auto;
-
     height:auto;
 
     object-fit:contain;
 
     border:
         1px solid
-        rgba(212,175,55,.25);
+        rgba(212,175,55,.30);
 
     box-shadow:
         0 20px 80px
-        rgba(0,0,0,.8);
+        rgba(0,0,0,.85);
 
-    cursor:default;
+    user-select:none;
 }
 
 
 .media-viewer video{
-
     max-width:95vw;
 
     max-height:88vh;
 
     width:auto;
-
     height:auto;
 
     background:#000;
 
     border:
         1px solid
-        rgba(212,175,55,.25);
+        rgba(212,175,55,.30);
 
     box-shadow:
         0 20px 80px
-        rgba(0,0,0,.8);
+        rgba(0,0,0,.85);
 }
 
 
 .media-close{
-
     position:absolute;
 
     top:20px;
-
     right:25px;
 
     width:48px;
-
     height:48px;
 
     border:
@@ -1033,7 +970,7 @@ section{
         rgba(212,175,55,.45);
 
     background:
-        rgba(5,5,5,.8);
+        rgba(5,5,5,.85);
 
     color:#d4af37;
 
@@ -1046,7 +983,6 @@ section{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     transition:.3s;
@@ -1056,7 +992,6 @@ section{
 
 
 .media-close:hover{
-
     background:#d4af37;
 
     color:#050505;
@@ -1064,11 +999,9 @@ section{
 
 
 .media-title{
-
     position:absolute;
 
     left:30px;
-
     bottom:22px;
 
     color:#aaa;
@@ -1088,11 +1021,65 @@ section{
 
 
 /* =========================
+   CONTACT
+========================= */
+
+.footer-contact{
+    text-align:right;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:20px;
+}
+
+
+.contact-item{
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:7px;
+}
+
+
+.contact-label{
+    color:#d4af37;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+
+.contact-item a{
+    color:#aaa;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+
+.contact-item a:hover{
+    color:#d4af37;
+}
+
+
+/* =========================
    FOOTER
 ========================= */
 
 footer{
-
     padding:
         65px
         7%
@@ -1104,7 +1091,6 @@ footer{
 
 
 .footer-top{
-
     display:flex;
 
     justify-content:space-between;
@@ -1118,13 +1104,11 @@ footer{
 
 
 .footer-brand{
-
-    max-width:400px;
+    max-width:500px;
 }
 
 
 .footer-brand h3{
-
     font-size:18px;
 
     letter-spacing:3px;
@@ -1132,7 +1116,6 @@ footer{
 
 
 .footer-brand span{
-
     display:block;
 
     margin-top:8px;
@@ -1146,7 +1129,6 @@ footer{
 
 
 .footer-brand p{
-
     margin-top:20px;
 
     color:#666;
@@ -1157,30 +1139,7 @@ footer{
 }
 
 
-.footer-contact{
-
-    text-align:right;
-}
-
-
-.footer-contact a{
-
-    color:#aaa;
-
-    text-decoration:none;
-
-    font-size:12px;
-}
-
-
-.footer-contact a:hover{
-
-    color:#d4af37;
-}
-
-
 .footer-bottom{
-
     border-top:
         1px solid rgba(255,255,255,.06);
 
@@ -1203,15 +1162,12 @@ footer{
 ========================= */
 
 .whatsapp{
-
     position:fixed;
 
     right:25px;
-
     bottom:25px;
 
     width:55px;
-
     height:55px;
 
     border-radius:50%;
@@ -1219,7 +1175,6 @@ footer{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     background:#d4af37;
@@ -1243,7 +1198,6 @@ footer{
 
 
 .whatsapp:hover{
-
     transform:scale(1.08);
 }
 
@@ -1255,7 +1209,6 @@ footer{
 @keyframes fadeUp{
 
     from{
-
         opacity:0;
 
         transform:
@@ -1263,7 +1216,6 @@ footer{
     }
 
     to{
-
         opacity:1;
 
         transform:
@@ -1280,19 +1232,16 @@ footer{
 @media(max-width:900px){
 
     header{
-
         padding:0 5%;
     }
 
 
     nav{
-
         gap:15px;
     }
 
 
     nav a{
-
         font-size:9px;
 
         letter-spacing:1px;
@@ -1300,7 +1249,6 @@ footer{
 
 
     section{
-
         padding:
             85px
             5%;
@@ -1308,14 +1256,12 @@ footer{
 
 
     .about-grid{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
 
     .posts-grid{
-
         grid-template-columns:
             repeat(2,1fr);
     }
@@ -1326,15 +1272,12 @@ footer{
 @media(max-width:650px){
 
     header{
-
         height:65px;
     }
 
 
     .logo-mark{
-
         width:36px;
-
         height:36px;
 
         font-size:16px;
@@ -1342,7 +1285,6 @@ footer{
 
 
     .logo-text strong{
-
         font-size:12px;
 
         letter-spacing:2px;
@@ -1350,7 +1292,6 @@ footer{
 
 
     .logo-text span{
-
         font-size:7px;
 
         letter-spacing:3px;
@@ -1358,13 +1299,11 @@ footer{
 
 
     nav{
-
         display:none;
     }
 
 
     .hero{
-
         min-height:100vh;
 
         padding:
@@ -1375,7 +1314,6 @@ footer{
 
 
     .hero h1{
-
         font-size:45px;
 
         letter-spacing:-2px;
@@ -1383,57 +1321,55 @@ footer{
 
 
     .hero p{
-
         font-size:13px;
     }
 
 
     .about-grid{
-
         grid-template-columns:1fr;
     }
 
 
     .about-card{
-
         min-height:210px;
     }
 
 
     .posts-header{
-
         display:block;
     }
 
 
     .posts-grid{
-
         grid-template-columns:1fr;
     }
 
 
     .post-card{
-
         width:100%;
     }
 
 
     .footer-top{
-
         display:block;
     }
 
 
     .footer-contact{
-
-        margin-top:30px;
+        margin-top:35px;
 
         text-align:left;
+
+        align-items:flex-start;
+    }
+
+
+    .contact-item{
+        align-items:flex-start;
     }
 
 
     .footer-bottom{
-
         display:block;
 
         line-height:1.8;
@@ -1441,55 +1377,42 @@ footer{
 
 
     .whatsapp{
-
         width:50px;
-
         height:50px;
 
         right:18px;
-
         bottom:18px;
     }
 
 
     .media-viewer{
-
         padding:15px;
     }
 
 
     .media-viewer img{
-
         max-width:96vw;
-
         max-height:82vh;
     }
 
 
     .media-viewer video{
-
         max-width:96vw;
-
         max-height:82vh;
     }
 
 
     .media-close{
-
         top:12px;
-
         right:12px;
 
         width:44px;
-
         height:44px;
     }
 
 
     .media-title{
-
         left:15px;
-
         bottom:12px;
 
         max-width:80%;
@@ -1572,9 +1495,7 @@ footer{
     <div class="hero-content">
 
         <div class="hero-label">
-
             PRAN MUSIC ENTERTAINMENT
-
         </div>
 
 
@@ -1627,9 +1548,7 @@ footer{
     <div class="about-header">
 
         <div class="section-label">
-
             TENTANG KAMI
-
         </div>
 
 
@@ -1766,9 +1685,7 @@ footer{
 
 
     <div class="quote-small">
-
         PRAN MUSIC ENTERTAINMENT
-
     </div>
 
 </section>
@@ -1789,16 +1706,12 @@ footer{
         <div>
 
             <div class="section-label">
-
                 POSTING TERBARU
-
             </div>
 
 
             <h2 class="section-title">
-
                 Cerita Terbaru
-
             </h2>
 
 
@@ -1857,6 +1770,7 @@ footer{
 
 
     <div
+        class="media-viewer-content"
         id="mediaViewerContent"
     ></div>
 
@@ -1893,34 +1807,71 @@ footer{
 
             <p>
 
-               Jl. Makmur Pasar 7 tembung ,Gang Anggrek 18
-               , Sena, Kec.
-                Batang Kuis,
-            Kabupaten Deli Serdang, 
-                Sumatera Utara 20371, Indonesia
+                Jl. Makmur Pasar 7 Tembung,
+                Gang Anggrek 18, Sena,
+                Kec. Batang Kuis,
+                Kabupaten Deli Serdang,
+                Sumatera Utara 20371,
+                Indonesia
 
             </p>
 
         </div>
 
 
+
+        <!-- =====================
+             2 KONTAK
+        ====================== -->
+
         <div class="footer-contact">
 
-            <a
-                href="https://wa.me/+62881024746780"
-                target="_blank"
-                rel="noopener"
-            >
 
-                WhatsApp :
-                +62 881-0247-46780
+            <div class="contact-item">
 
-            </a>
+                <div class="contact-label">
+                    PRAN MUSIC ENTERTAINMENT
+                </div>
+
+                <a
+                    href="https://wa.me/62881024746780"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    WhatsApp :
+                    +62 881-0247-46780
+
+                </a>
+
+            </div>
+
+
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    PRAN MUSIC ENTERTAINMENT
+                </div>
+
+                <a
+                    href="https://wa.me/6281260175243"
+                    target="_blank"
+                    rel="noopener"
+                >
+
+                    WhatsApp :
+                    +62 812-6017-5243
+
+                </a>
+
+            </div>
+
 
         </div>
 
-
     </div>
+
 
 
     <div class="footer-bottom">
@@ -1945,12 +1896,12 @@ footer{
 
 
 <!-- =========================
-     WHATSAPP
+     FLOATING WHATSAPP
 ========================= -->
 
 <a
     class="whatsapp"
-    href="https://wa.me/628881024746780"
+    href="https://wa.me/62881024746780"
     target="_blank"
     rel="noopener"
     aria-label="WhatsApp"
@@ -1982,9 +1933,7 @@ async function loadPosts(){
 
 
     if(!postsGrid){
-
         return;
-
     }
 
 
@@ -1995,14 +1944,14 @@ async function loadPosts(){
             error
         } =
             await supabaseClient
-            .from("posts")
-            .select("*")
-            .order(
-                "created_at",
-                {
-                    ascending:false
-                }
-            );
+                .from("posts")
+                .select("*")
+                .order(
+                    "created_at",
+                    {
+                        ascending:false
+                    }
+                );
 
 
         if(error){
@@ -2034,7 +1983,6 @@ async function loadPosts(){
             `;
 
             return;
-
         }
 
 
@@ -2067,7 +2015,6 @@ async function loadPosts(){
             `;
 
             return;
-
         }
 
 
@@ -2132,6 +2079,10 @@ async function loadPosts(){
                             )"
                         >
 
+                        <div class="media-hint">
+                            KLIK UNTUK MEMPERBESAR
+                        </div>
+
                     </div>
 
                 `;
@@ -2174,6 +2125,11 @@ async function loadPosts(){
                             Browser tidak mendukung video.
 
                         </video>
+
+
+                        <div class="media-hint">
+                            KLIK VIDEO UNTUK BESAR
+                        </div>
 
                     </div>
 
@@ -2301,6 +2257,10 @@ function openMedia(
     content.innerHTML = "";
 
 
+    /* =====================
+       IMAGE
+    ===================== */
+
     if(type === "image"){
 
         const img =
@@ -2311,7 +2271,9 @@ function openMedia(
 
         img.src = url;
 
-        img.alt = title || "Foto";
+        img.alt =
+            title ||
+            "Foto";
 
 
         content.appendChild(
@@ -2320,6 +2282,10 @@ function openMedia(
 
     }
 
+
+    /* =====================
+       VIDEO
+    ===================== */
 
     if(type === "video"){
 
@@ -2335,7 +2301,8 @@ function openMedia(
 
         video.playsInline = true;
 
-        video.preload = "metadata";
+        video.preload =
+            "metadata";
 
         video.src = url;
 
@@ -2344,11 +2311,35 @@ function openMedia(
             video
         );
 
+
+        const playPromise =
+            video.play();
+
+
+        if(
+            playPromise &&
+            typeof playPromise.catch === "function"
+        ){
+
+            playPromise.catch(
+                function(error){
+
+                    console.log(
+                        "Autoplay diblokir browser:",
+                        error
+                    );
+
+                }
+            );
+
+        }
+
     }
 
 
     viewerTitle.textContent =
-        title || "";
+        title ||
+        "";
 
 
     viewer.classList.add(
@@ -2382,9 +2373,7 @@ function closeMedia(){
 
 
     if(!viewer){
-
         return;
-
     }
 
 
@@ -2444,7 +2433,7 @@ document
 
 
 /* =========================
-   CLICK BACKGROUND
+   BACKGROUND CLICK
 ========================= */
 
 document
@@ -2476,7 +2465,8 @@ document.addEventListener(
     function(event){
 
         if(
-            event.key === "Escape"
+            event.key ===
+            "Escape"
         ){
 
             closeMedia();
