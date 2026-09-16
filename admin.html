@@ -7,23 +7,21 @@
 
 <title>Admin | PRAN MUSIC ENTERTAINMENT</title>
 
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 const SUPABASE_URL =
-    "https://uigwpcjhzbqfmwhvolbu.supabase.co";
+"https://uigwpcjhzbqfmwhvolbu.supabase.co";
 
 const SUPABASE_KEY =
-    "sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
+"sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
 
 const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 </script>
-
 
 <style>
 
@@ -31,10 +29,6 @@ const supabaseClient =
     box-sizing:border-box;
     margin:0;
     padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
@@ -48,10 +42,15 @@ body{
     min-height:100vh;
 }
 
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
 
-/* =========================
-   LOGIN
-========================= */
+
+/* LOGIN */
 
 #loginPage{
     min-height:100vh;
@@ -97,7 +96,12 @@ body{
     width:70px;
     height:2px;
     margin:22px auto;
-    background:linear-gradient(90deg,transparent,#e5b85c,transparent);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #e5b85c,
+        transparent
+    );
 }
 
 .login-title{
@@ -132,7 +136,6 @@ body{
 
 .input-group input:focus{
     border-color:#cda855;
-    box-shadow:0 0 0 2px rgba(205,168,85,.08);
 }
 
 .login-button{
@@ -141,17 +144,16 @@ body{
     border-radius:11px;
     padding:15px;
     margin-top:7px;
-    background:linear-gradient(135deg,#d5a844,#f0ce7b,#b8872f);
+    background:linear-gradient(
+        135deg,
+        #d5a844,
+        #f0ce7b,
+        #b8872f
+    );
     color:#090909;
     font-weight:800;
     letter-spacing:2px;
     cursor:pointer;
-    transition:.25s;
-}
-
-.login-button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(210,165,65,.25);
 }
 
 .login-error{
@@ -162,9 +164,7 @@ body{
 }
 
 
-/* =========================
-   ADMIN
-========================= */
+/* ADMIN */
 
 #adminPage{
     display:none;
@@ -203,7 +203,6 @@ body{
     color:#e7bd62;
     font-weight:900;
     font-size:13px;
-    letter-spacing:1px;
 }
 
 .brand-main{
@@ -243,14 +242,8 @@ body{
     cursor:pointer;
 }
 
-.logout-btn:hover{
-    background:#21190d;
-}
 
-
-/* =========================
-   CONTAINER
-========================= */
+/* CONTAINER */
 
 .admin-container{
     width:min(1250px,calc(100% - 40px));
@@ -266,20 +259,17 @@ body{
     padding:38px;
     margin-bottom:25px;
     background:
-        radial-gradient(circle at 85% 20%,rgba(207,163,63,.18),transparent 28%),
-        linear-gradient(135deg,#111 0%,#090909 60%,#12100b 100%);
-}
-
-.dashboard-hero:after{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    right:-100px;
-    top:-120px;
-    border-radius:50%;
-    border:1px solid rgba(220,181,91,.16);
-    box-shadow:0 0 80px rgba(220,181,91,.07);
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(207,163,63,.18),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #111 0%,
+            #090909 60%,
+            #12100b 100%
+        );
 }
 
 .hero-small{
@@ -303,9 +293,7 @@ body{
 }
 
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
     display:grid;
@@ -353,9 +341,7 @@ body{
 }
 
 
-/* =========================
-   GRID
-========================= */
+/* GRID */
 
 .admin-grid{
     display:grid;
@@ -421,7 +407,8 @@ body{
     letter-spacing:1px;
 }
 
-.form-body{
+.form-body,
+.posts-body{
     padding:22px;
 }
 
@@ -454,12 +441,6 @@ body{
     min-height:130px;
     resize:vertical;
     line-height:1.6;
-}
-
-.field input[type="text"]:focus,
-.field textarea:focus,
-.field select:focus{
-    border-color:#b89144;
 }
 
 .upload-box{
@@ -517,23 +498,21 @@ body{
     border:0;
     border-radius:11px;
     padding:14px;
-    background:linear-gradient(135deg,#c99c40,#f0cb72,#ae7e2a);
+    background:linear-gradient(
+        135deg,
+        #c99c40,
+        #f0cb72,
+        #ae7e2a
+    );
     color:#090909;
     font-weight:900;
     letter-spacing:1.5px;
     cursor:pointer;
-    transition:.25s;
-}
-
-.publish-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(205,163,68,.18);
 }
 
 .publish-btn:disabled{
-    opacity:.6;
+    opacity:.55;
     cursor:not-allowed;
-    transform:none;
 }
 
 .cancel-edit-btn{
@@ -546,10 +525,6 @@ body{
     background:#151515;
     color:#ccc;
     cursor:pointer;
-}
-
-.cancel-edit-btn:hover{
-    background:#1d1d1d;
 }
 
 .edit-mode{
@@ -565,13 +540,7 @@ body{
 }
 
 
-/* =========================
-   POSTS
-========================= */
-
-.posts-body{
-    padding:20px;
-}
+/* POSTS */
 
 .post-list{
     display:flex;
@@ -600,7 +569,6 @@ body{
 
 .post-type{
     display:inline-flex;
-    align-items:center;
     border:1px solid #4a3a1e;
     background:#151107;
     color:#d9b45d;
@@ -642,7 +610,6 @@ body{
     width:100%;
     max-height:430px;
     object-fit:contain;
-    cursor:pointer;
     background:#000;
 }
 
@@ -663,9 +630,7 @@ body{
 }
 
 
-/* =========================
-   UPLOADER
-========================= */
+/* UPLOADER */
 
 .uploader-info{
     margin-top:17px;
@@ -687,15 +652,11 @@ body{
     background:#171209;
     border:1px solid #4a3a1e;
     font-size:17px;
-    color:#dcb65f;
 }
 
 .uploader-icon.owner{
     border-color:#806020;
-    background:
-        radial-gradient(circle,#34250c,#171209);
-    box-shadow:
-        0 0 14px rgba(218,176,76,.12);
+    background:#34250c;
 }
 
 .uploader-text{
@@ -717,9 +678,7 @@ body{
 }
 
 
-/* =========================
-   ACTION
-========================= */
+/* ACTION */
 
 .post-actions{
     display:flex;
@@ -745,18 +704,10 @@ body{
     color:#dcb65f;
 }
 
-.edit-btn:hover{
-    background:#21190c;
-}
-
 .delete-btn{
     border:1px solid #4e2020;
     background:#160909;
     color:#e86b6b;
-}
-
-.delete-btn:hover{
-    background:#261010;
 }
 
 .empty-list{
@@ -777,9 +728,7 @@ body{
 }
 
 
-/* =========================
-   CURRENT USER
-========================= */
+/* USER */
 
 .current-user{
     margin-top:20px;
@@ -803,9 +752,7 @@ body{
 }
 
 
-/* =========================
-   STATUS
-========================= */
+/* STATUS */
 
 .status-box{
     display:none;
@@ -832,9 +779,7 @@ body{
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .admin-footer{
     text-align:center;
@@ -845,9 +790,7 @@ body{
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -887,7 +830,7 @@ body{
     }
 
     .admin-container{
-        width:min(100% - 24px,1250px);
+        width:calc(100% - 24px);
         padding-top:25px;
     }
 
@@ -961,13 +904,10 @@ body{
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<!-- LOGIN -->
 
 <section id="loginPage">
 
@@ -987,12 +927,9 @@ body{
             ADMIN PANEL
         </div>
 
-
         <div class="input-group">
 
-            <label>
-                USERNAME
-            </label>
+            <label>USERNAME</label>
 
             <input
                 type="text"
@@ -1003,23 +940,22 @@ body{
 
         </div>
 
-
         <div class="input-group">
 
-            <label>
-                PASSWORD
-            </label>
+            <label>PASSWORD</label>
 
             <input
                 type="password"
                 id="password"
                 placeholder="Masukkan password"
                 autocomplete="current-password"
-                onkeydown="if(event.key==='Enter') loginAdmin()"
+                onkeydown="
+                    if(event.key==='Enter')
+                    loginAdmin()
+                "
             >
 
         </div>
-
 
         <button
             class="login-button"
@@ -1027,7 +963,6 @@ body{
         >
             LOGIN
         </button>
-
 
         <div
             class="login-error"
@@ -1040,466 +975,413 @@ body{
 
 
 
-<!-- =====================================================
-     ADMIN PAGE
-===================================================== -->
+<!-- ADMIN -->
 
 <section id="adminPage">
 
 
-    <!-- HEADER -->
+<header class="admin-header">
 
-    <header class="admin-header">
+    <div class="brand">
 
-        <div class="brand">
+        <div class="brand-mark">
+            PM
+        </div>
 
-            <div class="brand-mark">
-                PM
+        <div>
+
+            <div class="brand-main">
+                PRAN MUSIC
+            </div>
+
+            <div class="brand-sub">
+                ENTERTAINMENT • ADMIN
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+        <div
+            class="header-user"
+            id="headerUser"
+        ></div>
+
+        <button
+            class="logout-btn"
+            onclick="logoutAdmin()"
+        >
+            KELUAR
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="admin-container">
+
+
+<section class="dashboard-hero">
+
+    <div class="hero-small">
+        ADMIN DASHBOARD
+    </div>
+
+    <h1>
+        Selamat datang,
+        <span id="welcomeUser"></span>
+    </h1>
+
+    <p class="hero-text">
+        Kelola postingan, cerita, foto, dan video
+        PRAN MUSIC ENTERTAINMENT dari satu tempat.
+    </p>
+
+</section>
+
+
+
+<section class="stats">
+
+
+    <div class="stat">
+
+        <div class="stat-top">
+
+            <div class="stat-label">
+                TOTAL POSTING
+            </div>
+
+            <div class="stat-icon">
+                ✦
+            </div>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="totalPosts"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-top">
+
+            <div class="stat-label">
+                MEDIA
+            </div>
+
+            <div class="stat-icon">
+                ◈
+            </div>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="totalMedia"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-top">
+
+            <div class="stat-label">
+                TULISAN
+            </div>
+
+            <div class="stat-icon">
+                Aa
+            </div>
+
+        </div>
+
+        <div
+            class="stat-number"
+            id="totalText"
+        >
+            0
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<section class="admin-grid">
+
+
+<!-- FORM -->
+
+<div class="panel">
+
+    <div class="panel-header">
+
+        <div class="panel-heading">
+
+            <div class="panel-heading-icon">
+                +
             </div>
 
             <div>
 
-                <div class="brand-main">
-                    PRAN MUSIC
+                <div
+                    class="panel-title"
+                    id="formTitle"
+                >
+                    Buat Posting
                 </div>
 
-                <div class="brand-sub">
-                    ENTERTAINMENT • ADMIN
+                <div class="panel-subtitle">
+                    Tambahkan karya terbaru
                 </div>
 
             </div>
 
         </div>
 
+        <div
+            class="panel-badge"
+            id="formBadge"
+        >
+            NEW
+        </div>
 
-        <div class="header-right">
+    </div>
+
+
+    <div class="form-body">
+
+
+        <div
+            class="edit-mode"
+            id="editMode"
+        >
+            MODE EDIT — Posting sedang diperbarui
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                JUDUL POSTING
+            </label>
+
+            <input
+                type="text"
+                id="postTitle"
+                placeholder="Contoh: Perjalanan Musik Kami"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                JENIS POSTING
+            </label>
+
+            <select id="postType">
+
+                <option value="Tulisan">
+                    Tulisan
+                </option>
+
+                <option value="Foto">
+                    Foto
+                </option>
+
+                <option value="Video">
+                    Video
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                CERITA / DESKRIPSI
+            </label>
+
+            <textarea
+                id="postDescription"
+                placeholder="Tulis cerita atau deskripsi posting..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                FOTO / VIDEO
+            </label>
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    ◉
+                </div>
+
+                <div class="upload-title">
+                    Pilih Media
+                </div>
+
+                <div class="upload-text">
+                    Foto → upload gambar<br>
+                    Video → upload video<br>
+                    Tulisan → tidak membutuhkan file
+                </div>
+
+                <input
+                    class="file-input"
+                    type="file"
+                    id="mediaFile"
+                    accept="image/*,video/*"
+                >
+
+                <div id="uploadPreview"></div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="publish-btn"
+            id="publishButton"
+            onclick="buatPosting()"
+        >
+            PUBLISH POSTING
+        </button>
+
+
+        <button
+            class="cancel-edit-btn"
+            id="cancelEditButton"
+            onclick="batalEdit()"
+        >
+            BATAL EDIT
+        </button>
+
+
+        <div
+            id="statusBox"
+            class="status-box"
+        ></div>
+
+
+        <div class="current-user">
+
+            <div class="current-user-label">
+                LOGIN SEBAGAI
+            </div>
 
             <div
-                class="header-user"
-                id="headerUser"
+                class="current-user-name"
+                id="currentAdmin"
             ></div>
-
-
-            <button
-                class="logout-btn"
-                onclick="logoutAdmin()"
-            >
-                KELUAR
-            </button>
 
         </div>
 
-    </header>
+
+    </div>
+
+</div>
 
 
 
-    <main class="admin-container">
+<!-- POSTS -->
 
+<div class="panel">
 
-        <!-- =================================================
-             HERO
-        ================================================== -->
+    <div class="panel-header">
 
-        <section class="dashboard-hero">
+        <div class="panel-heading">
 
-            <div class="hero-small">
-                ADMIN DASHBOARD
+            <div class="panel-heading-icon">
+                ≡
             </div>
 
-            <h1>
-                Selamat datang,
-                <span id="welcomeUser"></span>
-            </h1>
+            <div>
 
-            <p class="hero-text">
-                Kelola postingan, cerita, foto, dan video
-                PRAN MUSIC ENTERTAINMENT dari satu tempat.
-            </p>
-
-        </section>
-
-
-
-        <!-- =================================================
-             STATS
-        ================================================== -->
-
-        <section class="stats">
-
-
-            <div class="stat">
-
-                <div class="stat-top">
-
-                    <div class="stat-label">
-                        TOTAL POSTING
-                    </div>
-
-                    <div class="stat-icon">
-                        ✦
-                    </div>
-
+                <div class="panel-title">
+                    Daftar Posting
                 </div>
 
-                <div
-                    class="stat-number"
-                    id="totalPosts"
-                >
-                    0
+                <div class="panel-subtitle">
+                    Data dari Supabase
                 </div>
 
             </div>
 
+        </div>
+
+        <div class="panel-badge">
+            POST
+        </div>
+
+    </div>
 
 
-            <div class="stat">
+    <div class="posts-body">
 
-                <div class="stat-top">
+        <div
+            class="post-list"
+            id="postList"
+        >
 
-                    <div class="stat-label">
-                        MEDIA
-                    </div>
+            <div class="empty-list">
 
-                    <div class="stat-icon">
-                        ◈
-                    </div>
-
+                <div class="empty-icon">
+                    ◇
                 </div>
 
-                <div
-                    class="stat-number"
-                    id="totalMedia"
-                >
-                    0
-                </div>
+                <strong>
+                    Memuat posting...
+                </strong>
+
+                Mohon tunggu.
 
             </div>
 
+        </div>
 
+    </div>
 
-            <div class="stat">
+</div>
 
-                <div class="stat-top">
 
-                    <div class="stat-label">
-                        TULISAN
-                    </div>
+</section>
 
-                    <div class="stat-icon">
-                        Aa
-                    </div>
+</main>
 
-                </div>
 
-                <div
-                    class="stat-number"
-                    id="totalText"
-                >
-                    0
-                </div>
 
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =================================================
-             GRID
-        ================================================== -->
-
-        <section class="admin-grid">
-
-
-            <!-- =================================================
-                 FORM
-            ================================================== -->
-
-            <div class="panel">
-
-
-                <div class="panel-header">
-
-                    <div class="panel-heading">
-
-                        <div class="panel-heading-icon">
-                            +
-                        </div>
-
-                        <div>
-
-                            <div
-                                class="panel-title"
-                                id="formTitle"
-                            >
-                                Buat Posting
-                            </div>
-
-                            <div class="panel-subtitle">
-                                Tambahkan karya terbaru
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="panel-badge"
-                        id="formBadge"
-                    >
-                        NEW
-                    </div>
-
-                </div>
-
-
-
-                <div class="form-body">
-
-
-                    <div
-                        class="edit-mode"
-                        id="editMode"
-                    >
-                        MODE EDIT — Posting sedang diperbarui
-                    </div>
-
-
-
-                    <!-- TITLE -->
-
-                    <div class="field">
-
-                        <label>
-                            JUDUL POSTING
-                        </label>
-
-                        <input
-                            type="text"
-                            id="postTitle"
-                            placeholder="Contoh: Perjalanan Musik Kami"
-                        >
-
-                    </div>
-
-
-
-                    <!-- TYPE -->
-
-                    <div class="field">
-
-                        <label>
-                            JENIS POSTING
-                        </label>
-
-                        <select id="postType">
-
-                            <option value="Tulisan">
-                                Tulisan
-                            </option>
-
-                            <option value="Foto">
-                                Foto
-                            </option>
-
-                            <option value="Video">
-                                Video
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-
-                    <!-- DESCRIPTION -->
-
-                    <div class="field">
-
-                        <label>
-                            CERITA / DESKRIPSI
-                        </label>
-
-                        <textarea
-                            id="postDescription"
-                            placeholder="Tulis cerita atau deskripsi posting..."
-                        ></textarea>
-
-                    </div>
-
-
-
-                    <!-- MEDIA -->
-
-                    <div class="field">
-
-                        <label>
-                            FOTO / VIDEO
-                        </label>
-
-                        <div class="upload-box">
-
-                            <div class="upload-icon">
-                                ◉
-                            </div>
-
-                            <div class="upload-title">
-                                Pilih Media
-                            </div>
-
-                            <div class="upload-text">
-                                Untuk Foto pilih gambar.<br>
-                                Untuk Video pilih file video.<br>
-                                Tulisan tidak membutuhkan file.
-                            </div>
-
-                            <input
-                                class="file-input"
-                                type="file"
-                                id="mediaFile"
-                                accept="image/*,video/*"
-                            >
-
-                            <div id="uploadPreview"></div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- PUBLISH -->
-
-                    <button
-                        class="publish-btn"
-                        id="publishButton"
-                        onclick="buatPosting()"
-                    >
-                        PUBLISH POSTING
-                    </button>
-
-
-
-                    <!-- CANCEL -->
-
-                    <button
-                        class="cancel-edit-btn"
-                        id="cancelEditButton"
-                        onclick="batalEdit()"
-                    >
-                        BATAL EDIT
-                    </button>
-
-
-
-                    <!-- STATUS -->
-
-                    <div
-                        id="statusBox"
-                        class="status-box"
-                    ></div>
-
-
-
-                    <!-- USER -->
-
-                    <div class="current-user">
-
-                        <div class="current-user-label">
-                            LOGIN SEBAGAI
-                        </div>
-
-                        <div
-                            class="current-user-name"
-                            id="currentAdmin"
-                        ></div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 POST LIST
-            ================================================== -->
-
-            <div class="panel">
-
-
-                <div class="panel-header">
-
-                    <div class="panel-heading">
-
-                        <div class="panel-heading-icon">
-                            ≡
-                        </div>
-
-                        <div>
-
-                            <div class="panel-title">
-                                Daftar Posting
-                            </div>
-
-                            <div class="panel-subtitle">
-                                Data dari Supabase
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="panel-badge">
-                        POST
-                    </div>
-
-                </div>
-
-
-
-                <div class="posts-body">
-
-                    <div
-                        class="post-list"
-                        id="postList"
-                    >
-
-                        <div class="empty-list">
-
-                            <div class="empty-icon">
-                                ◇
-                            </div>
-
-                            <strong>
-                                Memuat posting...
-                            </strong>
-
-                            Mohon tunggu.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </section>
-
-    </main>
-
-
-
-    <footer class="admin-footer">
-        PRAN MUSIC ENTERTAINMENT • ADMIN PANEL
-    </footer>
+<footer class="admin-footer">
+    PRAN MUSIC ENTERTAINMENT • ADMIN PANEL
+</footer>
 
 
 </section>
@@ -1509,33 +1391,31 @@ body{
 <script>
 
 
-/* =====================================================
-   ADMIN ACCOUNTS
-===================================================== */
+/* =========================================
+   AKUN ADMIN
+========================================= */
 
 const ADMIN_ACCOUNTS = {
 
-    pranmusicentertainment:
-        "Aa222333$",
+    pranmusicentertainment:"Aa222333$",
 
-    daligroupmaster:
-        "Aa222333$"
+    daligroupmaster:"Aa222333$"
 
 };
 
 
-/* =====================================================
+/* =========================================
    DATA
-===================================================== */
+========================================= */
 
 let posts = [];
 
 let editingPostId = null;
 
 
-/* =====================================================
+/* =========================================
    LOGIN
-===================================================== */
+========================================= */
 
 function loginAdmin(){
 
@@ -1543,14 +1423,13 @@ function loginAdmin(){
         document
         .getElementById("username")
         .value
-        .trim();
-
+        .trim()
+        .toLowerCase();
 
     const password =
         document
         .getElementById("password")
         .value;
-
 
     const error =
         document
@@ -1567,9 +1446,7 @@ function loginAdmin(){
             username
         );
 
-
         error.textContent = "";
-
 
         showAdmin(username);
 
@@ -1583,9 +1460,9 @@ function loginAdmin(){
 }
 
 
-/* =====================================================
+/* =========================================
    SHOW ADMIN
-===================================================== */
+========================================= */
 
 async function showAdmin(username){
 
@@ -1593,35 +1470,30 @@ async function showAdmin(username){
         .getElementById("loginPage")
         .style.display = "none";
 
-
     document
         .getElementById("adminPage")
         .style.display = "block";
-
 
     document
         .getElementById("welcomeUser")
         .textContent = username;
 
-
     document
         .getElementById("currentAdmin")
         .textContent = username;
 
-
     document
         .getElementById("headerUser")
         .textContent = username;
-
 
     await loadPosts();
 
 }
 
 
-/* =====================================================
+/* =========================================
    LOGOUT
-===================================================== */
+========================================= */
 
 function logoutAdmin(){
 
@@ -1634,13 +1506,13 @@ function logoutAdmin(){
 }
 
 
-/* =====================================================
+/* =========================================
    STATUS
-===================================================== */
+========================================= */
 
 function showStatus(
     message,
-    type
+    type = "success"
 ){
 
     const box =
@@ -1648,9 +1520,8 @@ function showStatus(
             "statusBox"
         );
 
-
-    box.textContent = message;
-
+    box.textContent =
+        message;
 
     box.className =
         "status-box " +
@@ -1660,25 +1531,12 @@ function showStatus(
             : "status-success"
         );
 
-
-    setTimeout(
-        function(){
-
-            box.className =
-                "status-box";
-
-            box.textContent = "";
-
-        },
-        5000
-    );
-
 }
 
 
-/* =====================================================
-   LOAD POSTS FROM SUPABASE
-===================================================== */
+/* =========================================
+   LOAD POSTS
+========================================= */
 
 async function loadPosts(){
 
@@ -1707,74 +1565,24 @@ async function loadPosts(){
     `;
 
 
-    try{
-
-        const result =
-            await supabaseClient
-                .from("posts")
-                .select("*")
-                .order(
-                    "created_at",
-                    {
-                        ascending:false
-                    }
-                );
-
-
-        const data =
-            result.data;
-
-
-        const error =
-            result.error;
-
-
-        if(error){
-
-            console.error(
-                "Gagal mengambil posts:",
-                error
-            );
-
-
-            container.innerHTML = `
-
-                <div class="empty-list">
-
-                    <div class="empty-icon">
-                        ⚠
-                    </div>
-
-                    <strong>
-                        Gagal memuat posting
-                    </strong>
-
-                    ${escapeHTML(error.message)}
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        posts =
-            data || [];
-
-
-        renderPosts();
-
-        updateStats();
-
-    }catch(error){
-
-        console.error(
-            "Error loadPosts:",
-            error
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .from("posts")
+        .select("*")
+        .order(
+            "created_at",
+            {
+                ascending:false
+            }
         );
 
+
+    if(error){
+
+        console.error(error);
 
         container.innerHTML = `
 
@@ -1785,23 +1593,218 @@ async function loadPosts(){
                 </div>
 
                 <strong>
-                    Terjadi kesalahan
+                    Gagal memuat posting
                 </strong>
 
-                Tidak dapat mengambil data dari Supabase.
+                ${escapeHTML(error.message)}
 
             </div>
 
         `;
+
+        return;
+
+    }
+
+
+    posts =
+        data || [];
+
+
+    renderPosts();
+
+    updateStats();
+
+}
+
+
+/* =========================================
+   UPLOAD MEDIA
+========================================= */
+
+async function uploadMedia(file){
+
+    if(!file){
+
+        return {
+
+            url:"",
+            type:"",
+            name:"",
+            path:""
+
+        };
+
+    }
+
+
+    const extension =
+        file.name
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+
+    const safeName =
+        file.name
+        .replace(
+            /[^a-zA-Z0-9._-]/g,
+            "-"
+        );
+
+
+    const filePath =
+        "posts/" +
+        Date.now() +
+        "-" +
+        Math.random()
+            .toString(36)
+            .substring(2,10) +
+        "-" +
+        safeName;
+
+
+    showStatus(
+        "Sedang mengupload media...",
+        "success"
+    );
+
+
+    const {
+        error
+    } =
+        await supabaseClient
+        .storage
+        .from("post-media")
+        .upload(
+            filePath,
+            file,
+            {
+                cacheControl:"3600",
+                upsert:false,
+                contentType:file.type
+            }
+        );
+
+
+    if(error){
+
+        console.error(
+            "Storage upload error:",
+            error
+        );
+
+        throw error;
+
+    }
+
+
+    const {
+        data
+    } =
+        supabaseClient
+        .storage
+        .from("post-media")
+        .getPublicUrl(
+            filePath
+        );
+
+
+    if(!data || !data.publicUrl){
+
+        throw new Error(
+            "URL media tidak berhasil dibuat."
+        );
+
+    }
+
+
+    return {
+
+        url:
+            data.publicUrl,
+
+        type:
+            file.type,
+
+        name:
+            file.name,
+
+        path:
+            filePath
+
+    };
+
+}
+
+
+/* =========================================
+   DELETE MEDIA STORAGE
+========================================= */
+
+async function deleteMediaByUrl(
+    mediaUrl
+){
+
+    if(
+        !mediaUrl ||
+        !mediaUrl.includes("/post-media/")
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const marker =
+            "/post-media/";
+
+
+        const index =
+            mediaUrl.indexOf(
+                marker
+            );
+
+
+        if(index === -1){
+
+            return;
+
+        }
+
+
+        const path =
+            decodeURIComponent(
+                mediaUrl.substring(
+                    index + marker.length
+                )
+            );
+
+
+        await supabaseClient
+            .storage
+            .from("post-media")
+            .remove([
+                path
+            ]);
+
+    }catch(error){
+
+        console.warn(
+            "Media lama tidak berhasil dihapus:",
+            error
+        );
 
     }
 
 }
 
 
-/* =====================================================
+/* =========================================
    BUAT POSTING
-===================================================== */
+========================================= */
 
 async function buatPosting(){
 
@@ -1840,7 +1843,7 @@ async function buatPosting(){
     if(!username){
 
         alert(
-            "Sesi admin tidak ditemukan. Silakan login kembali."
+            "Sesi admin tidak ditemukan."
         );
 
         return;
@@ -1870,7 +1873,67 @@ async function buatPosting(){
     }
 
 
-    /* MODE EDIT */
+    /* VALIDASI FOTO */
+
+    if(type === "Foto"){
+
+        if(!file){
+
+            alert(
+                "Pilih foto terlebih dahulu."
+            );
+
+            return;
+
+        }
+
+
+        if(
+            !file.type.startsWith("image/")
+        ){
+
+            alert(
+                "File yang dipilih bukan foto."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    /* VALIDASI VIDEO */
+
+    if(type === "Video"){
+
+        if(!file){
+
+            alert(
+                "Pilih video terlebih dahulu."
+            );
+
+            return;
+
+        }
+
+
+        if(
+            !file.type.startsWith("video/")
+        ){
+
+            alert(
+                "File yang dipilih bukan video."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    /* EDIT */
 
     if(editingPostId){
 
@@ -1886,78 +1949,6 @@ async function buatPosting(){
     }
 
 
-    /* FOTO */
-
-    if(type === "Foto"){
-
-        if(!file){
-
-            alert(
-                "Silakan pilih foto terlebih dahulu."
-            );
-
-            return;
-
-        }
-
-
-        if(
-            !file.type.startsWith("image/")
-        ){
-
-            alert(
-                "File harus berupa foto."
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    /* VIDEO */
-
-    if(type === "Video"){
-
-        if(!file){
-
-            alert(
-                "Silakan pilih video terlebih dahulu."
-            );
-
-            return;
-
-        }
-
-
-        if(
-            !file.type.startsWith("video/")
-        ){
-
-            alert(
-                "File harus berupa video."
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    /*
-     * PENTING
-     *
-     * Versi ini belum mengupload file
-     * ke Supabase Storage.
-     *
-     * Jadi Tulisan bisa disimpan penuh.
-     *
-     * Foto/Video untuk sementara hanya
-     * menyimpan informasi file.
-     */
-
     const button =
         document.getElementById(
             "publishButton"
@@ -1967,80 +1958,101 @@ async function buatPosting(){
     button.disabled = true;
 
     button.textContent =
-        "MENYIMPAN...";
+        "MENGUPLOAD...";
 
 
     try{
 
-        const insertData = {
+        let media = {
 
-            title:
-                title,
-
-            type:
-                type,
-
-            description:
-                description,
-
-            media_url:
-                "",
-
-            media_type:
-                file
-                ? file.type
-                : "",
-
-            file_name:
-                file
-                ? file.name
-                : "",
-
-            uploaded_by:
-                username
+            url:"",
+            type:"",
+            name:"",
+            path:""
 
         };
 
 
-        const result =
-            await supabaseClient
-                .from("posts")
-                .insert(
-                    [insertData]
-                )
-                .select()
-                .single();
+        /*
+         * UPLOAD FOTO / VIDEO
+         */
 
+        if(file){
 
-        const data =
-            result.data;
-
-
-        const error =
-            result.error;
-
-
-        if(error){
-
-            console.error(
-                "Gagal menyimpan:",
-                error
-            );
-
-
-            showStatus(
-                "Posting gagal disimpan: " +
-                error.message,
-                "error"
-            );
-
-
-            return;
+            media =
+                await uploadMedia(
+                    file
+                );
 
         }
 
 
-        posts.unshift(data);
+        button.textContent =
+            "MENYIMPAN POSTING...";
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+            .from("posts")
+            .insert([{
+
+                title:
+                    title,
+
+                type:
+                    type,
+
+                description:
+                    description,
+
+                media_url:
+                    media.url,
+
+                media_type:
+                    media.type,
+
+                file_name:
+                    media.name,
+
+                uploaded_by:
+                    username
+
+            }])
+            .select()
+            .single();
+
+
+        if(error){
+
+            /*
+             * Kalau DB gagal setelah media
+             * berhasil diupload, coba hapus
+             * media supaya tidak jadi sampah.
+             */
+
+            if(media.path){
+
+                await supabaseClient
+                    .storage
+                    .from("post-media")
+                    .remove([
+                        media.path
+                    ]);
+
+            }
+
+
+            throw error;
+
+        }
+
+
+        posts.unshift(
+            data
+        );
 
 
         resetForm();
@@ -2051,7 +2063,7 @@ async function buatPosting(){
 
 
         showStatus(
-            "Posting berhasil dipublish ke Supabase.",
+            "Posting berhasil dipublish.",
             "success"
         );
 
@@ -2064,36 +2076,34 @@ async function buatPosting(){
     }catch(error){
 
         console.error(
-            "Error simpan:",
+            "Gagal membuat posting:",
             error
         );
 
 
         showStatus(
-            "Terjadi kesalahan saat menyimpan posting.",
+            "Posting gagal: " +
+            error.message,
             "error"
         );
 
 
     }finally{
 
-        button.disabled = false;
+        button.disabled =
+            false;
 
-        if(!editingPostId){
-
-            button.textContent =
-                "PUBLISH POSTING";
-
-        }
+        button.textContent =
+            "PUBLISH POSTING";
 
     }
 
 }
 
 
-/* =====================================================
-   EDIT POSTING
-===================================================== */
+/* =========================================
+   EDIT
+========================================= */
 
 async function prosesEdit(
     title,
@@ -2102,20 +2112,11 @@ async function prosesEdit(
     file
 ){
 
-    if(!editingPostId){
-
-        return;
-
-    }
-
-
     const oldPost =
         posts.find(
-            function(post){
-
-                return post.id === editingPostId;
-
-            }
+            post =>
+                post.id ===
+                editingPostId
         );
 
 
@@ -2125,14 +2126,10 @@ async function prosesEdit(
             "Posting tidak ditemukan."
         );
 
-        batalEdit();
-
         return;
 
     }
 
-
-    /* VALIDASI FILE */
 
     if(file){
 
@@ -2142,7 +2139,7 @@ async function prosesEdit(
         ){
 
             alert(
-                "Untuk jenis FOTO, pilih file gambar."
+                "Untuk Foto pilih file gambar."
             );
 
             return;
@@ -2156,7 +2153,7 @@ async function prosesEdit(
         ){
 
             alert(
-                "Untuk jenis VIDEO, pilih file video."
+                "Untuk Video pilih file video."
             );
 
             return;
@@ -2172,7 +2169,8 @@ async function prosesEdit(
         );
 
 
-    button.disabled = true;
+    button.disabled =
+        true;
 
     button.textContent =
         "MENYIMPAN...";
@@ -2180,112 +2178,176 @@ async function prosesEdit(
 
     try{
 
-        const updateData = {
+        let mediaUrl =
+            oldPost.media_url || "";
 
-            title:
-                title,
+        let mediaType =
+            oldPost.media_type || "";
 
-            type:
-                type,
+        let fileName =
+            oldPost.file_name || "";
 
-            description:
-                description,
-
-            updated_at:
-                new Date()
-                .toISOString()
-
-        };
+        let newMediaPath =
+            "";
 
 
         /*
-         * Jika user memilih Tulisan,
-         * media lama dibersihkan.
-         */
-
-        if(type === "Tulisan"){
-
-            updateData.media_url =
-                "";
-
-            updateData.media_type =
-                "";
-
-            updateData.file_name =
-                "";
-
-        }
-
-
-        /*
-         * Jika memilih file baru,
-         * untuk sekarang kita simpan
-         * informasi file saja.
+         * Kalau user mengganti media,
+         * upload media baru.
          */
 
         if(file){
 
-            updateData.media_url =
-                "";
+            button.textContent =
+                "MENGUPLOAD MEDIA...";
 
-            updateData.media_type =
-                file.type;
 
-            updateData.file_name =
-                file.name;
+            const media =
+                await uploadMedia(
+                    file
+                );
+
+
+            mediaUrl =
+                media.url;
+
+            mediaType =
+                media.type;
+
+            fileName =
+                media.name;
+
+            newMediaPath =
+                media.path;
 
         }
 
 
-        const result =
+        /*
+         * Kalau jenis berubah menjadi
+         * Tulisan, hapus data media.
+         */
+
+        if(type === "Tulisan"){
+
+            mediaUrl =
+                "";
+
+            mediaType =
+                "";
+
+            fileName =
+                "";
+
+        }
+
+
+        button.textContent =
+            "MENYIMPAN PERUBAHAN...";
+
+
+        const {
+            data,
+            error
+        } =
             await supabaseClient
-                .from("posts")
-                .update(
-                    updateData
-                )
-                .eq(
-                    "id",
-                    editingPostId
-                )
-                .select()
-                .single();
+            .from("posts")
+            .update({
 
+                title:
+                    title,
 
-        const data =
-            result.data;
+                type:
+                    type,
 
+                description:
+                    description,
 
-        const error =
-            result.error;
+                media_url:
+                    mediaUrl,
+
+                media_type:
+                    mediaType,
+
+                file_name:
+                    fileName,
+
+                updated_at:
+                    new Date()
+                    .toISOString()
+
+            })
+            .eq(
+                "id",
+                editingPostId
+            )
+            .select()
+            .single();
 
 
         if(error){
 
-            console.error(
-                "Gagal update:",
-                error
+            /*
+             * Kalau update gagal,
+             * media baru dihapus.
+             */
+
+            if(newMediaPath){
+
+                await supabaseClient
+                    .storage
+                    .from("post-media")
+                    .remove([
+                        newMediaPath
+                    ]);
+
+            }
+
+            throw error;
+
+        }
+
+
+        /*
+         * Kalau media baru berhasil,
+         * coba hapus media lama.
+         */
+
+        if(
+            file &&
+            oldPost.media_url &&
+            oldPost.media_url !== mediaUrl
+        ){
+
+            await deleteMediaByUrl(
+                oldPost.media_url
             );
 
+        }
 
-            showStatus(
-                "Update gagal: " +
-                error.message,
-                "error"
+
+        /*
+         * Kalau berubah menjadi Tulisan,
+         * hapus media lama.
+         */
+
+        if(
+            type === "Tulisan" &&
+            oldPost.media_url
+        ){
+
+            await deleteMediaByUrl(
+                oldPost.media_url
             );
-
-
-            return;
 
         }
 
 
         const index =
             posts.findIndex(
-                function(post){
-
-                    return post.id === editingPostId;
-
-                }
+                post =>
+                    post.id ===
+                    editingPostId
             );
 
 
@@ -2318,20 +2380,21 @@ async function prosesEdit(
     }catch(error){
 
         console.error(
-            "Error update:",
+            "Edit error:",
             error
         );
 
 
         showStatus(
-            "Terjadi kesalahan saat update.",
+            "Update gagal: " +
+            error.message,
             "error"
         );
 
-
     }finally{
 
-        button.disabled = false;
+        button.disabled =
+            false;
 
         button.textContent =
             "PUBLISH POSTING";
@@ -2341,19 +2404,16 @@ async function prosesEdit(
 }
 
 
-/* =====================================================
+/* =========================================
    EDIT FORM
-===================================================== */
+========================================= */
 
 function editPosting(id){
 
     const post =
         posts.find(
-            function(item){
-
-                return item.id === id;
-
-            }
+            item =>
+                item.id === id
         );
 
 
@@ -2427,18 +2487,13 @@ function editPosting(id){
 
 
     const preview =
-        document
-        .getElementById("uploadPreview");
+        document.getElementById(
+            "uploadPreview"
+        );
 
 
     preview.innerHTML = "";
 
-
-    /*
-     * Jika suatu saat media_url sudah
-     * tersedia dari Storage, preview
-     * akan ditampilkan.
-     */
 
     if(
         post.media_url &&
@@ -2454,7 +2509,7 @@ function editPosting(id){
 
                 <img
                     src="${escapeAttribute(post.media_url)}"
-                    alt="Preview media"
+                    alt="Preview"
                 >
 
             `;
@@ -2464,7 +2519,8 @@ function editPosting(id){
 
         }
 
-        else if(
+
+        if(
             post.media_type
             .startsWith("video/")
         ){
@@ -2499,23 +2555,20 @@ function editPosting(id){
 }
 
 
-/* =====================================================
+/* =========================================
    BATAL EDIT
-===================================================== */
+========================================= */
 
 function batalEdit(){
-
-    editingPostId =
-        null;
 
     resetForm();
 
 }
 
 
-/* =====================================================
-   RESET FORM
-===================================================== */
+/* =========================================
+   RESET
+========================================= */
 
 function resetForm(){
 
@@ -2548,8 +2601,9 @@ function resetForm(){
 
 
     const preview =
-        document
-        .getElementById("uploadPreview");
+        document.getElementById(
+            "uploadPreview"
+        );
 
 
     preview.innerHTML =
@@ -2588,12 +2642,18 @@ function resetForm(){
         .style.display =
             "none";
 
+
+    document
+        .getElementById("statusBox")
+        .className =
+            "status-box";
+
 }
 
 
-/* =====================================================
+/* =========================================
    PREVIEW FILE
-===================================================== */
+========================================= */
 
 document
     .getElementById("mediaFile")
@@ -2606,8 +2666,9 @@ document
 
 
             const preview =
-                document
-                .getElementById("uploadPreview");
+                document.getElementById(
+                    "uploadPreview"
+                );
 
 
             if(!file){
@@ -2624,7 +2685,9 @@ document
 
 
             const url =
-                URL.createObjectURL(file);
+                URL.createObjectURL(
+                    file
+                );
 
 
             if(
@@ -2635,13 +2698,10 @@ document
 
                     <img
                         src="${url}"
-                        alt="Preview"
+                        alt="Preview foto"
                     >
 
                 `;
-
-                preview.style.display =
-                    "block";
 
             }
 
@@ -2658,9 +2718,6 @@ document
 
                 `;
 
-                preview.style.display =
-                    "block";
-
             }
 
             else{
@@ -2671,7 +2728,6 @@ document
                         style="
                             padding:20px;
                             color:#aaa;
-                            text-align:center;
                         "
                     >
                         File tidak didukung.
@@ -2679,18 +2735,19 @@ document
 
                 `;
 
-                preview.style.display =
-                    "block";
-
             }
+
+
+            preview.style.display =
+                "block";
 
         }
     );
 
 
-/* =====================================================
-   RENDER POSTS
-===================================================== */
+/* =========================================
+   RENDER
+========================================= */
 
 function renderPosts(){
 
@@ -2700,7 +2757,7 @@ function renderPosts(){
         );
 
 
-    if(!posts || posts.length === 0){
+    if(posts.length === 0){
 
         container.innerHTML = `
 
@@ -2714,8 +2771,8 @@ function renderPosts(){
                     Belum ada posting
                 </strong>
 
-                Buat posting pertama dari
-                panel di sebelah kiri.
+                Buat posting pertama
+                dari panel sebelah kiri.
 
             </div>
 
@@ -2733,8 +2790,9 @@ function renderPosts(){
 
 
     container.innerHTML =
-        posts.map(
-            function(post){
+        posts
+        .map(
+            post => {
 
                 let mediaHTML =
                     "";
@@ -2748,7 +2806,7 @@ function renderPosts(){
                     post.media_url &&
                     post.media_type &&
                     post.media_type
-                        .startsWith("image/")
+                    .startsWith("image/")
                 ){
 
                     mediaHTML = `
@@ -2760,7 +2818,6 @@ function renderPosts(){
                             <img
                                 src="${escapeAttribute(post.media_url)}"
                                 alt="${escapeAttribute(post.title)}"
-                                onclick="lihatFoto(this.src)"
                             >
 
                         </div>
@@ -2778,7 +2835,7 @@ function renderPosts(){
                     post.media_url &&
                     post.media_type &&
                     post.media_type
-                        .startsWith("video/")
+                    .startsWith("video/")
                 ){
 
                     mediaHTML = `
@@ -2797,8 +2854,8 @@ function renderPosts(){
                                     type="${escapeAttribute(post.media_type)}"
                                 >
 
-                                Browser Anda
-                                tidak mendukung video.
+                                Browser tidak
+                                mendukung video.
 
                             </video>
 
@@ -2808,10 +2865,6 @@ function renderPosts(){
 
                 }
 
-
-                /*
-                 * FILE INFO
-                 */
 
                 let fileInfo =
                     "";
@@ -2824,7 +2877,9 @@ function renderPosts(){
                         <div class="file-info">
 
                             File:
-                            ${escapeHTML(post.file_name)}
+                            ${escapeHTML(
+                                post.file_name
+                            )}
 
                         </div>
 
@@ -2833,40 +2888,27 @@ function renderPosts(){
                 }
 
 
-                /*
-                 * UPLOADER
-                 */
-
                 const uploader =
                     post.uploaded_by ||
                     "Admin";
 
 
-                let uploaderIcon =
-                    "👤";
-
-
-                let uploaderClass =
-                    "";
-
-
-                if(
+                const owner =
                     uploader ===
-                    "daligroupmaster"
-                ){
-
-                    uploaderIcon =
-                        "👑";
-
-                    uploaderClass =
-                        "owner";
-
-                }
+                    "daligroupmaster";
 
 
-                /*
-                 * DELETE BUTTON
-                 */
+                const uploaderIcon =
+                    owner
+                    ? "👑"
+                    : "👤";
+
+
+                const uploaderClass =
+                    owner
+                    ? "owner"
+                    : "";
+
 
                 let deleteButton =
                     "";
@@ -2891,59 +2933,56 @@ function renderPosts(){
                 }
 
 
-                /*
-                 * DATE
-                 */
-
-                const date =
-                    formatDate(
-                        post.created_at
-                    );
-
-
                 return `
 
-                    <article class="post-item">
+                    <article
+                        class="post-item"
+                    >
 
+                        <div
+                            class="post-content"
+                        >
 
-                        <div class="post-content">
+                            <div
+                                class="post-top"
+                            >
 
-
-                            <div class="post-top">
-
-                                <div class="post-type">
-
+                                <div
+                                    class="post-type"
+                                >
                                     ${escapeHTML(
-                                        post.type || "Tulisan"
+                                        post.type
                                     )}
-
                                 </div>
 
-
-                                <div class="post-date">
-
-                                    ${escapeHTML(date)}
-
+                                <div
+                                    class="post-date"
+                                >
+                                    ${escapeHTML(
+                                        formatDate(
+                                            post.created_at
+                                        )
+                                    )}
                                 </div>
 
                             </div>
 
 
-                            <div class="post-title">
-
+                            <div
+                                class="post-title"
+                            >
                                 ${escapeHTML(
                                     post.title
                                 )}
-
                             </div>
 
 
-                            <div class="post-desc">
-
+                            <div
+                                class="post-desc"
+                            >
                                 ${escapeHTML(
                                     post.description
                                 )}
-
                             </div>
 
 
@@ -2953,8 +2992,9 @@ function renderPosts(){
                             ${fileInfo}
 
 
-                            <div class="uploader-info">
-
+                            <div
+                                class="uploader-info"
+                            >
 
                                 <div
                                     class="uploader-icon ${uploaderClass}"
@@ -2962,23 +3002,25 @@ function renderPosts(){
                                     ${uploaderIcon}
                                 </div>
 
+                                <div
+                                    class="uploader-text"
+                                >
 
-                                <div class="uploader-text">
-
-                                    <span class="uploader-label">
+                                    <span
+                                        class="uploader-label"
+                                    >
                                         DIUPLOAD OLEH
                                     </span>
 
-                                    <span class="uploader-name">
-
+                                    <span
+                                        class="uploader-name"
+                                    >
                                         ${escapeHTML(
                                             uploader
                                         )}
-
                                     </span>
 
                                 </div>
-
 
                             </div>
 
@@ -2986,8 +3028,9 @@ function renderPosts(){
                         </div>
 
 
-                        <div class="post-actions">
-
+                        <div
+                            class="post-actions"
+                        >
 
                             <button
                                 class="action-btn edit-btn"
@@ -2996,12 +3039,9 @@ function renderPosts(){
                                 EDIT
                             </button>
 
-
                             ${deleteButton}
 
-
                         </div>
-
 
                     </article>
 
@@ -3014,9 +3054,9 @@ function renderPosts(){
 }
 
 
-/* =====================================================
-   HAPUS POSTING
-===================================================== */
+/* =========================================
+   HAPUS
+========================================= */
 
 async function hapusPosting(id){
 
@@ -3026,17 +3066,13 @@ async function hapusPosting(id){
         );
 
 
-    /*
-     * HANYA DALIGROUPMASTER
-     */
-
     if(
         currentUser !==
         "daligroupmaster"
     ){
 
         alert(
-            "Anda tidak memiliki izin untuk menghapus postingan."
+            "Anda tidak memiliki izin menghapus."
         );
 
         return;
@@ -3046,11 +3082,8 @@ async function hapusPosting(id){
 
     const post =
         posts.find(
-            function(item){
-
-                return item.id === id;
-
-            }
+            item =>
+                item.id === id
         );
 
 
@@ -3082,46 +3115,43 @@ async function hapusPosting(id){
 
     try{
 
-        const result =
+        const {
+            error
+        } =
             await supabaseClient
-                .from("posts")
-                .delete()
-                .eq(
-                    "id",
-                    id
-                );
-
-
-        const error =
-            result.error;
+            .from("posts")
+            .delete()
+            .eq(
+                "id",
+                id
+            );
 
 
         if(error){
 
-            console.error(
-                "Gagal menghapus:",
-                error
+            throw error;
+
+        }
+
+
+        /*
+         * Hapus media dari Storage
+         * setelah database berhasil dihapus.
+         */
+
+        if(post.media_url){
+
+            await deleteMediaByUrl(
+                post.media_url
             );
-
-
-            showStatus(
-                "Posting gagal dihapus: " +
-                error.message,
-                "error"
-            );
-
-            return;
 
         }
 
 
         posts =
             posts.filter(
-                function(item){
-
-                    return item.id !== id;
-
-                }
+                item =>
+                    item.id !== id
             );
 
 
@@ -3144,13 +3174,14 @@ async function hapusPosting(id){
     }catch(error){
 
         console.error(
-            "Error delete:",
+            "Delete error:",
             error
         );
 
 
         showStatus(
-            "Terjadi kesalahan saat menghapus posting.",
+            "Gagal menghapus: " +
+            error.message,
             "error"
         );
 
@@ -3159,86 +3190,9 @@ async function hapusPosting(id){
 }
 
 
-/* =====================================================
-   LIHAT FOTO
-===================================================== */
-
-function lihatFoto(src){
-
-    const win =
-        window.open(
-            "",
-            "_blank"
-        );
-
-
-    if(!win){
-
-        alert(
-            "Browser memblokir tab baru."
-        );
-
-        return;
-
-    }
-
-
-    win.document.write(`
-
-        <!DOCTYPE html>
-
-        <html>
-
-        <head>
-
-            <title>
-                Preview Foto
-            </title>
-
-            <style>
-
-                *{
-                    box-sizing:border-box;
-                }
-
-                body{
-                    margin:0;
-                    min-height:100vh;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    background:#000;
-                    padding:20px;
-                }
-
-                img{
-                    max-width:100%;
-                    max-height:95vh;
-                    object-fit:contain;
-                }
-
-            </style>
-
-        </head>
-
-        <body>
-
-            <img
-                src="${escapeAttribute(src)}"
-            >
-
-        </body>
-
-        </html>
-
-    `);
-
-}
-
-
-/* =====================================================
-   UPDATE STATS
-===================================================== */
+/* =========================================
+   STATS
+========================================= */
 
 function updateStats(){
 
@@ -3248,26 +3202,16 @@ function updateStats(){
 
     const media =
         posts.filter(
-            function(post){
-
-                return(
-                    post.type === "Foto" ||
-                    post.type === "Video"
-                );
-
-            }
+            post =>
+                post.type === "Foto" ||
+                post.type === "Video"
         ).length;
 
 
     const text =
         posts.filter(
-            function(post){
-
-                return(
-                    post.type === "Tulisan"
-                );
-
-            }
+            post =>
+                post.type === "Tulisan"
         ).length;
 
 
@@ -3291,9 +3235,9 @@ function updateStats(){
 }
 
 
-/* =====================================================
+/* =========================================
    FORMAT DATE
-===================================================== */
+========================================= */
 
 function formatDate(value){
 
@@ -3304,34 +3248,39 @@ function formatDate(value){
     }
 
 
-    try{
+    const date =
+        new Date(value);
 
-        return new Date(
-            value
-        ).toLocaleString(
-            "id-ID",
-            {
-                dateStyle:"medium",
-                timeStyle:"short"
-            }
-        );
 
-    }catch(error){
+    if(
+        Number.isNaN(
+            date.getTime()
+        )
+    ){
 
-        return String(value);
+        return "-";
 
     }
+
+
+    return date.toLocaleString(
+        "id-ID",
+        {
+            dateStyle:"medium",
+            timeStyle:"short"
+        }
+    );
 
 }
 
 
-/* =====================================================
+/* =========================================
    ESCAPE HTML
-===================================================== */
+========================================= */
 
 function escapeHTML(value){
 
-    return String(value || "")
+    return String(value ?? "")
         .replace(
             /&/g,
             "&amp;"
@@ -3356,13 +3305,13 @@ function escapeHTML(value){
 }
 
 
-/* =====================================================
+/* =========================================
    ESCAPE ATTRIBUTE
-===================================================== */
+========================================= */
 
 function escapeAttribute(value){
 
-    return String(value || "")
+    return String(value ?? "")
         .replace(
             /&/g,
             "&amp;"
@@ -3383,9 +3332,9 @@ function escapeAttribute(value){
 }
 
 
-/* =====================================================
+/* =========================================
    AUTO LOGIN
-===================================================== */
+========================================= */
 
 const savedUser =
     localStorage.getItem(
@@ -3405,7 +3354,6 @@ if(
 }
 
 </script>
-
 
 </body>
 </html>
