@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>PRAN MUSIC ENTERTAINMENT</title>
-<meta name="description" content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
 
-<!-- SUPABASE -->
+<meta name="description"
+      content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
+
+
+<!-- =========================
+     SUPABASE
+========================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const SUPABASE_URL = "https://uigwpcjhzbqfmwhvolbu.supabase.co";
-const SUPABASE_KEY = "sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
+const SUPABASE_URL =
+    "https://uigwpcjhzbqfmwhvolbu.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
 </script>
 
+
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -39,28 +59,53 @@ body{
     overflow-x:hidden;
 }
 
+
 /* =========================
    BACKGROUND
 ========================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     z-index:-3;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(212,175,55,.10), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(212,175,55,.07), transparent 35%),
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(212,175,55,.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(212,175,55,.07),
+            transparent 35%
+        ),
+
         #050505;
 }
 
+
 body::after{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     z-index:-2;
+
     pointer-events:none;
+
     background:
+
         linear-gradient(
             115deg,
             transparent 0%,
@@ -69,605 +114,1164 @@ body::after{
         );
 }
 
+
 /* =========================
    HEADER
 ========================= */
 
 header{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
     height:72px;
+
     z-index:1000;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     padding:0 7%;
 
     background:rgba(5,5,5,.72);
+
     backdrop-filter:blur(18px);
+
     -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(212,175,55,.16);
+    border-bottom:
+        1px solid rgba(212,175,55,.16);
 }
 
+
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     text-decoration:none;
+
     color:#fff;
 }
 
+
 .logo-mark{
+
     width:42px;
     height:42px;
-    border:1px solid rgba(212,175,55,.65);
+
+    border:
+        1px solid rgba(212,175,55,.65);
+
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     color:#d4af37;
+
     font-size:19px;
+
     font-weight:bold;
 
     box-shadow:
+
         0 0 20px rgba(212,175,55,.10),
+
         inset 0 0 15px rgba(212,175,55,.06);
 }
 
+
 .logo-text{
+
     line-height:1.05;
 }
 
+
 .logo-text strong{
+
     display:block;
+
     font-size:15px;
+
     letter-spacing:3px;
 }
 
+
 .logo-text span{
+
     display:block;
+
     margin-top:4px;
+
     color:#d4af37;
+
     font-size:9px;
+
     letter-spacing:4px;
 }
+
 
 /* =========================
    NAV
 ========================= */
 
 nav{
+
     display:flex;
+
     align-items:center;
+
     gap:30px;
 }
 
+
 nav a{
+
     position:relative;
+
     color:#bbb;
+
     text-decoration:none;
+
     font-size:11px;
+
     letter-spacing:2px;
+
     transition:.3s;
 }
+
 
 nav a::after{
+
     content:"";
+
     position:absolute;
+
     left:0;
+
     bottom:-8px;
+
     width:0;
+
     height:1px;
+
     background:#d4af37;
+
     transition:.3s;
 }
 
+
 nav a:hover{
+
     color:#fff;
 }
 
+
 nav a:hover::after{
+
     width:100%;
 }
+
 
 /* =========================
    HERO
 ========================= */
 
 .hero{
+
     min-height:100vh;
-    padding:150px 7% 100px;
+
+    padding:
+        150px
+        7%
+        100px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
 
     position:relative;
 }
 
+
 .hero-content{
+
     max-width:900px;
-    animation:fadeUp 1.2s ease;
+
+    animation:
+        fadeUp 1.2s ease;
 }
 
+
 .hero-label{
+
     display:inline-block;
+
     margin-bottom:25px;
 
     color:#d4af37;
+
     font-size:11px;
+
     letter-spacing:6px;
+
     text-transform:uppercase;
 }
 
+
 .hero h1{
-    font-size:clamp(42px,7vw,88px);
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            88px
+        );
+
     line-height:.95;
+
     letter-spacing:-3px;
+
     font-weight:700;
 }
 
+
 .hero h1 span{
+
     display:block;
+
     color:#d4af37;
+
     margin-top:8px;
 }
 
+
 .hero p{
+
     max-width:680px;
+
     margin:32px auto 0;
 
     color:#aaa;
+
     font-size:15px;
+
     line-height:1.9;
 }
 
+
 .hero-line{
+
     width:70px;
+
     height:1px;
+
     background:#d4af37;
+
     margin:35px auto;
 }
 
+
 .hero-button{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:15px 28px;
+    padding:
+        15px
+        28px;
 
-    border:1px solid rgba(212,175,55,.55);
+    border:
+        1px solid rgba(212,175,55,.55);
+
     color:#d4af37;
+
     text-decoration:none;
 
     font-size:10px;
+
     letter-spacing:3px;
 
     transition:.3s;
 }
 
+
 .hero-button:hover{
+
     background:#d4af37;
+
     color:#050505;
-    box-shadow:0 0 30px rgba(212,175,55,.18);
+
+    box-shadow:
+        0 0 30px
+        rgba(212,175,55,.18);
 }
+
 
 /* =========================
    GENERAL
 ========================= */
 
 section{
-    padding:110px 7%;
+
+    padding:
+        110px
+        7%;
 }
 
+
 .section-label{
+
     color:#d4af37;
+
     font-size:10px;
+
     letter-spacing:5px;
+
     text-transform:uppercase;
+
     margin-bottom:15px;
 }
 
+
 .section-title{
-    font-size:clamp(30px,4vw,48px);
+
+    font-size:
+        clamp(
+            30px,
+            4vw,
+            48px
+        );
+
     line-height:1.1;
+
     margin-bottom:20px;
 }
 
+
 .section-desc{
+
     max-width:650px;
+
     color:#999;
+
     line-height:1.8;
+
     font-size:14px;
 }
+
 
 /* =========================
    ABOUT
 ========================= */
 
 .about{
-    border-top:1px solid rgba(255,255,255,.05);
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
 }
 
+
 .about-header{
+
     margin-bottom:55px;
 }
 
+
 .about-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:18px;
 }
 
+
 .about-card{
+
     min-height:240px;
+
     padding:30px;
 
-    border:1px solid rgba(255,255,255,.07);
-    background:rgba(255,255,255,.025);
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(255,255,255,.025);
 
     position:relative;
+
     overflow:hidden;
 
     transition:.4s;
 }
 
+
 .about-card::before{
+
     content:"";
+
     position:absolute;
+
     left:0;
+
     top:0;
+
     width:2px;
+
     height:0;
+
     background:#d4af37;
+
     transition:.4s;
 }
 
+
 .about-card:hover{
-    transform:translateY(-7px);
-    border-color:rgba(212,175,55,.25);
-    background:rgba(255,255,255,.04);
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(212,175,55,.25);
+
+    background:
+        rgba(255,255,255,.04);
 }
 
+
 .about-card:hover::before{
+
     height:100%;
 }
 
+
 .about-number{
+
     color:#d4af37;
+
     font-size:12px;
+
     letter-spacing:3px;
+
     margin-bottom:35px;
 }
 
+
 .about-card h3{
+
     font-size:20px;
+
     letter-spacing:1px;
+
     margin-bottom:15px;
 }
 
+
 .about-card p{
+
     color:#888;
+
     font-size:13px;
+
     line-height:1.8;
 }
+
 
 /* =========================
    QUOTE
 ========================= */
 
 .quote{
+
     text-align:center;
-    border-top:1px solid rgba(255,255,255,.05);
-    border-bottom:1px solid rgba(255,255,255,.05);
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
 
     padding-top:130px;
+
     padding-bottom:130px;
 }
 
+
 .quote-mark{
+
     color:#d4af37;
+
     font-size:45px;
+
     line-height:1;
+
     margin-bottom:20px;
 }
 
+
 .quote-text{
+
     max-width:850px;
+
     margin:auto;
 
-    font-size:clamp(24px,4vw,43px);
+    font-size:
+        clamp(
+            24px,
+            4vw,
+            43px
+        );
+
     line-height:1.35;
+
     font-weight:300;
 }
 
+
 .quote-text span{
+
     color:#d4af37;
 }
 
+
 .quote-small{
+
     margin-top:30px;
+
     color:#666;
+
     font-size:10px;
+
     letter-spacing:4px;
 }
+
 
 /* =========================
    POSTS
 ========================= */
 
 .posts{
+
     min-height:500px;
 }
 
+
 .posts-header{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-end;
+
     gap:30px;
+
     margin-bottom:50px;
 }
 
+
 .posts-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:22px;
 }
 
-/* POST CARD */
+
+/* =========================
+   POST CARD
+========================= */
 
 .post-card{
+
     background:#0b0b0b;
-    border:1px solid rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
     overflow:hidden;
 
     transition:.4s;
 }
 
+
 .post-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(212,175,55,.30);
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(212,175,55,.30);
 }
 
+
+/* =========================
+   MEDIA
+========================= */
+
 .post-media{
+
     width:100%;
+
     aspect-ratio:16/10;
+
     overflow:hidden;
+
     background:#111;
+
+    position:relative;
 }
+
 
 .post-media img,
 .post-media video{
+
     width:100%;
+
     height:100%;
+
     display:block;
+
     object-fit:cover;
 }
 
+
+/* FOTO CLICK */
+
+.post-media img{
+
+    cursor:zoom-in;
+
+    transition:
+        transform .4s ease,
+        opacity .3s ease;
+}
+
+
+.post-media img:hover{
+
+    transform:scale(1.04);
+
+    opacity:.9;
+}
+
+
+/* VIDEO CLICK */
+
+.post-media video{
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   POST CONTENT
+========================= */
+
 .post-content{
+
     padding:27px;
 }
 
+
 .post-type{
+
     color:#d4af37;
+
     font-size:9px;
+
     letter-spacing:3px;
+
     text-transform:uppercase;
+
     margin-bottom:14px;
 }
+
 
 .post-content h3{
+
     font-size:20px;
+
     line-height:1.35;
+
     margin-bottom:14px;
 }
 
+
 .post-content p{
+
     color:#888;
+
     font-size:13px;
+
     line-height:1.8;
+
     white-space:pre-line;
 }
 
-.post-content small{
-    display:block;
-    margin-top:22px;
-    padding-top:15px;
 
-    border-top:1px solid rgba(255,255,255,.06);
-
-    color:#555;
-    font-size:10px;
-}
-
-/* EMPTY */
+/* =========================
+   EMPTY
+========================= */
 
 .empty-post{
+
     grid-column:1/-1;
 
     min-height:300px;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
 
-    border:1px dashed rgba(212,175,55,.18);
-    background:rgba(255,255,255,.015);
+    border:
+        1px dashed
+        rgba(212,175,55,.18);
+
+    background:
+        rgba(255,255,255,.015);
 }
 
+
 .empty-icon{
+
     color:#d4af37;
+
     font-size:38px;
+
     margin-bottom:20px;
 }
 
+
 .empty-post h3{
+
     color:#ddd;
+
     font-size:15px;
+
     letter-spacing:4px;
+
     font-weight:500;
 }
 
+
 .empty-post p{
+
     max-width:500px;
+
     margin-top:15px;
+
     color:#666;
+
     font-size:12px;
+
     line-height:1.8;
 }
+
 
 /* =========================
    LOADING
 ========================= */
 
 .loading-post{
+
     grid-column:1/-1;
 
     min-height:250px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     color:#777;
+
     font-size:11px;
+
     letter-spacing:4px;
 }
 
+
 .loading-dot{
+
     margin-left:8px;
+
     color:#d4af37;
 }
+
+
+/* =========================
+   MEDIA VIEWER
+========================= */
+
+.media-viewer{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:30px;
+
+    background:
+        rgba(0,0,0,.94);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+}
+
+
+.media-viewer.active{
+
+    display:flex;
+}
+
+
+.media-viewer img{
+
+    max-width:95vw;
+
+    max-height:90vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,.8);
+
+    cursor:default;
+}
+
+
+.media-viewer video{
+
+    max-width:95vw;
+
+    max-height:88vh;
+
+    width:auto;
+
+    height:auto;
+
+    background:#000;
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,.8);
+}
+
+
+.media-close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:25px;
+
+    width:48px;
+
+    height:48px;
+
+    border:
+        1px solid
+        rgba(212,175,55,.45);
+
+    background:
+        rgba(5,5,5,.8);
+
+    color:#d4af37;
+
+    font-size:28px;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+    z-index:2;
+}
+
+
+.media-close:hover{
+
+    background:#d4af37;
+
+    color:#050505;
+}
+
+
+.media-title{
+
+    position:absolute;
+
+    left:30px;
+
+    bottom:22px;
+
+    color:#aaa;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    max-width:70%;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer{
-    padding:65px 7% 30px;
-    border-top:1px solid rgba(255,255,255,.06);
+
+    padding:
+        65px
+        7%
+        30px;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
 }
 
+
 .footer-top{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
+
     gap:40px;
+
     padding-bottom:50px;
 }
 
+
 .footer-brand{
+
     max-width:400px;
 }
 
+
 .footer-brand h3{
+
     font-size:18px;
+
     letter-spacing:3px;
 }
 
+
 .footer-brand span{
+
     display:block;
+
     margin-top:8px;
+
     color:#d4af37;
+
     font-size:9px;
+
     letter-spacing:4px;
 }
 
+
 .footer-brand p{
+
     margin-top:20px;
+
     color:#666;
+
     font-size:12px;
+
     line-height:1.8;
 }
 
+
 .footer-contact{
+
     text-align:right;
 }
 
+
 .footer-contact a{
+
     color:#aaa;
+
     text-decoration:none;
+
     font-size:12px;
 }
 
+
 .footer-contact a:hover{
+
     color:#d4af37;
 }
 
+
 .footer-bottom{
-    border-top:1px solid rgba(255,255,255,.06);
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
     padding-top:25px;
 
     display:flex;
+
     justify-content:space-between;
+
     gap:20px;
 
     color:#444;
+
     font-size:10px;
 }
+
 
 /* =========================
    WHATSAPP
 ========================= */
 
 .whatsapp{
+
     position:fixed;
+
     right:25px;
+
     bottom:25px;
 
     width:55px;
+
     height:55px;
 
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:#d4af37;
+
     color:#050505;
 
     text-decoration:none;
 
     font-size:22px;
+
     font-weight:bold;
 
     z-index:900;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.5);
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.5);
 
     transition:.3s;
 }
 
+
 .whatsapp:hover{
+
     transform:scale(1.08);
 }
+
 
 /* =========================
    ANIMATION
 ========================= */
 
 @keyframes fadeUp{
+
     from{
+
         opacity:0;
-        transform:translateY(25px);
+
+        transform:
+            translateY(25px);
     }
+
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
+
 
 /* =========================
    RESPONSIVE
@@ -676,118 +1280,232 @@ footer{
 @media(max-width:900px){
 
     header{
+
         padding:0 5%;
     }
 
+
     nav{
+
         gap:15px;
     }
 
+
     nav a{
+
         font-size:9px;
+
         letter-spacing:1px;
     }
 
+
     section{
-        padding:85px 5%;
+
+        padding:
+            85px
+            5%;
     }
+
 
     .about-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
+
     .posts-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
 }
+
 
 @media(max-width:650px){
 
     header{
+
         height:65px;
     }
 
+
     .logo-mark{
+
         width:36px;
+
         height:36px;
+
         font-size:16px;
     }
 
+
     .logo-text strong{
+
         font-size:12px;
+
         letter-spacing:2px;
     }
 
+
     .logo-text span{
+
         font-size:7px;
+
         letter-spacing:3px;
     }
 
+
     nav{
+
         display:none;
     }
 
+
     .hero{
+
         min-height:100vh;
-        padding:120px 5% 80px;
+
+        padding:
+            120px
+            5%
+            80px;
     }
 
+
     .hero h1{
+
         font-size:45px;
+
         letter-spacing:-2px;
     }
 
+
     .hero p{
+
         font-size:13px;
     }
 
+
     .about-grid{
+
         grid-template-columns:1fr;
     }
 
+
     .about-card{
+
         min-height:210px;
     }
 
+
     .posts-header{
+
         display:block;
     }
 
+
     .posts-grid{
+
         grid-template-columns:1fr;
     }
 
+
     .post-card{
+
         width:100%;
     }
 
+
     .footer-top{
+
         display:block;
     }
 
+
     .footer-contact{
+
         margin-top:30px;
+
         text-align:left;
     }
 
+
     .footer-bottom{
+
         display:block;
+
         line-height:1.8;
     }
 
+
     .whatsapp{
+
         width:50px;
+
         height:50px;
+
         right:18px;
+
         bottom:18px;
     }
+
+
+    .media-viewer{
+
+        padding:15px;
+    }
+
+
+    .media-viewer img{
+
+        max-width:96vw;
+
+        max-height:82vh;
+    }
+
+
+    .media-viewer video{
+
+        max-width:96vw;
+
+        max-height:82vh;
+    }
+
+
+    .media-close{
+
+        top:12px;
+
+        right:12px;
+
+        width:44px;
+
+        height:44px;
+    }
+
+
+    .media-title{
+
+        left:15px;
+
+        bottom:12px;
+
+        max-width:80%;
+
+        font-size:9px;
+    }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -802,20 +1520,42 @@ footer{
         </div>
 
         <div class="logo-text">
-            <strong>PRAN</strong>
-            <span>ENTERTAINMENT</span>
+
+            <strong>
+                PRAN MUSIC
+            </strong>
+
+            <span>
+                ENTERTAINMENT
+            </span>
+
         </div>
 
     </a>
 
+
     <nav>
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#posts">POSTING</a>
-        <a href="#contact">CONTACT</a>
+
+        <a href="#home">
+            HOME
+        </a>
+
+        <a href="#about">
+            ABOUT
+        </a>
+
+        <a href="#posts">
+            POSTING
+        </a>
+
+        <a href="#contact">
+            CONTACT
+        </a>
+
     </nav>
 
 </header>
+
 
 
 <!-- =========================
@@ -824,28 +1564,49 @@ footer{
 
 <main>
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home"
+>
 
     <div class="hero-content">
 
         <div class="hero-label">
+
             PRAN MUSIC ENTERTAINMENT
+
         </div>
 
+
         <h1>
+
             SETIAP NADA
-            <span>MENYIMPAN CERITA.</span>
+
+            <span>
+                MENYIMPAN CERITA.
+            </span>
+
         </h1>
+
 
         <div class="hero-line"></div>
 
+
         <p>
+
             Setiap karya menghadirkan rasa.
             Dan setiap momen layak untuk dikenang.
+
         </p>
 
-        <a href="#posts" class="hero-button">
+
+        <a
+            href="#posts"
+            class="hero-button"
+        >
+
             LIHAT CERITA
+
         </a>
 
     </div>
@@ -853,27 +1614,40 @@ footer{
 </section>
 
 
+
 <!-- =========================
      ABOUT
 ========================= -->
 
-<section class="about" id="about">
+<section
+    class="about"
+    id="about"
+>
 
     <div class="about-header">
 
         <div class="section-label">
+
             TENTANG KAMI
+
         </div>
 
+
         <h2 class="section-title">
-            Musik. Karya. <br>
+
+            Musik. Karya.
+            <br>
             Perjalanan.
+
         </h2>
 
+
         <p class="section-desc">
+
             PRAN MUSIC ENTERTAINMENT hadir untuk menghadirkan
             karya, cerita, dan momen yang dapat dinikmati
             melalui musik dan berbagai bentuk kreativitas.
+
         </p>
 
     </div>
@@ -881,17 +1655,22 @@ footer{
 
     <div class="about-grid">
 
+
         <div class="about-card">
 
             <div class="about-number">
                 01
             </div>
 
-            <h3>MUSIC</h3>
+            <h3>
+                MUSIC
+            </h3>
 
             <p>
+
                 Menghadirkan musik sebagai ruang untuk
                 menyampaikan cerita, rasa, dan pengalaman.
+
             </p>
 
         </div>
@@ -903,11 +1682,15 @@ footer{
                 02
             </div>
 
-            <h3>CREATION</h3>
+            <h3>
+                CREATION
+            </h3>
 
             <p>
+
                 Setiap karya lahir dari proses, ide,
                 kreativitas, dan perjalanan yang berbeda.
+
             </p>
 
         </div>
@@ -919,11 +1702,15 @@ footer{
                 03
             </div>
 
-            <h3>JOURNEY</h3>
+            <h3>
+                JOURNEY
+            </h3>
 
             <p>
+
                 Setiap perjalanan menyimpan pengalaman
                 yang menjadi bagian dari sebuah cerita.
+
             </p>
 
         </div>
@@ -935,18 +1722,24 @@ footer{
                 04
             </div>
 
-            <h3>STORY</h3>
+            <h3>
+                STORY
+            </h3>
 
             <p>
+
                 Karena di balik setiap karya selalu ada
                 cerita yang layak untuk dikenang.
+
             </p>
 
         </div>
 
+
     </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -959,41 +1752,61 @@ footer{
         “
     </div>
 
+
     <div class="quote-text">
+
         Setiap nada menyimpan cerita.
         Setiap karya menghadirkan rasa.
         Dan setiap momen layak untuk
-        <span>dikenang.</span>
+        <span>
+            dikenang.
+        </span>
+
     </div>
 
+
     <div class="quote-small">
+
         PRAN MUSIC ENTERTAINMENT
+
     </div>
 
 </section>
+
 
 
 <!-- =========================
      POSTS
 ========================= -->
 
-<section class="posts" id="posts">
+<section
+    class="posts"
+    id="posts"
+>
 
     <div class="posts-header">
 
         <div>
 
             <div class="section-label">
+
                 POSTING TERBARU
+
             </div>
 
+
             <h2 class="section-title">
+
                 Cerita Terbaru
+
             </h2>
 
+
             <p class="section-desc">
+
                 Karya, kabar, foto, video, dan cerita terbaru
                 dari PRAN MUSIC ENTERTAINMENT.
+
             </p>
 
         </div>
@@ -1001,13 +1814,19 @@ footer{
     </div>
 
 
-    <!-- POSTING DARI SUPABASE AKAN MASUK DI SINI -->
-
-    <div class="posts-grid" id="postsGrid">
+    <div
+        class="posts-grid"
+        id="postsGrid"
+    >
 
         <div class="loading-post">
+
             MEMUAT CERITA
-            <span class="loading-dot">●</span>
+
+            <span class="loading-dot">
+                ●
+            </span>
+
         </div>
 
     </div>
@@ -1015,6 +1834,40 @@ footer{
 </section>
 
 </main>
+
+
+
+<!-- =========================
+     MEDIA VIEWER
+========================= -->
+
+<div
+    class="media-viewer"
+    id="mediaViewer"
+>
+
+    <button
+        class="media-close"
+        id="mediaClose"
+        type="button"
+        aria-label="Tutup"
+    >
+        ×
+    </button>
+
+
+    <div
+        id="mediaViewerContent"
+    ></div>
+
+
+    <div
+        class="media-title"
+        id="mediaViewerTitle"
+    ></div>
+
+</div>
+
 
 
 <!-- =========================
@@ -1025,20 +1878,27 @@ footer{
 
     <div class="footer-top">
 
+
         <div class="footer-brand">
 
             <h3>
                 PRAN MUSIC
             </h3>
 
+
             <span>
                 ENTERTAINMENT
             </span>
 
+
             <p>
-                Setiap nada menyimpan cerita.
-                Setiap karya menghadirkan rasa.
-                Dan setiap momen layak untuk dikenang.
+
+               Jl. Makmur Pasar 7 tembung ,Gang Anggrek 18
+               , Sena, Kec.
+                Batang Kuis,
+            Kabupaten Deli Serdang, 
+                Sumatera Utara 20371, Indonesia
+
             </p>
 
         </div>
@@ -1046,13 +1906,19 @@ footer{
 
         <div class="footer-contact">
 
-            <a href="https://wa.me/628881024746780"
-               target="_blank"
-               rel="noopener">
-                WhatsApp : +62 888-1024-7467
+            <a
+                href="https://wa.me/+62881024746780"
+                target="_blank"
+                rel="noopener"
+            >
+
+                WhatsApp :
+                +62 881-0247-46780
+
             </a>
 
         </div>
+
 
     </div>
 
@@ -1060,16 +1926,22 @@ footer{
     <div class="footer-bottom">
 
         <div>
+
             © 2026 PRAN MUSIC ENTERTAINMENT
+
         </div>
 
+
         <div>
+
             ALL RIGHTS RESERVED
+
         </div>
 
     </div>
 
 </footer>
+
 
 
 <!-- =========================
@@ -1081,33 +1953,56 @@ footer{
     href="https://wa.me/628881024746780"
     target="_blank"
     rel="noopener"
-    aria-label="WhatsApp">
+    aria-label="WhatsApp"
+>
+
     ✆
+
 </a>
 
 
+
 <!-- =========================
-     SUPABASE POSTS
+     JAVASCRIPT
 ========================= -->
 
 <script>
 
+
+/* =========================
+   LOAD POSTS
+========================= */
+
 async function loadPosts(){
 
-    const postsGrid = document.getElementById("postsGrid");
+    const postsGrid =
+        document.getElementById(
+            "postsGrid"
+        );
+
 
     if(!postsGrid){
+
         return;
+
     }
+
 
     try{
 
-        const { data, error } = await supabaseClient
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
             .from("posts")
             .select("*")
-            .order("created_at", {
-                ascending:false
-            });
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
 
 
         if(error){
@@ -1117,7 +2012,9 @@ async function loadPosts(){
                 error
             );
 
+
             postsGrid.innerHTML = `
+
                 <div class="empty-post">
 
                     <div class="empty-icon">
@@ -1133,15 +2030,21 @@ async function loadPosts(){
                     </p>
 
                 </div>
+
             `;
 
             return;
+
         }
 
 
-        if(!data || data.length === 0){
+        if(
+            !data ||
+            data.length === 0
+        ){
 
             postsGrid.innerHTML = `
+
                 <div class="empty-post">
 
                     <div class="empty-icon">
@@ -1153,14 +2056,18 @@ async function loadPosts(){
                     </h3>
 
                     <p>
+
                         Tunggu karya dan cerita terbaru
                         dari PRAN MUSIC ENTERTAINMENT.
+
                     </p>
 
                 </div>
+
             `;
 
             return;
+
         }
 
 
@@ -1170,33 +2077,40 @@ async function loadPosts(){
         data.forEach(function(post){
 
             const article =
-                document.createElement("article");
+                document.createElement(
+                    "article"
+                );
 
-            article.className = "post-card";
+
+            article.className =
+                "post-card";
 
 
             const title =
-                escapeHtml(post.title || "");
+                escapeHtml(
+                    post.title || ""
+                );
 
 
             const description =
-                escapeHtml(post.description || "");
-
-
-            const uploader =
-                escapeHtml(post.uploaded_by || "");
+                escapeHtml(
+                    post.description || ""
+                );
 
 
             const type =
-                escapeHtml(post.type || "Tulisan");
+                escapeHtml(
+                    post.type ||
+                    "Tulisan"
+                );
 
 
             let mediaHTML = "";
 
 
-            /*
-             * FOTO
-             */
+            /* =====================
+               FOTO
+            ===================== */
 
             if(
                 post.media_url &&
@@ -1204,22 +2118,30 @@ async function loadPosts(){
             ){
 
                 mediaHTML = `
+
                     <div class="post-media">
 
                         <img
                             src="${escapeAttribute(post.media_url)}"
-                            alt="${escapeAttribute(title)}"
-                            loading="lazy">
+                            alt="${escapeAttribute(post.title || "Foto posting")}"
+                            loading="lazy"
+                            onclick="openMedia(
+                                'image',
+                                '${escapeJs(post.media_url)}',
+                                '${escapeJs(post.title || "Foto")}'
+                            )"
+                        >
 
                     </div>
+
                 `;
 
             }
 
 
-            /*
-             * VIDEO
-             */
+            /* =====================
+               VIDEO
+            ===================== */
 
             if(
                 post.media_url &&
@@ -1227,28 +2149,42 @@ async function loadPosts(){
             ){
 
                 mediaHTML = `
+
                     <div class="post-media">
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                            onclick="openMedia(
+                                'video',
+                                '${escapeJs(post.media_url)}',
+                                '${escapeJs(post.title || "Video")}'
+                            )"
+                        >
 
                             <source
                                 src="${escapeAttribute(post.media_url)}"
-                                type="${escapeAttribute(post.media_type || "video/mp4")}">
+                                type="${escapeAttribute(
+                                    post.media_type ||
+                                    "video/mp4"
+                                )}"
+                            >
+
+                            Browser tidak mendukung video.
 
                         </video>
 
                     </div>
+
                 `;
 
             }
 
 
-            /*
-             * POST CARD
-             */
+            /* =====================
+               CARD
+            ===================== */
 
             article.innerHTML = `
 
@@ -1257,12 +2193,18 @@ async function loadPosts(){
                 <div class="post-content">
 
                     <div class="post-type">
+
                         ${type}
+
                     </div>
 
+
                     <h3>
+
                         ${title}
+
                     </h3>
+
 
                     ${
                         description
@@ -1272,16 +2214,14 @@ async function loadPosts(){
                         ""
                     }
 
-                    <small>
-                        Diposting oleh ${uploader || "PRAN MUSIC ENTERTAINMENT"}
-                    </small>
-
                 </div>
 
             `;
 
 
-            postsGrid.appendChild(article);
+            postsGrid.appendChild(
+                article
+            );
 
         });
 
@@ -1293,49 +2233,370 @@ async function loadPosts(){
             error
         );
 
+
+        postsGrid.innerHTML = `
+
+            <div class="empty-post">
+
+                <div class="empty-icon">
+                    ♪
+                </div>
+
+                <h3>
+                    TERJADI KESALAHAN
+                </h3>
+
+                <p>
+                    Silakan coba kembali beberapa saat lagi.
+                </p>
+
+            </div>
+
+        `;
+
     }
 
 }
 
 
-/*
- * AMANKAN TEKS DARI DATABASE
- */
+
+/* =========================
+   OPEN MEDIA
+========================= */
+
+function openMedia(
+    type,
+    url,
+    title
+){
+
+    const viewer =
+        document.getElementById(
+            "mediaViewer"
+        );
+
+
+    const content =
+        document.getElementById(
+            "mediaViewerContent"
+        );
+
+
+    const viewerTitle =
+        document.getElementById(
+            "mediaViewerTitle"
+        );
+
+
+    if(
+        !viewer ||
+        !content
+    ){
+
+        return;
+
+    }
+
+
+    content.innerHTML = "";
+
+
+    if(type === "image"){
+
+        const img =
+            document.createElement(
+                "img"
+            );
+
+
+        img.src = url;
+
+        img.alt = title || "Foto";
+
+
+        content.appendChild(
+            img
+        );
+
+    }
+
+
+    if(type === "video"){
+
+        const video =
+            document.createElement(
+                "video"
+            );
+
+
+        video.controls = true;
+
+        video.autoplay = true;
+
+        video.playsInline = true;
+
+        video.preload = "metadata";
+
+        video.src = url;
+
+
+        content.appendChild(
+            video
+        );
+
+    }
+
+
+    viewerTitle.textContent =
+        title || "";
+
+
+    viewer.classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+/* =========================
+   CLOSE MEDIA
+========================= */
+
+function closeMedia(){
+
+    const viewer =
+        document.getElementById(
+            "mediaViewer"
+        );
+
+
+    const content =
+        document.getElementById(
+            "mediaViewerContent"
+        );
+
+
+    if(!viewer){
+
+        return;
+
+    }
+
+
+    viewer.classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+
+    if(content){
+
+        const video =
+            content.querySelector(
+                "video"
+            );
+
+
+        if(video){
+
+            video.pause();
+
+            video.removeAttribute(
+                "src"
+            );
+
+            video.load();
+
+        }
+
+
+        content.innerHTML = "";
+
+    }
+
+}
+
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+document
+    .getElementById("mediaClose")
+    .addEventListener(
+        "click",
+        function(){
+
+            closeMedia();
+
+        }
+    );
+
+
+
+/* =========================
+   CLICK BACKGROUND
+========================= */
+
+document
+    .getElementById("mediaViewer")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target ===
+                this
+            ){
+
+                closeMedia();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeMedia();
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHtml(text){
 
     return String(text)
 
-        .replace(/&/g, "&amp;")
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-        .replace(/</g, "&lt;")
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-        .replace(/>/g, "&gt;")
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-        .replace(/"/g, "&quot;")
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-        .replace(/'/g, "&#039;");
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-/*
- * AMANKAN URL
- */
+
+/* =========================
+   ESCAPE ATTRIBUTE
+========================= */
 
 function escapeAttribute(text){
 
     return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/"/g, "&quot;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        );
+
 }
 
 
-/*
- * JALANKAN SAAT HALAMAN SELESAI
- */
+
+/* =========================
+   ESCAPE JAVASCRIPT
+========================= */
+
+function escapeJs(text){
+
+    return String(text)
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        )
+
+        .replace(
+            /"/g,
+            '\\"'
+        )
+
+        .replace(
+            /\r/g,
+            "\\r"
+        )
+
+        .replace(
+            /\n/g,
+            "\\n"
+        );
+
+}
+
+
+
+/* =========================
+   START
+========================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -1347,6 +2608,7 @@ document.addEventListener(
 );
 
 </script>
+
 
 </body>
 </html>
