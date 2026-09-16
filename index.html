@@ -2812,6 +2812,7 @@ async function loadComments(memoryId){
                     balasan_komentar (
                         id,
                         isi,
+                        username,
                         created_at
                     )
                 `)
@@ -2901,7 +2902,10 @@ async function loadComments(memoryId){
                                         <div class="comment-reply">
 
                                             <div class="comment-reply-label">
-                                                PRAN MUSIC ENTERTAINMENT
+                                                ${escapeHtml(
+                                                    reply.username ||
+                                                    "PRAN MUSIC ENTERTAINMENT"
+                                                )}
                                             </div>
 
                                             <div class="comment-reply-text">
