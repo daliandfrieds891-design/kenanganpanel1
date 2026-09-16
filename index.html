@@ -854,7 +854,7 @@ header{
 }
 
 /* =========================================================
-   SOCIAL
+   SOCIAL - TAMBAHAN FITUR
 ========================================================= */
 
 .memory-social{
@@ -1852,7 +1852,6 @@ footer{
 
 </header>
 
-
 <section class="hero">
 
     <div class="stage-light left"></div>
@@ -1907,7 +1906,6 @@ footer{
 
 </section>
 
-
 <div class="event-strip">
 
     <div class="event-item">
@@ -1931,7 +1929,6 @@ footer{
     </div>
 
 </div>
-
 
 <section class="intro reveal">
 
@@ -1961,7 +1958,6 @@ footer{
 
 </section>
 
-
 <section
     class="section"
     id="dokumentasi"
@@ -1990,7 +1986,6 @@ footer{
 
     </div>
 
-
     <div
         id="loading"
         class="loading"
@@ -2001,7 +1996,6 @@ footer{
         MEMUAT DOKUMENTASI PRAN MUSIC ENTERTAINMENT...
 
     </div>
-
 
     <div
         id="empty"
@@ -2019,14 +2013,12 @@ footer{
 
     </div>
 
-
     <div
         id="memoryGrid"
         class="memory-grid"
     ></div>
 
 </section>
-
 
 <section class="cta">
 
@@ -2058,7 +2050,6 @@ footer{
 
 </section>
 
-
 <footer>
 
     <div class="footer-brand">
@@ -2076,7 +2067,6 @@ footer{
     A Collection of Moments
 
 </footer>
-
 
 <div
     id="modal"
@@ -2099,21 +2089,14 @@ footer{
 
 </div>
 
-
 <div
     class="visitor-badge"
     id="visitorBadge"
     style="display:none;"
 >
-
     <span>●</span>
-
-    <span id="visitorNumber">
-        Pengunjung
-    </span>
-
+    <span id="visitorNumber">Pengunjung</span>
 </div>
-
 
 <div
     class="whatsapp-contact"
@@ -2125,7 +2108,6 @@ footer{
         <div class="contact-title">
             HUBUNGI PRAN MUSIC ENTERTAINMENT
         </div>
-
 
         <a
             class="contact-number"
@@ -2151,7 +2133,6 @@ footer{
             </div>
 
         </a>
-
 
         <a
             class="contact-number"
@@ -2179,7 +2160,6 @@ footer{
         </a>
 
     </div>
-
 
     <button
         class="contact-toggle"
@@ -2697,11 +2677,9 @@ function createMemoryCard(item){
                 >
 
                     <div class="comment-list">
-
                         <div class="comment-empty">
                             Memuat komentar...
                         </div>
-
                     </div>
 
 
@@ -2812,7 +2790,6 @@ async function loadComments(memoryId){
                     balasan_komentar (
                         id,
                         isi,
-                        username,
                         created_at
                     )
                 `)
@@ -2855,22 +2832,22 @@ async function loadComments(memoryId){
         list.innerHTML = "";
 
 
-        /*
-         * NOMOR KOMENTAR DIBUAT BERDASARKAN
-         * URUTAN KOMENTAR.
-         *
-         * Komentar pertama = #001
-         * Komentar kedua   = #002
-         * Komentar ketiga  = #003
-         * dan seterusnya.
-         */
-
         data.forEach(
-            function(comment, index){
+            function(comment){
+
+                const visitor =
+                    comment.pengunjung;
+
 
                 const visitorName =
-                    "Pengunjung #" +
-                    String(index + 1).padStart(3,"0");
+                    visitor &&
+                    visitor.nomor_pengunjung
+                    ?
+                    formatVisitorNumber(
+                        visitor.nomor_pengunjung
+                    )
+                    :
+                    "Pengunjung";
 
 
                 const item =
@@ -2902,10 +2879,7 @@ async function loadComments(memoryId){
                                         <div class="comment-reply">
 
                                             <div class="comment-reply-label">
-                                                ${escapeHtml(
-                                                    reply.username ||
-                                                    "PRAN MUSIC ENTERTAINMENT"
-                                                )}
+                                                PRAN MUSIC ENTERTAINMENT
                                             </div>
 
                                             <div class="comment-reply-text">
