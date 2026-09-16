@@ -1,3365 +1,2788 @@
- <!DOCTYPE html>
- <html lang="id">
- <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!DOCTYPE html>
+  <html lang="id">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>Admin Kenangan | PRAN MUSIC ENTERTAINMENT</title>
+  <title>Admin | PRAN MUSIC ENTERTAINMENT</title>
 
- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
- <script src="https://pranmusicentertainment.company/config.js"></script>
+  <style>
+  *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+  }
 
- <style>
- *{
-     box-sizing:border-box;
-     margin:0;
-     padding:0;
- }
+  html{
+      scroll-behavior:smooth;
+  }
 
- body{
-     font-family:Arial,Helvetica,sans-serif;
-     background:#080a0f;
-     color:#fff;
-     min-height:100vh;
- }
+  body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+          radial-gradient(circle at 50% 0%,rgba(255,190,70,.14),transparent 35%),
+          radial-gradient(circle at 0% 50%,rgba(255,180,50,.08),transparent 30%),
+          radial-gradient(circle at 100% 60%,rgba(100,60,180,.10),transparent 35%),
+          #070707;
+      color:#fff;
+      min-height:100vh;
+  }
 
- button,
- input,
- textarea,
- select{
-     font-family:inherit;
- }
-
- /* =========================
+  /* =========================
     LOGIN
- ========================= */
+  ========================= */
 
- #loginPage{
-     min-height:100vh;
-     display:flex;
-     align-items:center;
-     justify-content:center;
-     padding:20px;
-     background:
-         radial-gradient(circle at top,#1b1d24 0%,#080a0f 55%);
- }
+  #loginPage{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:25px;
+      background:
+          radial-gradient(circle at center,rgba(212,164,66,.12),transparent 30%),
+          #050505;
+  }
 
- .login-box{
-     width:100%;
-     max-width:430px;
-     background:#11151d;
-     border:1px solid rgba(246,196,83,.25);
-     border-radius:24px;
-     padding:35px 28px;
-     box-shadow:0 25px 80px rgba(0,0,0,.55);
- }
+  .login-box{
+      width:100%;
+      max-width:430px;
+      padding:45px 38px;
+      border:1px solid rgba(212,170,75,.35);
+      border-radius:24px;
+      background:rgba(15,15,15,.92);
+      box-shadow:
+          0 30px 80px rgba(0,0,0,.7),
+          0 0 60px rgba(212,170,75,.08);
+      text-align:center;
+      backdrop-filter:blur(15px);
+  }
 
- .logo{
-     text-align:center;
-     margin-bottom:30px;
- }
+  .login-logo{
+      font-size:38px;
+      font-weight:900;
+      letter-spacing:7px;
+      color:#f0c66d;
+      font-style:italic;
+  }
 
- .logo-main{
-     font-size:30px;
-     font-weight:900;
-     letter-spacing:2px;
-     color:#f6c453;
- }
+  .login-sub{
+      margin-top:5px;
+      font-size:11px;
+      letter-spacing:5px;
+      color:#aaa;
+  }
 
- .logo-sub{
-     margin-top:7px;
-     font-size:12px;
-     color:#9ca3af;
-     letter-spacing:2px;
- }
+  .login-line{
+      width:70px;
+      height:2px;
+      margin:22px auto;
+      background:linear-gradient(90deg,transparent,#e5b85c,transparent);
+  }
 
- .login-title{
-     text-align:center;
-     font-size:22px;
-     margin-bottom:24px;
- }
+  .login-title{
+      font-size:23px;
+      margin-bottom:25px;
+      letter-spacing:2px;
+  }
 
- .form-group{
-     margin-bottom:18px;
- }
+  .input-group{
+      text-align:left;
+      margin-bottom:17px;
+  }
 
- .form-group label{
-     display:block;
-     margin-bottom:8px;
-     font-size:13px;
-     color:#d1d5db;
- }
+  .input-group label{
+      display:block;
+      font-size:11px;
+      color:#aaa;
+      letter-spacing:2px;
+      margin-bottom:8px;
+  }
 
- .form-group input,
- .form-group textarea,
- .form-group select{
-     width:100%;
-     border:1px solid #292e38;
-     background:#0b0e14;
-     color:#fff;
-     border-radius:12px;
-     padding:13px 14px;
-     outline:none;
-     transition:.2s;
- }
+  .input-group input{
+      width:100%;
+      padding:14px 15px;
+      border-radius:11px;
+      border:1px solid #333;
+      background:#101010;
+      color:white;
+      outline:none;
+      font-size:14px;
+  }
 
- .form-group textarea{
-     min-height:110px;
-     resize:vertical;
- }
+  .input-group input:focus{
+      border-color:#cda855;
+      box-shadow:0 0 0 2px rgba(205,168,85,.08);
+  }
 
- .form-group input:focus,
- .form-group textarea:focus,
- .form-group select:focus{
-     border-color:#f6c453;
-     box-shadow:0 0 0 3px rgba(246,196,83,.08);
- }
+  .login-button{
+      width:100%;
+      border:0;
+      border-radius:11px;
+      padding:15px;
+      margin-top:7px;
+      background:linear-gradient(135deg,#d5a844,#f0ce7b,#b8872f);
+      color:#090909;
+      font-weight:800;
+      letter-spacing:2px;
+      cursor:pointer;
+      transition:.25s;
+  }
 
- .login-btn,
- .post-btn{
-     width:100%;
-     border:none;
-     border-radius:12px;
-     padding:14px;
-     background:linear-gradient(135deg,#f6c453,#d99d2b);
-     color:#111;
-     font-size:15px;
-     font-weight:900;
-     cursor:pointer;
-     transition:.2s;
- }
+  .login-button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 25px rgba(210,165,65,.25);
+  }
 
- .login-btn:hover,
- .post-btn:hover{
-     transform:translateY(-1px);
-     filter:brightness(1.08);
- }
+  .login-error{
+      min-height:20px;
+      margin-top:15px;
+      color:#ff6b6b;
+      font-size:13px;
+  }
 
- .login-btn:disabled,
- .post-btn:disabled{
-     opacity:.6;
-     cursor:not-allowed;
- }
-
- .login-error{
-     display:none;
-     margin-top:15px;
-     padding:12px;
-     border-radius:10px;
-     background:rgba(239,68,68,.1);
-     border:1px solid rgba(239,68,68,.3);
-     color:#fca5a5;
-     font-size:13px;
-     line-height:1.5;
- }
-
- /* =========================
+  /* =========================
     ADMIN
- ========================= */
-
- #adminPage{
-     display:none;
-     min-height:100vh;
- }
-
- .topbar{
-     position:sticky;
-     top:0;
-     z-index:50;
-     background:rgba(8,10,15,.94);
-     backdrop-filter:blur(15px);
-     border-bottom:1px solid #242832;
-     padding:15px 22px;
- }
-
- .topbar-inner{
-     max-width:1200px;
-     margin:auto;
-     display:flex;
-     align-items:center;
-     justify-content:space-between;
-     gap:15px;
- }
-
- .brand{
-     display:flex;
-     align-items:center;
-     gap:10px;
- }
-
- .brand-title{
-     color:#f6c453;
-     font-weight:900;
-     letter-spacing:1px;
- }
-
- .brand-sub{
-     color:#777f8c;
-     font-size:11px;
- }
-
- .user-area{
-     display:flex;
-     align-items:center;
-     gap:12px;
- }
-
- .user-badge{
-     padding:8px 12px;
-     border-radius:999px;
-     background:rgba(246,196,83,.08);
-     border:1px solid rgba(246,196,83,.22);
-     color:#f6c453;
-     font-size:12px;
-     font-weight:700;
- }
-
- .logout-btn{
-     border:1px solid #343a45;
-     background:#11151d;
-     color:#fff;
-     padding:9px 13px;
-     border-radius:10px;
-     cursor:pointer;
-     font-size:12px;
- }
-
- .logout-btn:hover{
-     border-color:#f6c453;
-     color:#f6c453;
- }
-
- .container{
-     width:100%;
-     max-width:1200px;
-     margin:auto;
-     padding:30px 20px 60px;
- }
-
- .page-title{
-     margin-bottom:25px;
- }
-
- .page-title h1{
-     font-size:30px;
-     margin-bottom:7px;
- }
-
- .page-title p{
-     color:#858d9a;
-     font-size:14px;
- }
-
- /* =========================
-    UPLOAD CARD
- ========================= */
-
- .panel{
-     background:#11151d;
-     border:1px solid #242832;
-     border-radius:20px;
-     padding:25px;
-     margin-bottom:30px;
-     box-shadow:0 15px 45px rgba(0,0,0,.25);
- }
-
- .panel-title{
-     font-size:20px;
-     font-weight:800;
-     margin-bottom:20px;
-     color:#f6c453;
- }
-
- .media-type{
-     display:grid;
-     grid-template-columns:1fr 1fr;
-     gap:12px;
-     margin-bottom:20px;
- }
-
- .media-type button{
-     border:1px solid #303641;
-     background:#0b0e14;
-     color:#b8bec8;
-     padding:13px;
-     border-radius:12px;
-     cursor:pointer;
-     font-weight:800;
- }
-
- .media-type button.active{
-     border-color:#f6c453;
-     background:rgba(246,196,83,.09);
-     color:#f6c453;
- }
-
- .file-box{
-     border:1px dashed #3b414d;
-     background:#0b0e14;
-     border-radius:15px;
-     padding:22px;
-     text-align:center;
-     margin-bottom:20px;
- }
-
- .file-box input{
-     width:100%;
-     color:#aaa;
- }
-
- .selected-files{
-     margin-top:12px;
-     text-align:left;
-     color:#9ca3af;
-     font-size:12px;
-     line-height:1.7;
- }
-
- /* =========================
-    STATUS
- ========================= */
-
- .status{
-     display:none;
-     margin-bottom:18px;
-     padding:13px 15px;
-     border-radius:11px;
-     font-size:13px;
-     line-height:1.5;
- }
-
- .status.success{
-     display:block;
-     background:rgba(34,197,94,.1);
-     border:1px solid rgba(34,197,94,.3);
-     color:#86efac;
- }
-
- .status.error{
-     display:block;
-     background:rgba(239,68,68,.1);
-     border:1px solid rgba(239,68,68,.3);
-     color:#fca5a5;
- }
-
- .status.loading{
-     display:block;
-     background:rgba(246,196,83,.08);
-     border:1px solid rgba(246,196,83,.2);
-     color:#f6c453;
- }
-
- /* =========================
-    HISTORY
- ========================= */
-
- .history-header{
-     display:flex;
-     justify-content:space-between;
-     align-items:center;
-     gap:15px;
-     margin-bottom:20px;
- }
-
- .history-header h2{
-     font-size:22px;
- }
-
- .refresh-btn{
-     border:1px solid #343a45;
-     background:#11151d;
-     color:#fff;
-     padding:10px 15px;
-     border-radius:10px;
-     cursor:pointer;
-     font-weight:700;
- }
-
- .refresh-btn:hover{
-     border-color:#f6c453;
-     color:#f6c453;
- }
-
- .history-grid{
-     display:grid;
-     grid-template-columns:repeat(2,minmax(0,1fr));
-     gap:20px;
- }
-
- .history-item{
-     overflow:hidden;
-     background:#11151d;
-     border:1px solid #242832;
-     border-radius:18px;
-     box-shadow:0 12px 35px rgba(0,0,0,.2);
- }
-
- .history-media{
-     width:100%;
-     background:#05070a;
-     aspect-ratio:16/10;
-     overflow:hidden;
- }
-
- .history-media img,
- .history-media video{
-     width:100%;
-     height:100%;
-     display:block;
-     object-fit:cover;
- }
-
- .history-content{
-     padding:18px;
- }
-
- .media-badge{
-     display:inline-block;
-     padding:5px 9px;
-     border-radius:999px;
-     background:rgba(246,196,83,.1);
-     border:1px solid rgba(246,196,83,.22);
-     color:#f6c453;
-     font-size:10px;
-     font-weight:900;
-     letter-spacing:1px;
-     margin-bottom:10px;
- }
-
- .history-title{
-     font-size:18px;
-     font-weight:900;
-     margin-bottom:7px;
- }
-
- .history-date{
-     color:#858d9a;
-     font-size:12px;
-     margin-bottom:8px;
- }
-
- .history-uploader{
-     display:inline-block;
-     margin-bottom:12px;
-     padding:7px 10px;
-     border-radius:8px;
-     background:rgba(246,196,83,.07);
-     border:1px solid rgba(246,196,83,.18);
-     color:#f6c453;
-     font-size:12px;
-     font-weight:800;
- }
-
- .history-story{
-     color:#aeb4be;
-     font-size:13px;
-     line-height:1.6;
-     margin-bottom:15px;
-     white-space:pre-wrap;
- }
-
- /* =========================
-    EDIT BUTTON
- ========================= */
-
- .edit-btn{
-     width:100%;
-     border:1px solid rgba(246,196,83,.3);
-     background:rgba(246,196,83,.08);
-     color:#f6c453;
-     border-radius:10px;
-     padding:11px;
-     cursor:pointer;
-     font-weight:800;
-     margin-bottom:9px;
-     transition:.2s;
- }
-
- .edit-btn:hover{
-     background:rgba(246,196,83,.15);
-     border-color:#f6c453;
- }
-
- /* =========================
-    DELETE BUTTON
- ========================= */
-
- .delete-btn{
-     width:100%;
-     border:1px solid rgba(239,68,68,.3);
-     background:rgba(239,68,68,.08);
-     color:#fca5a5;
-     border-radius:10px;
-     padding:11px;
-     cursor:pointer;
-     font-weight:800;
- }
-
- .delete-btn:hover{
-     background:rgba(239,68,68,.14);
-     border-color:#ef4444;
- }
-
- .loading-history,
- .empty-history{
-     grid-column:1/-1;
-     text-align:center;
-     padding:40px 20px;
-     border:1px dashed #303641;
-     border-radius:15px;
-     color:#777f8c;
- }
-
- /* =========================
-    EDIT MODAL
- ========================= */
-
- .edit-modal{
-     position:fixed;
-     inset:0;
-     z-index:1000;
-     display:none;
-     align-items:center;
-     justify-content:center;
-     padding:20px;
-     background:rgba(0,0,0,.78);
-     backdrop-filter:blur(8px);
- }
-
- .edit-modal.active{
-     display:flex;
- }
-
- .edit-box{
-     width:100%;
-     max-width:500px;
-     max-height:90vh;
-     overflow-y:auto;
-     background:#11151d;
-     border:1px solid #343a45;
-     border-radius:20px;
-     padding:25px;
-     box-shadow:0 25px 80px rgba(0,0,0,.65);
- }
-
- .edit-title{
-     color:#f6c453;
-     font-size:21px;
-     font-weight:900;
-     margin-bottom:20px;
- }
-
- .edit-actions{
-     display:grid;
-     grid-template-columns:1fr 1fr;
-     gap:10px;
-     margin-top:20px;
- }
-
- .cancel-edit-btn{
-     border:1px solid #343a45;
-     background:#0b0e14;
-     color:#fff;
-     border-radius:10px;
-     padding:12px;
-     cursor:pointer;
-     font-weight:800;
- }
-
- .cancel-edit-btn:hover{
-     border-color:#777f8c;
- }
-
- .save-edit-btn{
-     border:none;
-     background:linear-gradient(135deg,#f6c453,#d99d2b);
-     color:#111;
-     border-radius:10px;
-     padding:12px;
-     cursor:pointer;
-     font-weight:900;
- }
-
- .save-edit-btn:hover{
-     filter:brightness(1.08);
- }
-
- .save-edit-btn:disabled{
-     opacity:.6;
-     cursor:not-allowed;
- }
-
- /* =========================
-    RESPONSIVE
- ========================= */
-
- @media(max-width:800px){
-
-     .history-grid{
-         grid-template-columns:1fr;
-     }
-
- }
-
- @media(max-width:600px){
-
-     .topbar{
-         padding:12px 15px;
-     }
-
-     .topbar-inner{
-         align-items:flex-start;
-     }
-
-     .brand-sub{
-         display:none;
-     }
-
-     .user-area{
-         flex-direction:column;
-         align-items:flex-end;
-         gap:7px;
-     }
-
-     .container{
-         padding:22px 14px 45px;
-     }
-
-     .panel{
-         padding:18px;
-         border-radius:16px;
-     }
-
-     .page-title h1{
-         font-size:25px;
-     }
-
-     .history-header{
-         align-items:flex-start;
-     }
-
-     .history-header h2{
-         font-size:19px;
-     }
-
-     .refresh-btn{
-         padding:8px 11px;
-         font-size:11px;
-     }
-
-     .edit-actions{
-         grid-template-columns:1fr;
-     }
-
- }
-
- 
-/* =========================================================
-   ADMIN SOCIAL / COMMENTS
-========================================================= */
-
-.admin-social-stats{
-    display:flex;
-    gap:10px;
-    margin:16px 0;
-    flex-wrap:wrap;
-}
-
-.admin-stat{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    padding:9px 12px;
-    border:1px solid #292e38;
-    background:#0b0e14;
-    border-radius:10px;
-    color:#d1d5db;
-    font-size:12px;
-}
-
-.admin-stat strong{
-    color:#f6c453;
-    font-size:15px;
-}
-
-.admin-stat span{
-    color:#9ca3af;
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:.7px;
-}
-
-.admin-comments-box{
-    margin-top:14px;
-    border:1px solid #292e38;
-    background:#0b0e14;
-    border-radius:14px;
-    padding:14px;
-}
-
-.admin-comments-title{
-    font-size:12px;
-    font-weight:900;
-    color:#f6c453;
-    letter-spacing:.8px;
-    margin-bottom:12px;
-}
-
-.admin-comment-item{
-    border-top:1px solid #242934;
-    padding:13px 0;
-}
-
-.admin-comment-item:first-of-type{
-    border-top:none;
-    padding-top:0;
-}
-
-.admin-comment-head{
-    display:flex;
-    justify-content:space-between;
-    gap:12px;
-    align-items:center;
-    margin-bottom:7px;
-}
-
-.admin-comment-head strong{
-    color:#fff;
-    font-size:13px;
-}
-
-.admin-comment-head small,
-.admin-reply-head small{
-    color:#7f8795;
-    font-size:10px;
-}
-
-.admin-comment-text{
-    color:#e5e7eb;
-    font-size:13px;
-    line-height:1.55;
-    word-break:break-word;
-}
-
-.admin-replies{
-    margin-top:10px;
-}
-
-.admin-reply{
-    margin:8px 0 0 14px;
-    padding:10px 12px;
-    border-left:3px solid #f6c453;
-    background:#121720;
-    border-radius:0 10px 10px 0;
-}
-
-.admin-reply-head{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    margin-bottom:5px;
-}
-
-.admin-reply-head span{
-    color:#f6c453;
-    font-size:11px;
-    font-weight:900;
-}
-
-.admin-reply-text{
-    color:#d1d5db;
-    font-size:12px;
-    line-height:1.5;
-    word-break:break-word;
-}
-
-.admin-reply-form{
-    display:flex;
-    gap:8px;
-    margin-top:10px;
-}
-
-.admin-reply-input{
-    flex:1;
-    min-height:70px;
-    resize:vertical;
-    border:1px solid #292e38;
-    background:#080a0f;
-    color:#fff;
-    border-radius:10px;
-    padding:10px 12px;
-    outline:none;
-    font-size:12px;
-}
-
-.admin-reply-input:focus{
-    border-color:#f6c453;
-    box-shadow:0 0 0 3px rgba(246,196,83,.08);
-}
-
-.admin-reply-button{
-    align-self:flex-end;
-    border:none;
-    border-radius:10px;
-    padding:10px 13px;
-    background:linear-gradient(135deg,#f6c453,#d99d2b);
-    color:#111;
-    font-size:11px;
-    font-weight:900;
-    cursor:pointer;
-    white-space:nowrap;
-}
-
-.admin-reply-button:hover{
-    filter:brightness(1.08);
-}
-
-.admin-reply-button:disabled{
-    opacity:.6;
-    cursor:wait;
-}
-
-.admin-comment-empty{
-    color:#7f8795;
-    font-size:12px;
-    padding:5px 0;
-}
-
-@media(max-width:600px){
-
-    .admin-reply-form{
-        flex-direction:column;
-    }
-
-    .admin-reply-button{
-        width:100%;
-        align-self:stretch;
-    }
-
-    .admin-comment-head{
-        align-items:flex-start;
-        flex-direction:column;
-        gap:3px;
-    }
-
-}
-
-</style>
- </head>
-
- <body>
-
- <section id="loginPage">
-
-     <div class="login-box">
-
-         <div class="logo">
-
-             <div class="logo-main">
-                 PRAN MUSIC
-             </div>
-
-             <div class="logo-sub">
-                 ADMIN KENANGAN
-             </div>
-
-         </div>
-
-         <div class="login-title">
-             Login Admin
-         </div>
-
-         <form id="loginForm">
-
-             <div class="form-group">
-
-                 <label>Username</label>
-
-                 <input
-                     type="text"
-                     id="username"
-                     placeholder="Masukkan username"
-                     autocomplete="username"
-                     required
-                 >
-
-             </div>
-
-             <div class="form-group">
-
-                 <label>Password</label>
-
-                 <input
-                     type="password"
-                     id="password"
-                     placeholder="Masukkan password"
-                     autocomplete="current-password"
-                     required
-                 >
-
-             </div>
-
-             <button
-                 type="submit"
-                 class="login-btn"
-                 id="loginBtn"
-             >
-                 LOGIN
-             </button>
-
-         </form>
-
-         <div
-             id="loginError"
-             class="login-error"
-         ></div>
-
-     </div>
-
- </section>
-
-
- <section id="adminPage">
-
-     <header class="topbar">
-
-         <div class="topbar-inner">
-
-             <div class="brand">
-
-                 <div>
-
-                     <div class="brand-title">
-                         PRAN MUSIC
-                     </div>
-
-                     <div class="brand-sub">
-                         ADMIN KENANGAN
-                     </div>
-
-                 </div>
-
-             </div>
-
-             <div class="user-area">
-
-                 <div
-                     class="user-badge"
-                     id="currentUserBadge"
-                 >
-                     👤 -
-                 </div>
-
-                 <button
-                     type="button"
-                     class="logout-btn"
-                     id="logoutBtn"
-                 >
-                     LOGOUT
-                 </button>
-
-             </div>
-
-         </div>
-
-     </header>
-
-
-     <main class="container">
-
-         <div class="page-title">
-
-             <h1>
-                 Upload Kenangan
-             </h1>
-
-             <p>
-                 Upload foto atau video dokumentasi PRAN MUSIC ENTERTAINMENT.
-             </p>
-
-         </div>
-
-
-         <div class="panel">
-
-             <div class="panel-title">
-                 Tambah Kenangan
-             </div>
-
-             <div class="media-type">
-
-                 <button
-                     type="button"
-                     id="photoTypeBtn"
-                     class="active"
-                 >
-                     📷 FOTO
-                 </button>
-
-                 <button
-                     type="button"
-                     id="videoTypeBtn"
-                 >
-                     🎥 VIDEO
-                 </button>
-
-             </div>
-
-
-             <div class="file-box">
-
-                 <input
-                     type="file"
-                     id="mediaInput"
-                     accept="image/*"
-                     multiple
-                 >
-
-                 <div
-                     id="selectedFiles"
-                     class="selected-files"
-                 >
-                     Belum ada file dipilih.
-                 </div>
-
-             </div>
-
-
-             <div class="form-group">
-
-                 <label>Judul</label>
-
-                 <input
-                     type="text"
-                     id="judul"
-                     placeholder="Contoh: Dokumentasi Wedding"
-                     required
-                 >
-
-             </div>
-
-
-             <div class="form-group">
-
-                 <label>Tanggal Acara</label>
-
-                 <input
-                     type="date"
-                     id="tanggal"
-                 >
-
-             </div>
-
-
-             <div class="form-group">
-
-                 <label>Cerita / Keterangan</label>
-
-                 <textarea
-                     id="cerita"
-                     placeholder="Tulis cerita atau keterangan kenangan..."
-                 ></textarea>
-
-             </div>
-
-
-             <div
-                 id="uploadStatus"
-                 class="status"
-             ></div>
-
-
-             <button
-                 type="button"
-                 class="post-btn"
-                 id="postBtn"
-             >
-                 POST KENANGAN
-             </button>
-
-         </div>
-
-
-         <div class="panel">
-
-             <div class="history-header">
-
-                 <h2>
-                     History Upload
-                 </h2>
-
-                 <button
-                     type="button"
-                     class="refresh-btn"
-                     id="refreshBtn"
-                 >
-                     ↻ REFRESH
-                 </button>
-
-             </div>
-
-             <div
-                 id="historyGrid"
-                 class="history-grid"
-             ></div>
-
-         </div>
-
-     </main>
-
- </section>
-
-
- <div
-     id="editModal"
-     class="edit-modal"
- >
-
-     <div class="edit-box">
-
-         <div class="edit-title">
-             ✏️ Edit Postingan
-         </div>
-
-
-         <div class="form-group">
-
-             <label>Judul</label>
-
-             <input
-                 type="text"
-                 id="editJudul"
-                 placeholder="Judul postingan"
-             >
-
-         </div>
-
-
-         <div class="form-group">
-
-             <label>Tanggal Acara</label>
-
-             <input
-                 type="date"
-                 id="editTanggal"
-             >
-
-         </div>
-
-
-         <div class="form-group">
-
-             <label>Cerita / Keterangan</label>
-
-             <textarea
-                 id="editCerita"
-                 placeholder="Tulis cerita atau keterangan..."
-             ></textarea>
-
-         </div>
-
-
-         <div class="edit-actions">
-
-             <button
-                 type="button"
-                 class="cancel-edit-btn"
-                 id="cancelEditBtn"
-             >
-                 BATAL
-             </button>
-
-             <button
-                 type="button"
-                 class="save-edit-btn"
-                 id="saveEditBtn"
-             >
-                 SIMPAN PERUBAHAN
-             </button>
-
-         </div>
-
-     </div>
-
- </div>
-
-
- <script>
-
- /* =========================================================
-    ELEMENT
- ========================================================= */
-
- const loginPage =
-     document.getElementById("loginPage");
-
- const adminPage =
-     document.getElementById("adminPage");
-
- const loginForm =
-     document.getElementById("loginForm");
-
- const usernameInput =
-     document.getElementById("username");
-
- const passwordInput =
-     document.getElementById("password");
-
- const loginBtn =
-     document.getElementById("loginBtn");
-
- const loginError =
-     document.getElementById("loginError");
-
- const logoutBtn =
-     document.getElementById("logoutBtn");
-
- const currentUserBadge =
-     document.getElementById("currentUserBadge");
-
- const photoTypeBtn =
-     document.getElementById("photoTypeBtn");
-
- const videoTypeBtn =
-     document.getElementById("videoTypeBtn");
-
- const mediaInput =
-     document.getElementById("mediaInput");
-
- const selectedFiles =
-     document.getElementById("selectedFiles");
-
- const judulInput =
-     document.getElementById("judul");
-
- const tanggalInput =
-     document.getElementById("tanggal");
-
- const ceritaInput =
-     document.getElementById("cerita");
-
- const uploadStatus =
-     document.getElementById("uploadStatus");
-
- const postBtn =
-     document.getElementById("postBtn");
-
- const historyGrid =
-     document.getElementById("historyGrid");
-
- const refreshBtn =
-     document.getElementById("refreshBtn");
-
-
- /* EDIT */
-
- const editModal =
-     document.getElementById("editModal");
-
- const editJudul =
-     document.getElementById("editJudul");
-
- const editTanggal =
-     document.getElementById("editTanggal");
-
- const editCerita =
-     document.getElementById("editCerita");
-
- const cancelEditBtn =
-     document.getElementById("cancelEditBtn");
-
- const saveEditBtn =
-     document.getElementById("saveEditBtn");
-
-
- /* =========================================================
-    VARIABLES
- ========================================================= */
-
- let selectedMedia = [];
-
- let selectedMediaType = "foto";
-
- let currentUsername = "";
-
- let editingMemoryId = null;
-
-
- /* =========================================================
-    USER SETTINGS
- ========================================================= */
-
- const ALLOWED_USERNAMES = [
-     "daligroupmaster",
-     "pranmusicentertaiment"
- ];
-
-
- /*
-     HAK AKSES POSTINGAN
-
-     daligroupmaster         = EDIT + HAPUS
-     pranmusicentertaiment   = EDIT SAJA
- */
-
- const CAN_EDIT_POSTS = [
-     "daligroupmaster",
-     "pranmusicentertaiment"
- ];
-
- const CAN_DELETE_POSTS = [
-     "daligroupmaster"
- ];
-
-
- function canEditPosts(){
-
-     return CAN_EDIT_POSTS.includes(
-         currentUsername
-     );
-
- }
-
-
- function canDeletePosts(){
-
-     return CAN_DELETE_POSTS.includes(
-         currentUsername
-     );
-
- }
-
-
- /* =========================================================
+  ========================= */
+
+  #adminPage{
+      display:none;
+      min-height:100vh;
+  }
+
+  .admin-header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      min-height:76px;
+      padding:12px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      border-bottom:1px solid rgba(212,170,75,.20);
+      background:rgba(7,7,7,.88);
+      backdrop-filter:blur(18px);
+  }
+
+  .brand{
+      display:flex;
+      align-items:center;
+      gap:13px;
+  }
+
+  .brand-mark{
+      width:43px;
+      height:43px;
+      border:1px solid #b99143;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#e7bd62;
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:1px;
+  }
+
+  .brand-main{
+      font-size:17px;
+      font-weight:900;
+      letter-spacing:3px;
+      color:#e6bd66;
+  }
+
+  .brand-sub{
+      font-size:8px;
+      letter-spacing:3px;
+      color:#888;
+      margin-top:3px;
+  }
+
+  .header-right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+  }
+
+  .header-user{
+      padding:9px 13px;
+      border:1px solid #333;
+      border-radius:10px;
+      color:#dcb865;
+      font-size:12px;
+  }
+
+  .logout-btn{
+      border:1px solid #5a4420;
+      background:#14100a;
+      color:#dcb865;
+      border-radius:9px;
+      padding:9px 13px;
+      cursor:pointer;
+  }
+
+  .logout-btn:hover{
+      background:#21190d;
+  }
+
+  /* =========================
+    CONTAINER
+  ========================= */
+
+  .admin-container{
+      width:min(1250px,calc(100% - 40px));
+      margin:0 auto;
+      padding:45px 0 60px;
+  }
+
+  .dashboard-hero{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(212,170,75,.20);
+      border-radius:24px;
+      padding:38px;
+      margin-bottom:25px;
+      background:
+          radial-gradient(circle at 85% 20%,rgba(207,163,63,.18),transparent 28%),
+          linear-gradient(135deg,#111 0%,#090909 60%,#12100b 100%);
+  }
+
+  .dashboard-hero:after{
+      content:"";
+      position:absolute;
+      width:280px;
+      height:280px;
+      right:-100px;
+      top:-120px;
+      border-radius:50%;
+      border:1px solid rgba(220,181,91,.16);
+      box-shadow:0 0 80px rgba(220,181,91,.07);
+  }
+
+  .hero-small{
+      color:#cba452;
+      letter-spacing:4px;
+      font-size:10px;
+      margin-bottom:12px;
+  }
+
+  .dashboard-hero h1{
+      font-size:36px;
+      line-height:1.15;
+      margin-bottom:12px;
+  }
+
+  .hero-text{
+      max-width:650px;
+      color:#aaa;
+      font-size:14px;
+      line-height:1.7;
+  }
+
+  /* =========================
+    STATS
+  ========================= */
+
+  .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+      margin-bottom:25px;
+  }
+
+  .stat{
+      border:1px solid #292929;
+      border-radius:18px;
+      padding:20px;
+      background:linear-gradient(145deg,#111,#0b0b0b);
+  }
+
+  .stat-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+  }
+
+  .stat-icon{
+      width:38px;
+      height:38px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      border:1px solid #49391d;
+      background:#171209;
+      color:#dcb45b;
+  }
+
+  .stat-label{
+      color:#999;
+      font-size:11px;
+      letter-spacing:1px;
+  }
+
+  .stat-number{
+      font-size:32px;
+      color:#e5bf69;
+      font-weight:800;
+      margin-top:13px;
+  }
+
+  /* =========================
+    GRID
+  ========================= */
+
+  .admin-grid{
+      display:grid;
+      grid-template-columns:390px 1fr;
+      gap:22px;
+      align-items:start;
+  }
+
+  .panel{
+      border:1px solid #292929;
+      border-radius:20px;
+      background:rgba(13,13,13,.94);
+      overflow:hidden;
+      box-shadow:0 15px 50px rgba(0,0,0,.25);
+  }
+
+  .panel-header{
+      padding:20px 22px;
+      border-bottom:1px solid #242424;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+  }
+
+  .panel-heading{
+      display:flex;
+      align-items:center;
+      gap:12px;
+  }
+
+  .panel-heading-icon{
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#181209;
+      border:1px solid #49391d;
+      color:#ddb55d;
+  }
+
+  .panel-title{
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:1px;
+  }
+
+  .panel-subtitle{
+      color:#777;
+      font-size:10px;
+      margin-top:3px;
+  }
+
+  .panel-badge{
+      color:#cba452;
+      border:1px solid #49391d;
+      background:#141007;
+      border-radius:20px;
+      padding:6px 9px;
+      font-size:9px;
+      letter-spacing:1px;
+  }
+
+  .form-body{
+      padding:22px;
+  }
+
+  .field{
+      margin-bottom:17px;
+  }
+
+  .field label{
+      display:block;
+      color:#aaa;
+      font-size:10px;
+      letter-spacing:1.5px;
+      margin-bottom:8px;
+  }
+
+  .field input[type="text"],
+  .field textarea,
+  .field select{
+      width:100%;
+      border:1px solid #303030;
+      border-radius:10px;
+      background:#090909;
+      color:#fff;
+      padding:12px 13px;
+      outline:none;
+      font-size:13px;
+  }
+
+  .field textarea{
+      min-height:130px;
+      resize:vertical;
+      line-height:1.6;
+  }
+
+  .field input[type="text"]:focus,
+  .field textarea:focus,
+  .field select:focus{
+      border-color:#b89144;
+  }
+
+  .upload-box{
+      border:1px dashed #554522;
+      border-radius:13px;
+      padding:18px;
+      text-align:center;
+      background:#0d0b08;
+  }
+
+  .upload-icon{
+      font-size:27px;
+      margin-bottom:8px;
+  }
+
+  .upload-title{
+      font-size:13px;
+      color:#ddd;
+  }
+
+  .upload-text{
+      font-size:10px;
+      color:#777;
+      margin-top:5px;
+      line-height:1.5;
+  }
+
+  .file-input{
+      width:100%;
+      margin-top:13px;
+      color:#aaa;
+      font-size:11px;
+  }
+
+  #uploadPreview{
+      display:none;
+      margin-top:15px;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid #332a18;
+      background:#050505;
+  }
+
+  #uploadPreview img,
+  #uploadPreview video{
+      display:block;
+      width:100%;
+      max-height:250px;
+      object-fit:contain;
+      background:#000;
+  }
+
+  .publish-btn{
+      width:100%;
+      border:0;
+      border-radius:11px;
+      padding:14px;
+      background:linear-gradient(135deg,#c99c40,#f0cb72,#ae7e2a);
+      color:#090909;
+      font-weight:900;
+      letter-spacing:1.5px;
+      cursor:pointer;
+      transition:.25s;
+  }
+
+  .publish-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 25px rgba(205,163,68,.18);
+  }
+
+  .cancel-edit-btn{
+      display:none;
+      width:100%;
+      margin-top:9px;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #444;
+      background:#151515;
+      color:#ccc;
+      cursor:pointer;
+  }
+
+  .cancel-edit-btn:hover{
+      background:#1d1d1d;
+  }
+
+  .edit-mode{
+      display:none;
+      margin-bottom:15px;
+      padding:10px 12px;
+      border-radius:9px;
+      background:#191208;
+      border:1px solid #4c3b1d;
+      color:#d7b15a;
+      font-size:11px;
+      text-align:center;
+  }
+
+  /* =========================
+    POSTS
+  ========================= */
+
+  .posts-body{
+      padding:20px;
+  }
+
+  .post-list{
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+  }
+
+  .post-item{
+      border:1px solid #282828;
+      border-radius:17px;
+      overflow:hidden;
+      background:linear-gradient(145deg,#111,#0b0b0b);
+  }
+
+  .post-content{
+      padding:18px;
+  }
+
+  .post-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:12px;
+  }
+
+  .post-type{
+      display:inline-flex;
+      align-items:center;
+      border:1px solid #4a3a1e;
+      background:#151107;
+      color:#d9b45d;
+      border-radius:20px;
+      padding:5px 9px;
+      font-size:9px;
+      letter-spacing:1px;
+  }
+
+  .post-date{
+      color:#666;
+      font-size:10px;
+  }
+
+  .post-title{
+      font-size:18px;
+      font-weight:800;
+      color:#eee;
+      margin-bottom:8px;
+  }
+
+  .post-desc{
+      color:#999;
+      font-size:13px;
+      line-height:1.7;
+      white-space:pre-wrap;
+  }
+
+  .post-media-preview{
+      margin-top:15px;
+      border-radius:13px;
+      overflow:hidden;
+      border:1px solid #292929;
+      background:#050505;
+  }
+
+  .post-media-preview img{
+      display:block;
+      width:100%;
+      max-height:430px;
+      object-fit:contain;
+      cursor:pointer;
+      background:#000;
+  }
+
+  .post-media-preview video{
+      display:block;
+      width:100%;
+      max-height:430px;
+      background:#000;
+  }
+
+  .file-info{
+      margin-top:8px;
+      color:#777;
+      font-size:10px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+  }
+
+  /* =========================
+    UPLOADER
+  ========================= */
+
+  .uploader-info{
+      margin-top:17px;
+      padding-top:14px;
+      border-top:1px solid #222;
+      display:flex;
+      align-items:center;
+      gap:10px;
+  }
+
+  .uploader-icon{
+      width:38px;
+      height:38px;
+      min-width:38px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#171209;
+      border:1px solid #4a3a1e;
+      font-size:17px;
+      color:#dcb65f;
+  }
+
+  .uploader-icon.owner{
+      border-color:#806020;
+      background:
+          radial-gradient(circle,#34250c,#171209);
+      box-shadow:
+          0 0 14px rgba(218,176,76,.12);
+  }
+
+  .uploader-text{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+  }
+
+  .uploader-label{
+      color:#666;
+      font-size:8px;
+      letter-spacing:1.5px;
+  }
+
+  .uploader-name{
+      color:#d9b45d;
+      font-size:11px;
+      font-weight:700;
+  }
+
+  /* =========================
+    ACTION
+  ========================= */
+
+  .post-actions{
+      display:flex;
+      gap:8px;
+      padding:14px 18px;
+      border-top:1px solid #222;
+      background:#0c0c0c;
+  }
+
+  .action-btn{
+      flex:1;
+      padding:10px;
+      border-radius:9px;
+      cursor:pointer;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:1px;
+  }
+
+  .edit-btn{
+      border:1px solid #4c3c20;
+      background:#151108;
+      color:#dcb65f;
+  }
+
+  .edit-btn:hover{
+      background:#21190c;
+  }
+
+  .delete-btn{
+      border:1px solid #4e2020;
+      background:#160909;
+      color:#e86b6b;
+  }
+
+  .delete-btn:hover{
+      background:#261010;
+  }
+
+  .empty-list{
+      padding:55px 20px;
+      text-align:center;
+      color:#666;
+  }
+
+  .empty-icon{
+      font-size:38px;
+      margin-bottom:12px;
+  }
+
+  .empty-list strong{
+      display:block;
+      color:#aaa;
+      margin-bottom:5px;
+  }
+
+  /* =========================
+    CURRENT USER
+  ========================= */
+
+  .current-user{
+      margin-top:20px;
+      border:1px solid #292929;
+      border-radius:15px;
+      padding:15px;
+      background:#0d0d0d;
+  }
+
+  .current-user-label{
+      color:#666;
+      font-size:9px;
+      letter-spacing:1.5px;
+  }
+
+  .current-user-name{
+      color:#dfb960;
+      font-size:12px;
+      font-weight:700;
+      margin-top:5px;
+  }
+
+  /* =========================
+    FOOTER
+  ========================= */
+
+  .admin-footer{
+      text-align:center;
+      padding:25px;
+      color:#555;
+      font-size:9px;
+      letter-spacing:2px;
+  }
+
+  /* =========================
+    MOBILE
+  ========================= */
+
+  @media(max-width:900px){
+
+      .admin-grid{
+          grid-template-columns:1fr;
+      }
+
+      .stats{
+          grid-template-columns:repeat(3,1fr);
+      }
+  }
+
+  @media(max-width:600px){
+
+      .admin-header{
+          padding:11px 15px;
+      }
+
+      .brand-main{
+          font-size:13px;
+          letter-spacing:2px;
+      }
+
+      .brand-sub{
+          font-size:7px;
+          letter-spacing:2px;
+      }
+
+      .brand-mark{
+          width:38px;
+          height:38px;
+      }
+
+      .header-user{
+          display:none;
+      }
+
+      .admin-container{
+          width:min(100% - 24px,1250px);
+          padding-top:25px;
+      }
+
+      .dashboard-hero{
+          padding:25px 20px;
+          border-radius:18px;
+      }
+
+      .dashboard-hero h1{
+          font-size:27px;
+      }
+
+      .stats{
+          gap:8px;
+      }
+
+      .stat{
+          padding:13px;
+          border-radius:13px;
+      }
+
+      .stat-label{
+          font-size:8px;
+      }
+
+      .stat-number{
+          font-size:23px;
+      }
+
+      .stat-icon{
+          width:30px;
+          height:30px;
+          font-size:12px;
+      }
+
+      .panel{
+          border-radius:17px;
+      }
+
+      .panel-header{
+          padding:17px;
+      }
+
+      .form-body,
+      .posts-body{
+          padding:15px;
+      }
+
+      .post-content{
+          padding:15px;
+      }
+
+      .post-title{
+          font-size:16px;
+      }
+
+      .post-actions{
+          padding:12px 15px;
+      }
+
+      .login-box{
+          padding:35px 23px;
+      }
+
+      .login-logo{
+          font-size:31px;
+      }
+  }
+  </style>
+  </head>
+
+  <body>
+
+  <!-- =========================
+      LOGIN
+  ========================= -->
+
+  <section id="loginPage">
+
+      <div class="login-box">
+
+          <div class="login-logo">
+              PRAN
+          </div>
+
+          <div class="login-sub">
+              MUSIC ENTERTAINMENT
+          </div>
+
+          <div class="login-line"></div>
+
+          <div class="login-title">
+              ADMIN PANEL
+          </div>
+
+          <div class="input-group">
+
+              <label>USERNAME</label>
+
+              <input
+                  type="text"
+                  id="username"
+                  placeholder="Masukkan username"
+                  autocomplete="username"
+              >
+
+          </div>
+
+          <div class="input-group">
+
+              <label>PASSWORD</label>
+
+              <input
+                  type="password"
+                  id="password"
+                  placeholder="Masukkan password"
+                  autocomplete="current-password"
+                  onkeydown="if(event.key==='Enter') loginAdmin()"
+              >
+
+          </div>
+
+          <button
+              class="login-button"
+              onclick="loginAdmin()"
+          >
+              LOGIN
+          </button>
+
+          <div
+              class="login-error"
+              id="loginError"
+          ></div>
+
+      </div>
+
+  </section>
+
+
+  <!-- =========================
+      ADMIN
+  ========================= -->
+
+  <section id="adminPage">
+
+      <header class="admin-header">
+
+          <div class="brand">
+
+              <div class="brand-mark">
+                  PM
+              </div>
+
+              <div>
+
+                  <div class="brand-main">
+                      PRAN MUSIC
+                  </div>
+
+                  <div class="brand-sub">
+                      ENTERTAINMENT • ADMIN
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class="header-right">
+
+              <div
+                  class="header-user"
+                  id="headerUser"
+              ></div>
+
+              <button
+                  class="logout-btn"
+                  onclick="logoutAdmin()"
+              >
+                  KELUAR
+              </button>
+
+          </div>
+
+      </header>
+
+
+      <main class="admin-container">
+
+          <!-- HERO -->
+
+          <section class="dashboard-hero">
+
+              <div class="hero-small">
+                  ADMIN DASHBOARD
+              </div>
+
+              <h1>
+                  Selamat datang,
+                  <span id="welcomeUser"></span>
+              </h1>
+
+              <p class="hero-text">
+                  Kelola postingan, cerita, foto, dan video
+                  PRAN MUSIC ENTERTAINMENT dari satu tempat.
+              </p>
+
+          </section>
+
+
+          <!-- STATS -->
+
+          <section class="stats">
+
+              <div class="stat">
+
+                  <div class="stat-top">
+
+                      <div class="stat-label">
+                          TOTAL POSTING
+                      </div>
+
+                      <div class="stat-icon">
+                          ✦
+                      </div>
+
+                  </div>
+
+                  <div
+                      class="stat-number"
+                      id="totalPosts"
+                  >
+                      0
+                  </div>
+
+              </div>
+
+
+              <div class="stat">
+
+                  <div class="stat-top">
+
+                      <div class="stat-label">
+                          MEDIA
+                      </div>
+
+                      <div class="stat-icon">
+                          ◈
+                      </div>
+
+                  </div>
+
+                  <div
+                      class="stat-number"
+                      id="totalMedia"
+                  >
+                      0
+                  </div>
+
+              </div>
+
+
+              <div class="stat">
+
+                  <div class="stat-top">
+
+                      <div class="stat-label">
+                          TULISAN
+                      </div>
+
+                      <div class="stat-icon">
+                          Aa
+                      </div>
+
+                  </div>
+
+                  <div
+                      class="stat-number"
+                      id="totalText"
+                  >
+                      0
+                  </div>
+
+              </div>
+
+          </section>
+
+
+          <!-- GRID -->
+
+          <section class="admin-grid">
+
+
+              <!-- FORM -->
+
+              <div class="panel">
+
+                  <div class="panel-header">
+
+                      <div class="panel-heading">
+
+                          <div class="panel-heading-icon">
+                              +
+                          </div>
+
+                          <div>
+
+                              <div
+                                  class="panel-title"
+                                  id="formTitle"
+                              >
+                                  Buat Posting
+                              </div>
+
+                              <div class="panel-subtitle">
+                                  Tambahkan karya terbaru
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                      <div
+                          class="panel-badge"
+                          id="formBadge"
+                      >
+                          NEW
+                      </div>
+
+                  </div>
+
+
+                  <div class="form-body">
+
+                      <div
+                          class="edit-mode"
+                          id="editMode"
+                      >
+                          MODE EDIT — Posting sedang diperbarui
+                      </div>
+
+
+                      <div class="field">
+
+                          <label>
+                              JUDUL POSTING
+                          </label>
+
+                          <input
+                              type="text"
+                              id="postTitle"
+                              placeholder="Contoh: Perjalanan Musik Kami"
+                          >
+
+                      </div>
+
+
+                      <div class="field">
+
+                          <label>
+                              JENIS POSTING
+                          </label>
+
+                          <select id="postType">
+
+                              <option value="Tulisan">
+                                  Tulisan
+                              </option>
+
+                              <option value="Foto">
+                                  Foto
+                              </option>
+
+                              <option value="Video">
+                                  Video
+                              </option>
+
+                          </select>
+
+                      </div>
+
+
+                      <div class="field">
+
+                          <label>
+                              CERITA / DESKRIPSI
+                          </label>
+
+                          <textarea
+                              id="postDescription"
+                              placeholder="Tulis cerita atau deskripsi posting..."
+                          ></textarea>
+
+                      </div>
+
+
+                      <div class="field">
+
+                          <label>
+                              FOTO / VIDEO
+                          </label>
+
+                          <div class="upload-box">
+
+                              <div class="upload-icon">
+                                  ◉
+                              </div>
+
+                              <div class="upload-title">
+                                  Pilih Media
+                              </div>
+
+                              <div class="upload-text">
+                                  Untuk Foto pilih gambar.<br>
+                                  Untuk Video pilih file video.<br>
+                                  Tulisan tidak membutuhkan file.
+                              </div>
+
+                              <input
+                                  class="file-input"
+                                  type="file"
+                                  id="mediaFile"
+                                  accept="image/*,video/*"
+                              >
+
+                              <div id="uploadPreview"></div>
+
+                          </div>
+
+                      </div>
+
+
+                      <button
+                          class="publish-btn"
+                          id="publishButton"
+                          onclick="buatPosting()"
+                      >
+                          PUBLISH POSTING
+                      </button>
+
+
+                      <button
+                          class="cancel-edit-btn"
+                          id="cancelEditButton"
+                          onclick="batalEdit()"
+                      >
+                          BATAL EDIT
+                      </button>
+
+
+                      <div class="current-user">
+
+                          <div class="current-user-label">
+                              LOGIN SEBAGAI
+                          </div>
+
+                          <div
+                              class="current-user-name"
+                              id="currentAdmin"
+                          ></div>
+
+                      </div>
+
+                  </div>
+
+              </div>
+
+
+              <!-- POST LIST -->
+
+              <div class="panel">
+
+                  <div class="panel-header">
+
+                      <div class="panel-heading">
+
+                          <div class="panel-heading-icon">
+                              ≡
+                          </div>
+
+                          <div>
+
+                              <div class="panel-title">
+                                  Daftar Posting
+                              </div>
+
+                              <div class="panel-subtitle">
+                                  Kelola semua postingan
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                      <div class="panel-badge">
+                          POST
+                      </div>
+
+                  </div>
+
+
+                  <div class="posts-body">
+
+                      <div
+                          class="post-list"
+                          id="postList"
+                      ></div>
+
+                  </div>
+
+              </div>
+
+          </section>
+
+      </main>
+
+
+      <footer class="admin-footer">
+          PRAN MUSIC ENTERTAINMENT • ADMIN PANEL
+      </footer>
+
+  </section>
+
+
+  <script>
+
+  /* ==========================================
+    ADMIN ACCOUNTS
+  ========================================== */
+
+  const ADMIN_ACCOUNTS = {
+
+      pranmusicentertainment: "pran123",
+
+      daligroupmaster: "dali123"
+
+  };
+
+
+  /* ==========================================
+    DATA
+  ========================================== */
+
+  let posts = [];
+
+  let editingPostId = null;
+
+
+  try{
+
+      posts =
+          JSON.parse(
+              localStorage.getItem("pran_admin_posts")
+          ) || [];
+
+  }catch(error){
+
+      posts = [];
+
+  }
+
+
+  /* ==========================================
     LOGIN
- ========================================================= */
+  ========================================== */
 
- loginForm.addEventListener(
-     "submit",
-     async function(event){
+  function loginAdmin(){
 
-         event.preventDefault();
+      const username =
+          document
+          .getElementById("username")
+          .value
+          .trim();
 
-         const username =
-             usernameInput.value.trim();
+      const password =
+          document
+          .getElementById("password")
+          .value;
 
-         const password =
-             passwordInput.value;
+      const error =
+          document
+          .getElementById("loginError");
 
 
-         loginError.style.display =
-             "none";
+      if(
+          ADMIN_ACCOUNTS[username] &&
+          ADMIN_ACCOUNTS[username] === password
+      ){
 
-         loginError.textContent =
-             "";
+          localStorage.setItem(
+              "pran_admin_user",
+              username
+          );
 
+          error.textContent = "";
 
-         if(!username || !password){
+          showAdmin(username);
 
-             showLoginError(
-                 "Username dan password wajib diisi."
-             );
+      }else{
 
-             return;
+          error.textContent =
+              "Username atau password salah.";
 
-         }
+      }
 
+  }
 
-         if(
-             !ALLOWED_USERNAMES.includes(
-                 username
-             )
-         ){
 
-             showLoginError(
-                 "Username admin tidak terdaftar."
-             );
-
-             return;
-
-         }
-
-
-         loginBtn.disabled =
-             true;
-
-         loginBtn.textContent =
-             "LOGIN...";
-
-
-         try{
-
-             const {
-                 data,
-                 error
-             } = await supabaseClient
-                 .from("admin_login")
-                 .select(
-                     "username, login_email"
-                 )
-                 .eq(
-                     "username",
-                     username
-                 )
-                 .maybeSingle();
-
-
-             if(error){
-
-                 throw error;
-
-             }
-
-
-             if(!data){
-
-                 throw new Error(
-                     "Username tidak ditemukan."
-                 );
-
-             }
-
-
-             const {
-                 data: authData,
-                 error: authError
-             } =
-                 await supabaseClient
-                     .auth
-                     .signInWithPassword({
-
-                         email:
-                             data.login_email,
-
-                         password:
-                             password
-
-                     });
-
-
-             if(authError){
-
-                 throw authError;
-
-             }
-
-
-             if(
-                 !authData ||
-                 !authData.user
-             ){
-
-                 throw new Error(
-                     "Login gagal."
-                 );
-
-             }
-
-
-             const {
-                 data: isAdmin,
-                 error: adminError
-             } =
-                 await supabaseClient
-                     .rpc("is_admin");
-
-
-             if(adminError){
-
-                 throw adminError;
-
-             }
-
-
-             if(!isAdmin){
-
-                 await supabaseClient
-                     .auth
-                     .signOut();
-
-                 throw new Error(
-                     "Akun ini bukan admin."
-                 );
-
-             }
-
-
-             currentUsername =
-                 data.username;
-
-
-             const emoji =
-                 currentUsername ===
-                 "daligroupmaster"
-                     ? "👑"
-                     : "👤";
-
-
-             currentUserBadge.textContent =
-                 emoji +
-                 " " +
-                 currentUsername;
-
-
-             showAdminPage();
-
-             await loadHistory();
-
-
-         }catch(error){
-
-             console.error(error);
-
-             showLoginError(
-                 "Login gagal: " +
-                 error.message
-             );
-
-         }finally{
-
-             loginBtn.disabled =
-                 false;
-
-             loginBtn.textContent =
-                 "LOGIN";
-
-         }
-
-     }
- );
-
-
- /* =========================================================
-    LOGIN ERROR
- ========================================================= */
-
- function showLoginError(
-     message
- ){
-
-     loginError.textContent =
-         message;
-
-     loginError.style.display =
-         "block";
-
- }
-
-
- /* =========================================================
+  /* ==========================================
     SHOW ADMIN
- ========================================================= */
+  ========================================== */
 
- function showAdminPage(){
+  function showAdmin(username){
 
-     loginPage.style.display =
-         "none";
-
-     adminPage.style.display =
-         "block";
-
- }
+      document
+          .getElementById("loginPage")
+          .style.display = "none";
 
 
- /* =========================================================
+      document
+          .getElementById("adminPage")
+          .style.display = "block";
+
+
+      document
+          .getElementById("welcomeUser")
+          .textContent = username;
+
+
+      document
+          .getElementById("currentAdmin")
+          .textContent = username;
+
+
+      document
+          .getElementById("headerUser")
+          .textContent = username;
+
+
+      renderPosts();
+
+      updateStats();
+
+  }
+
+
+  /* ==========================================
     LOGOUT
- ========================================================= */
+  ========================================== */
 
- logoutBtn.addEventListener(
-     "click",
-     async function(){
+  function logoutAdmin(){
 
-         await supabaseClient
-             .auth
-             .signOut();
+      localStorage.removeItem(
+          "pran_admin_user"
+      );
 
-         currentUsername = "";
+      location.reload();
 
-         editingMemoryId = null;
+  }
 
-         adminPage.style.display =
-             "none";
 
-         loginPage.style.display =
-             "flex";
+  /* ==========================================
+    SAVE DATA
+  ========================================== */
 
-         usernameInput.value =
-             "";
+  function simpanData(){
 
-         passwordInput.value =
-             "";
+      try{
 
-     }
- );
+          localStorage.setItem(
+              "pran_admin_posts",
+              JSON.stringify(posts)
+          );
 
+          return true;
 
- /* =========================================================
-    SESSION
- ========================================================= */
+      }catch(error){
 
- async function checkSession(){
+          console.error(
+              "Gagal menyimpan data:",
+              error
+          );
 
-     try{
+          alert(
+              "Data gagal disimpan.\n\n" +
+              "Kemungkinan ukuran foto/video terlalu besar untuk localStorage."
+          );
 
-         const {
-             data,
-             error
-         } =
-             await supabaseClient
-                 .auth
-                 .getSession();
+          return false;
 
+      }
 
-         if(error){
+  }
 
-             throw error;
 
-         }
+  /* ==========================================
+    BUAT POSTING
+  ========================================== */
 
+  function buatPosting(){
 
-         const session =
-             data.session;
+      const title =
+          document
+          .getElementById("postTitle")
+          .value
+          .trim();
 
 
-         if(!session){
+      const type =
+          document
+          .getElementById("postType")
+          .value;
 
-             loginPage.style.display =
-                 "flex";
 
-             adminPage.style.display =
-                 "none";
+      const description =
+          document
+          .getElementById("postDescription")
+          .value
+          .trim();
 
-             return;
 
-         }
+      const file =
+          document
+          .getElementById("mediaFile")
+          .files[0];
 
 
-         const {
-             data: isAdmin,
-             error: adminError
-         } =
-             await supabaseClient
-                 .rpc("is_admin");
+      const username =
+          localStorage.getItem(
+              "pran_admin_user"
+          );
 
 
-         if(
-             adminError ||
-             !isAdmin
-         ){
+      if(!title){
 
-             await supabaseClient
-                 .auth
-                 .signOut();
+          alert(
+              "Judul posting belum diisi."
+          );
 
-             loginPage.style.display =
-                 "flex";
+          return;
 
-             adminPage.style.display =
-                 "none";
+      }
 
-             return;
 
-         }
+      if(!description){
 
+          alert(
+              "Cerita / deskripsi belum diisi."
+          );
 
-         const {
-             data: loginData,
-             error: loginDataError
-         } =
-             await supabaseClient
-                 .from("admin_login")
-                 .select(
-                     "username, login_email"
-                 )
-                 .eq(
-                     "login_email",
-                     session.user.email
-                 )
-                 .maybeSingle();
+          return;
 
+      }
 
-         if(loginDataError){
 
-             throw loginDataError;
+      /* MODE EDIT */
 
-         }
+      if(editingPostId !== null){
 
+          prosesEdit(
+              title,
+              type,
+              description,
+              file
+          );
 
-         if(
-             loginData &&
-             ALLOWED_USERNAMES.includes(
-                 loginData.username
-             )
-         ){
+          return;
 
-             currentUsername =
-                 loginData.username;
+      }
 
-         }else{
 
-             await supabaseClient
-                 .auth
-                 .signOut();
+      /* VALIDASI FOTO */
 
-             loginPage.style.display =
-                 "flex";
+      if(type === "Foto"){
 
-             adminPage.style.display =
-                 "none";
+          if(!file){
 
-             return;
+              alert(
+                  "Silakan pilih foto terlebih dahulu."
+              );
 
-         }
+              return;
 
+          }
 
-         const emoji =
-             currentUsername ===
-             "daligroupmaster"
-                 ? "👑"
-                 : "👤";
 
+          if(
+              !file.type.startsWith("image/")
+          ){
 
-         currentUserBadge.textContent =
-             emoji +
-             " " +
-             currentUsername;
+              alert(
+                  "File harus berupa foto."
+              );
 
+              return;
 
-         showAdminPage();
+          }
 
-         await loadHistory();
+      }
 
 
-     }catch(error){
+      /* VALIDASI VIDEO */
 
-         console.error(error);
+      if(type === "Video"){
 
-         loginPage.style.display =
-             "flex";
+          if(!file){
 
-         adminPage.style.display =
-             "none";
+              alert(
+                  "Silakan pilih video terlebih dahulu."
+              );
 
-     }
+              return;
 
- }
+          }
 
 
- /* =========================================================
-    FOTO
- ========================================================= */
+          if(
+              !file.type.startsWith("video/")
+          ){
 
- photoTypeBtn.addEventListener(
-     "click",
-     function(){
+              alert(
+                  "File harus berupa video."
+              );
 
-         selectedMediaType =
-             "foto";
+              return;
 
-         photoTypeBtn.classList.add(
-             "active"
-         );
+          }
 
-         videoTypeBtn.classList.remove(
-             "active"
-         );
+      }
 
-         mediaInput.accept =
-             "image/*";
 
-         mediaInput.value =
-             "";
+      function simpanBaru(mediaData){
 
-         selectedMedia = [];
+          const newPost = {
 
-         updateSelectedFiles();
+              id: Date.now(),
 
-     }
- );
+              title: title,
 
+              type: type,
 
- /* =========================================================
-    VIDEO
- ========================================================= */
+              description: description,
 
- videoTypeBtn.addEventListener(
-     "click",
-     function(){
+              fileName:
+                  file
+                  ? file.name
+                  : "",
 
-         selectedMediaType =
-             "video";
+              mediaData:
+                  mediaData || "",
 
-         videoTypeBtn.classList.add(
-             "active"
-         );
+              mediaType:
+                  file
+                  ? file.type
+                  : "",
 
-         photoTypeBtn.classList.remove(
-             "active"
-         );
+              admin:
+                  username || "Admin",
 
-         mediaInput.accept =
-             "video/*";
+              date:
+                  new Date()
+                  .toLocaleString("id-ID")
 
-         mediaInput.value =
-             "";
+          };
 
-         selectedMedia = [];
 
-         updateSelectedFiles();
+          posts.unshift(newPost);
 
-     }
- );
 
+          if(!simpanData()){
 
- /* =========================================================
-    FILE SELECT
- ========================================================= */
+              posts.shift();
 
- mediaInput.addEventListener(
-     "change",
-     function(){
+              return;
 
-         selectedMedia =
-             Array.from(
-                 mediaInput.files || []
-             );
+          }
 
-         updateSelectedFiles();
 
-     }
- );
+          resetForm();
 
+          renderPosts();
 
- /* =========================================================
-    FILE DISPLAY
- ========================================================= */
+          updateStats();
 
- function updateSelectedFiles(){
 
-     if(
-         selectedMedia.length === 0
-     ){
+          alert(
+              "Posting berhasil dipublish."
+          );
 
-         selectedFiles.textContent =
-             "Belum ada file dipilih.";
+      }
 
-         return;
 
-     }
+      if(!file){
 
+          simpanBaru("");
 
-     let html =
-         "<strong>" +
-         selectedMedia.length +
-         " file dipilih:</strong>";
+          return;
 
+      }
 
-     selectedMedia.forEach(
-         function(file,index){
 
-             html +=
-                 (index + 1) +
-                 ". " +
-                 escapeHtml(
-                     file.name
-                 ) +
-                 "";
+      const reader =
+          new FileReader();
 
-         }
-     );
 
+      reader.onload =
+          function(event){
 
-     selectedFiles.innerHTML =
-         html;
+              simpanBaru(
+                  event.target.result
+              );
 
- }
+          };
 
 
- /* =========================================================
-    UPLOAD
- ========================================================= */
+      reader.onerror =
+          function(){
 
- postBtn.addEventListener(
-     "click",
-     async function(){
+              alert(
+                  "File gagal dibaca."
+              );
 
-         if(!currentUsername){
+          };
 
-             showStatus(
-                 "error",
-                 "Akun uploader tidak terdeteksi. Silakan login kembali."
-             );
 
-             return;
+      reader.readAsDataURL(file);
 
-         }
+  }
 
 
-         if(
-             !ALLOWED_USERNAMES.includes(
-                 currentUsername
-             )
-         ){
+  /* ==========================================
+    EDIT POSTING
+  ========================================== */
 
-             showStatus(
-                 "error",
-                 "Akun uploader tidak valid."
-             );
+  function prosesEdit(
+      title,
+      type,
+      description,
+      file
+  ){
 
-             return;
+      const index =
+          posts.findIndex(
+              function(post){
 
-         }
+                  return post.id === editingPostId;
 
+              }
+          );
 
-         if(
-             selectedMedia.length === 0
-         ){
 
-             showStatus(
-                 "error",
-                 "Pilih foto atau video terlebih dahulu."
-             );
+      if(index === -1){
 
-             return;
+          alert(
+              "Posting tidak ditemukan."
+          );
 
-         }
+          batalEdit();
 
+          return;
 
-         const judul =
-             judulInput.value.trim();
+      }
 
-         const tanggal =
-             tanggalInput.value;
 
-         const cerita =
-             ceritaInput.value.trim();
+      const oldPost =
+          posts[index];
 
 
-         if(!judul){
+      if(file){
 
-             showStatus(
-                 "error",
-                 "Judul wajib diisi."
-             );
+          if(
+              type === "Foto" &&
+              !file.type.startsWith("image/")
+          ){
 
-             return;
+              alert(
+                  "Untuk jenis FOTO, pilih file gambar."
+              );
 
-         }
+              return;
 
+          }
 
-         postBtn.disabled =
-             true;
 
+          if(
+              type === "Video" &&
+              !file.type.startsWith("video/")
+          ){
 
-         showStatus(
-             "loading",
-             "Sedang mengupload media..."
-         );
+              alert(
+                  "Untuk jenis VIDEO, pilih file video."
+              );
 
+              return;
 
-         try{
+          }
 
-             for(
-                 let i = 0;
-                 i < selectedMedia.length;
-                 i++
-             ){
 
-                 const file =
-                     selectedMedia[i];
+          const reader =
+              new FileReader();
 
 
-                 const extension =
-                     file.name.includes(".")
-                     ? file.name
-                         .split(".")
-                         .pop()
-                     : "";
+          reader.onload =
+              function(event){
 
+                  posts[index] = {
 
-                 const randomName =
-                     Date.now() +
-                     "-" +
-                     Math.random()
-                         .toString(36)
-                         .substring(2,10);
+                      ...oldPost,
 
+                      title: title,
 
-                 const filePath =
-                     randomName +
-                     (
-                         extension
-                         ? "." +
-                           extension
-                         : ""
-                     );
+                      type: type,
 
+                      description:
+                          description,
 
-                 const {
-                     error:
-                     uploadError
-                 } =
-                     await supabaseClient
-                         .storage
-                         .from("kenangan")
-                         .upload(
-                             filePath,
-                             file,
-                             {
-                                 cacheControl:
-                                     "3600",
+                      fileName:
+                          file.name,
 
-                                 upsert:
-                                     false,
+                      mediaData:
+                          event.target.result,
 
-                                 contentType:
-                                     file.type
-                             }
-                         );
+                      mediaType:
+                          file.type,
 
+                      date:
+                          new Date()
+                          .toLocaleString("id-ID")
 
-                 if(uploadError){
+                  };
 
-                     throw uploadError;
 
-                 }
+                  if(!simpanData()){
 
+                      posts[index] =
+                          oldPost;
 
-                 const {
-                     data:
-                     publicData
-                 } =
-                     supabaseClient
-                         .storage
-                         .from("kenangan")
-                         .getPublicUrl(
-                             filePath
-                         );
+                      return;
 
+                  }
 
-                 const publicUrl =
-                     publicData.publicUrl;
 
+                  resetForm();
 
-                 const {
-                     error:
-                     insertError
-                 } =
-                     await supabaseClient
-                         .from("kenangan")
-                         .insert({
+                  renderPosts();
 
-                             judul:
-                                 judul,
+                  updateStats();
 
-                             cerita:
-                                 cerita,
 
-                             tanggal:
-                                 tanggal ||
-                                 null,
+                  alert(
+                      "Posting berhasil diperbarui."
+                  );
 
-                             foto_path:
-                                 filePath,
+              };
 
-                             foto_url:
-                                 publicUrl,
 
-                             media_type:
-                                 selectedMediaType,
+          reader.onerror =
+              function(){
 
-                             uploader_username:
-                                 currentUsername
+                  alert(
+                      "File gagal dibaca."
+                  );
 
-                         });
+              };
 
 
-                 if(insertError){
+          reader.readAsDataURL(file);
 
-                     await supabaseClient
-                         .storage
-                         .from("kenangan")
-                         .remove([
-                             filePath
-                         ]);
+          return;
 
-                     throw insertError;
+      }
 
-                 }
 
-             }
+      posts[index] = {
 
+          ...oldPost,
 
-             showStatus(
-                 "success",
-                 "UPLOAD BERHASIL! Media disimpan sebagai upload oleh " +
-                 currentUsername +
-                 "."
-             );
+          title: title,
 
+          type: type,
 
-             selectedMedia = [];
+          description:
+              description,
 
-             mediaInput.value =
-                 "";
+          date:
+              new Date()
+              .toLocaleString("id-ID")
 
-             judulInput.value =
-                 "";
+      };
 
-             tanggalInput.value =
-                 "";
 
-             ceritaInput.value =
-                 "";
+      if(type === "Tulisan"){
 
-             updateSelectedFiles();
+          posts[index].fileName = "";
 
-             await loadHistory();
+          posts[index].mediaData = "";
 
+          posts[index].mediaType = "";
 
-         }catch(error){
+      }
 
-             console.error(error);
 
-             showStatus(
-                 "error",
-                 "Upload gagal: " +
-                 error.message
-             );
+      if(!simpanData()){
 
-         }finally{
+          posts[index] =
+              oldPost;
 
-             postBtn.disabled =
-                 false;
+          return;
 
-         }
+      }
 
-     }
- );
 
+      resetForm();
 
- /* =========================================================
-    LOAD HISTORY
- ========================================================= */
+      renderPosts();
 
- async function loadHistory(){
+      updateStats();
 
-    historyGrid.innerHTML = `
-        <div class="loading-history">
-            Memuat history, komentar, dan like...
-        </div>
-    `;
 
-    try{
+      alert(
+          "Posting berhasil diperbarui."
+      );
 
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .from("kenangan")
-                .select(`
-                    *,
-                    likes (
-                        count
-                    ),
-                    komentar (
-                        id,
-                        isi,
-                        created_at,
-                        pengunjung (
-                            nomor_pengunjung
-                        ),
-                        balasan_komentar (
-                            id,
-                            isi,
-                            username,
-                            created_at
-                        )
-                    )
-                `)
-                .order(
-                    "created_at",
-                    {
-                        ascending:false
-                    }
-                );
+  }
 
-        if(error){
-            throw error;
-        }
 
-        if(
-            !data ||
-            data.length === 0
-        ){
+  /* ==========================================
+    EDIT FORM
+  ========================================== */
 
-            historyGrid.innerHTML = `
-                <div class="empty-history">
-                    Belum ada foto atau video yang diupload.
-                </div>
-            `;
+  function editPosting(id){
 
-            return;
-        }
+      const post =
+          posts.find(
+              function(item){
 
-        historyGrid.innerHTML = "";
+                  return item.id === id;
 
-        data.forEach(
-            function(item){
+              }
+          );
 
-                const card =
-                    document.createElement(
-                        "div"
-                    );
 
-                card.className =
-                    "history-item";
+      if(!post){
 
-                /* =================================================
-                   MEDIA
-                ================================================= */
+          alert(
+              "Posting tidak ditemukan."
+          );
 
-                let media;
+          return;
 
-                if(
-                    item.media_type ===
-                    "video"
-                ){
+      }
 
-                    const video =
-                        document.createElement(
-                            "video"
-                        );
 
-                    video.src =
-                        item.foto_url;
+      editingPostId = id;
 
-                    video.controls =
-                        true;
 
-                    video.preload =
-                        "metadata";
+      document
+          .getElementById("postTitle")
+          .value =
+              post.title || "";
 
-                    video.playsInline =
-                        true;
 
-                    media =
-                        video;
+      document
+          .getElementById("postType")
+          .value =
+              post.type || "Tulisan";
 
-                }else{
 
-                    const img =
-                        document.createElement(
-                            "img"
-                        );
+      document
+          .getElementById("postDescription")
+          .value =
+              post.description || "";
 
-                    img.src =
-                        item.foto_url;
 
-                    img.alt =
-                        item.judul ||
-                        "Foto Kenangan";
+      document
+          .getElementById("mediaFile")
+          .value = "";
 
-                    img.loading =
-                        "lazy";
 
-                    media =
-                        img;
-                }
+      document
+          .getElementById("formTitle")
+          .textContent =
+              "Edit Posting";
 
-                const mediaBox =
-                    document.createElement(
-                        "div"
-                    );
 
-                mediaBox.className =
-                    "history-media";
+      document
+          .getElementById("formBadge")
+          .textContent =
+              "EDIT";
 
-                mediaBox.appendChild(
-                    media
-                );
 
+      document
+          .getElementById("publishButton")
+          .textContent =
+              "SIMPAN PERUBAHAN";
 
-                /* =================================================
-                   CONTENT
-                ================================================= */
 
-                const content =
-                    document.createElement(
-                        "div"
-                    );
+      document
+          .getElementById("cancelEditButton")
+          .style.display =
+              "block";
 
-                content.className =
-                    "history-content";
 
+      document
+          .getElementById("editMode")
+          .style.display =
+              "block";
 
-                const badge =
-                    document.createElement(
-                        "div"
-                    );
 
-                badge.className =
-                    "history-badge";
+      const preview =
+          document
+          .getElementById("uploadPreview");
 
-                badge.textContent =
-                    item.media_type === "video"
-                    ? "VIDEO"
-                    : "FOTO";
 
+      if(
+          post.mediaData &&
+          post.mediaType
+      ){
 
-                const title =
-                    document.createElement(
-                        "div"
-                    );
+          if(
+              post.mediaType
+              .startsWith("image/")
+          ){
 
-                title.className =
-                    "history-title";
+              preview.innerHTML =
+                  `<img src="${post.mediaData}" alt="Preview media">`;
 
-                title.textContent =
-                    item.judul ||
-                    "Tanpa judul";
+              preview.style.display =
+                  "block";
 
+          }
 
-                const date =
-                    document.createElement(
-                        "div"
-                    );
+          else if(
+              post.mediaType
+              .startsWith("video/")
+          ){
 
-                date.className =
-                    "history-date";
+              preview.innerHTML =
+                  `<video controls src="${post.mediaData}"></video>`;
 
-                date.textContent =
-                    item.tanggal
-                    ? formatDate(item.tanggal)
-                    : "";
+              preview.style.display =
+                  "block";
 
+          }
 
-                const uploader =
-                    document.createElement(
-                        "div"
-                    );
+      }else{
 
-                uploader.className =
-                    "history-uploader";
+          preview.innerHTML = "";
 
-                uploader.textContent =
-                    "👤 " +
-                    (
-                        item.uploader_name ||
-                        item.username ||
-                        "Admin"
-                    );
+          preview.style.display =
+              "none";
 
+      }
 
-                const story =
-                    document.createElement(
-                        "div"
-                    );
 
-                story.className =
-                    "history-story";
+      document
+          .querySelector(".form-body")
+          .scrollIntoView({
 
-                story.textContent =
-                    item.cerita ||
-                    "";
+              behavior:"smooth",
 
+              block:"start"
 
-                /* =================================================
-                   SOCIAL STATS
-                ================================================= */
+          });
 
-                const likeCount =
-                    Array.isArray(item.likes)
-                    ? (
-                        item.likes[0]?.count ||
-                        0
-                    )
-                    : 0;
+  }
 
-                const comments =
-                    Array.isArray(item.komentar)
-                    ? item.komentar
-                    : [];
 
-                const socialStats =
-                    document.createElement(
-                        "div"
-                    );
+  /* ==========================================
+    BATAL EDIT
+  ========================================== */
 
-                socialStats.className =
-                    "admin-social-stats";
+  function batalEdit(){
 
-                socialStats.innerHTML = `
-                    <div class="admin-stat">
-                        ❤️ <strong>${likeCount}</strong>
-                        <span>LIKE</span>
-                    </div>
+      editingPostId = null;
 
-                    <div class="admin-stat">
-                        💬 <strong>${comments.length}</strong>
-                        <span>KOMENTAR</span>
-                    </div>
-                `;
+      resetForm();
 
+  }
 
-                /* =================================================
-                   COMMENTS
-                ================================================= */
 
-                const commentsBox =
-                    document.createElement(
-                        "div"
-                    );
+  /* ==========================================
+    RESET FORM
+  ========================================== */
 
-                commentsBox.className =
-                    "admin-comments-box";
+  function resetForm(){
 
-                const commentsTitle =
-                    document.createElement(
-                        "div"
-                    );
+      editingPostId = null;
 
-                commentsTitle.className =
-                    "admin-comments-title";
 
-                commentsTitle.textContent =
-                    "💬 KOMENTAR PENGUNJUNG";
+      document
+          .getElementById("postTitle")
+          .value = "";
 
-                commentsBox.appendChild(
-                    commentsTitle
-                );
 
+      document
+          .getElementById("postType")
+          .value = "Tulisan";
 
-                if(
-                    comments.length === 0
-                ){
 
-                    const empty =
-                        document.createElement(
-                            "div"
-                        );
+      document
+          .getElementById("postDescription")
+          .value = "";
 
-                    empty.className =
-                        "admin-comment-empty";
 
-                    empty.textContent =
-                        "Belum ada komentar.";
+      document
+          .getElementById("mediaFile")
+          .value = "";
 
-                    commentsBox.appendChild(
-                        empty
-                    );
 
-                }else{
+      const preview =
+          document
+          .getElementById("uploadPreview");
 
-                    comments
-                        .sort(
-                            function(a,b){
-                                return new Date(a.created_at) -
-                                       new Date(b.created_at);
-                            }
-                        )
-                        .forEach(
-                            function(comment,index){
 
-                                const commentItem =
-                                    document.createElement(
-                                        "div"
-                                    );
+      preview.innerHTML = "";
 
-                                commentItem.className =
-                                    "admin-comment-item";
+      preview.style.display =
+          "none";
 
-                                const visitorNumber =
-                                    comment.pengunjung &&
-                                    comment.pengunjung.nomor_pengunjung
-                                    ? comment.pengunjung.nomor_pengunjung
-                                    : String(index + 1).padStart(3,"0");
 
-                                let replies =
-                                    Array.isArray(
-                                        comment.balasan_komentar
-                                    )
-                                    ? comment.balasan_komentar
-                                    : [];
+      document
+          .getElementById("formTitle")
+          .textContent =
+              "Buat Posting";
 
-                                let repliesHTML =
-                                    "";
 
-                                if(
-                                    replies.length
-                                ){
+      document
+          .getElementById("formBadge")
+          .textContent =
+              "NEW";
 
-                                    repliesHTML =
-                                        replies
-                                            .sort(
-                                                function(a,b){
-                                                    return new Date(a.created_at) -
-                                                           new Date(b.created_at);
-                                                }
-                                            )
-                                            .map(
-                                                function(reply){
 
-                                                    const replyName =
-                                                        reply.username ||
-                                                        "PRAN MUSIC ENTERTAINMENT";
+      document
+          .getElementById("publishButton")
+          .textContent =
+              "PUBLISH POSTING";
 
-                                                    return `
-                                                        <div class="admin-reply">
-                                                            <div class="admin-reply-head">
-                                                                <span>
-                                                                    ${escapeHtml(
-                                                                        replyName
-                                                                    )}
-                                                                </span>
 
-                                                                <small>
-                                                                    ${escapeHtml(
-                                                                        formatAdminDateTime(
-                                                                            reply.created_at
-                                                                        )
-                                                                    )}
-                                                                </small>
-                                                            </div>
+      document
+          .getElementById("cancelEditButton")
+          .style.display =
+              "none";
 
-                                                            <div class="admin-reply-text">
-                                                                ${escapeHtml(
-                                                                    reply.isi
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                    `;
-                                                }
-                                            )
-                                            .join("");
-                                }
 
-                                commentItem.innerHTML = `
-                                    <div class="admin-comment-head">
-                                        <strong>
-                                            Pengunjung #${escapeHtml(
-                                                String(visitorNumber).padStart(3,"0")
-                                            )}
-                                        </strong>
+      document
+          .getElementById("editMode")
+          .style.display =
+              "none";
 
-                                        <small>
-                                            ${escapeHtml(
-                                                formatAdminDateTime(
-                                                    comment.created_at
-                                                )
-                                            )}
-                                        </small>
-                                    </div>
+  }
 
-                                    <div class="admin-comment-text">
-                                        ${escapeHtml(comment.isi)}
-                                    </div>
 
-                                    <div class="admin-replies">
-                                        ${repliesHTML}
-                                    </div>
+  /* ==========================================
+    PREVIEW FILE
+  ========================================== */
 
-                                    <div class="admin-reply-form">
-                                        <textarea
-                                            class="admin-reply-input"
-                                            data-comment-id="${escapeHtml(comment.id)}"
-                                            placeholder="Tulis balasan sebagai ${escapeHtml(currentUsername || "admin")}..."
-                                            maxlength="1000"
-                                        ></textarea>
+  document
+      .getElementById("mediaFile")
+      .addEventListener(
+          "change",
+          function(){
 
-                                        <button
-                                            type="button"
-                                            class="admin-reply-button"
-                                            data-comment-id="${escapeHtml(comment.id)}"
-                                        >
-                                            ↩ BALAS
-                                        </button>
-                                    </div>
-                                `;
+              const file =
+                  this.files[0];
 
-                                commentsBox.appendChild(
-                                    commentItem
-                                );
-                            }
-                        );
-                }
 
+              const preview =
+                  document
+                  .getElementById("uploadPreview");
 
-                /* =================================================
-                   EDIT / DELETE
-                ================================================= */
 
-                const editButton =
-                    document.createElement(
-                        "button"
-                    );
+              if(!file){
 
-                editButton.className =
-                    "edit-btn";
+                  preview.innerHTML = "";
 
-                editButton.textContent =
-                    "✏️ EDIT MEDIA";
+                  preview.style.display =
+                      "none";
 
-                editButton.addEventListener(
-                    "click",
-                    function(){
+                  return;
 
-                        openEditMemory(
-                            item.id
-                        );
+              }
 
-                    }
-                );
 
+              const url =
+                  URL.createObjectURL(file);
 
-                const deleteButton =
-                    document.createElement(
-                        "button"
-                    );
 
-                deleteButton.className =
-                    "delete-btn";
+              if(
+                  file.type.startsWith("image/")
+              ){
 
-                deleteButton.textContent =
-                    "🗑 HAPUS MEDIA";
+                  preview.innerHTML =
+                      `<img src="${url}" alt="Preview">`;
 
-                deleteButton.addEventListener(
-                    "click",
-                    function(){
+                  preview.style.display =
+                      "block";
 
-                        deleteMemory(
-                            item.id
-                        );
+              }
 
-                    }
-                );
+              else if(
+                  file.type.startsWith("video/")
+              ){
 
+                  preview.innerHTML =
+                      `<video controls src="${url}"></video>`;
 
-                content.appendChild(
-                    badge
-                );
+                  preview.style.display =
+                      "block";
 
-                content.appendChild(
-                    title
-                );
+              }
 
-                content.appendChild(
-                    date
-                );
+              else{
 
-                content.appendChild(
-                    uploader
-                );
+                  preview.innerHTML =
+                      "<div style='padding:20px;color:#aaa;text-align:center;'>File tidak didukung.</div>";
 
-                content.appendChild(
-                    story
-                );
+                  preview.style.display =
+                      "block";
 
-                content.appendChild(
-                    socialStats
-                );
+              }
 
-                content.appendChild(
-                    commentsBox
-                );
+          }
+      );
 
 
-                if(
-                    canEditPosts()
-                ){
+  /* ==========================================
+    RENDER POSTS
+  ========================================== */
 
-                    content.appendChild(
-                        editButton
-                    );
+  function renderPosts(){
 
-                }
+      const container =
+          document
+          .getElementById("postList");
 
 
-                if(
-                    canDeletePosts()
-                ){
+      if(posts.length === 0){
 
-                    content.appendChild(
-                        deleteButton
-                    );
+          container.innerHTML = `
 
-                }
+              <div class="empty-list">
 
+                  <div class="empty-icon">
+                      ◇
+                  </div>
 
-                card.appendChild(
-                    mediaBox
-                );
+                  <strong>
+                      Belum ada posting
+                  </strong>
 
-                card.appendChild(
-                    content
-                );
+                  Buat posting pertama dari panel di sebelah kiri.
 
-                historyGrid.appendChild(
-                    card
-                );
+              </div>
 
-            }
-        );
+          `;
 
-    }catch(error){
+          return;
 
-        console.error(
-            "Gagal memuat history:",
-            error
-        );
+      }
 
-        historyGrid.innerHTML = `
-            <div class="empty-history">
-                Gagal memuat history.<br>
-                ${escapeHtml(
-                    error.message
-                )}
-            </div>
-        `;
 
-    }
+      const currentUser =
+          localStorage.getItem(
+              "pran_admin_user"
+          );
 
-}
 
+      container.innerHTML =
+          posts.map(
+              function(post){
 
-async function submitAdminReply(
-    button
-){
+                  let mediaHTML = "";
 
-    const commentId =
-        button.dataset.commentId;
 
-    const form =
-        button.closest(
-            ".admin-reply-form"
-        );
+                  /* =========================
+                    FOTO
+                  ========================= */
 
-    if(!form){
-        return;
-    }
+                  if(
+                      post.mediaData &&
+                      post.mediaType &&
+                      post.mediaType.startsWith("image/")
+                  ){
 
-    const input =
-        form.querySelector(
-            ".admin-reply-input"
-        );
+                      mediaHTML = `
 
-    if(!input){
-        return;
-    }
+                          <div class="post-media-preview">
 
-    const isi =
-        input.value.trim();
+                              <img
+                                  src="${post.mediaData}"
+                                  alt="${escapeHTML(post.title)}"
+                                  onclick="lihatFoto(this.src)"
+                              >
 
-    if(!isi){
-        input.focus();
-        return;
-    }
+                          </div>
 
-    if(!currentUsername){
+                      `;
 
-        alert(
-            "Username admin belum tersedia. Silakan login ulang."
-        );
+                  }
 
-        return;
-    }
 
-    button.disabled =
-        true;
+                  /* =========================
+                    VIDEO
+                  ========================= */
 
-    button.textContent =
-        "MENYIMPAN...";
+                  else if(
+                      post.mediaData &&
+                      post.mediaType &&
+                      post.mediaType.startsWith("video/")
+                  ){
 
-    try{
+                      mediaHTML = `
 
-        const {
-            error
-        } =
-            await supabaseClient
-                .from("balasan_komentar")
-                .insert({
-                    komentar_id:
-                        commentId,
+                          <div class="post-media-preview">
 
-                    isi:
-                        isi,
+                              <video
+                                  controls
+                                  preload="metadata"
+                              >
 
-                    username:
-                        currentUsername
-                });
+                                  <source
+                                      src="${post.mediaData}"
+                                      type="${post.mediaType}"
+                                  >
 
-        if(error){
-            throw error;
-        }
+                                  Browser Anda tidak mendukung video.
 
-        input.value = "";
+                              </video>
 
-        await loadHistory();
+                          </div>
 
-    }catch(error){
+                      `;
 
-        console.error(
-            "Gagal menyimpan balasan:",
-            error
-        );
+                  }
 
-        alert(
-            "Balasan belum berhasil disimpan.\n\n" +
-            error.message
-        );
 
-    }finally{
+                  let fileInfo = "";
 
-        button.disabled =
-            false;
 
-        button.textContent =
-            "↩ BALAS";
+                  if(post.fileName){
 
-    }
+                      fileInfo = `
 
-}
+                          <div class="file-info">
 
+                              File:
+                              ${escapeHTML(post.fileName)}
 
-function formatAdminDateTime(
-    value
-){
+                          </div>
 
-    if(!value){
-        return "";
-    }
+                      `;
 
-    try{
+                  }
 
-        return new Date(
-            value
-        ).toLocaleString(
-            "id-ID",
-            {
-                day:"2-digit",
-                month:"short",
-                year:"numeric",
-                hour:"2-digit",
-                minute:"2-digit"
-            }
-        );
 
-    }catch(error){
+                  /* ==================================
+                    LOGO UPLOADER
+                    
+                    DALIGROUPMASTER = 👑
+                    PRAN = 👤
+                  ================================== */
 
-        return value;
+                  const uploader =
+                      post.admin || "Admin";
 
-    }
 
-}
+                  let uploaderIcon = "👤";
 
 
-/* =========================================================
-   ADMIN REPLY CLICK
-========================================================= */
+                  let uploaderClass = "";
 
-historyGrid.addEventListener(
-    "click",
-    async function(e){
 
-        const button =
-            e.target.closest(
-                ".admin-reply-button"
-            );
+                  if(
+                      uploader ===
+                      "daligroupmaster"
+                  ){
 
-        if(!button){
-            return;
-        }
+                      uploaderIcon = "👑";
 
-        e.preventDefault();
-        e.stopPropagation();
+                      uploaderClass = "owner";
 
-        await submitAdminReply(
-            button
-        );
+                  }
 
-    }
-);
 
+                  /* ==================================
+                    TOMBOL HAPUS
+                    
+                    HANYA DALIGROUPMASTER
+                  ================================== */
 
-function openEditMemory(item){
+                  let deleteButton = "";
 
-     if(!canEditPosts()){
 
-         alert(
-             "Anda tidak memiliki izin untuk mengedit postingan."
-         );
+                  if(
+                      currentUser ===
+                      "daligroupmaster"
+                  ){
 
-         return;
+                      deleteButton = `
 
-     }
+                          <button
+                              class="action-btn delete-btn"
+                              onclick="hapusPosting(${post.id})"
+                          >
+                              HAPUS
+                          </button>
 
+                      `;
 
-     editingMemoryId =
-         item.id;
+                  }
 
 
-     editJudul.value =
-         item.judul || "";
+                  return `
 
+                      <article class="post-item">
 
-     editTanggal.value =
-         item.tanggal || "";
+                          <div class="post-content">
 
+                              <div class="post-top">
 
-     editCerita.value =
-         item.cerita || "";
+                                  <div class="post-type">
 
+                                      ${escapeHTML(post.type)}
 
-     editModal.classList.add(
-         "active"
-     );
+                                  </div>
 
- }
+                                  <div class="post-date">
 
+                                      ${escapeHTML(post.date)}
 
- /* =========================================================
-    CLOSE EDIT
- ========================================================= */
+                                  </div>
 
- function closeEditMemory(){
+                              </div>
 
-     editingMemoryId =
-         null;
 
-     editModal.classList.remove(
-         "active"
-     );
+                              <div class="post-title">
 
- }
+                                  ${escapeHTML(post.title)}
 
+                              </div>
 
- /* =========================================================
-    CANCEL EDIT
- ========================================================= */
 
- cancelEditBtn.addEventListener(
-     "click",
-     function(){
+                              <div class="post-desc">
 
-         closeEditMemory();
+                                  ${escapeHTML(post.description)}
 
-     }
- );
+                              </div>
 
 
- /* =========================================================
-    CLICK OUTSIDE
- ========================================================= */
+                              ${mediaHTML}
 
- editModal.addEventListener(
-     "click",
-     function(event){
 
-         if(
-             event.target ===
-             editModal
-         ){
+                              ${fileInfo}
 
-             closeEditMemory();
 
-         }
+                              <div class="uploader-info">
 
-     }
- );
+                                  <div
+                                      class="uploader-icon ${uploaderClass}"
+                                  >
+                                      ${uploaderIcon}
+                                  </div>
 
 
- /* =========================================================
-    ESC
- ========================================================= */
+                                  <div class="uploader-text">
 
- document.addEventListener(
-     "keydown",
-     function(event){
+                                      <span class="uploader-label">
+                                          DIUPLOAD OLEH
+                                      </span>
 
-         if(
-             event.key === "Escape" &&
-             editModal.classList.contains(
-                 "active"
-             )
-         ){
+                                      <span class="uploader-name">
 
-             closeEditMemory();
+                                          ${escapeHTML(uploader)}
 
-         }
+                                      </span>
 
-     }
- );
+                                  </div>
 
+                              </div>
 
- /* =========================================================
-    SAVE EDIT
- ========================================================= */
+                          </div>
 
- saveEditBtn.addEventListener(
-     "click",
-     async function(){
 
-         if(!canEditPosts()){
+                          <div class="post-actions">
 
-             alert(
-                 "Anda tidak memiliki izin untuk mengedit postingan."
-             );
+                              <button
+                                  class="action-btn edit-btn"
+                                  onclick="editPosting(${post.id})"
+                              >
+                                  EDIT
+                              </button>
 
-             return;
+                              ${deleteButton}
 
-         }
+                          </div>
 
+                      </article>
 
-         if(!editingMemoryId){
+                  `;
 
-             return;
+              }
+          )
+          .join("");
 
-         }
+  }
 
 
-         const judul =
-             editJudul.value.trim();
+  /* ==========================================
+    HAPUS POSTING
+  ========================================== */
 
-         const tanggal =
-             editTanggal.value;
+  function hapusPosting(id){
 
-         const cerita =
-             editCerita.value.trim();
+      const currentUser =
+          localStorage.getItem(
+              "pran_admin_user"
+          );
 
 
-         if(!judul){
+      /* KEAMANAN */
 
-             alert(
-                 "Judul wajib diisi."
-             );
+      if(
+          currentUser !==
+          "daligroupmaster"
+      ){
 
-             return;
+          alert(
+              "Anda tidak memiliki izin untuk menghapus postingan."
+          );
 
-         }
+          return;
 
+      }
 
-         saveEditBtn.disabled =
-             true;
 
-         saveEditBtn.textContent =
-             "MENYIMPAN...";
+      const post =
+          posts.find(
+              function(item){
 
+                  return item.id === id;
 
-         try{
+              }
+          );
 
-             const {
-                 error
-             } =
-                 await supabaseClient
-                     .from("kenangan")
-                     .update({
 
-                         judul:
-                             judul,
+      if(!post){
 
-                         tanggal:
-                             tanggal ||
-                             null,
+          alert(
+              "Posting tidak ditemukan."
+          );
 
-                         cerita:
-                             cerita
+          return;
 
-                     })
-                     .eq(
-                         "id",
-                         editingMemoryId
-                     );
+      }
 
 
-             if(error){
+      const yakin =
+          confirm(
+              "Hapus posting ini?\n\n" +
+              post.title +
+              "\n\nTindakan ini tidak dapat dibatalkan."
+          );
 
-                 throw error;
 
-             }
+      if(!yakin){
 
+          return;
 
-             closeEditMemory();
+      }
 
-             await loadHistory();
 
+      posts =
+          posts.filter(
+              function(item){
 
-             showStatus(
-                 "success",
-                 "Postingan berhasil diperbarui."
-             );
+                  return item.id !== id;
 
+              }
+          );
 
-         }catch(error){
 
-             console.error(error);
+      if(!simpanData()){
 
-             alert(
-                 "Gagal mengedit postingan: " +
-                 error.message
-             );
+          return;
 
-         }finally{
+      }
 
-             saveEditBtn.disabled =
-                 false;
 
-             saveEditBtn.textContent =
-                 "SIMPAN PERUBAHAN";
+      renderPosts();
 
-         }
+      updateStats();
 
-     }
- );
 
+      alert(
+          "Posting berhasil dihapus."
+      );
 
- /* =========================================================
-    DELETE
- ========================================================= */
+  }
 
- async function deleteMemory(id){
 
-     if(!canDeletePosts()){
+  /* ==========================================
+    LIHAT FOTO
+  ========================================== */
 
-         showStatus(
-             "error",
-             "Anda tidak memiliki izin untuk menghapus postingan."
-         );
+  function lihatFoto(src){
 
-         return;
+      const win =
+          window.open(
+              "",
+              "_blank"
+          );
 
-     }
 
+      if(!win){
 
-     const yakin =
-         confirm(
-             "Yakin ingin menghapus media ini?\n\n" +
-             "File Storage dan data history akan dihapus."
-         );
+          alert(
+              "Browser memblokir tab baru."
+          );
 
+          return;
 
-     if(!yakin){
+      }
 
-         return;
 
-     }
+      win.document.write(`
 
+          <!DOCTYPE html>
 
-     try{
+          <html>
 
-         const {
-             data,
-             error
-         } =
-             await supabaseClient
-                 .from("kenangan")
-                 .select(
-                     "id, foto_path, media_type, judul, uploader_username"
-                 )
-                 .eq(
-                     "id",
-                     id
-                 )
-                 .maybeSingle();
+          <head>
 
+              <title>Preview Foto</title>
 
-         if(error){
+              <style>
 
-             throw error;
+                  *{
+                      box-sizing:border-box;
+                  }
 
-         }
+                  body{
+                      margin:0;
+                      min-height:100vh;
+                      display:flex;
+                      align-items:center;
+                      justify-content:center;
+                      background:#000;
+                      padding:20px;
+                  }
 
+                  img{
+                      max-width:100%;
+                      max-height:95vh;
+                      object-fit:contain;
+                  }
 
-         if(!data){
+              </style>
 
-             throw new Error(
-                 "Data media tidak ditemukan."
-             );
+          </head>
 
-         }
+          <body>
 
+              <img src="${src}">
 
-         if(data.foto_path){
+          </body>
 
-             const {
-                 error:
-                 storageError
-             } =
-                 await supabaseClient
-                     .storage
-                     .from("kenangan")
-                     .remove([
-                         data.foto_path
-                     ]);
+          </html>
 
+      `);
 
-             if(storageError){
+  }
 
-                 throw storageError;
 
-             }
+  /* ==========================================
+    UPDATE STATS
+  ========================================== */
 
-         }
+  function updateStats(){
 
+      const total =
+          posts.length;
 
-         const {
-             error:
-             deleteError
-         } =
-             await supabaseClient
-                 .from("kenangan")
-                 .delete()
-                 .eq(
-                     "id",
-                     id
-                 );
 
+      const media =
+          posts.filter(
+              function(post){
 
-         if(deleteError){
+                  return(
+                      post.type === "Foto" ||
+                      post.type === "Video"
+                  );
 
-             throw deleteError;
+              }
+          ).length;
 
-         }
 
+      const text =
+          posts.filter(
+              function(post){
 
-         await loadHistory();
+                  return post.type === "Tulisan";
 
+              }
+          ).length;
 
-         showStatus(
-             "success",
-             "Media berhasil dihapus."
-         );
 
+      document
+          .getElementById("totalPosts")
+          .textContent =
+              total;
 
-     }catch(error){
 
-         console.error(error);
+      document
+          .getElementById("totalMedia")
+          .textContent =
+              media;
 
-         showStatus(
-             "error",
-             "Gagal menghapus media: " +
-             error.message
-         );
 
-     }
+      document
+          .getElementById("totalText")
+          .textContent =
+              text;
 
- }
+  }
 
 
- /* =========================================================
-    REFRESH
- ========================================================= */
-
- refreshBtn.addEventListener(
-     "click",
-     async function(){
-
-         await loadHistory();
-
-     }
- );
-
-
- /* =========================================================
-    STATUS
- ========================================================= */
-
- function showStatus(
-     type,
-     message
- ){
-
-     uploadStatus.className =
-         "status " +
-         type;
-
-     uploadStatus.textContent =
-         message;
-
- }
-
-
- /* =========================================================
-    DATE
- ========================================================= */
-
- function formatDate(
-     dateString
- ){
-
-     try{
-
-         const date =
-             new Date(
-                 dateString +
-                 "T00:00:00"
-             );
-
-
-         return date.toLocaleDateString(
-             "id-ID",
-             {
-                 day:"2-digit",
-                 month:"long",
-                 year:"numeric"
-             }
-         );
-
-
-     }catch(error){
-
-         return dateString;
-
-     }
-
- }
-
-
- /* =========================================================
+  /* ==========================================
     ESCAPE HTML
- ========================================================= */
+  ========================================== */
 
- function escapeHtml(
-     value
- ){
+  function escapeHTML(value){
 
-     return String(value)
+      return String(value || "")
+          .replace(/&/g,"&amp;")
+          .replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;")
+          .replace(/"/g,"&quot;")
+          .replace(/'/g,"&#039;");
 
-         .replace(
-             /&/g,
-             "&amp;"
-         )
-
-         .replace(
-             /</g,
-             "&lt;"
-         )
-
-         .replace(
-             />/g,
-             "&gt;"
-         )
-
-         .replace(
-             /"/g,
-             "&quot;"
-         )
-
-         .replace(
-             /'/g,
-             "&#039;"
-         );
-
- }
+  }
 
 
- /* =========================================================
-    START
- ========================================================= */
+  /* ==========================================
+    AUTO LOGIN
+  ========================================== */
 
- checkSession();
+  const savedUser =
+      localStorage.getItem(
+          "pran_admin_user"
+      );
 
- </script>
 
- </body>
- </html>
+  if(
+      savedUser &&
+      ADMIN_ACCOUNTS[savedUser]
+  ){
+
+      showAdmin(savedUser);
+
+  }
+
+  </script>
+
+  </body>
+  </html>
