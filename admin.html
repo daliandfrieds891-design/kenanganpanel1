@@ -3,13 +3,24 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Admin | PRAN MUSIC ENTERTAINMENT</title>
 
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<!-- TUS RESUMABLE UPLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/tus-js-client@4/dist/tus.min.js"></script>
+
+
 <script>
+
+/* =========================================
+   SUPABASE
+========================================= */
+
 const SUPABASE_URL =
 "https://uigwpcjhzbqfmwhvolbu.supabase.co";
 
@@ -21,9 +32,15 @@ window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+
 </script>
 
+
 <style>
+
+/* =========================================
+   GLOBAL
+========================================= */
 
 *{
     box-sizing:border-box;
@@ -34,9 +51,21 @@ window.supabase.createClient(
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(circle at 50% 0%,rgba(255,190,70,.14),transparent 35%),
-        radial-gradient(circle at 0% 50%,rgba(255,180,50,.08),transparent 30%),
-        radial-gradient(circle at 100% 60%,rgba(100,60,180,.10),transparent 35%),
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,190,70,.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 0% 50%,
+            rgba(255,180,50,.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 100% 60%,
+            rgba(100,60,180,.10),
+            transparent 35%
+        ),
         #070707;
     color:#fff;
     min-height:100vh;
@@ -50,7 +79,9 @@ select{
 }
 
 
-/* LOGIN */
+/* =========================================
+   LOGIN
+========================================= */
 
 #loginPage{
     min-height:100vh;
@@ -59,7 +90,11 @@ select{
     justify-content:center;
     padding:25px;
     background:
-        radial-gradient(circle at center,rgba(212,164,66,.12),transparent 30%),
+        radial-gradient(
+            circle at center,
+            rgba(212,164,66,.12),
+            transparent 30%
+        ),
         #050505;
 }
 
@@ -164,7 +199,9 @@ select{
 }
 
 
-/* ADMIN */
+/* =========================================
+   ADMIN
+========================================= */
 
 #adminPage{
     display:none;
@@ -243,7 +280,9 @@ select{
 }
 
 
-/* CONTAINER */
+/* =========================================
+   CONTAINER
+========================================= */
 
 .admin-container{
     width:min(1250px,calc(100% - 40px));
@@ -293,7 +332,9 @@ select{
 }
 
 
-/* STATS */
+/* =========================================
+   STATS
+========================================= */
 
 .stats{
     display:grid;
@@ -306,7 +347,11 @@ select{
     border:1px solid #292929;
     border-radius:18px;
     padding:20px;
-    background:linear-gradient(145deg,#111,#0b0b0b);
+    background:linear-gradient(
+        145deg,
+        #111,
+        #0b0b0b
+    );
 }
 
 .stat-top{
@@ -341,7 +386,9 @@ select{
 }
 
 
-/* GRID */
+/* =========================================
+   GRID
+========================================= */
 
 .admin-grid{
     display:grid;
@@ -493,6 +540,63 @@ select{
     background:#000;
 }
 
+
+/* =========================================
+   UPLOAD PROGRESS
+========================================= */
+
+#uploadProgressBox{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    border-radius:11px;
+    border:1px solid #332a18;
+    background:#090806;
+}
+
+.upload-progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+    font-size:10px;
+}
+
+#uploadProgressText{
+    color:#aaa;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+#uploadProgressPercent{
+    color:#e2bb63;
+    font-weight:800;
+    min-width:40px;
+    text-align:right;
+}
+
+.upload-progress-track{
+    width:100%;
+    height:7px;
+    background:#1a1a1a;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid #302817;
+}
+
+#uploadProgressBar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #b8872f,
+        #f0ce7b
+    );
+    transition:width .2s ease;
+}
+
 .publish-btn{
     width:100%;
     border:0;
@@ -540,7 +644,9 @@ select{
 }
 
 
-/* POSTS */
+/* =========================================
+   POSTS
+========================================= */
 
 .post-list{
     display:flex;
@@ -552,7 +658,11 @@ select{
     border:1px solid #282828;
     border-radius:17px;
     overflow:hidden;
-    background:linear-gradient(145deg,#111,#0b0b0b);
+    background:linear-gradient(
+        145deg,
+        #111,
+        #0b0b0b
+    );
 }
 
 .post-content{
@@ -630,7 +740,9 @@ select{
 }
 
 
-/* UPLOADER */
+/* =========================================
+   UPLOADER
+========================================= */
 
 .uploader-info{
     margin-top:17px;
@@ -678,7 +790,9 @@ select{
 }
 
 
-/* ACTION */
+/* =========================================
+   ACTION
+========================================= */
 
 .post-actions{
     display:flex;
@@ -728,7 +842,9 @@ select{
 }
 
 
-/* USER */
+/* =========================================
+   USER
+========================================= */
 
 .current-user{
     margin-top:20px;
@@ -752,7 +868,9 @@ select{
 }
 
 
-/* STATUS */
+/* =========================================
+   STATUS
+========================================= */
 
 .status-box{
     display:none;
@@ -762,6 +880,7 @@ select{
     font-size:11px;
     line-height:1.5;
     text-align:center;
+    word-break:break-word;
 }
 
 .status-success{
@@ -779,7 +898,9 @@ select{
 }
 
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
 
 .admin-footer{
     text-align:center;
@@ -790,7 +911,9 @@ select{
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:900px){
 
@@ -904,10 +1027,13 @@ select{
 </style>
 </head>
 
+
 <body>
 
 
-<!-- LOGIN -->
+<!-- =========================================
+     LOGIN
+========================================= -->
 
 <section id="loginPage">
 
@@ -975,7 +1101,9 @@ select{
 
 
 
-<!-- ADMIN -->
+<!-- =========================================
+     ADMIN
+========================================= -->
 
 <section id="adminPage">
 
@@ -1128,7 +1256,9 @@ select{
 <section class="admin-grid">
 
 
-<!-- FORM -->
+<!-- =========================================
+     FORM
+========================================= -->
 
 <div class="panel">
 
@@ -1261,7 +1391,36 @@ select{
                     accept="image/*,video/*"
                 >
 
+
                 <div id="uploadPreview"></div>
+
+
+                <!-- PROGRESS UPLOAD -->
+
+                <div id="uploadProgressBox">
+
+                    <div class="upload-progress-top">
+
+                        <span id="uploadProgressText">
+                            Mempersiapkan upload...
+                        </span>
+
+                        <span id="uploadProgressPercent">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="upload-progress-track">
+
+                        <div
+                            id="uploadProgressBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
@@ -1312,7 +1471,9 @@ select{
 
 
 
-<!-- POSTS -->
+<!-- =========================================
+     POSTS
+========================================= -->
 
 <div class="panel">
 
@@ -1535,6 +1696,67 @@ function showStatus(
 
 
 /* =========================================
+   UPLOAD PROGRESS
+========================================= */
+
+function resetUploadProgress(){
+
+    const box =
+        document.getElementById(
+            "uploadProgressBox"
+        );
+
+    const bar =
+        document.getElementById(
+            "uploadProgressBar"
+        );
+
+    const text =
+        document.getElementById(
+            "uploadProgressText"
+        );
+
+    const percent =
+        document.getElementById(
+            "uploadProgressPercent"
+        );
+
+
+    if(box){
+
+        box.style.display =
+            "none";
+
+    }
+
+
+    if(bar){
+
+        bar.style.width =
+            "0%";
+
+    }
+
+
+    if(text){
+
+        text.textContent =
+            "Mempersiapkan upload...";
+
+    }
+
+
+    if(percent){
+
+        percent.textContent =
+            "0%";
+
+    }
+
+}
+
+
+/* =========================================
    LOAD POSTS
 ========================================= */
 
@@ -1620,6 +1842,7 @@ async function loadPosts(){
 
 /* =========================================
    UPLOAD MEDIA
+   TUS RESUMABLE
 ========================================= */
 
 async function uploadMedia(file){
@@ -1638,11 +1861,13 @@ async function uploadMedia(file){
     }
 
 
-    const extension =
-        file.name
-        .split(".")
-        .pop()
-        .toLowerCase();
+    if(file.size <= 0){
+
+        throw new Error(
+            "File kosong atau tidak dapat dibaca."
+        );
+
+    }
 
 
     const safeName =
@@ -1664,76 +1889,404 @@ async function uploadMedia(file){
         safeName;
 
 
+    const progressBox =
+        document.getElementById(
+            "uploadProgressBox"
+        );
+
+    const progressBar =
+        document.getElementById(
+            "uploadProgressBar"
+        );
+
+    const progressText =
+        document.getElementById(
+            "uploadProgressText"
+        );
+
+    const progressPercent =
+        document.getElementById(
+            "uploadProgressPercent"
+        );
+
+
+    if(progressBox){
+
+        progressBox.style.display =
+            "block";
+
+    }
+
+
+    if(progressBar){
+
+        progressBar.style.width =
+            "0%";
+
+    }
+
+
+    if(progressText){
+
+        progressText.textContent =
+            "Mempersiapkan upload...";
+
+    }
+
+
+    if(progressPercent){
+
+        progressPercent.textContent =
+            "0%";
+
+    }
+
+
     showStatus(
-        "Sedang mengupload media...",
+        "Mempersiapkan upload media...",
         "success"
     );
 
 
-    const {
-        error
-    } =
-        await supabaseClient
-        .storage
-        .from("post-media")
-        .upload(
-            filePath,
-            file,
-            {
-                cacheControl:"3600",
-                upsert:false,
-                contentType:file.type
-            }
-        );
+    /*
+     * Pastikan library TUS tersedia.
+     */
 
-
-    if(error){
-
-        console.error(
-            "Storage upload error:",
-            error
-        );
-
-        throw error;
-
-    }
-
-
-    const {
-        data
-    } =
-        supabaseClient
-        .storage
-        .from("post-media")
-        .getPublicUrl(
-            filePath
-        );
-
-
-    if(!data || !data.publicUrl){
+    if(
+        typeof tus === "undefined" ||
+        !tus.Upload
+    ){
 
         throw new Error(
-            "URL media tidak berhasil dibuat."
+            "Library upload belum berhasil dimuat. Periksa koneksi internet lalu coba lagi."
         );
 
     }
 
 
-    return {
+    return new Promise(
+        (resolve,reject) => {
 
-        url:
-            data.publicUrl,
+            let finished =
+                false;
 
-        type:
-            file.type,
 
-        name:
-            file.name,
+            const upload =
+                new tus.Upload(
+                    file,
+                    {
 
-        path:
-            filePath
+                        endpoint:
+                            SUPABASE_URL +
+                            "/storage/v1/upload/resumable",
 
-    };
+
+                        retryDelays:[
+                            0,
+                            1000,
+                            3000,
+                            5000,
+                            10000,
+                            20000
+                        ],
+
+
+                        headers:{
+
+                            authorization:
+                                "Bearer " +
+                                SUPABASE_KEY,
+
+                            apikey:
+                                SUPABASE_KEY,
+
+                            "x-upsert":
+                                "false"
+
+                        },
+
+
+                        uploadDataDuringCreation:
+                            true,
+
+
+                        removeFingerprintOnSuccess:
+                            true,
+
+
+                        metadata:{
+
+                            bucketName:
+                                "post-media",
+
+                            objectName:
+                                filePath,
+
+                            contentType:
+                                file.type ||
+                                "application/octet-stream",
+
+                            cacheControl:
+                                "3600"
+
+                        },
+
+
+                        /*
+                         * 6 MB chunks.
+                         * Cocok untuk koneksi HP
+                         * yang tidak stabil.
+                         */
+
+                        chunkSize:
+                            6 * 1024 * 1024,
+
+
+                        onError:
+                            function(error){
+
+                                if(finished){
+
+                                    return;
+
+                                }
+
+
+                                finished =
+                                    true;
+
+
+                                console.error(
+                                    "TUS upload error:",
+                                    error
+                                );
+
+
+                                if(progressText){
+
+                                    progressText.textContent =
+                                        "Upload gagal";
+
+                                }
+
+
+                                if(progressPercent){
+
+                                    progressPercent.textContent =
+                                        "Gagal";
+
+                                }
+
+
+                                let message =
+                                    "Upload media gagal.";
+
+
+                                if(
+                                    error &&
+                                    error.message
+                                ){
+
+                                    message +=
+                                        " " +
+                                        error.message;
+
+                                }
+
+
+                                reject(
+                                    new Error(
+                                        message
+                                    )
+                                );
+
+                            },
+
+
+                        onProgress:
+                            function(
+                                bytesUploaded,
+                                bytesTotal
+                            ){
+
+                                if(
+                                    !bytesTotal
+                                ){
+
+                                    return;
+
+                                }
+
+
+                                const percentage =
+                                    Math.min(
+                                        100,
+                                        Math.round(
+                                            (
+                                                bytesUploaded /
+                                                bytesTotal
+                                            ) *
+                                            100
+                                        )
+                                    );
+
+
+                                const uploadedMB =
+                                    (
+                                        bytesUploaded /
+                                        1024 /
+                                        1024
+                                    ).toFixed(1);
+
+
+                                const totalMB =
+                                    (
+                                        bytesTotal /
+                                        1024 /
+                                        1024
+                                    ).toFixed(1);
+
+
+                                if(progressBar){
+
+                                    progressBar.style.width =
+                                        percentage +
+                                        "%";
+
+                                }
+
+
+                                if(progressPercent){
+
+                                    progressPercent.textContent =
+                                        percentage +
+                                        "%";
+
+                                }
+
+
+                                if(progressText){
+
+                                    progressText.textContent =
+                                        "Mengupload " +
+                                        uploadedMB +
+                                        " MB / " +
+                                        totalMB +
+                                        " MB";
+
+                                }
+
+
+                                showStatus(
+                                    "Sedang mengupload media... " +
+                                    percentage +
+                                    "%",
+                                    "success"
+                                );
+
+                            },
+
+
+                        onSuccess:
+                            async function(){
+
+                                if(finished){
+
+                                    return;
+
+                                }
+
+
+                                finished =
+                                    true;
+
+
+                                if(progressBar){
+
+                                    progressBar.style.width =
+                                        "100%";
+
+                                }
+
+
+                                if(progressPercent){
+
+                                    progressPercent.textContent =
+                                        "100%";
+
+                                }
+
+
+                                if(progressText){
+
+                                    progressText.textContent =
+                                        "Upload selesai";
+
+                                }
+
+
+                                /*
+                                 * Public URL
+                                 */
+
+                                const {
+                                    data
+                                } =
+                                    supabaseClient
+                                    .storage
+                                    .from(
+                                        "post-media"
+                                    )
+                                    .getPublicUrl(
+                                        filePath
+                                    );
+
+
+                                if(
+                                    !data ||
+                                    !data.publicUrl
+                                ){
+
+                                    reject(
+                                        new Error(
+                                            "Upload berhasil tetapi URL media tidak berhasil dibuat."
+                                        )
+                                    );
+
+                                    return;
+
+                                }
+
+
+                                resolve({
+
+                                    url:
+                                        data.publicUrl,
+
+                                    type:
+                                        file.type,
+
+                                    name:
+                                        file.name,
+
+                                    path:
+                                        filePath
+
+                                });
+
+                            }
+
+                    });
+
+
+            /*
+             * Mulai upload.
+             */
+
+            upload.start();
+
+        }
+    );
 
 }
 
@@ -1748,7 +2301,9 @@ async function deleteMediaByUrl(
 
     if(
         !mediaUrl ||
-        !mediaUrl.includes("/post-media/")
+        !mediaUrl.includes(
+            "/post-media/"
+        )
     ){
 
         return;
@@ -1873,7 +2428,7 @@ async function buatPosting(){
     }
 
 
-    /* VALIDASI FOTO */
+    /* FOTO */
 
     if(type === "Foto"){
 
@@ -1889,7 +2444,9 @@ async function buatPosting(){
 
 
         if(
-            !file.type.startsWith("image/")
+            !file.type.startsWith(
+                "image/"
+            )
         ){
 
             alert(
@@ -1903,7 +2460,7 @@ async function buatPosting(){
     }
 
 
-    /* VALIDASI VIDEO */
+    /* VIDEO */
 
     if(type === "Video"){
 
@@ -1919,7 +2476,9 @@ async function buatPosting(){
 
 
         if(
-            !file.type.startsWith("video/")
+            !file.type.startsWith(
+                "video/"
+            )
         ){
 
             alert(
@@ -1955,10 +2514,11 @@ async function buatPosting(){
         );
 
 
-    button.disabled = true;
+    button.disabled =
+        true;
 
     button.textContent =
-        "MENGUPLOAD...";
+        "MENGUPLOAD MEDIA...";
 
 
     try{
@@ -1974,7 +2534,7 @@ async function buatPosting(){
 
 
         /*
-         * UPLOAD FOTO / VIDEO
+         * UPLOAD MEDIA
          */
 
         if(file){
@@ -2028,9 +2588,8 @@ async function buatPosting(){
         if(error){
 
             /*
-             * Kalau DB gagal setelah media
-             * berhasil diupload, coba hapus
-             * media supaya tidak jadi sampah.
+             * Jika DB gagal,
+             * hapus file yang sudah diupload.
              */
 
             if(media.path){
@@ -2135,7 +2694,9 @@ async function prosesEdit(
 
         if(
             type === "Foto" &&
-            !file.type.startsWith("image/")
+            !file.type.startsWith(
+                "image/"
+            )
         ){
 
             alert(
@@ -2149,7 +2710,9 @@ async function prosesEdit(
 
         if(
             type === "Video" &&
-            !file.type.startsWith("video/")
+            !file.type.startsWith(
+                "video/"
+            )
         ){
 
             alert(
@@ -2179,21 +2742,23 @@ async function prosesEdit(
     try{
 
         let mediaUrl =
-            oldPost.media_url || "";
+            oldPost.media_url ||
+            "";
 
         let mediaType =
-            oldPost.media_type || "";
+            oldPost.media_type ||
+            "";
 
         let fileName =
-            oldPost.file_name || "";
+            oldPost.file_name ||
+            "";
 
         let newMediaPath =
             "";
 
 
         /*
-         * Kalau user mengganti media,
-         * upload media baru.
+         * Ganti media
          */
 
         if(file){
@@ -2224,8 +2789,7 @@ async function prosesEdit(
 
 
         /*
-         * Kalau jenis berubah menjadi
-         * Tulisan, hapus data media.
+         * Kalau menjadi Tulisan
          */
 
         if(type === "Tulisan"){
@@ -2288,8 +2852,8 @@ async function prosesEdit(
         if(error){
 
             /*
-             * Kalau update gagal,
-             * media baru dihapus.
+             * Hapus media baru
+             * jika database gagal.
              */
 
             if(newMediaPath){
@@ -2303,14 +2867,14 @@ async function prosesEdit(
 
             }
 
+
             throw error;
 
         }
 
 
         /*
-         * Kalau media baru berhasil,
-         * coba hapus media lama.
+         * Hapus media lama
          */
 
         if(
@@ -2327,7 +2891,7 @@ async function prosesEdit(
 
 
         /*
-         * Kalau berubah menjadi Tulisan,
+         * Kalau menjadi Tulisan,
          * hapus media lama.
          */
 
@@ -2486,13 +3050,17 @@ function editPosting(id){
             "block";
 
 
+    resetUploadProgress();
+
+
     const preview =
         document.getElementById(
             "uploadPreview"
         );
 
 
-    preview.innerHTML = "";
+    preview.innerHTML =
+        "";
 
 
     if(
@@ -2502,7 +3070,9 @@ function editPosting(id){
 
         if(
             post.media_type
-            .startsWith("image/")
+            .startsWith(
+                "image/"
+            )
         ){
 
             preview.innerHTML = `
@@ -2522,13 +3092,16 @@ function editPosting(id){
 
         if(
             post.media_type
-            .startsWith("video/")
+            .startsWith(
+                "video/"
+            )
         ){
 
             preview.innerHTML = `
 
                 <video
                     controls
+                    playsinline
                     src="${escapeAttribute(post.media_url)}"
                 ></video>
 
@@ -2613,6 +3186,9 @@ function resetForm(){
         "none";
 
 
+    resetUploadProgress();
+
+
     document
         .getElementById("formTitle")
         .textContent =
@@ -2671,6 +3247,9 @@ document
                 );
 
 
+            resetUploadProgress();
+
+
             if(!file){
 
                 preview.innerHTML =
@@ -2691,7 +3270,9 @@ document
 
 
             if(
-                file.type.startsWith("image/")
+                file.type.startsWith(
+                    "image/"
+                )
             ){
 
                 preview.innerHTML = `
@@ -2706,13 +3287,17 @@ document
             }
 
             else if(
-                file.type.startsWith("video/")
+                file.type.startsWith(
+                    "video/"
+                )
             ){
 
                 preview.innerHTML = `
 
                     <video
                         controls
+                        playsinline
+                        preload="metadata"
                         src="${url}"
                     ></video>
 
@@ -2806,7 +3391,9 @@ function renderPosts(){
                     post.media_url &&
                     post.media_type &&
                     post.media_type
-                    .startsWith("image/")
+                    .startsWith(
+                        "image/"
+                    )
                 ){
 
                     mediaHTML = `
@@ -2835,7 +3422,9 @@ function renderPosts(){
                     post.media_url &&
                     post.media_type &&
                     post.media_type
-                    .startsWith("video/")
+                    .startsWith(
+                        "video/"
+                    )
                 ){
 
                     mediaHTML = `
@@ -2846,6 +3435,7 @@ function renderPosts(){
 
                             <video
                                 controls
+                                playsinline
                                 preload="metadata"
                             >
 
@@ -3135,8 +3725,7 @@ async function hapusPosting(id){
 
 
         /*
-         * Hapus media dari Storage
-         * setelah database berhasil dihapus.
+         * Hapus media Storage
          */
 
         if(post.media_url){
