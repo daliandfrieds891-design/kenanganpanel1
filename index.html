@@ -13,6 +13,101 @@
       content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
 
 <!-- =========================
+     SEO DASAR
+========================= -->
+
+<link rel="canonical"
+      href="https://pranmusicentertainment.company/">
+
+<meta name="robots"
+      content="index, follow, max-image-preview:large">
+
+<meta name="author"
+      content="PRAN MUSIC ENTERTAINMENT">
+
+<meta name="theme-color"
+      content="#050505">
+
+
+<!-- =========================
+     OPEN GRAPH
+========================= -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:site_name"
+      content="PRAN MUSIC ENTERTAINMENT">
+
+<meta property="og:title"
+      content="PRAN MUSIC ENTERTAINMENT">
+
+<meta property="og:description"
+      content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
+
+<meta property="og:url"
+      content="https://pranmusicentertainment.company/">
+
+<meta property="og:locale"
+      content="id_ID">
+
+<meta property="og:image:alt"
+      content="PRAN MUSIC ENTERTAINMENT - Foto Sound System dan Event Entertainment">
+
+
+<!-- =========================
+     TWITTER
+========================= -->
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="PRAN MUSIC ENTERTAINMENT">
+
+<meta name="twitter:description"
+      content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
+
+<meta name="twitter:image:alt"
+      content="PRAN MUSIC ENTERTAINMENT - Foto Event Entertainment">
+
+
+<!-- =========================
+     ORGANIZATION SCHEMA
+========================= -->
+
+<script type="application/ld+json"
+        id="organizationSchema">
+
+{
+    "@context":"https://schema.org",
+
+    "@type":"EntertainmentBusiness",
+
+    "name":"PRAN MUSIC ENTERTAINMENT",
+
+    "url":"https://pranmusicentertainment.company/",
+
+    "description":"PRAN MUSIC ENTERTAINMENT menghadirkan musik, sound system, event entertainment, foto, video, dan berbagai karya untuk berbagai acara.",
+
+    "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"Jl. Makmur Pasar 7 Tembung, Gang Anggrek 18",
+        "addressLocality":"Sena",
+        "addressRegion":"Sumatera Utara",
+        "postalCode":"20371",
+        "addressCountry":"ID"
+    },
+
+    "sameAs":[
+        "https://pranmusicentertainment.company/"
+    ]
+}
+
+</script>
+
+
+<!-- =========================
      SUPABASE
 ========================= -->
 
@@ -37,10 +132,6 @@ const supabaseClient =
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -58,10 +149,6 @@ body{
     overflow-x:hidden;
 }
 
-
-/* =========================
-   BACKGROUND
-========================= */
 
 body::before{
     content:"";
@@ -99,10 +186,6 @@ body::after{
         );
 }
 
-
-/* =========================
-   HEADER
-========================= */
 
 header{
     position:fixed;
@@ -189,10 +272,6 @@ header{
 }
 
 
-/* =========================
-   NAV
-========================= */
-
 nav{
     display:flex;
     align-items:center;
@@ -240,10 +319,6 @@ nav a:hover::after{
     width:100%;
 }
 
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
     min-height:100vh;
@@ -368,10 +443,6 @@ nav a:hover::after{
 }
 
 
-/* =========================
-   GENERAL
-========================= */
-
 section{
     padding:
         110px
@@ -416,10 +487,6 @@ section{
     font-size:14px;
 }
 
-
-/* =========================
-   ABOUT
-========================= */
 
 .about{
     border-top:
@@ -524,10 +591,6 @@ section{
 }
 
 
-/* =========================
-   QUOTE
-========================= */
-
 .quote{
     text-align:center;
 
@@ -587,10 +650,6 @@ section{
 }
 
 
-/* =========================
-   POSTS
-========================= */
-
 .posts{
     min-height:500px;
 }
@@ -619,10 +678,6 @@ section{
 }
 
 
-/* =========================
-   POST CARD
-========================= */
-
 .post-card{
     background:#0b0b0b;
 
@@ -643,10 +698,6 @@ section{
         rgba(212,175,55,.30);
 }
 
-
-/* =========================
-   MEDIA
-========================= */
 
 .post-media{
     width:100%;
@@ -672,10 +723,6 @@ section{
 }
 
 
-/* =========================
-   FOTO
-========================= */
-
 .post-media img{
     cursor:zoom-in;
 
@@ -692,18 +739,10 @@ section{
 }
 
 
-/* =========================
-   VIDEO
-========================= */
-
 .post-media video{
     cursor:pointer;
 }
 
-
-/* =========================
-   MEDIA HINT
-========================= */
 
 .media-hint{
     position:absolute;
@@ -732,10 +771,6 @@ section{
     opacity:.9;
 }
 
-
-/* =========================
-   POST CONTENT
-========================= */
 
 .post-content{
     padding:27px;
@@ -774,10 +809,6 @@ section{
     white-space:pre-line;
 }
 
-
-/* =========================
-   EMPTY
-========================= */
 
 .empty-post{
     grid-column:1/-1;
@@ -836,10 +867,6 @@ section{
 }
 
 
-/* =========================
-   LOADING
-========================= */
-
 .loading-post{
     grid-column:1/-1;
 
@@ -865,10 +892,6 @@ section{
     color:#d4af37;
 }
 
-
-/* =========================
-   MEDIA VIEWER
-========================= */
 
 .media-viewer{
     position:fixed;
@@ -1020,10 +1043,6 @@ section{
 }
 
 
-/* =========================
-   CONTACT
-========================= */
-
 .footer-contact{
     text-align:right;
 
@@ -1074,10 +1093,6 @@ section{
     color:#d4af37;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
 
 footer{
     padding:
@@ -1157,10 +1172,6 @@ footer{
 }
 
 
-/* =========================
-   WHATSAPP
-========================= */
-
 .whatsapp{
     position:fixed;
 
@@ -1202,10 +1213,6 @@ footer{
 }
 
 
-/* =========================
-   ANIMATION
-========================= */
-
 @keyframes fadeUp{
 
     from{
@@ -1224,10 +1231,6 @@ footer{
 
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media(max-width:900px){
 
@@ -1430,10 +1433,6 @@ footer{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
 
     <a href="#" class="logo">
@@ -1479,11 +1478,6 @@ footer{
 
 </header>
 
-
-
-<!-- =========================
-     HERO
-========================= -->
 
 <main>
 
@@ -1534,11 +1528,6 @@ footer{
 
 </section>
 
-
-
-<!-- =========================
-     ABOUT
-========================= -->
 
 <section
     class="about"
@@ -1660,11 +1649,6 @@ footer{
 </section>
 
 
-
-<!-- =========================
-     QUOTE
-========================= -->
-
 <section class="quote">
 
     <div class="quote-mark">
@@ -1690,11 +1674,6 @@ footer{
 
 </section>
 
-
-
-<!-- =========================
-     POSTS
-========================= -->
 
 <section
     class="posts"
@@ -1749,11 +1728,6 @@ footer{
 </main>
 
 
-
-<!-- =========================
-     MEDIA VIEWER
-========================= -->
-
 <div
     class="media-viewer"
     id="mediaViewer"
@@ -1782,11 +1756,6 @@ footer{
 
 </div>
 
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer id="contact">
 
@@ -1819,11 +1788,6 @@ footer{
         </div>
 
 
-
-        <!-- =====================
-             2 KONTAK
-        ====================== -->
-
         <div class="footer-contact">
 
 
@@ -1845,7 +1809,6 @@ footer{
                 </a>
 
             </div>
-
 
 
             <div class="contact-item">
@@ -1873,31 +1836,21 @@ footer{
     </div>
 
 
-
     <div class="footer-bottom">
 
         <div>
-
             © 2026 PRAN MUSIC ENTERTAINMENT
-
         </div>
 
 
         <div>
-
             ALL RIGHTS RESERVED
-
         </div>
 
     </div>
 
 </footer>
 
-
-
-<!-- =========================
-     FLOATING WHATSAPP
-========================= -->
 
 <a
     class="whatsapp"
@@ -1912,12 +1865,220 @@ footer{
 </a>
 
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
+
+
+/* =========================
+   SEO IMAGE
+========================= */
+
+function updateImageSEO(
+    imageUrl,
+    title,
+    description
+){
+
+    if(!imageUrl){
+        return;
+    }
+
+
+    /*
+     * OPEN GRAPH
+     */
+
+    let ogImage =
+        document.querySelector(
+            'meta[property="og:image"]'
+        );
+
+
+    if(!ogImage){
+
+        ogImage =
+            document.createElement("meta");
+
+        ogImage.setAttribute(
+            "property",
+            "og:image"
+        );
+
+        document.head.appendChild(
+            ogImage
+        );
+
+    }
+
+
+    ogImage.setAttribute(
+        "content",
+        imageUrl
+    );
+
+
+    /*
+     * OG SECURE IMAGE
+     */
+
+    let ogSecure =
+        document.querySelector(
+            'meta[property="og:image:secure_url"]'
+        );
+
+
+    if(!ogSecure){
+
+        ogSecure =
+            document.createElement("meta");
+
+        ogSecure.setAttribute(
+            "property",
+            "og:image:secure_url"
+        );
+
+        document.head.appendChild(
+            ogSecure
+        );
+
+    }
+
+
+    ogSecure.setAttribute(
+        "content",
+        imageUrl
+    );
+
+
+    /*
+     * OG TYPE
+     */
+
+    let ogType =
+        document.querySelector(
+            'meta[property="og:image:type"]'
+        );
+
+
+    if(!ogType){
+
+        ogType =
+            document.createElement("meta");
+
+        ogType.setAttribute(
+            "property",
+            "og:image:type"
+        );
+
+        document.head.appendChild(
+            ogType
+        );
+
+    }
+
+
+    ogType.setAttribute(
+        "content",
+        "image/jpeg"
+    );
+
+
+    /*
+     * TWITTER IMAGE
+     */
+
+    let twitterImage =
+        document.querySelector(
+            'meta[name="twitter:image"]'
+        );
+
+
+    if(!twitterImage){
+
+        twitterImage =
+            document.createElement("meta");
+
+        twitterImage.setAttribute(
+            "name",
+            "twitter:image"
+        );
+
+        document.head.appendChild(
+            twitterImage
+        );
+
+    }
+
+
+    twitterImage.setAttribute(
+        "content",
+        imageUrl
+    );
+
+
+    /*
+     * IMAGE SCHEMA
+     */
+
+    let imageSchema =
+        document.getElementById(
+            "imageSchema"
+        );
+
+
+    if(!imageSchema){
+
+        imageSchema =
+            document.createElement(
+                "script"
+            );
+
+        imageSchema.type =
+            "application/ld+json";
+
+        imageSchema.id =
+            "imageSchema";
+
+        document.head.appendChild(
+            imageSchema
+        );
+
+    }
+
+
+    const schemaData = {
+
+        "@context":"https://schema.org",
+
+        "@type":"ImageObject",
+
+        "contentUrl":imageUrl,
+
+        "url":imageUrl,
+
+        "name":
+            title ||
+            "PRAN MUSIC ENTERTAINMENT",
+
+        "description":
+            description ||
+            "Foto PRAN MUSIC ENTERTAINMENT",
+
+        "caption":
+            title ||
+            "PRAN MUSIC ENTERTAINMENT",
+
+        "representativeOfPage":true
+
+    };
+
+
+    imageSchema.textContent =
+        JSON.stringify(
+            schemaData
+        );
+
+}
+
 
 
 /* =========================
@@ -2021,6 +2182,40 @@ async function loadPosts(){
         postsGrid.innerHTML = "";
 
 
+        /*
+         * FOTO PERTAMA DIGUNAKAN
+         * SEBAGAI IMAGE UTAMA SEO
+         */
+
+        const firstPhoto =
+            data.find(function(post){
+
+                return (
+                    post &&
+                    post.type === "Foto" &&
+                    post.media_url
+                );
+
+            });
+
+
+        if(firstPhoto){
+
+            updateImageSEO(
+
+                firstPhoto.media_url,
+
+                firstPhoto.title ||
+                "PRAN MUSIC ENTERTAINMENT",
+
+                firstPhoto.description ||
+                "Foto PRAN MUSIC ENTERTAINMENT - Sound System dan Event Entertainment"
+
+            );
+
+        }
+
+
         data.forEach(function(post){
 
             const article =
@@ -2064,18 +2259,28 @@ async function loadPosts(){
                 post.type === "Foto"
             ){
 
+                const imageAlt =
+                    post.title
+                    ?
+                    "PRAN MUSIC ENTERTAINMENT - " +
+                    post.title
+                    :
+                    "PRAN MUSIC ENTERTAINMENT - Foto Event Entertainment";
+
+
                 mediaHTML = `
 
                     <div class="post-media">
 
                         <img
                             src="${escapeAttribute(post.media_url)}"
-                            alt="${escapeAttribute(post.title || "Foto posting")}"
+                            alt="${escapeAttribute(imageAlt)}"
                             loading="lazy"
+                            decoding="async"
                             onclick="openMedia(
                                 'image',
                                 '${escapeJs(post.media_url)}',
-                                '${escapeJs(post.title || "Foto")}'
+                                '${escapeJs(post.title || "Foto PRAN MUSIC ENTERTAINMENT")}'
                             )"
                         >
 
@@ -2137,10 +2342,6 @@ async function loadPosts(){
 
             }
 
-
-            /* =====================
-               CARD
-            ===================== */
 
             article.innerHTML = `
 
@@ -2257,10 +2458,6 @@ function openMedia(
     content.innerHTML = "";
 
 
-    /* =====================
-       IMAGE
-    ===================== */
-
     if(type === "image"){
 
         const img =
@@ -2273,7 +2470,7 @@ function openMedia(
 
         img.alt =
             title ||
-            "Foto";
+            "Foto PRAN MUSIC ENTERTAINMENT";
 
 
         content.appendChild(
@@ -2282,10 +2479,6 @@ function openMedia(
 
     }
 
-
-    /* =====================
-       VIDEO
-    ===================== */
 
     if(type === "video"){
 
@@ -2415,10 +2608,6 @@ function closeMedia(){
 
 
 
-/* =========================
-   CLOSE BUTTON
-========================= */
-
 document
     .getElementById("mediaClose")
     .addEventListener(
@@ -2431,10 +2620,6 @@ document
     );
 
 
-
-/* =========================
-   BACKGROUND CLICK
-========================= */
 
 document
     .getElementById("mediaViewer")
@@ -2456,10 +2641,6 @@ document
 
 
 
-/* =========================
-   ESC KEY
-========================= */
-
 document.addEventListener(
     "keydown",
     function(event){
@@ -2477,10 +2658,6 @@ document.addEventListener(
 );
 
 
-
-/* =========================
-   ESCAPE HTML
-========================= */
 
 function escapeHtml(text){
 
@@ -2515,10 +2692,6 @@ function escapeHtml(text){
 
 
 
-/* =========================
-   ESCAPE ATTRIBUTE
-========================= */
-
 function escapeAttribute(text){
 
     return String(text)
@@ -2546,10 +2719,6 @@ function escapeAttribute(text){
 }
 
 
-
-/* =========================
-   ESCAPE JAVASCRIPT
-========================= */
 
 function escapeJs(text){
 
@@ -2583,10 +2752,6 @@ function escapeJs(text){
 }
 
 
-
-/* =========================
-   START
-========================= */
 
 document.addEventListener(
     "DOMContentLoaded",
