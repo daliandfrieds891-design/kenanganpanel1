@@ -12,52 +12,23 @@
 <meta name="description"
       content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
 
-<!-- =========================
-     SEO DASAR
-========================= -->
+<meta name="author" content="PRAN MUSIC ENTERTAINMENT">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-<link rel="canonical"
-      href="https://pranmusicentertainment.company/">
+<link rel="canonical" href="https://pranmusicentertainment.company/">
 
-<meta name="robots"
-      content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#10102b">
 
-<meta name="author"
-      content="PRAN MUSIC ENTERTAINMENT">
-
-<meta name="theme-color"
-      content="#050505">
-
-
-<!-- =========================
-     OPEN GRAPH
-========================= -->
-
-<meta property="og:type"
-      content="website">
-
-<meta property="og:site_name"
-      content="PRAN MUSIC ENTERTAINMENT">
-
-<meta property="og:title"
-      content="PRAN MUSIC ENTERTAINMENT">
-
+<meta property="og:site_name" content="PRAN MUSIC ENTERTAINMENT">
+<meta property="og:title" content="PRAN MUSIC ENTERTAINMENT">
 <meta property="og:description"
-      content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
-
+      content="Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
 <meta property="og:url"
       content="https://pranmusicentertainment.company/">
-
-<meta property="og:locale"
-      content="id_ID">
-
+<meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
 <meta property="og:image:alt"
-      content="PRAN MUSIC ENTERTAINMENT - Foto Sound System dan Event Entertainment">
-
-
-<!-- =========================
-     TWITTER
-========================= -->
+      content="PRAN MUSIC ENTERTAINMENT">
 
 <meta name="twitter:card"
       content="summary_large_image">
@@ -66,1362 +37,2985 @@
       content="PRAN MUSIC ENTERTAINMENT">
 
 <meta name="twitter:description"
-      content="PRAN MUSIC ENTERTAINMENT - Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
+      content="Setiap nada menyimpan cerita. Setiap karya menghadirkan rasa.">
 
 <meta name="twitter:image:alt"
-      content="PRAN MUSIC ENTERTAINMENT - Foto Event Entertainment">
+      content="PRAN MUSIC ENTERTAINMENT">
 
 
-<!-- =========================
-     ORGANIZATION SCHEMA
-========================= -->
+<!-- =========================================================
+     SCHEMA
+========================================================= -->
 
-<script type="application/ld+json"
-        id="organizationSchema">
-
+<script type="application/ld+json">
 {
-    "@context":"https://schema.org",
-
-    "@type":"EntertainmentBusiness",
-
-    "name":"PRAN MUSIC ENTERTAINMENT",
-
-    "url":"https://pranmusicentertainment.company/",
-
-    "description":"PRAN MUSIC ENTERTAINMENT menghadirkan musik, sound system, event entertainment, foto, video, dan berbagai karya untuk berbagai acara.",
-
-    "address":{
-        "@type":"PostalAddress",
-        "streetAddress":"Jl. Makmur Pasar 7 Tembung, Gang Anggrek 18",
-        "addressLocality":"Sena",
-        "addressRegion":"Sumatera Utara",
-        "postalCode":"20371",
-        "addressCountry":"ID"
-    },
-
-    "sameAs":[
-        "https://pranmusicentertainment.company/"
-    ]
+  "@context":"https://schema.org",
+  "@type":"EntertainmentBusiness",
+  "name":"PRAN MUSIC ENTERTAINMENT",
+  "url":"https://pranmusicentertainment.company/",
+  "description":"PRAN MUSIC ENTERTAINMENT menghadirkan musik, sound system, event entertainment, foto, video, dan berbagai karya untuk berbagai acara.",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Jl. Makmur Pasar 7 Tembung, Gang Anggrek 18",
+    "addressLocality":"Sena",
+    "addressRegion":"Sumatera Utara",
+    "postalCode":"20371",
+    "addressCountry":"ID"
+  },
+  "sameAs":[
+    "https://pranmusicentertainment.company/"
+  ]
 }
+</script>
 
+<script id="imageSchema"
+        type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ImageObject"
+}
 </script>
 
 
-<!-- =========================
+<!-- =========================================================
      SUPABASE
-========================= -->
+========================================================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-
-const SUPABASE_URL =
-    "https://uigwpcjhzbqfmwhvolbu.supabase.co";
-
-const SUPABASE_KEY =
-    "sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
-
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
-
-</script>
 
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+
+  --bg:#08091d;
+  --blue:#27c7ff;
+  --cyan:#00f0ff;
+  --purple:#9b5cff;
+  --pink:#ff4fd8;
+  --gold:#ffd45a;
+  --orange:#ff9f1c;
+
+  --white:#ffffff;
+  --soft:#dfe8ff;
+
+  --glass:rgba(255,255,255,.08);
+
+  --border:rgba(255,255,255,.16);
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+  box-sizing:border-box;
+
+  margin:0;
+
+  padding:0;
+
+}
+
 
 html{
-    scroll-behavior:smooth;
+
+  scroll-behavior:smooth;
+
 }
+
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#050505;
-    color:#f5f5f5;
-    overflow-x:hidden;
+
+  position:relative;
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  color:var(--white);
+
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+
+  /* ==========================================
+     MOVING MULTI GRADIENT
+  ========================================== */
+
+  background:
+
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0,240,255,.25),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(155,92,255,.28),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(255,79,216,.20),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      120deg,
+      #08091d,
+      #11134a,
+      #17104a,
+      #071d42,
+      #160d38,
+      #08091d
+    );
+
+
+  background-size:
+
+    180% 180%,
+    180% 180%,
+    180% 180%,
+    500% 500%;
+
+
+  animation:
+    movingBackground
+    18s
+    ease-in-out
+    infinite
+    alternate;
+
 }
 
+
+/* =========================================================
+   MOVING MAIN BACKGROUND
+========================================================= */
+
+@keyframes movingBackground{
+
+  0%{
+
+    background-position:
+      0% 20%,
+      100% 0%,
+      30% 100%,
+      0% 50%;
+
+  }
+
+  25%{
+
+    background-position:
+      30% 60%,
+      70% 30%,
+      60% 80%,
+      100% 30%;
+
+  }
+
+  50%{
+
+    background-position:
+      70% 20%,
+      20% 70%,
+      90% 40%,
+      50% 100%;
+
+  }
+
+  75%{
+
+    background-position:
+      40% 90%,
+      80% 60%,
+      10% 20%,
+      0% 40%;
+
+  }
+
+  100%{
+
+    background-position:
+      100% 50%,
+      0% 100%,
+      70% 0%,
+      100% 80%;
+
+  }
+
+}
+
+
+/* =========================================================
+   GIANT MOVING AURORA
+========================================================= */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-3;
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(212,175,55,.10),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(212,175,55,.07),
-            transparent 35%
-        ),
-        #050505;
+  content:"";
+
+  position:fixed;
+
+  width:160vw;
+  height:160vh;
+
+  left:-30vw;
+  top:-30vh;
+
+  z-index:-10;
+
+  pointer-events:none;
+
+
+  background:
+
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(0,240,255,.20),
+      transparent 35%
+    ),
+
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(155,92,255,.25),
+      transparent 38%
+    ),
+
+    radial-gradient(
+      ellipse at 70% 80%,
+      rgba(255,79,216,.18),
+      transparent 36%
+    ),
+
+    radial-gradient(
+      ellipse at 25% 85%,
+      rgba(255,212,90,.10),
+      transparent 32%
+    );
+
+
+  filter:blur(35px);
+
+
+  animation:
+    giantAurora
+    25s
+    ease-in-out
+    infinite
+    alternate;
+
 }
+
+
+@keyframes giantAurora{
+
+  0%{
+
+    transform:
+      translate3d(-5%,-3%,0)
+      rotate(0deg)
+      scale(1);
+
+  }
+
+  25%{
+
+    transform:
+      translate3d(5%,4%,0)
+      rotate(4deg)
+      scale(1.08);
+
+  }
+
+  50%{
+
+    transform:
+      translate3d(-3%,8%,0)
+      rotate(-3deg)
+      scale(1.14);
+
+  }
+
+  75%{
+
+    transform:
+      translate3d(7%,-4%,0)
+      rotate(5deg)
+      scale(1.08);
+
+  }
+
+  100%{
+
+    transform:
+      translate3d(-6%,3%,0)
+      rotate(-4deg)
+      scale(1.16);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOVING STARS / PARTICLES
+========================================================= */
 
 body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
 
-    background:
-        linear-gradient(
-            115deg,
-            transparent 0%,
-            rgba(255,255,255,.015) 45%,
-            transparent 55%
-        );
+  content:"";
+
+  position:fixed;
+
+  inset:-100px;
+
+  z-index:-8;
+
+  pointer-events:none;
+
+  opacity:.55;
+
+
+  background-image:
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.85) 1px,
+      transparent 1.7px
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(0,240,255,.65) 1px,
+      transparent 1.6px
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(255,212,90,.55) 1px,
+      transparent 1.7px
+    );
+
+
+  background-size:
+
+    90px 90px,
+    150px 150px,
+    220px 220px;
+
+
+  background-position:
+
+    0 0,
+    30px 80px,
+    100px 30px;
+
+
+  animation:
+    movingStars
+    28s
+    linear
+    infinite;
+
 }
 
 
+@keyframes movingStars{
+
+  0%{
+
+    transform:
+      translate3d(0,0,0)
+      rotate(0deg);
+
+  }
+
+  50%{
+
+    transform:
+      translate3d(-70px,-100px,0)
+      rotate(2deg);
+
+  }
+
+  100%{
+
+    transform:
+      translate3d(-140px,-200px,0)
+      rotate(4deg);
+
+  }
+
+}
+
+
+/* =========================================================
+   FLOATING LIGHT ORBS
+========================================================= */
+
+.light{
+
+  position:fixed;
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+  z-index:-3;
+
+  filter:blur(7px);
+
+  mix-blend-mode:screen;
+
+}
+
+
+/* CYAN */
+
+.light.one{
+
+  width:360px;
+  height:360px;
+
+  top:5%;
+  left:-120px;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(0,240,255,.50),
+      rgba(0,240,255,.15) 35%,
+      transparent 72%
+    );
+
+
+  animation:
+    movingOrbOne
+    13s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+@keyframes movingOrbOne{
+
+  0%{
+
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+
+  }
+
+  30%{
+
+    transform:
+      translate3d(180px,100px,0)
+      scale(1.2);
+
+  }
+
+  60%{
+
+    transform:
+      translate3d(100px,300px,0)
+      scale(.9);
+
+  }
+
+  100%{
+
+    transform:
+      translate3d(350px,180px,0)
+      scale(1.35);
+
+  }
+
+}
+
+
+/* PURPLE */
+
+.light.two{
+
+  width:430px;
+  height:430px;
+
+  top:25%;
+  right:-170px;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(155,92,255,.48),
+      rgba(155,92,255,.13) 40%,
+      transparent 73%
+    );
+
+
+  animation:
+    movingOrbTwo
+    16s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+@keyframes movingOrbTwo{
+
+  0%{
+
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+
+  }
+
+  35%{
+
+    transform:
+      translate3d(-180px,120px,0)
+      scale(1.18);
+
+  }
+
+  70%{
+
+    transform:
+      translate3d(-80px,300px,0)
+      scale(.88);
+
+  }
+
+  100%{
+
+    transform:
+      translate3d(-300px,180px,0)
+      scale(1.3);
+
+  }
+
+}
+
+
+/* PINK */
+
+.light.three{
+
+  width:330px;
+  height:330px;
+
+  left:15%;
+  bottom:5%;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(255,79,216,.38),
+      rgba(255,79,216,.10) 40%,
+      transparent 72%
+    );
+
+
+  animation:
+    movingOrbThree
+    14s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+@keyframes movingOrbThree{
+
+  0%{
+
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+
+  }
+
+  50%{
+
+    transform:
+      translate3d(300px,-180px,0)
+      scale(1.25);
+
+  }
+
+  100%{
+
+    transform:
+      translate3d(600px,30px,0)
+      scale(.95);
+
+  }
+
+}
+
+
+/* GOLD */
+
+.light.four{
+
+  width:270px;
+  height:270px;
+
+  top:50%;
+  left:45%;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(255,212,90,.30),
+      rgba(255,159,28,.08) 40%,
+      transparent 72%
+    );
+
+
+  animation:
+    movingOrbFour
+    11s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+@keyframes movingOrbFour{
+
+  0%{
+
+    transform:
+      translate3d(0,0,0)
+      scale(.8);
+
+  }
+
+  30%{
+
+    transform:
+      translate3d(-180px,-120px,0)
+      scale(1.2);
+
+  }
+
+  65%{
+
+    transform:
+      translate3d(200px,100px,0)
+      scale(.9);
+
+  }
+
+  100%{
+
+    transform:
+      translate3d(-50px,220px,0)
+      scale(1.3);
+
+  }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header{
-    position:fixed;
-    top:0;
-    left:0;
 
-    width:100%;
-    height:72px;
+  position:fixed;
 
-    z-index:1000;
+  top:0;
+  left:0;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  width:100%;
 
-    padding:0 7%;
+  z-index:1000;
 
-    background:rgba(5,5,5,.72);
+  padding:14px 22px;
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:
-        1px solid rgba(212,175,55,.16);
+  background:
+    rgba(7,8,30,.58);
+
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.12);
+
+
+  box-shadow:
+
+    0 5px 30px
+    rgba(0,0,0,.20),
+
+    0 0 35px
+    rgba(0,240,255,.05);
+
+}
+
+
+.header-inner{
+
+  max-width:1200px;
+
+  margin:auto;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
 }
 
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
 
-    text-decoration:none;
-    color:#fff;
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+  color:white;
+
+  text-decoration:none;
+
 }
 
 
-.logo-mark{
-    width:42px;
-    height:42px;
+.logo-icon{
 
-    border:
-        1px solid rgba(212,175,55,.65);
+  width:45px;
+  height:45px;
 
-    border-radius:50%;
+  display:flex;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  align-items:center;
 
-    color:#d4af37;
+  justify-content:center;
 
-    font-size:19px;
-    font-weight:bold;
+  border-radius:15px;
+
+  font-size:25px;
+
+  color:#fff;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(0,240,255,.35),
+      rgba(155,92,255,.45),
+      rgba(255,79,216,.28)
+    );
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.25);
+
+
+  box-shadow:
+
+    0 0 15px
+    rgba(0,240,255,.45),
+
+    0 0 35px
+    rgba(155,92,255,.28),
+
+    inset 0 0 18px
+    rgba(255,255,255,.12);
+
+
+  animation:
+    logoPulse
+    3s
+    ease-in-out
+    infinite;
+
+}
+
+
+@keyframes logoPulse{
+
+  50%{
 
     box-shadow:
-        0 0 20px rgba(212,175,55,.10),
-        inset 0 0 15px rgba(212,175,55,.06);
+
+      0 0 28px
+      rgba(0,240,255,.70),
+
+      0 0 55px
+      rgba(155,92,255,.35),
+
+      inset 0 0 20px
+      rgba(255,255,255,.18);
+
+  }
+
 }
 
 
-.logo-text{
-    line-height:1.05;
+.logo-main{
+
+  display:block;
+
+  font-size:16px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+
 }
 
 
-.logo-text strong{
-    display:block;
+.logo-sub{
 
-    font-size:15px;
-    letter-spacing:3px;
-}
+  display:block;
 
+  margin-top:2px;
 
-.logo-text span{
-    display:block;
+  font-size:9px;
 
-    margin-top:4px;
+  font-weight:800;
 
-    color:#d4af37;
+  letter-spacing:4px;
 
-    font-size:9px;
-    letter-spacing:4px;
+  color:var(--gold);
+
+  text-shadow:
+    0 0 12px
+    rgba(255,212,90,.65);
+
 }
 
 
 nav{
-    display:flex;
-    align-items:center;
-    gap:30px;
+
+  display:flex;
+
+  gap:7px;
+
 }
 
 
 nav a{
-    position:relative;
 
-    color:#bbb;
+  position:relative;
 
-    text-decoration:none;
+  color:#dfe7ff;
 
-    font-size:11px;
-    letter-spacing:2px;
+  text-decoration:none;
 
-    transition:.3s;
-}
+  padding:9px 13px;
 
+  border-radius:12px;
 
-nav a::after{
-    content:"";
+  font-size:11px;
 
-    position:absolute;
+  font-weight:800;
 
-    left:0;
-    bottom:-8px;
+  letter-spacing:1px;
 
-    width:0;
-    height:1px;
+  transition:.3s;
 
-    background:#d4af37;
-
-    transition:.3s;
 }
 
 
 nav a:hover{
-    color:#fff;
+
+  color:white;
+
+  background:
+    rgba(255,255,255,.09);
+
+  box-shadow:
+    0 0 20px
+    rgba(0,240,255,.15);
+
 }
 
 
-nav a:hover::after{
-    width:100%;
-}
+/* =========================================================
+   MAIN
+========================================================= */
 
+main{
 
-.hero{
-    min-height:100vh;
+  position:relative;
 
-    padding:
-        150px
-        7%
-        100px;
+  overflow:hidden;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    position:relative;
-}
-
-
-.hero-content{
-    max-width:900px;
-
-    animation:
-        fadeUp 1.2s ease;
-}
-
-
-.hero-label{
-    display:inline-block;
-
-    margin-bottom:25px;
-
-    color:#d4af37;
-
-    font-size:11px;
-    letter-spacing:6px;
-
-    text-transform:uppercase;
-}
-
-
-.hero h1{
-    font-size:
-        clamp(
-            42px,
-            7vw,
-            88px
-        );
-
-    line-height:.95;
-
-    letter-spacing:-3px;
-
-    font-weight:700;
-}
-
-
-.hero h1 span{
-    display:block;
-
-    color:#d4af37;
-
-    margin-top:8px;
-}
-
-
-.hero p{
-    max-width:680px;
-
-    margin:32px auto 0;
-
-    color:#aaa;
-
-    font-size:15px;
-
-    line-height:1.9;
-}
-
-
-.hero-line{
-    width:70px;
-    height:1px;
-
-    background:#d4af37;
-
-    margin:35px auto;
-}
-
-
-.hero-button{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:
-        15px
-        28px;
-
-    border:
-        1px solid rgba(212,175,55,.55);
-
-    color:#d4af37;
-
-    text-decoration:none;
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    transition:.3s;
-}
-
-
-.hero-button:hover{
-    background:#d4af37;
-
-    color:#050505;
-
-    box-shadow:
-        0 0 30px
-        rgba(212,175,55,.18);
 }
 
 
 section{
-    padding:
-        110px
-        7%;
+
+  position:relative;
+
+  max-width:1200px;
+
+  margin:auto;
+
+  padding:105px 22px;
+
 }
 
 
 .section-label{
-    color:#d4af37;
 
-    font-size:10px;
+  display:inline-flex;
 
-    letter-spacing:5px;
+  align-items:center;
 
-    text-transform:uppercase;
+  gap:9px;
 
-    margin-bottom:15px;
+  color:var(--gold);
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+
+  text-shadow:
+    0 0 14px
+    rgba(255,212,90,.65);
+
 }
 
 
-.section-title{
-    font-size:
-        clamp(
-            30px,
-            4vw,
-            48px
-        );
+.section-label::before{
 
-    line-height:1.1;
+  content:"";
 
-    margin-bottom:20px;
+  width:28px;
+
+  height:2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      var(--gold)
+    );
+
+  box-shadow:
+    0 0 12px
+    var(--cyan);
+
 }
 
 
-.section-desc{
-    max-width:650px;
+h2{
 
-    color:#999;
+  margin-top:15px;
 
-    line-height:1.8;
+  font-size:
+    clamp(32px,6vw,58px);
 
-    font-size:14px;
+  line-height:1.05;
+
+  letter-spacing:-2px;
+
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #fff,
+      #b9f7ff,
+      #fff,
+      #ffd970
+    );
+
+
+  background-size:250% auto;
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  color:transparent;
+
+
+  animation:
+    titleShine
+    6s
+    linear
+    infinite;
+
 }
 
+
+@keyframes titleShine{
+
+  to{
+
+    background-position:
+      250% center;
+
+  }
+
+}
+
+
+.section-description{
+
+  max-width:700px;
+
+  margin-top:17px;
+
+  color:#cbd5f5;
+
+  font-size:15px;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+  min-height:100vh;
+
+  max-width:none;
+
+  padding:
+    150px
+    22px
+    100px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  overflow:hidden;
+
+}
+
+
+.hero::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:600px;
+
+  height:600px;
+
+  left:50%;
+  top:40%;
+
+  transform:
+    translate(-50%,-50%);
+
+  border-radius:50%;
+
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(0,240,255,.16),
+      rgba(155,92,255,.13) 35%,
+      rgba(255,79,216,.08) 52%,
+      transparent 72%
+    );
+
+
+  filter:blur(20px);
+
+
+  animation:
+    heroGlow
+    6s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+@keyframes heroGlow{
+
+  to{
+
+    transform:
+      translate(-50%,-50%)
+      scale(1.25);
+
+    opacity:.7;
+
+  }
+
+}
+
+
+.hero-content{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:950px;
+
+}
+
+
+.hero-label{
+
+  display:inline-flex;
+
+  padding:9px 17px;
+
+  border-radius:999px;
+
+  color:#eaffff;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
+
+  border:
+    1px solid
+    rgba(0,240,255,.38);
+
+
+  background:
+    rgba(0,240,255,.08);
+
+
+  box-shadow:
+
+    0 0 18px
+    rgba(0,240,255,.22),
+
+    inset 0 0 15px
+    rgba(0,240,255,.05);
+
+
+  animation:
+    badgeGlow
+    3s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+@keyframes badgeGlow{
+
+  to{
+
+    box-shadow:
+
+      0 0 35px
+      rgba(0,240,255,.38),
+
+      0 0 70px
+      rgba(155,92,255,.18),
+
+      inset 0 0 20px
+      rgba(255,255,255,.08);
+
+  }
+
+}
+
+
+.hero h1{
+
+  margin-top:25px;
+
+  font-size:
+    clamp(48px,10vw,105px);
+
+  line-height:.92;
+
+  letter-spacing:-5px;
+
+  font-weight:1000;
+
+
+  text-shadow:
+
+    0 0 20px
+    rgba(0,240,255,.22),
+
+    0 0 55px
+    rgba(155,92,255,.18);
+
+}
+
+
+.hero h1 span{
+
+  display:block;
+
+}
+
+
+.hero h1 .line-one{
+
+  color:#fff;
+
+}
+
+
+.hero h1 .line-two{
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      #fff,
+      var(--purple),
+      var(--pink),
+      var(--gold)
+    );
+
+
+  background-size:300% auto;
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  color:transparent;
+
+
+  animation:
+    rainbowText
+    5s
+    linear
+    infinite;
+
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      rgba(0,240,255,.28)
+    );
+
+}
+
+
+@keyframes rainbowText{
+
+  to{
+
+    background-position:
+      300% center;
+
+  }
+
+}
+
+
+.hero p{
+
+  max-width:650px;
+
+  margin:25px auto 0;
+
+  color:#d6ddf7;
+
+  line-height:1.8;
+
+  font-size:16px;
+
+}
+
+
+.hero-button{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-top:32px;
+
+  padding:15px 27px;
+
+  border-radius:999px;
+
+  text-decoration:none;
+
+  color:#071020;
+
+  font-size:12px;
+
+  font-weight:1000;
+
+  letter-spacing:2px;
+
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #bdfaff,
+      #fff,
+      #ffe79b,
+      #fff
+    );
+
+
+  background-size:250% auto;
+
+
+  box-shadow:
+
+    0 0 15px
+    rgba(0,240,255,.40),
+
+    0 0 45px
+    rgba(155,92,255,.20);
+
+
+  animation:
+    buttonShine
+    4s
+    linear
+    infinite;
+
+
+  transition:.3s;
+
+}
+
+
+.hero-button:hover{
+
+  transform:
+    translateY(-4px)
+    scale(1.04);
+
+
+  box-shadow:
+
+    0 0 25px
+    rgba(0,240,255,.65),
+
+    0 0 65px
+    rgba(155,92,255,.40);
+
+}
+
+
+@keyframes buttonShine{
+
+  to{
+
+    background-position:
+      250% center;
+
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .about{
-    border-top:
-        1px solid rgba(255,255,255,.05);
-}
 
+  padding-top:80px;
 
-.about-header{
-    margin-bottom:55px;
 }
 
 
 .about-grid{
-    display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+  display:grid;
 
-    gap:18px;
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:16px;
+
+  margin-top:42px;
+
 }
 
 
-.about-card{
-    min-height:240px;
+.info-card{
 
-    padding:30px;
+  position:relative;
 
-    border:
-        1px solid rgba(255,255,255,.07);
+  overflow:hidden;
 
-    background:
-        rgba(255,255,255,.025);
+  min-height:220px;
 
-    position:relative;
+  padding:25px;
 
-    overflow:hidden;
+  border-radius:24px;
 
-    transition:.4s;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.105),
+      rgba(255,255,255,.035)
+    );
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.13);
+
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+
+  box-shadow:
+
+    0 18px 55px
+    rgba(0,0,0,.20),
+
+    inset 0 0 30px
+    rgba(255,255,255,.025);
+
+
+  transition:.45s;
+
 }
 
 
-.about-card::before{
-    content:"";
+.info-card::before{
 
-    position:absolute;
+  content:"";
 
-    left:0;
-    top:0;
+  position:absolute;
 
-    width:2px;
-    height:0;
+  width:180px;
+  height:180px;
 
-    background:#d4af37;
+  right:-90px;
+  top:-90px;
 
-    transition:.4s;
+  border-radius:50%;
+
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(0,240,255,.35),
+      transparent 70%
+    );
+
+
+  transition:.45s;
+
 }
 
 
-.about-card:hover{
-    transform:
-        translateY(-7px);
+.info-card::after{
 
-    border-color:
-        rgba(212,175,55,.25);
+  content:"";
 
-    background:
-        rgba(255,255,255,.04);
+  position:absolute;
+
+  inset:0;
+
+  border-radius:inherit;
+
+  padding:1px;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(0,240,255,.35),
+      transparent 35%,
+      rgba(255,79,216,.20),
+      transparent 70%,
+      rgba(255,212,90,.25)
+    );
+
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite:xor;
+
+  mask-composite:exclude;
+
+  pointer-events:none;
+
 }
 
 
-.about-card:hover::before{
-    height:100%;
+.info-card:hover{
+
+  transform:
+    translateY(-9px);
+
+
+  border-color:
+    rgba(255,255,255,.30);
+
+
+  box-shadow:
+
+    0 25px 70px
+    rgba(0,0,0,.35),
+
+    0 0 35px
+    rgba(0,240,255,.15);
+
 }
 
 
-.about-number{
-    color:#d4af37;
+.info-card:hover::before{
 
-    font-size:12px;
+  transform:
+    scale(1.7);
 
-    letter-spacing:3px;
-
-    margin-bottom:35px;
 }
 
 
-.about-card h3{
-    font-size:20px;
+.card-number{
 
-    letter-spacing:1px;
+  position:relative;
 
-    margin-bottom:15px;
+  z-index:1;
+
+  color:var(--gold);
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  text-shadow:
+    0 0 12px
+    rgba(255,212,90,.65);
+
 }
 
 
-.about-card p{
-    color:#888;
+.info-card h3{
 
-    font-size:13px;
+  position:relative;
 
-    line-height:1.8;
+  z-index:1;
+
+  margin-top:32px;
+
+  font-size:22px;
+
+  letter-spacing:1px;
+
 }
 
 
-.quote{
-    text-align:center;
+.info-card p{
 
-    border-top:
-        1px solid rgba(255,255,255,.05);
+  position:relative;
 
-    border-bottom:
-        1px solid rgba(255,255,255,.05);
+  z-index:1;
 
-    padding-top:130px;
-    padding-bottom:130px;
+  margin-top:12px;
+
+  color:#bfc9e8;
+
+  line-height:1.7;
+
+  font-size:13px;
+
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section{
+
+  max-width:1000px;
+
+  text-align:center;
+
+  padding-top:80px;
+
+  padding-bottom:80px;
+
+}
+
+
+.quote-box{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:60px 30px;
+
+  border-radius:32px;
+
+
+  background:
+
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(0,240,255,.12),
+      transparent 50%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(155,92,255,.11),
+      rgba(255,79,216,.07),
+      rgba(0,240,255,.08)
+    );
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.15);
+
+
+  box-shadow:
+
+    0 20px 70px
+    rgba(0,0,0,.25),
+
+    0 0 55px
+    rgba(155,92,255,.10);
+
+
+  backdrop-filter:
+    blur(20px);
+
+}
+
+
+.quote-box::before,
+.quote-box::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:170px;
+  height:170px;
+
+  border-radius:50%;
+
+  filter:blur(20px);
+
+}
+
+
+.quote-box::before{
+
+  left:-80px;
+  top:-90px;
+
+  background:
+    rgba(0,240,255,.17);
+
+}
+
+
+.quote-box::after{
+
+  right:-80px;
+  bottom:-90px;
+
+  background:
+    rgba(255,79,216,.17);
+
 }
 
 
 .quote-mark{
-    color:#d4af37;
 
-    font-size:45px;
+  font-size:65px;
 
-    line-height:1;
+  line-height:.5;
 
-    margin-bottom:20px;
+  color:var(--gold);
+
+  text-shadow:
+    0 0 18px
+    rgba(255,212,90,.6);
+
 }
 
 
-.quote-text{
-    max-width:850px;
+.quote-box p{
 
-    margin:auto;
+  position:relative;
 
-    font-size:
-        clamp(
-            24px,
-            4vw,
-            43px
-        );
+  z-index:1;
 
-    line-height:1.35;
+  margin:25px auto;
 
-    font-weight:300;
+  max-width:800px;
+
+  font-size:
+    clamp(20px,3vw,31px);
+
+  line-height:1.45;
+
+  font-weight:700;
+
+  color:#f5f8ff;
+
 }
 
 
-.quote-text span{
-    color:#d4af37;
+.quote-author{
+
+  color:#9eefff;
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
 }
 
 
-.quote-small{
-    margin-top:30px;
-
-    color:#666;
-
-    font-size:10px;
-
-    letter-spacing:4px;
-}
-
+/* =========================================================
+   POSTS
+========================================================= */
 
 .posts{
-    min-height:500px;
-}
 
+  padding-top:80px;
 
-.posts-header{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    gap:30px;
-
-    margin-bottom:50px;
 }
 
 
 .posts-grid{
-    display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+  display:grid;
 
-    gap:22px;
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:22px;
+
+  margin-top:42px;
+
 }
 
 
 .post-card{
-    background:#0b0b0b;
 
-    border:
-        1px solid rgba(255,255,255,.07);
+  position:relative;
 
-    overflow:hidden;
+  overflow:hidden;
 
-    transition:.4s;
+  border-radius:25px;
+
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.105),
+      rgba(255,255,255,.035)
+    );
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.14);
+
+
+  box-shadow:
+
+    0 20px 60px
+    rgba(0,0,0,.28),
+
+    inset 0 0 30px
+    rgba(255,255,255,.018);
+
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+
+  animation:
+    postAppear
+    .7s
+    ease
+    both;
+
+
+  transition:.4s;
+
+}
+
+
+@keyframes postAppear{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(25px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+
+  }
+
 }
 
 
 .post-card:hover{
-    transform:
-        translateY(-6px);
 
-    border-color:
-        rgba(212,175,55,.30);
+  transform:
+    translateY(-7px);
+
+
+  box-shadow:
+
+    0 28px 75px
+    rgba(0,0,0,.38),
+
+    0 0 35px
+    rgba(0,240,255,.12);
+
+}
+
+
+.post-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  left:-100%;
+
+  width:70%;
+
+  height:2px;
+
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--cyan),
+      #fff,
+      var(--pink),
+      transparent
+    );
+
+
+  box-shadow:
+    0 0 15px
+    var(--cyan);
+
+
+  animation:
+    cardLight
+    5s
+    linear
+    infinite;
+
+
+  z-index:5;
+
+}
+
+
+@keyframes cardLight{
+
+  to{
+
+    left:140%;
+
+  }
+
 }
 
 
 .post-media{
-    width:100%;
 
-    aspect-ratio:16/10;
+  position:relative;
 
-    overflow:hidden;
+  overflow:hidden;
 
-    background:#111;
+  background:#0d1030;
 
-    position:relative;
+  aspect-ratio:16/10;
+
 }
 
 
 .post-media img,
 .post-media video{
-    width:100%;
-    height:100%;
 
-    display:block;
+  width:100%;
 
-    object-fit:cover;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  cursor:pointer;
+
+  transition:.6s;
+
 }
 
 
-.post-media img{
-    cursor:zoom-in;
-
-    transition:
-        transform .4s ease,
-        opacity .3s ease;
-}
-
-
-.post-media img:hover{
-    transform:scale(1.04);
-
-    opacity:.9;
-}
-
-
+.post-card:hover
+.post-media img,
+.post-card:hover
 .post-media video{
-    cursor:pointer;
+
+  transform:
+    scale(1.045);
+
 }
 
 
-.media-hint{
-    position:absolute;
+.post-media::after{
 
-    right:12px;
-    bottom:12px;
+  content:"";
 
-    padding:
-        7px
-        10px;
+  position:absolute;
 
-    background:
-        rgba(0,0,0,.72);
+  inset:0;
 
-    border:
-        1px solid rgba(212,175,55,.30);
+  pointer-events:none;
 
-    color:#d4af37;
 
-    font-size:9px;
+  background:
 
-    letter-spacing:1px;
+    linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(6,8,30,.30)
+    );
 
-    pointer-events:none;
-
-    opacity:.9;
 }
 
 
 .post-content{
-    padding:27px;
+
+  padding:22px;
+
 }
 
 
 .post-type{
-    color:#d4af37;
 
-    font-size:9px;
+  display:inline-block;
 
-    letter-spacing:3px;
+  color:#8df3ff;
 
-    text-transform:uppercase;
+  font-size:9px;
 
-    margin-bottom:14px;
+  font-weight:1000;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  text-shadow:
+    0 0 12px
+    rgba(0,240,255,.55);
+
 }
 
 
-.post-content h3{
-    font-size:20px;
+.post-title{
 
-    line-height:1.35;
+  margin-top:10px;
 
-    margin-bottom:14px;
+  font-size:20px;
+
+  line-height:1.3;
+
 }
 
 
-.post-content p{
-    color:#888;
+.post-description{
 
-    font-size:13px;
+  margin-top:10px;
 
-    line-height:1.8;
+  color:#bfc8e6;
 
-    white-space:pre-line;
+  font-size:13px;
+
+  line-height:1.7;
+
 }
 
 
 .empty-post{
-    grid-column:1/-1;
 
-    min-height:300px;
+  grid-column:1/-1;
 
-    display:flex;
+  padding:60px 25px;
 
-    flex-direction:column;
+  text-align:center;
 
-    align-items:center;
+  border-radius:25px;
 
-    justify-content:center;
 
-    text-align:center;
+  background:
+    rgba(255,255,255,.055);
 
-    border:
-        1px dashed
-        rgba(212,175,55,.18);
 
-    background:
-        rgba(255,255,255,.015);
+  border:
+    1px solid
+    rgba(255,255,255,.12);
+
 }
 
 
-.empty-icon{
-    color:#d4af37;
+.empty-post strong{
 
-    font-size:38px;
+  display:block;
 
-    margin-bottom:20px;
+  color:var(--gold);
+
+  letter-spacing:2px;
+
+  font-size:13px;
+
 }
 
 
-.empty-post h3{
-    color:#ddd;
+.empty-post span{
 
-    font-size:15px;
+  display:block;
 
-    letter-spacing:4px;
+  margin-top:10px;
 
-    font-weight:500;
+  color:#adb8dc;
+
+  font-size:13px;
+
 }
 
 
-.empty-post p{
-    max-width:500px;
+/* =========================================================
+   CONTACT
+========================================================= */
 
-    margin-top:15px;
+.contact{
 
-    color:#666;
+  padding-top:90px;
 
-    font-size:12px;
+  padding-bottom:80px;
 
-    line-height:1.8;
 }
 
 
-.loading-post{
-    grid-column:1/-1;
+.contact-box{
 
-    min-height:250px;
+  position:relative;
 
-    display:flex;
+  overflow:hidden;
 
-    align-items:center;
+  display:grid;
 
-    justify-content:center;
+  grid-template-columns:
+    1fr auto;
 
-    color:#777;
+  align-items:center;
 
-    font-size:11px;
+  gap:35px;
 
-    letter-spacing:4px;
+  padding:40px;
+
+  border-radius:30px;
+
+
+  background:
+
+    linear-gradient(
+      120deg,
+      rgba(0,240,255,.10),
+      rgba(155,92,255,.11),
+      rgba(255,79,216,.08)
+    );
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.15);
+
+
+  box-shadow:
+
+    0 20px 70px
+    rgba(0,0,0,.28),
+
+    0 0 55px
+    rgba(0,240,255,.08);
+
+
+  backdrop-filter:
+    blur(18px);
+
 }
 
 
-.loading-dot{
-    margin-left:8px;
+.contact-box::before{
 
-    color:#d4af37;
+  content:"";
+
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  right:-100px;
+  top:-160px;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,240,255,.14);
+
+  filter:blur(25px);
+
 }
 
 
-.media-viewer{
-    position:fixed;
+.contact-info{
 
-    inset:0;
+  position:relative;
 
-    z-index:99999;
+  z-index:1;
 
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:30px;
-
-    background:
-        rgba(0,0,0,.95);
-
-    backdrop-filter:
-        blur(12px);
-
-    -webkit-backdrop-filter:
-        blur(12px);
 }
 
 
-.media-viewer.active{
-    display:flex;
+.contact-info h3{
+
+  font-size:25px;
+
 }
 
 
-.media-viewer-content{
-    width:100%;
+.contact-info p{
 
-    height:100%;
+  margin-top:12px;
 
-    display:flex;
+  color:#c3ccea;
 
-    align-items:center;
+  line-height:1.7;
 
-    justify-content:center;
+  font-size:13px;
+
 }
 
 
-.media-viewer img{
-    max-width:95vw;
+.contact-links{
 
-    max-height:88vh;
+  position:relative;
 
-    width:auto;
-    height:auto;
+  z-index:1;
 
-    object-fit:contain;
+  display:flex;
 
-    border:
-        1px solid
-        rgba(212,175,55,.30);
+  flex-direction:column;
 
-    box-shadow:
-        0 20px 80px
-        rgba(0,0,0,.85);
+  gap:10px;
 
-    user-select:none;
 }
 
 
-.media-viewer video{
-    max-width:95vw;
+.wa-button{
 
-    max-height:88vh;
+  display:flex;
 
-    width:auto;
-    height:auto;
+  align-items:center;
 
-    background:#000;
+  justify-content:center;
 
-    border:
-        1px solid
-        rgba(212,175,55,.30);
+  min-width:210px;
 
-    box-shadow:
-        0 20px 80px
-        rgba(0,0,0,.85);
+  padding:13px 18px;
+
+  border-radius:14px;
+
+  text-decoration:none;
+
+  color:#fff;
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(0,240,255,.15),
+      rgba(155,92,255,.17)
+    );
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+
+  box-shadow:
+    0 0 20px
+    rgba(0,240,255,.10);
+
+
+  transition:.3s;
+
 }
 
 
-.media-close{
-    position:absolute;
+.wa-button:hover{
 
-    top:20px;
-    right:25px;
+  transform:
+    translateY(-3px);
 
-    width:48px;
-    height:48px;
 
-    border:
-        1px solid
-        rgba(212,175,55,.45);
+  border-color:
+    rgba(0,240,255,.55);
 
-    background:
-        rgba(5,5,5,.85);
 
-    color:#d4af37;
+  box-shadow:
 
-    font-size:28px;
+    0 0 25px
+    rgba(0,240,255,.30),
 
-    line-height:1;
+    0 0 45px
+    rgba(155,92,255,.15);
 
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    transition:.3s;
-
-    z-index:2;
 }
 
 
-.media-close:hover{
-    background:#d4af37;
-
-    color:#050505;
-}
-
-
-.media-title{
-    position:absolute;
-
-    left:30px;
-    bottom:22px;
-
-    color:#aaa;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    max-width:70%;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-}
-
-
-.footer-contact{
-    text-align:right;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-end;
-
-    gap:20px;
-}
-
-
-.contact-item{
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-end;
-
-    gap:7px;
-}
-
-
-.contact-label{
-    color:#d4af37;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
-
-.contact-item a{
-    color:#aaa;
-
-    text-decoration:none;
-
-    font-size:12px;
-
-    transition:.3s;
-}
-
-
-.contact-item a:hover{
-    color:#d4af37;
-}
-
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-    padding:
-        65px
-        7%
-        30px;
 
-    border-top:
-        1px solid rgba(255,255,255,.06);
-}
+  position:relative;
+
+  padding:35px 22px;
+
+  text-align:center;
 
 
-.footer-top{
-    display:flex;
+  border-top:
+    1px solid
+    rgba(255,255,255,.10);
 
-    justify-content:space-between;
 
-    align-items:flex-start;
+  background:
+    rgba(4,5,20,.45);
 
-    gap:40px;
 
-    padding-bottom:50px;
+  backdrop-filter:
+    blur(15px);
+
 }
 
 
 .footer-brand{
-    max-width:500px;
+
+  font-weight:1000;
+
+  letter-spacing:2px;
+
+  font-size:15px;
+
 }
 
 
-.footer-brand h3{
-    font-size:18px;
+.footer-text{
 
-    letter-spacing:3px;
+  margin-top:9px;
+
+  color:#9da8ca;
+
+  font-size:10px;
+
+  line-height:1.7;
+
+  letter-spacing:1px;
+
 }
 
 
-.footer-brand span{
-    display:block;
+.footer-copy{
 
-    margin-top:8px;
+  margin-top:18px;
 
-    color:#d4af37;
+  color:#687392;
 
-    font-size:9px;
+  font-size:9px;
 
-    letter-spacing:4px;
 }
 
 
-.footer-brand p{
-    margin-top:20px;
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
 
-    color:#666;
+.floating-wa{
 
-    font-size:12px;
+  position:fixed;
 
-    line-height:1.8;
+  right:22px;
+
+  bottom:22px;
+
+  z-index:900;
+
+
+  width:58px;
+  height:58px;
+
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+
+  border-radius:50%;
+
+  text-decoration:none;
+
+  font-size:25px;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #00f0ff,
+      #7c5cff,
+      #ff4fd8
+    );
+
+
+  box-shadow:
+
+    0 0 15px
+    rgba(0,240,255,.50),
+
+    0 0 35px
+    rgba(155,92,255,.30),
+
+    0 8px 30px
+    rgba(0,0,0,.35);
+
+
+  animation:
+    waPulse
+    2.3s
+    ease-in-out
+    infinite;
+
 }
 
 
-.footer-bottom{
-    border-top:
-        1px solid rgba(255,255,255,.06);
+@keyframes waPulse{
 
-    padding-top:25px;
+  0%,100%{
 
-    display:flex;
+    transform:
+      scale(1);
 
-    justify-content:space-between;
+  }
 
-    gap:20px;
+  50%{
 
-    color:#444;
+    transform:
+      scale(1.09);
 
-    font-size:10px;
-}
-
-
-.whatsapp{
-    position:fixed;
-
-    right:25px;
-    bottom:25px;
-
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:#d4af37;
-
-    color:#050505;
-
-    text-decoration:none;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    z-index:900;
 
     box-shadow:
-        0 10px 30px
-        rgba(0,0,0,.5);
 
-    transition:.3s;
-}
+      0 0 25px
+      rgba(0,240,255,.70),
 
+      0 0 55px
+      rgba(255,79,216,.30),
 
-.whatsapp:hover{
-    transform:scale(1.08);
-}
+      0 8px 35px
+      rgba(0,0,0,.40);
 
-
-@keyframes fadeUp{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translateY(0);
-    }
+  }
 
 }
 
+
+/* =========================================================
+   MEDIA VIEWER
+========================================================= */
+
+.media-viewer{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:3000;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:25px;
+
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(25,20,75,.82),
+      rgba(2,3,15,.94)
+    );
+
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+}
+
+
+.media-viewer.active{
+
+  display:flex;
+
+  animation:
+    viewerIn
+    .3s
+    ease;
+
+}
+
+
+@keyframes viewerIn{
+
+  from{
+
+    opacity:0;
+
+  }
+
+  to{
+
+    opacity:1;
+
+  }
+
+}
+
+
+.media-viewer-content{
+
+  position:relative;
+
+  max-width:1100px;
+
+  width:100%;
+
+  max-height:90vh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+
+.media-viewer-content img,
+.media-viewer-content video{
+
+  max-width:100%;
+
+  max-height:78vh;
+
+  object-fit:contain;
+
+  border-radius:18px;
+
+
+  border:
+    1px solid
+    rgba(255,255,255,.20);
+
+
+  box-shadow:
+
+    0 0 40px
+    rgba(0,240,255,.18),
+
+    0 30px 80px
+    rgba(0,0,0,.60);
+
+}
+
+
+.media-viewer-title{
+
+  margin-top:15px;
+
+  color:#fff;
+
+  text-align:center;
+
+  font-size:14px;
+
+  font-weight:800;
+
+}
+
+
+.media-close{
+
+  position:absolute;
+
+  top:20px;
+
+  right:22px;
+
+  z-index:5;
+
+  width:45px;
+  height:45px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.20);
+
+  border-radius:50%;
+
+  color:#fff;
+
+  background:
+    rgba(255,255,255,.08);
+
+  cursor:pointer;
+
+  font-size:24px;
+
+  box-shadow:
+    0 0 20px
+    rgba(0,240,255,.12);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:900px){
 
-    header{
-        padding:0 5%;
-    }
+  .about-grid{
 
+    grid-template-columns:
+      repeat(2,1fr);
 
-    nav{
-        gap:15px;
-    }
+  }
 
+  .posts-grid{
 
-    nav a{
-        font-size:9px;
+    grid-template-columns:
+      repeat(2,1fr);
 
-        letter-spacing:1px;
-    }
+  }
 
+  .contact-box{
 
-    section{
-        padding:
-            85px
-            5%;
-    }
+    grid-template-columns:1fr;
 
-
-    .about-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-
-    .posts-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
+  }
 
 }
 
 
 @media(max-width:650px){
 
-    header{
-        height:65px;
-    }
+  body{
+
+    background-size:
+
+      220% 220%,
+      220% 220%,
+      220% 220%,
+      650% 650%;
 
 
-    .logo-mark{
-        width:36px;
-        height:36px;
+    animation-duration:
+      24s;
 
-        font-size:16px;
-    }
+  }
 
 
-    .logo-text strong{
-        font-size:12px;
+  body::before{
 
-        letter-spacing:2px;
-    }
+    filter:blur(28px);
 
+    animation-duration:
+      32s;
 
-    .logo-text span{
-        font-size:7px;
-
-        letter-spacing:3px;
-    }
+  }
 
 
-    nav{
-        display:none;
-    }
+  body::after{
+
+    opacity:.35;
+
+    animation-duration:
+      35s;
+
+  }
 
 
-    .hero{
-        min-height:100vh;
+  header{
 
-        padding:
-            120px
-            5%
-            80px;
-    }
+    padding:
+      10px 13px;
+
+  }
 
 
-    .hero h1{
-        font-size:45px;
+  .header-inner{
 
-        letter-spacing:-2px;
-    }
+    gap:8px;
 
-
-    .hero p{
-        font-size:13px;
-    }
+  }
 
 
-    .about-grid{
-        grid-template-columns:1fr;
-    }
+  .logo-icon{
+
+    width:39px;
+    height:39px;
+
+    border-radius:12px;
+
+    font-size:21px;
+
+  }
 
 
-    .about-card{
-        min-height:210px;
-    }
+  .logo-main{
+
+    font-size:12px;
+
+    letter-spacing:1.5px;
+
+  }
 
 
-    .posts-header{
-        display:block;
-    }
+  .logo-sub{
+
+    font-size:7px;
+
+    letter-spacing:3px;
+
+  }
 
 
-    .posts-grid{
-        grid-template-columns:1fr;
-    }
+  nav{
+
+    gap:2px;
+
+  }
 
 
-    .post-card{
-        width:100%;
-    }
+  nav a{
+
+    padding:
+      7px 6px;
+
+    font-size:8px;
+
+    letter-spacing:.5px;
+
+  }
 
 
-    .footer-top{
-        display:block;
-    }
+  section{
+
+    padding:
+      80px 15px;
+
+  }
 
 
-    .footer-contact{
-        margin-top:35px;
+  .hero{
 
-        text-align:left;
+    min-height:
+      100svh;
 
-        align-items:flex-start;
-    }
+    padding:
+      130px
+      18px
+      75px;
 
-
-    .contact-item{
-        align-items:flex-start;
-    }
-
-
-    .footer-bottom{
-        display:block;
-
-        line-height:1.8;
-    }
+  }
 
 
-    .whatsapp{
-        width:50px;
-        height:50px;
+  .hero h1{
 
-        right:18px;
-        bottom:18px;
-    }
+    font-size:
+      clamp(45px,15vw,75px);
 
+    letter-spacing:-3px;
 
-    .media-viewer{
-        padding:15px;
-    }
+  }
 
 
-    .media-viewer img{
-        max-width:96vw;
-        max-height:82vh;
-    }
+  .hero p{
+
+    font-size:14px;
+
+  }
 
 
-    .media-viewer video{
-        max-width:96vw;
-        max-height:82vh;
-    }
+  .about-grid{
+
+    grid-template-columns:1fr;
+
+    gap:13px;
+
+  }
 
 
-    .media-close{
-        top:12px;
-        right:12px;
+  .info-card{
 
-        width:44px;
-        height:44px;
-    }
+    min-height:auto;
+
+    padding:22px;
+
+  }
 
 
-    .media-title{
-        left:15px;
-        bottom:12px;
+  .info-card h3{
 
-        max-width:80%;
+    margin-top:22px;
 
-        font-size:9px;
-    }
+  }
+
+
+  .posts-grid{
+
+    grid-template-columns:1fr;
+
+    gap:17px;
+
+  }
+
+
+  .post-content{
+
+    padding:18px;
+
+  }
+
+
+  .contact-box{
+
+    padding:
+      25px 20px;
+
+    border-radius:24px;
+
+  }
+
+
+  .contact-links{
+
+    width:100%;
+
+  }
+
+
+  .wa-button{
+
+    width:100%;
+
+    min-width:0;
+
+  }
+
+
+  .floating-wa{
+
+    width:53px;
+    height:53px;
+
+    right:16px;
+    bottom:16px;
+
+  }
+
+
+  .light.one{
+
+    width:240px;
+    height:240px;
+
+  }
+
+
+  .light.two{
+
+    width:280px;
+    height:280px;
+
+  }
+
+
+  .light.three{
+
+    width:220px;
+    height:220px;
+
+  }
+
+
+  .light.four{
+
+    width:190px;
+    height:190px;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  body,
+  body::before,
+  body::after,
+  .light.one,
+  .light.two,
+  .light.three,
+  .light.four{
+
+    animation:none !important;
+
+  }
+
+  *,
+  *::before,
+  *::after{
+
+    scroll-behavior:auto !important;
+
+  }
 
 }
 
@@ -1433,1333 +3027,1454 @@ footer{
 <body>
 
 
+<!-- =====================================================
+     MOVING LIGHTS
+===================================================== -->
+
+<div class="light one"></div>
+<div class="light two"></div>
+<div class="light three"></div>
+<div class="light four"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
-    <a href="#" class="logo">
+  <div class="header-inner">
 
-        <div class="logo-mark">
-            ♪
-        </div>
+    <a
+      href="#home"
+      class="logo">
 
-        <div class="logo-text">
+      <div class="logo-icon">
+        ♪
+      </div>
 
-            <strong>
-                PRAN MUSIC
-            </strong>
+      <div>
 
-            <span>
-                ENTERTAINMENT
-            </span>
+        <span class="logo-main">
+          PRAN MUSIC
+        </span>
 
-        </div>
+        <span class="logo-sub">
+          ENTERTAINMENT
+        </span>
+
+      </div>
 
     </a>
 
 
     <nav>
 
-        <a href="#home">
-            HOME
-        </a>
+      <a href="#home">
+        HOME
+      </a>
 
-        <a href="#about">
-            ABOUT
-        </a>
+      <a href="#about">
+        ABOUT
+      </a>
 
-        <a href="#posts">
-            POSTING
-        </a>
+      <a href="#posting">
+        POSTING
+      </a>
 
-        <a href="#contact">
-            CONTACT
-        </a>
+      <a href="#contact">
+        CONTACT
+      </a>
 
     </nav>
+
+  </div>
 
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section
-    class="hero"
-    id="home"
->
+  class="hero"
+  id="home">
 
-    <div class="hero-content">
+  <div class="hero-content">
 
-        <div class="hero-label">
-            PRAN MUSIC ENTERTAINMENT
-        </div>
+    <div class="hero-label">
 
-
-        <h1>
-
-            SETIAP NADA
-
-            <span>
-                MENYIMPAN CERITA.
-            </span>
-
-        </h1>
-
-
-        <div class="hero-line"></div>
-
-
-        <p>
-
-            Setiap karya menghadirkan rasa.
-            Dan setiap momen layak untuk dikenang.
-
-        </p>
-
-
-        <a
-            href="#posts"
-            class="hero-button"
-        >
-
-            LIHAT CERITA
-
-        </a>
+      ✦ PRAN MUSIC ENTERTAINMENT
 
     </div>
+
+
+    <h1>
+
+      <span class="line-one">
+        SETIAP NADA
+      </span>
+
+      <span class="line-two">
+        MENYIMPAN CERITA.
+      </span>
+
+    </h1>
+
+
+    <p>
+
+      Setiap karya menghadirkan rasa.
+      Dan setiap momen layak untuk dikenang.
+
+    </p>
+
+
+    <a
+      href="#posting"
+      class="hero-button">
+
+      LIHAT CERITA
+
+    </a>
+
+  </div>
 
 </section>
 
 
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
 <section
-    class="about"
-    id="about"
->
+  class="about"
+  id="about">
 
-    <div class="about-header">
+  <div class="section-label">
 
-        <div class="section-label">
-            TENTANG KAMI
-        </div>
+    TENTANG KAMI
 
-
-        <h2 class="section-title">
-
-            Musik. Karya.
-            <br>
-            Perjalanan.
-
-        </h2>
+  </div>
 
 
-        <p class="section-desc">
+  <h2>
 
-            PRAN MUSIC ENTERTAINMENT hadir untuk menghadirkan
-            karya, cerita, dan momen yang dapat dinikmati
-            melalui musik dan berbagai bentuk kreativitas.
+    Musik. Karya. Perjalanan.
 
-        </p>
-
-    </div>
+  </h2>
 
 
-    <div class="about-grid">
+  <p class="section-description">
+
+    PRAN MUSIC ENTERTAINMENT menghadirkan musik,
+    sound system, event entertainment, foto, video,
+    dan berbagai karya untuk berbagai acara.
+
+  </p>
 
 
-        <div class="about-card">
-
-            <div class="about-number">
-                01
-            </div>
-
-            <h3>
-                MUSIC
-            </h3>
-
-            <p>
-
-                Menghadirkan musik sebagai ruang untuk
-                menyampaikan cerita, rasa, dan pengalaman.
-
-            </p>
-
-        </div>
+  <div class="about-grid">
 
 
-        <div class="about-card">
+    <article class="info-card">
 
-            <div class="about-number">
-                02
-            </div>
+      <div class="card-number">
+        01
+      </div>
 
-            <h3>
-                CREATION
-            </h3>
+      <h3>
+        MUSIC
+      </h3>
 
-            <p>
+      <p>
 
-                Setiap karya lahir dari proses, ide,
-                kreativitas, dan perjalanan yang berbeda.
+        Menghadirkan musik sebagai ruang untuk
+        menyampaikan cerita, rasa, dan pengalaman.
 
-            </p>
+      </p>
 
-        </div>
-
-
-        <div class="about-card">
-
-            <div class="about-number">
-                03
-            </div>
-
-            <h3>
-                JOURNEY
-            </h3>
-
-            <p>
-
-                Setiap perjalanan menyimpan pengalaman
-                yang menjadi bagian dari sebuah cerita.
-
-            </p>
-
-        </div>
+    </article>
 
 
-        <div class="about-card">
+    <article class="info-card">
 
-            <div class="about-number">
-                04
-            </div>
+      <div class="card-number">
+        02
+      </div>
 
-            <h3>
-                STORY
-            </h3>
+      <h3>
+        CREATION
+      </h3>
 
-            <p>
+      <p>
 
-                Karena di balik setiap karya selalu ada
-                cerita yang layak untuk dikenang.
+        Setiap karya lahir dari proses, ide,
+        kreativitas, dan perjalanan yang berbeda.
 
-            </p>
+      </p>
 
-        </div>
+    </article>
 
 
-    </div>
+    <article class="info-card">
+
+      <div class="card-number">
+        03
+      </div>
+
+      <h3>
+        JOURNEY
+      </h3>
+
+      <p>
+
+        Setiap perjalanan menyimpan pengalaman
+        yang menjadi bagian dari sebuah cerita.
+
+      </p>
+
+    </article>
+
+
+    <article class="info-card">
+
+      <div class="card-number">
+        04
+      </div>
+
+      <h3>
+        STORY
+      </h3>
+
+      <p>
+
+        Karena di balik setiap karya selalu ada
+        cerita yang layak untuk dikenang.
+
+      </p>
+
+    </article>
+
+
+  </div>
 
 </section>
 
 
-<section class="quote">
+<!-- =====================================================
+     QUOTE
+===================================================== -->
+
+<section class="quote-section">
+
+  <div class="quote-box">
 
     <div class="quote-mark">
-        “
+      “
     </div>
 
 
-    <div class="quote-text">
+    <p>
 
-        Setiap nada menyimpan cerita.
-        Setiap karya menghadirkan rasa.
-        Dan setiap momen layak untuk
-        <span>
-            dikenang.
-        </span>
+      Setiap nada menyimpan cerita.
+      Setiap karya menghadirkan rasa.
+      Dan setiap momen layak untuk dikenang.
+
+    </p>
+
+
+    <div class="quote-author">
+
+      PRAN MUSIC ENTERTAINMENT
 
     </div>
 
-
-    <div class="quote-small">
-        PRAN MUSIC ENTERTAINMENT
-    </div>
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     POSTING
+===================================================== -->
 
 <section
-    class="posts"
-    id="posts"
->
+  class="posts"
+  id="posting">
 
-    <div class="posts-header">
+  <div class="section-label">
 
-        <div>
+    POSTING TERBARU
 
-            <div class="section-label">
-                POSTING TERBARU
-            </div>
+  </div>
 
 
-            <h2 class="section-title">
-                Cerita Terbaru
-            </h2>
+  <h2>
+
+    Cerita Terbaru
+
+  </h2>
 
 
-            <p class="section-desc">
+  <p class="section-description">
 
-                Karya, kabar, foto, video, dan cerita terbaru
-                dari PRAN MUSIC ENTERTAINMENT.
+    Karya, kabar, foto, video, dan cerita terbaru
+    dari PRAN MUSIC ENTERTAINMENT.
 
-            </p>
-
-        </div>
-
-    </div>
+  </p>
 
 
-    <div
-        class="posts-grid"
-        id="postsGrid"
-    >
+  <div
+    id="postsGrid"
+    class="posts-grid">
 
-        <div class="loading-post">
 
-            MEMUAT CERITA
+    <div class="empty-post">
 
-            <span class="loading-dot">
-                ●
-            </span>
+      <strong>
+        MEMUAT CERITA...
+      </strong>
 
-        </div>
+      <span>
+        Sedang mengambil posting terbaru.
+      </span>
 
     </div>
+
+
+  </div>
 
 </section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+  class="contact"
+  id="contact">
+
+
+  <div class="contact-box">
+
+
+    <div class="contact-info">
+
+
+      <div class="section-label">
+
+        CONTACT
+
+      </div>
+
+
+      <h3>
+
+        Hubungi PRAN MUSIC ENTERTAINMENT
+
+      </h3>
+
+
+      <p>
+
+        Jl. Makmur Pasar 7 Tembung,
+        Gang Anggrek 18,
+        Sena, Sumatera Utara 20371
+
+      </p>
+
+
+    </div>
+
+
+    <div class="contact-links">
+
+
+      <a
+        class="wa-button"
+        href="https://wa.me/62881024746780"
+        target="_blank"
+        rel="noopener">
+
+        💬 +62 881-0247-46780
+
+      </a>
+
+
+      <a
+        class="wa-button"
+        href="https://wa.me/6281260175243"
+        target="_blank"
+        rel="noopener">
+
+        💬 +62 812-6017-5243
+
+      </a>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
 
 </main>
 
 
-<div
-    class="media-viewer"
-    id="mediaViewer"
->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-    <button
-        class="media-close"
-        id="mediaClose"
-        type="button"
-        aria-label="Tutup"
-    >
-        ×
-    </button>
+<footer>
 
 
-    <div
-        class="media-viewer-content"
-        id="mediaViewerContent"
-    ></div>
+  <div class="footer-brand">
+
+    PRAN MUSIC ENTERTAINMENT
+
+  </div>
 
 
-    <div
-        class="media-title"
-        id="mediaViewerTitle"
-    ></div>
+  <div class="footer-text">
 
-</div>
+    Jl. Makmur Pasar 7 Tembung,
+    Gang Anggrek 18,
+    Sena, Sumatera Utara 20371
 
-
-<footer id="contact">
-
-    <div class="footer-top">
+  </div>
 
 
-        <div class="footer-brand">
+  <div class="footer-copy">
 
-            <h3>
-                PRAN MUSIC
-            </h3>
+    © 2026 PRAN MUSIC ENTERTAINMENT
+    • ALL RIGHTS RESERVED
 
+  </div>
 
-            <span>
-                ENTERTAINMENT
-            </span>
-
-
-            <p>
-
-                Jl. Makmur Pasar 7 Tembung,
-                Gang Anggrek 18, Sena,
-                Kec. Batang Kuis,
-                Kabupaten Deli Serdang,
-                Sumatera Utara 20371,
-                Indonesia
-
-            </p>
-
-        </div>
-
-
-        <div class="footer-contact">
-
-
-            <div class="contact-item">
-
-                <div class="contact-label">
-                    PRAN MUSIC ENTERTAINMENT
-                </div>
-
-                <a
-                    href="https://wa.me/62881024746780"
-                    target="_blank"
-                    rel="noopener"
-                >
-
-                    WhatsApp :
-                    +62 881-0247-46780
-
-                </a>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <div class="contact-label">
-                    PRAN MUSIC ENTERTAINMENT
-                </div>
-
-                <a
-                    href="https://wa.me/6281260175243"
-                    target="_blank"
-                    rel="noopener"
-                >
-
-                    WhatsApp :
-                    +62 812-6017-5243
-
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <div>
-            © 2026 PRAN MUSIC ENTERTAINMENT
-        </div>
-
-
-        <div>
-            ALL RIGHTS RESERVED
-        </div>
-
-    </div>
 
 </footer>
 
 
-<a
-    class="whatsapp"
-    href="https://wa.me/62881024746780"
-    target="_blank"
-    rel="noopener"
-    aria-label="WhatsApp"
->
+<!-- =====================================================
+     FLOATING WHATSAPP
+===================================================== -->
 
-    ✆
+<a
+  class="floating-wa"
+  href="https://wa.me/62881024746780"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp PRAN MUSIC ENTERTAINMENT">
+
+  💬
 
 </a>
 
 
+<!-- =====================================================
+     MEDIA VIEWER
+===================================================== -->
+
+<div
+  id="mediaViewer"
+  class="media-viewer">
+
+
+  <button
+    id="mediaClose"
+    class="media-close"
+    aria-label="Tutup">
+
+    ×
+
+  </button>
+
+
+  <div
+    id="mediaViewerContent"
+    class="media-viewer-content">
+
+  </div>
+
+
+</div>
+
+
 <script>
 
+/* =========================================================
+   SUPABASE CONFIG
+========================================================= */
 
-/* =========================
-   SEO IMAGE
-========================= */
-
-function updateImageSEO(
-    imageUrl,
-    title,
-    description
-){
-
-    if(!imageUrl){
-        return;
-    }
+const SUPABASE_URL =
+  "https://uigwpcjhzbqfmwhvolbu.supabase.co";
 
 
-    /*
-     * OPEN GRAPH
-     */
-
-    let ogImage =
-        document.querySelector(
-            'meta[property="og:image"]'
-        );
+const SUPABASE_KEY =
+  "sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
 
 
-    if(!ogImage){
-
-        ogImage =
-            document.createElement("meta");
-
-        ogImage.setAttribute(
-            "property",
-            "og:image"
-        );
-
-        document.head.appendChild(
-            ogImage
-        );
-
-    }
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
-    ogImage.setAttribute(
-        "content",
-        imageUrl
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value){
+
+  if(
+    value === null ||
+    value === undefined
+  ){
+
+    return "";
+
+  }
+
+
+  return String(value)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
     );
-
-
-    /*
-     * OG SECURE IMAGE
-     */
-
-    let ogSecure =
-        document.querySelector(
-            'meta[property="og:image:secure_url"]'
-        );
-
-
-    if(!ogSecure){
-
-        ogSecure =
-            document.createElement("meta");
-
-        ogSecure.setAttribute(
-            "property",
-            "og:image:secure_url"
-        );
-
-        document.head.appendChild(
-            ogSecure
-        );
-
-    }
-
-
-    ogSecure.setAttribute(
-        "content",
-        imageUrl
-    );
-
-
-    /*
-     * OG TYPE
-     */
-
-    let ogType =
-        document.querySelector(
-            'meta[property="og:image:type"]'
-        );
-
-
-    if(!ogType){
-
-        ogType =
-            document.createElement("meta");
-
-        ogType.setAttribute(
-            "property",
-            "og:image:type"
-        );
-
-        document.head.appendChild(
-            ogType
-        );
-
-    }
-
-
-    ogType.setAttribute(
-        "content",
-        "image/jpeg"
-    );
-
-
-    /*
-     * TWITTER IMAGE
-     */
-
-    let twitterImage =
-        document.querySelector(
-            'meta[name="twitter:image"]'
-        );
-
-
-    if(!twitterImage){
-
-        twitterImage =
-            document.createElement("meta");
-
-        twitterImage.setAttribute(
-            "name",
-            "twitter:image"
-        );
-
-        document.head.appendChild(
-            twitterImage
-        );
-
-    }
-
-
-    twitterImage.setAttribute(
-        "content",
-        imageUrl
-    );
-
-
-    /*
-     * IMAGE SCHEMA
-     */
-
-    let imageSchema =
-        document.getElementById(
-            "imageSchema"
-        );
-
-
-    if(!imageSchema){
-
-        imageSchema =
-            document.createElement(
-                "script"
-            );
-
-        imageSchema.type =
-            "application/ld+json";
-
-        imageSchema.id =
-            "imageSchema";
-
-        document.head.appendChild(
-            imageSchema
-        );
-
-    }
-
-
-    const schemaData = {
-
-        "@context":"https://schema.org",
-
-        "@type":"ImageObject",
-
-        "contentUrl":imageUrl,
-
-        "url":imageUrl,
-
-        "name":
-            title ||
-            "PRAN MUSIC ENTERTAINMENT",
-
-        "description":
-            description ||
-            "Foto PRAN MUSIC ENTERTAINMENT",
-
-        "caption":
-            title ||
-            "PRAN MUSIC ENTERTAINMENT",
-
-        "representativeOfPage":true
-
-    };
-
-
-    imageSchema.textContent =
-        JSON.stringify(
-            schemaData
-        );
 
 }
 
 
+/* =========================================================
+   ESCAPE ATTRIBUTE
+========================================================= */
 
-/* =========================
+function escapeAttribute(value){
+
+  return escapeHtml(value);
+
+}
+
+
+/* =========================================================
+   ESCAPE JAVASCRIPT
+========================================================= */
+
+function escapeJs(value){
+
+  if(
+    value === null ||
+    value === undefined
+  ){
+
+    return "";
+
+  }
+
+
+  return String(value)
+
+    .replace(
+      /\\/g,
+      "\\\\"
+    )
+
+    .replace(
+      /'/g,
+      "\\'"
+    )
+
+    .replace(
+      /"/g,
+      '\\"'
+    )
+
+    .replace(
+      /\n/g,
+      "\\n"
+    )
+
+    .replace(
+      /\r/g,
+      "\\r"
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE SEO
+========================================================= */
+
+function updateImageSEO(
+  imageUrl,
+  title,
+  description
+){
+
+  if(!imageUrl){
+
+    return;
+
+  }
+
+
+  let ogImage =
+    document.querySelector(
+      'meta[property="og:image"]'
+    );
+
+
+  if(!ogImage){
+
+    ogImage =
+      document.createElement(
+        "meta"
+      );
+
+    ogImage.setAttribute(
+      "property",
+      "og:image"
+    );
+
+    document.head.appendChild(
+      ogImage
+    );
+
+  }
+
+
+  ogImage.setAttribute(
+    "content",
+    imageUrl
+  );
+
+
+  let secureImage =
+    document.querySelector(
+      'meta[property="og:image:secure_url"]'
+    );
+
+
+  if(!secureImage){
+
+    secureImage =
+      document.createElement(
+        "meta"
+      );
+
+    secureImage.setAttribute(
+      "property",
+      "og:image:secure_url"
+    );
+
+    document.head.appendChild(
+      secureImage
+    );
+
+  }
+
+
+  secureImage.setAttribute(
+    "content",
+    imageUrl
+  );
+
+
+  let imageType =
+    document.querySelector(
+      'meta[property="og:image:type"]'
+    );
+
+
+  if(!imageType){
+
+    imageType =
+      document.createElement(
+        "meta"
+      );
+
+    imageType.setAttribute(
+      "property",
+      "og:image:type"
+    );
+
+    document.head.appendChild(
+      imageType
+    );
+
+  }
+
+
+  imageType.setAttribute(
+    "content",
+    "image/jpeg"
+  );
+
+
+  let twitterImage =
+    document.querySelector(
+      'meta[name="twitter:image"]'
+    );
+
+
+  if(!twitterImage){
+
+    twitterImage =
+      document.createElement(
+        "meta"
+      );
+
+    twitterImage.setAttribute(
+      "name",
+      "twitter:image"
+    );
+
+    document.head.appendChild(
+      twitterImage
+    );
+
+  }
+
+
+  twitterImage.setAttribute(
+    "content",
+    imageUrl
+  );
+
+
+  const schema =
+    document.getElementById(
+      "imageSchema"
+    );
+
+
+  if(schema){
+
+    schema.textContent =
+      JSON.stringify({
+
+        "@context":
+          "https://schema.org",
+
+        "@type":
+          "ImageObject",
+
+        "contentUrl":
+          imageUrl,
+
+        "name":
+          title ||
+          "PRAN MUSIC ENTERTAINMENT",
+
+        "description":
+          description ||
+          "PRAN MUSIC ENTERTAINMENT"
+
+      });
+
+  }
+
+}
+
+
+/* =========================================================
    LOAD POSTS
-========================= */
+========================================================= */
 
 async function loadPosts(){
 
-    const postsGrid =
-        document.getElementById(
-            "postsGrid"
-        );
+  const postsGrid =
+    document.getElementById(
+      "postsGrid"
+    );
 
 
-    if(!postsGrid){
-        return;
+  if(!postsGrid){
+
+    return;
+
+  }
+
+
+  try{
+
+
+    const {
+      data,
+      error
+    } = await supabaseClient
+
+      .from("posts")
+
+      .select("*")
+
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      );
+
+
+    if(error){
+
+      console.error(
+        "Gagal mengambil posting:",
+        error
+      );
+
+
+      postsGrid.innerHTML = `
+
+        <div class="empty-post">
+
+          <strong>
+            CERITA BELUM TERSEDIA
+          </strong>
+
+          <span>
+            Posting belum dapat dimuat.
+          </span>
+
+        </div>
+
+      `;
+
+
+      return;
+
     }
 
 
-    try{
+    if(
+      !data ||
+      data.length === 0
+    ){
 
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .from("posts")
-                .select("*")
-                .order(
-                    "created_at",
-                    {
-                        ascending:false
-                    }
-                );
+      postsGrid.innerHTML = `
 
+        <div class="empty-post">
 
-        if(error){
+          <strong>
+            CERITA BARU AKAN HADIR
+          </strong>
 
-            console.error(
-                "Gagal mengambil posting:",
-                error
-            );
+          <span>
+            Belum ada posting dari
+            PRAN MUSIC ENTERTAINMENT.
+          </span>
+
+        </div>
+
+      `;
 
 
-            postsGrid.innerHTML = `
+      return;
 
-                <div class="empty-post">
+    }
 
-                    <div class="empty-icon">
-                        ♪
-                    </div>
 
-                    <h3>
-                        CERITA BELUM TERSEDIA
-                    </h3>
+    postsGrid.innerHTML = "";
 
-                    <p>
-                        Posting terbaru belum dapat ditampilkan.
-                    </p>
 
-                </div>
+    /* ==========================================
+       SEO FOTO PERTAMA
+    ========================================== */
 
-            `;
+    const firstPhoto =
+      data.find(
+        post =>
+          post.type === "Foto" &&
+          post.media_url
+      );
 
-            return;
-        }
 
+    if(firstPhoto){
+
+      updateImageSEO(
+
+        firstPhoto.media_url,
+
+        firstPhoto.title ||
+          "PRAN MUSIC ENTERTAINMENT",
+
+        firstPhoto.description ||
+          "Foto PRAN MUSIC ENTERTAINMENT"
+
+      );
+
+    }
+
+
+    /* ==========================================
+       RENDER POSTING
+    ========================================== */
+
+    data.forEach(
+      (post,index) => {
+
+
+        const article =
+          document.createElement(
+            "article"
+          );
+
+
+        article.className =
+          "post-card";
+
+
+        article.style.animationDelay =
+          `${Math.min(index * .07,.5)}s`;
+
+
+        const type =
+          post.type || "";
+
+
+        const title =
+          post.title ||
+          "Tanpa Judul";
+
+
+        const description =
+          post.description ||
+          "";
+
+
+        const mediaUrl =
+          post.media_url ||
+          "";
+
+
+        let mediaHtml = "";
+
+
+        /* ======================================
+           FOTO
+        ====================================== */
 
         if(
-            !data ||
-            data.length === 0
+          type === "Foto" &&
+          mediaUrl
         ){
 
-            postsGrid.innerHTML = `
 
-                <div class="empty-post">
-
-                    <div class="empty-icon">
-                        ♪
-                    </div>
-
-                    <h3>
-                        CERITA BARU AKAN HADIR
-                    </h3>
-
-                    <p>
-
-                        Tunggu karya dan cerita terbaru
-                        dari PRAN MUSIC ENTERTAINMENT.
-
-                    </p>
-
-                </div>
-
-            `;
-
-            return;
-        }
-
-
-        postsGrid.innerHTML = "";
-
-
-        /*
-         * FOTO PERTAMA DIGUNAKAN
-         * SEBAGAI IMAGE UTAMA SEO
-         */
-
-        const firstPhoto =
-            data.find(function(post){
-
-                return (
-                    post &&
-                    post.type === "Foto" &&
-                    post.media_url
-                );
-
-            });
-
-
-        if(firstPhoto){
-
-            updateImageSEO(
-
-                firstPhoto.media_url,
-
-                firstPhoto.title ||
-                "PRAN MUSIC ENTERTAINMENT",
-
-                firstPhoto.description ||
-                "Foto PRAN MUSIC ENTERTAINMENT - Sound System dan Event Entertainment"
-
-            );
-
-        }
-
-
-        data.forEach(function(post){
-
-            const article =
-                document.createElement(
-                    "article"
-                );
-
-
-            article.className =
-                "post-card";
-
-
-            const title =
-                escapeHtml(
-                    post.title || ""
-                );
-
-
-            const description =
-                escapeHtml(
-                    post.description || ""
-                );
-
-
-            const type =
-                escapeHtml(
-                    post.type ||
-                    "Tulisan"
-                );
-
-
-            let mediaHTML = "";
-
-
-            /* =====================
-               FOTO
-            ===================== */
-
-            if(
-                post.media_url &&
-                post.type === "Foto"
-            ){
-
-                const imageAlt =
-                    post.title
-                    ?
-                    "PRAN MUSIC ENTERTAINMENT - " +
-                    post.title
-                    :
-                    "PRAN MUSIC ENTERTAINMENT - Foto Event Entertainment";
-
-
-                mediaHTML = `
-
-                    <div class="post-media">
-
-                        <img
-                            src="${escapeAttribute(post.media_url)}"
-                            alt="${escapeAttribute(imageAlt)}"
-                            loading="lazy"
-                            decoding="async"
-                            onclick="openMedia(
-                                'image',
-                                '${escapeJs(post.media_url)}',
-                                '${escapeJs(post.title || "Foto PRAN MUSIC ENTERTAINMENT")}'
-                            )"
-                        >
-
-                        <div class="media-hint">
-                            KLIK UNTUK MEMPERBESAR
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-
-
-            /* =====================
-               VIDEO
-            ===================== */
-
-            if(
-                post.media_url &&
-                post.type === "Video"
-            ){
-
-                mediaHTML = `
-
-                    <div class="post-media">
-
-                        <video
-                            controls
-                            playsinline
-                            preload="metadata"
-                            onclick="openMedia(
-                                'video',
-                                '${escapeJs(post.media_url)}',
-                                '${escapeJs(post.title || "Video")}'
-                            )"
-                        >
-
-                            <source
-                                src="${escapeAttribute(post.media_url)}"
-                                type="${escapeAttribute(
-                                    post.media_type ||
-                                    "video/mp4"
-                                )}"
-                            >
-
-                            Browser tidak mendukung video.
-
-                        </video>
-
-
-                        <div class="media-hint">
-                            KLIK VIDEO UNTUK BESAR
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-
-
-            article.innerHTML = `
-
-                ${mediaHTML}
-
-                <div class="post-content">
-
-                    <div class="post-type">
-
-                        ${type}
-
-                    </div>
-
-
-                    <h3>
-
-                        ${title}
-
-                    </h3>
-
-
-                    ${
-                        description
-                        ?
-                        `<p>${description}</p>`
-                        :
-                        ""
-                    }
-
-                </div>
-
-            `;
-
-
-            postsGrid.appendChild(
-                article
-            );
-
-        });
-
-
-    }catch(error){
-
-        console.error(
-            "Terjadi kesalahan:",
-            error
-        );
-
-
-        postsGrid.innerHTML = `
-
-            <div class="empty-post">
-
-                <div class="empty-icon">
-                    ♪
-                </div>
-
-                <h3>
-                    TERJADI KESALAHAN
-                </h3>
-
-                <p>
-                    Silakan coba kembali beberapa saat lagi.
-                </p>
+          mediaHtml = `
+
+            <div class="post-media">
+
+              <img
+                src="${escapeAttribute(mediaUrl)}"
+                alt="${escapeAttribute(title)}"
+                loading="lazy"
+                decoding="async"
+                onclick="openMedia(
+                  'image',
+                  '${escapeJs(mediaUrl)}',
+                  '${escapeJs(title)}'
+                )">
 
             </div>
 
+          `;
+
+
+        }
+
+
+        /* ======================================
+           VIDEO
+        ====================================== */
+
+        else if(
+          type === "Video" &&
+          mediaUrl
+        ){
+
+
+          const mediaType =
+            post.media_type ||
+            "video/mp4";
+
+
+          mediaHtml = `
+
+            <div class="post-media">
+
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                onclick="openMedia(
+                  'video',
+                  '${escapeJs(mediaUrl)}',
+                  '${escapeJs(title)}'
+                )">
+
+                <source
+                  src="${escapeAttribute(mediaUrl)}"
+                  type="${escapeAttribute(mediaType)}">
+
+                Browser Anda tidak mendukung video.
+
+              </video>
+
+            </div>
+
+          `;
+
+
+        }
+
+
+        /* ======================================
+           TANPA MEDIA
+        ====================================== */
+
+        else{
+
+
+          mediaHtml = `
+
+            <div
+              class="post-media"
+              style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:
+                  radial-gradient(
+                    circle at center,
+                    rgba(0,240,255,.16),
+                    rgba(155,92,255,.13),
+                    rgba(10,12,40,.8)
+                  );
+              ">
+
+              <div
+                style="
+                  font-size:42px;
+                  filter:
+                    drop-shadow(
+                      0 0 18px
+                      rgba(0,240,255,.7)
+                    );
+                ">
+
+                ♪
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+
+
+        article.innerHTML = `
+
+          ${mediaHtml}
+
+          <div class="post-content">
+
+            <div class="post-type">
+
+              ${escapeHtml(type)}
+
+            </div>
+
+
+            <h3 class="post-title">
+
+              ${escapeHtml(title)}
+
+            </h3>
+
+
+            ${
+              description
+
+              ?
+
+              `
+                <p class="post-description">
+                  ${escapeHtml(description)}
+                </p>
+              `
+
+              :
+
+              ""
+            }
+
+
+          </div>
+
         `;
 
-    }
+
+        postsGrid.appendChild(
+          article
+        );
+
+
+      }
+    );
+
+
+  }
+
+
+  catch(error){
+
+
+    console.error(
+      "Kesalahan loadPosts:",
+      error
+    );
+
+
+    postsGrid.innerHTML = `
+
+      <div class="empty-post">
+
+        <strong>
+          CERITA BELUM TERSEDIA
+        </strong>
+
+        <span>
+          Terjadi kesalahan saat mengambil posting.
+        </span>
+
+      </div>
+
+    `;
+
+  }
 
 }
 
 
-
-/* =========================
+/* =========================================================
    OPEN MEDIA
-========================= */
+========================================================= */
 
 function openMedia(
-    type,
-    url,
-    title
+  type,
+  url,
+  title
 ){
 
-    const viewer =
-        document.getElementById(
-            "mediaViewer"
-        );
+  const viewer =
+    document.getElementById(
+      "mediaViewer"
+    );
 
 
-    const content =
-        document.getElementById(
-            "mediaViewerContent"
-        );
+  const content =
+    document.getElementById(
+      "mediaViewerContent"
+    );
 
 
-    const viewerTitle =
-        document.getElementById(
-            "mediaViewerTitle"
-        );
+  if(
+    !viewer ||
+    !content
+  ){
+
+    return;
+
+  }
 
 
-    if(
-        !viewer ||
-        !content
-    ){
-
-        return;
-
-    }
+  content.innerHTML = "";
 
 
-    content.innerHTML = "";
+  let media;
 
 
-    if(type === "image"){
-
-        const img =
-            document.createElement(
-                "img"
-            );
+  if(type === "image"){
 
 
-        img.src = url;
+    media =
+      document.createElement(
+        "img"
+      );
 
-        img.alt =
-            title ||
-            "Foto PRAN MUSIC ENTERTAINMENT";
+
+    media.src =
+      url;
 
 
-        content.appendChild(
-            img
-        );
+    media.alt =
+      title ||
+      "PRAN MUSIC ENTERTAINMENT";
 
-    }
+
+  }
+
+
+  else if(type === "video"){
+
+
+    media =
+      document.createElement(
+        "video"
+      );
+
+
+    media.src =
+      url;
+
+
+    media.controls =
+      true;
+
+
+    media.autoplay =
+      true;
+
+
+    media.playsInline =
+      true;
+
+
+    media.setAttribute(
+      "playsinline",
+      ""
+    );
+
+
+    media.setAttribute(
+      "controlsList",
+      "nodownload"
+    );
+
+  }
+
+
+  if(media){
+
+
+    content.appendChild(
+      media
+    );
+
+
+    const titleElement =
+      document.createElement(
+        "div"
+      );
+
+
+    titleElement.className =
+      "media-viewer-title";
+
+
+    titleElement.textContent =
+      title || "";
+
+
+    content.appendChild(
+      titleElement
+    );
 
 
     if(type === "video"){
 
-        const video =
-            document.createElement(
-                "video"
-            );
-
-
-        video.controls = true;
-
-        video.autoplay = true;
-
-        video.playsInline = true;
-
-        video.preload =
-            "metadata";
-
-        video.src = url;
-
-
-        content.appendChild(
-            video
+      media.play()
+        .catch(
+          () => {}
         );
-
-
-        const playPromise =
-            video.play();
-
-
-        if(
-            playPromise &&
-            typeof playPromise.catch === "function"
-        ){
-
-            playPromise.catch(
-                function(error){
-
-                    console.log(
-                        "Autoplay diblokir browser:",
-                        error
-                    );
-
-                }
-            );
-
-        }
 
     }
 
-
-    viewerTitle.textContent =
-        title ||
-        "";
+  }
 
 
-    viewer.classList.add(
-        "active"
-    );
+  viewer.classList.add(
+    "active"
+  );
 
 
-    document.body.style.overflow =
-        "hidden";
+  document.body.style.overflow =
+    "hidden";
 
 }
 
 
-
-/* =========================
+/* =========================================================
    CLOSE MEDIA
-========================= */
+========================================================= */
 
 function closeMedia(){
 
-    const viewer =
-        document.getElementById(
-            "mediaViewer"
-        );
-
-
-    const content =
-        document.getElementById(
-            "mediaViewerContent"
-        );
-
-
-    if(!viewer){
-        return;
-    }
-
-
-    viewer.classList.remove(
-        "active"
+  const viewer =
+    document.getElementById(
+      "mediaViewer"
     );
 
 
-    document.body.style.overflow =
-        "";
+  const content =
+    document.getElementById(
+      "mediaViewerContent"
+    );
 
 
-    if(content){
+  if(!viewer){
 
-        const video =
-            content.querySelector(
-                "video"
-            );
+    return;
 
-
-        if(video){
-
-            video.pause();
-
-            video.removeAttribute(
-                "src"
-            );
-
-            video.load();
-
-        }
+  }
 
 
-        content.innerHTML = "";
+  const video =
+    content
+      ?
+      content.querySelector(
+        "video"
+      )
+      :
+      null;
+
+
+  if(video){
+
+    try{
+
+      video.pause();
 
     }
+    catch(e){}
+
+
+    video.removeAttribute(
+      "src"
+    );
+
+
+    video.load();
+
+  }
+
+
+  if(content){
+
+    content.innerHTML =
+      "";
+
+  }
+
+
+  viewer.classList.remove(
+    "active"
+  );
+
+
+  document.body.style.overflow =
+    "";
 
 }
 
 
+/* =========================================================
+   MEDIA EVENTS
+========================================================= */
 
 document
-    .getElementById("mediaClose")
-    .addEventListener(
-        "click",
-        function(){
-
-            closeMedia();
-
-        }
-    );
-
+  .getElementById(
+    "mediaClose"
+  )
+  ?.addEventListener(
+    "click",
+    closeMedia
+  );
 
 
 document
-    .getElementById("mediaViewer")
-    .addEventListener(
-        "click",
-        function(event){
+  .getElementById(
+    "mediaViewer"
+  )
+  ?.addEventListener(
+    "click",
+    function(event){
 
-            if(
-                event.target ===
-                this
-            ){
+      if(
+        event.target === this
+      ){
 
-                closeMedia();
+        closeMedia();
 
-            }
+      }
 
-        }
-    );
-
+    }
+  );
 
 
 document.addEventListener(
-    "keydown",
-    function(event){
+  "keydown",
+  function(event){
 
-        if(
-            event.key ===
-            "Escape"
-        ){
+    if(
+      event.key === "Escape"
+    ){
 
-            closeMedia();
-
-        }
+      closeMedia();
 
     }
+
+  }
 );
 
 
-
-function escapeHtml(text){
-
-    return String(text)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-
-function escapeAttribute(text){
-
-    return String(text)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        );
-
-}
-
-
-
-function escapeJs(text){
-
-    return String(text)
-
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-
-        .replace(
-            /'/g,
-            "\\'"
-        )
-
-        .replace(
-            /"/g,
-            '\\"'
-        )
-
-        .replace(
-            /\r/g,
-            "\\r"
-        )
-
-        .replace(
-            /\n/g,
-            "\\n"
-        );
-
-}
-
-
+/* =========================================================
+   START
+========================================================= */
 
 document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+  "DOMContentLoaded",
+  function(){
 
-        loadPosts();
+    loadPosts();
 
-    }
+  }
 );
 
 </script>
