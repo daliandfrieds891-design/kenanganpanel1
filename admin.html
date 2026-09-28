@@ -2526,6 +2526,7 @@ function resetUploadProgress(){
 
 /* =========================================================
    LOAD POSTS
+   SUPABASE TABLE: kenangan
 ========================================================= */
 
 async function loadPosts(){
@@ -2537,7 +2538,7 @@ async function loadPosts(){
             error
         } =
         await supabaseClient
-        .from("posts")
+        .from("kenangan")
         .select("*")
         .order(
             "created_at",
@@ -2589,6 +2590,7 @@ async function loadPosts(){
 
 /* =========================================================
    UPLOAD MEDIA
+   SUPABASE STORAGE: post-media
 ========================================================= */
 
 async function uploadMedia(file){
@@ -2701,6 +2703,11 @@ async function uploadMedia(file){
 
                         onError(error){
 
+                            console.error(
+                                "TUS upload error:",
+                                error
+                            );
+
                             reject(error);
 
                         },
@@ -2743,6 +2750,7 @@ async function uploadMedia(file){
                             progressText.textContent =
                                 "Upload selesai.";
 
+
                             const {
                                 data
                             } =
@@ -2754,6 +2762,7 @@ async function uploadMedia(file){
                             .getPublicUrl(
                                 filePath
                             );
+
 
                             resolve({
 
@@ -2789,18 +2798,22 @@ async function deleteMediaByUrl(
     if(!mediaUrl)
         return;
 
+
     try{
 
         const marker =
             "/post-media/";
+
 
         const index =
             mediaUrl.indexOf(
                 marker
             );
 
+
         if(index === -1)
             return;
+
 
         const filePath =
             decodeURIComponent(
@@ -2809,6 +2822,7 @@ async function deleteMediaByUrl(
                     marker.length
                 )
             );
+
 
         const {
             error
@@ -2819,6 +2833,7 @@ async function deleteMediaByUrl(
         .remove([
             filePath
         ]);
+
 
         if(error){
 
@@ -2837,11 +2852,13 @@ async function deleteMediaByUrl(
         );
 
     }
+
 }
 
 
 /* =========================================================
    CREATE POST
+   TABLE: kenangan
 ========================================================= */
 
 async function buatPosting(){
@@ -2850,6 +2867,7 @@ async function buatPosting(){
         localStorage.getItem(
             "pran_admin_user"
         );
+
 
     if(!username){
 
@@ -2995,9 +3013,9 @@ async function buatPosting(){
 
         }else{
 
-            let mediaUrl = null;
-            let mediaType = null;
-            let fileName = null;
+            let foto = null;
+
+            let video = null;
 
 
             if(file){
@@ -3013,14 +3031,21 @@ async function buatPosting(){
                     );
 
 
-                mediaUrl =
-                    uploaded.url;
+                if(type === "Foto"){
 
-                mediaType =
-                    file.type;
+                    foto =
+                        uploaded.url;
 
-                fileName =
-                    file.name;
+                }
+
+
+                if(type === "Video"){
+
+                    video =
+                        uploaded.url;
+
+                }
+
             }
 
 
@@ -3028,23 +3053,22 @@ async function buatPosting(){
                 error
             } =
             await supabaseClient
-            .from("posts")
+            .from("kenangan")
             .insert({
 
-                title,
-                type,
-                description,
+                judul:
+                    title,
 
-                media_url:
-                    mediaUrl,
+                isi:
+                    description,
 
-                media_type:
-                    mediaType,
+                foto:
+                    foto,
 
-                file_name:
-                    fileName,
+                video:
+                    video,
 
-                uploaded_by:
+                username:
                     username
 
             });
@@ -3068,7 +3092,10 @@ async function buatPosting(){
 
     }catch(error){
 
-        console.error(error);
+        console.error(
+            "Gagal menyimpan posting:",
+            error
+        );
 
         showStatus(
             "Gagal menyimpan posting: " +
@@ -3086,6 +3113,7 @@ async function buatPosting(){
             : "PUBLISH POSTING";
 
     }
+
 }
 
 
@@ -3103,7 +3131,9 @@ async function prosesEdit(
 
     const oldPost =
         posts.find(
-            post => post.id === id
+            post =>
+                String(post.id) ===
+                String(id)
         );
 
 
@@ -3116,14 +3146,17 @@ async function prosesEdit(
     }
 
 
-    let mediaUrl =
-        oldPost.media_url || null;
+    let foto =
+        oldPost.foto || null;
 
-    let mediaType =
-        oldPost.media_type || null;
+    let video =
+        oldPost.video || null;
 
-    let fileName =
-        oldPost.file_name || null;
+
+    const oldMedia =
+        oldPost.foto ||
+        oldPost.video ||
+        null;
 
 
     if(file){
@@ -3139,20 +3172,30 @@ async function prosesEdit(
             );
 
 
-        mediaUrl =
-            uploaded.url;
-
-        mediaType =
-            file.type;
-
-        fileName =
-            file.name;
+        foto = null;
+        video = null;
 
 
-        if(oldPost.media_url){
+        if(type === "Foto"){
+
+            foto =
+                uploaded.url;
+
+        }
+
+
+        if(type === "Video"){
+
+            video =
+                uploaded.url;
+
+        }
+
+
+        if(oldMedia){
 
             await deleteMediaByUrl(
-                oldPost.media_url
+                oldMedia
             );
 
         }
@@ -3162,9 +3205,8 @@ async function prosesEdit(
 
     if(type === "Tulisan"){
 
-        mediaUrl = null;
-        mediaType = null;
-        fileName = null;
+        foto = null;
+        video = null;
 
     }
 
@@ -3173,21 +3215,20 @@ async function prosesEdit(
         error
     } =
     await supabaseClient
-    .from("posts")
+    .from("kenangan")
     .update({
 
-        title,
-        type,
-        description,
+        judul:
+            title,
 
-        media_url:
-            mediaUrl,
+        isi:
+            description,
 
-        media_type:
-            mediaType,
+        foto:
+            foto,
 
-        file_name:
-            fileName
+        video:
+            video
 
     })
     .eq(
@@ -3209,6 +3250,7 @@ async function prosesEdit(
     batalEdit();
 
     await loadPosts();
+
 }
 
 
@@ -3220,7 +3262,9 @@ function editPosting(id){
 
     const post =
         posts.find(
-            item => item.id === id
+            item =>
+                String(item.id) ===
+                String(id)
         );
 
 
@@ -3228,25 +3272,43 @@ function editPosting(id){
         return;
 
 
-    editingPostId = id;
+    editingPostId =
+        post.id;
 
 
     document.getElementById(
         "postTitle"
     ).value =
-        post.title || "";
+        post.judul || "";
+
+
+    let type =
+        "Tulisan";
+
+
+    if(post.video){
+
+        type =
+            "Video";
+
+    }else if(post.foto){
+
+        type =
+            "Foto";
+
+    }
 
 
     document.getElementById(
         "postType"
     ).value =
-        post.type || "Tulisan";
+        type;
 
 
     document.getElementById(
         "postDescription"
     ).value =
-        post.description || "";
+        post.isi || "";
 
 
     document.getElementById(
@@ -3285,39 +3347,33 @@ function editPosting(id){
         );
 
 
-    if(post.media_url){
+    preview.innerHTML = "";
 
-        if(
-            post.media_type &&
-            post.media_type.startsWith(
-                "video/"
-            )
-        ){
 
-            preview.innerHTML = `
-                <video
-                    controls
-                    src="${escapeAttribute(
-                        post.media_url
-                    )}">
-                </video>
-            `;
+    if(post.video){
 
-        }else{
+        preview.innerHTML = `
 
-            preview.innerHTML = `
-                <img
-                    src="${escapeAttribute(
-                        post.media_url
-                    )}"
-                    alt="Preview">
-            `;
+            <video
+                controls
+                src="${escapeAttribute(
+                    post.video
+                )}">
+            </video>
 
-        }
+        `;
 
-    }else{
+    }else if(post.foto){
 
-        preview.innerHTML = "";
+        preview.innerHTML = `
+
+            <img
+                src="${escapeAttribute(
+                    post.foto
+                )}"
+                alt="Preview">
+
+        `;
 
     }
 
@@ -3429,6 +3485,7 @@ document
         const file =
             this.files[0];
 
+
         const preview =
             document.getElementById(
                 "uploadPreview"
@@ -3455,10 +3512,14 @@ document
         ){
 
             preview.innerHTML = `
+
                 <video
                     controls
-                    src="${url}">
+                    src="${escapeAttribute(
+                        url
+                    )}">
                 </video>
+
             `;
 
         }else if(
@@ -3468,9 +3529,13 @@ document
         ){
 
             preview.innerHTML = `
+
                 <img
-                    src="${url}"
+                    src="${escapeAttribute(
+                        url
+                    )}"
                     alt="Preview">
+
             `;
 
         }
@@ -3507,7 +3572,9 @@ async function hapusPosting(id){
 
     const post =
         posts.find(
-            item => item.id === id
+            item =>
+                String(item.id) ===
+                String(id)
         );
 
 
@@ -3529,7 +3596,7 @@ async function hapusPosting(id){
             error
         } =
         await supabaseClient
-        .from("posts")
+        .from("kenangan")
         .delete()
         .eq(
             "id",
@@ -3541,10 +3608,16 @@ async function hapusPosting(id){
             throw error;
 
 
-        if(post.media_url){
+        const media =
+            post.foto ||
+            post.video ||
+            null;
+
+
+        if(media){
 
             await deleteMediaByUrl(
-                post.media_url
+                media
             );
 
         }
@@ -3559,6 +3632,8 @@ async function hapusPosting(id){
         await loadPosts();
 
     }catch(error){
+
+        console.error(error);
 
         showStatus(
             "Gagal menghapus posting: " +
@@ -3621,57 +3696,48 @@ function renderPosts(){
                 let mediaHTML = "";
 
 
-                if(post.media_url){
+                if(post.video){
 
-                    if(
-                        post.media_type &&
-                        post.media_type.startsWith(
-                            "video/"
-                        )
-                    ){
+                    mediaHTML = `
 
-                        mediaHTML = `
+                        <div class="post-media">
 
-                            <div class="post-media">
+                            <video
+                                controls
+                                preload="metadata"
+                                src="${escapeAttribute(
+                                    post.video
+                                )}">
+                            </video>
 
-                                <video
-                                    controls
-                                    preload="metadata"
-                                    src="${escapeAttribute(
-                                        post.media_url
-                                    )}">
-                                </video>
+                        </div>
 
-                            </div>
+                    `;
 
-                        `;
+                }else if(post.foto){
 
-                    }else{
+                    mediaHTML = `
 
-                        mediaHTML = `
+                        <div class="post-media">
 
-                            <div class="post-media">
+                            <img
+                                src="${escapeAttribute(
+                                    post.foto
+                                )}"
+                                alt="${escapeAttribute(
+                                    post.judul || ""
+                                )}"
+                                loading="lazy">
 
-                                <img
-                                    src="${escapeAttribute(
-                                        post.media_url
-                                    )}"
-                                    alt="${escapeAttribute(
-                                        post.title || ""
-                                    )}"
-                                    loading="lazy">
+                        </div>
 
-                            </div>
-
-                        `;
-
-                    }
+                    `;
 
                 }
 
 
                 const crown =
-                    post.uploaded_by ===
+                    post.username ===
                     "daligroupmaster"
                     ? " 👑"
                     : "";
@@ -3711,6 +3777,23 @@ function renderPosts(){
                 }
 
 
+                let type =
+                    "Tulisan";
+
+
+                if(post.video){
+
+                    type =
+                        "Video";
+
+                }else if(post.foto){
+
+                    type =
+                        "Foto";
+
+                }
+
+
                 return `
 
                     <article class="post-item">
@@ -3720,48 +3803,39 @@ function renderPosts(){
                         <div class="post-content">
 
                             <div class="post-title">
+
                                 ${escapeHTML(
-                                    post.title || ""
+                                    post.judul || ""
                                 )}
+
                             </div>
 
 
                             <span class="post-type">
-                                ${escapeHTML(
-                                    post.type ||
-                                    "Tulisan"
-                                )}
+
+                                ${type}
+
                             </span>
 
 
                             <div class="post-description">
+
                                 ${escapeHTML(
-                                    post.description ||
-                                    ""
+                                    post.isi || ""
                                 )}
+
                             </div>
 
 
                             <div class="post-meta">
 
                                 <span>
+
                                     ${formatDate(
                                         post.created_at
                                     )}
-                                </span>
 
-                                ${
-                                    post.file_name
-                                    ? `
-                                        <span>
-                                            •
-                                            ${escapeHTML(
-                                                post.file_name
-                                            )}
-                                        </span>
-                                      `
-                                    : ""
-                                }
+                                </span>
 
                             </div>
 
@@ -3774,7 +3848,7 @@ function renderPosts(){
 
                                 <span
                                     class="${
-                                        post.uploaded_by ===
+                                        post.username ===
                                         "daligroupmaster"
                                         ? "owner"
                                         : ""
@@ -3782,7 +3856,7 @@ function renderPosts(){
                                 >
 
                                     ${escapeHTML(
-                                        post.uploaded_by ||
+                                        post.username ||
                                         "-"
                                     )}
 
@@ -3824,16 +3898,16 @@ function updateStats(){
     const media =
         posts.filter(
             post =>
-                post.media_url
+                post.foto ||
+                post.video
         ).length;
 
 
     const text =
         posts.filter(
             post =>
-                !post.media_url ||
-                post.type ===
-                "Tulisan"
+                !post.foto &&
+                !post.video
         ).length;
 
 
