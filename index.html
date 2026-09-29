@@ -12,46 +12,25 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 <meta name="description"
 content="PRAN MUSIC ENTERTAINMENT Medan - Sound System & Event Entertainment untuk wedding, ulang tahun, khitanan, konser, gathering, acara desa dan berbagai acara lainnya.">
 
-<meta name="keywords"
-content="PRAN MUSIC ENTERTAINMENT, sound system Medan, event entertainment Medan, wedding sound system, event sound system">
-
-<meta name="author"
-content="PRAN MUSIC ENTERTAINMENT">
-
 <link rel="canonical"
 href="https://pranmusicentertainment.company/">
-
-<link rel="icon"
-type="image/png"
-href="/favicon.png">
-
-<meta property="og:type"
-content="website">
 
 <meta property="og:title"
 content="PRAN MUSIC ENTERTAINMENT Medan">
 
 <meta property="og:description"
-content="Sound System & Event Entertainment PRAN MUSIC ENTERTAINMENT.">
+content="Sound System & Event Entertainment">
 
 <meta property="og:url"
 content="https://pranmusicentertainment.company/">
 
-<meta property="og:site_name"
-content="PRAN MUSIC ENTERTAINMENT">
+<meta property="og:type"
+content="website">
 
-<meta name="twitter:card"
-content="summary_large_image">
-
-<meta name="twitter:title"
-content="PRAN MUSIC ENTERTAINMENT Medan">
-
-<meta name="twitter:description"
-content="Sound System & Event Entertainment PRAN MUSIC ENTERTAINMENT.">
-
+<meta name="theme-color"
+content="#02030a">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 <style>
 
@@ -60,30 +39,22 @@ content="Sound System & Event Entertainment PRAN MUSIC ENTERTAINMENT.">
 ========================================================= */
 
 :root{
-
-  --bg:#08091d;
-
+  --bg:#02030a;
   --cyan:#00f0ff;
-  --cyan2:#27c7ff;
+  --cyan2:#00aaff;
+  --blue:#4d72ff;
+  --purple:#9a5cff;
+  --pink:#ff42d0;
+  --gold:#ffd35a;
+  --white:#f8fcff;
+  --muted:#aeb9ce;
 
-  --purple:#9b5cff;
-  --pink:#ff4fd8;
-
-  --gold:#ffd45a;
-  --orange:#ff9f1c;
-
-  --white:#ffffff;
-  --soft:#dfe7ff;
-  --muted:#9ca9c9;
-
-  --glass:rgba(15,18,48,.62);
-  --glass2:rgba(20,24,62,.76);
-
-  --border:rgba(255,255,255,.12);
+  --glow-cyan:
+    0 0 10px rgba(0,240,255,.35),
+    0 0 35px rgba(0,180,255,.12);
 
   --shadow:
-    0 20px 70px rgba(0,0,0,.45);
-
+    0 25px 80px rgba(0,0,0,.48);
 }
 
 
@@ -102,355 +73,1099 @@ html{
 }
 
 body{
-
   min-height:100vh;
-
-  color:var(--white);
+  overflow-x:hidden;
 
   font-family:
     Inter,
-    Arial,
-    Helvetica,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
 
-  background:
-
-    radial-gradient(
-      circle at 15% 15%,
-      rgba(0,240,255,.12),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(155,92,255,.14),
-      transparent 30%
-    ),
-
-    radial-gradient(
-      circle at 50% 85%,
-      rgba(255,79,216,.11),
-      transparent 32%
-    ),
-
-    var(--bg);
-
-  overflow-x:hidden;
-
+  color:var(--white);
+  background:#02030a;
 }
 
 
 /* =========================================================
-   AURORA BACKGROUND BERGERAK
+   COSMIC BACKGROUND
 ========================================================= */
 
-body::before{
-
-  content:"";
-
+.space-bg{
   position:fixed;
-
-  inset:-25%;
-
-  z-index:-5;
-
-  pointer-events:none;
+  inset:0;
+  overflow:hidden;
+  z-index:-20;
 
   background:
-
     radial-gradient(
-      circle at 15% 25%,
-      rgba(0,240,255,.24),
-      transparent 25%
+      ellipse at 15% 15%,
+      rgba(0,220,255,.22),
+      transparent 35%
     ),
-
     radial-gradient(
-      circle at 82% 18%,
-      rgba(155,92,255,.25),
-      transparent 28%
+      ellipse at 85% 20%,
+      rgba(145,45,255,.22),
+      transparent 38%
     ),
-
     radial-gradient(
-      circle at 55% 78%,
-      rgba(255,79,216,.20),
-      transparent 28%
+      ellipse at 50% 70%,
+      rgba(255,30,190,.11),
+      transparent 42%
     ),
-
     radial-gradient(
-      circle at 25% 85%,
-      rgba(255,212,90,.13),
-      transparent 24%
+      ellipse at 20% 90%,
+      rgba(0,120,255,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #010208,
+      #020516 42%,
+      #03020b
     );
 
-  filter:blur(45px);
-
   animation:
-    auroraMove 12s ease-in-out infinite alternate;
-
+    universeMove
+    20s
+    ease-in-out
+    infinite
+    alternate;
 }
 
 
-@keyframes auroraMove{
+@keyframes universeMove{
 
   0%{
-
-    transform:
-      translate3d(-5%,-2%,0)
-      scale(1);
-
-  }
-
-  25%{
-
-    transform:
-      translate3d(3%,4%,0)
-      scale(1.06);
-
-  }
-
-  50%{
-
-    transform:
-      translate3d(6%,-4%,0)
-      scale(1.12);
-
-  }
-
-  75%{
-
-    transform:
-      translate3d(-3%,5%,0)
-      scale(1.07);
-
+    background-position:
+      0% 0%,
+      100% 10%,
+      50% 70%,
+      0% 100%;
   }
 
   100%{
-
-    transform:
-      translate3d(-6%,-3%,0)
-      scale(1.02);
-
+    background-position:
+      15% 10%,
+      85% 35%,
+      42% 90%,
+      12% 80%;
   }
 
 }
 
 
 /* =========================================================
-   BINTANG BERGERAK
+   NEBULA
 ========================================================= */
 
-body::after{
+.nebula{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
 
-  content:"";
+  filter:blur(55px);
 
-  position:fixed;
+  mix-blend-mode:screen;
+}
 
-  inset:0;
 
-  z-index:-4;
+.nebula-1{
+  width:560px;
+  height:280px;
+
+  left:-170px;
+  top:5%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(0,240,255,.25),
+      rgba(0,100,255,.09) 45%,
+      transparent 72%
+    );
+
+  transform:rotate(-25deg);
+
+  animation:
+    nebulaFloat1
+    16s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.nebula-2{
+  width:620px;
+  height:320px;
+
+  right:-210px;
+  top:25%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(165,65,255,.25),
+      rgba(255,30,210,.08) 48%,
+      transparent 73%
+    );
+
+  transform:rotate(20deg);
+
+  animation:
+    nebulaFloat2
+    19s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.nebula-3{
+  width:650px;
+  height:300px;
+
+  left:18%;
+  bottom:-130px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255,35,185,.16),
+      rgba(70,50,255,.08) 50%,
+      transparent 75%
+    );
+
+  animation:
+    nebulaFloat3
+    22s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes nebulaFloat1{
+
+  from{
+    transform:
+      translate(-10px,0)
+      rotate(-25deg)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate(70px,40px)
+      rotate(-18deg)
+      scale(1.12);
+  }
+
+}
+
+
+@keyframes nebulaFloat2{
+
+  from{
+    transform:
+      translate(10px,0)
+      rotate(20deg)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate(-65px,35px)
+      rotate(27deg)
+      scale(1.1);
+  }
+
+}
+
+
+@keyframes nebulaFloat3{
+
+  from{
+    transform:
+      translate(0,0)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate(-40px,-30px)
+      scale(1.12);
+  }
+
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.stars-far,
+.stars-mid,
+.stars-near{
+  position:absolute;
+  inset:-10%;
 
   pointer-events:none;
 
-  opacity:.42;
+  background-repeat:repeat;
+}
+
+
+.stars-far{
+
+  opacity:.48;
 
   background-image:
-
     radial-gradient(
-      circle,
-      rgba(255,255,255,.95) 1px,
-      transparent 1px
+      1px 1px at 20px 30px,
+      rgba(255,255,255,.85),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 120px 90px,
+      rgba(120,225,255,.75),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 210px 160px,
+      rgba(255,255,255,.65),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 280px 40px,
+      rgba(180,140,255,.75),
+      transparent
     );
 
   background-size:
-    80px 80px;
+    310px 250px,
+    370px 300px,
+    430px 340px,
+    510px 390px;
 
   animation:
-    starsMove 18s linear infinite;
+    starsFarMove
+    120s
+    linear
+    infinite;
+}
+
+
+.stars-mid{
+
+  opacity:.62;
+
+  background-image:
+    radial-gradient(
+      1.5px 1.5px at 40px 40px,
+      rgba(255,255,255,.95),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 150px 100px,
+      rgba(0,240,255,1),
+      transparent
+    ),
+    radial-gradient(
+      1.5px 1.5px at 240px 180px,
+      rgba(255,110,220,.8),
+      transparent
+    );
+
+  background-size:
+    280px 240px,
+    360px 310px,
+    460px 350px;
+
+  animation:
+    starsMidMove
+    70s
+    linear
+    infinite;
+}
+
+
+.stars-near{
+
+  opacity:.38;
+
+  background-image:
+    radial-gradient(
+      2px 2px at 80px 120px,
+      rgba(255,255,255,1),
+      transparent
+    ),
+    radial-gradient(
+      1.5px 1.5px at 220px 80px,
+      rgba(255,215,100,1),
+      transparent
+    ),
+    radial-gradient(
+      2px 2px at 340px 210px,
+      rgba(0,240,255,.9),
+      transparent
+    );
+
+  background-size:
+    430px 360px,
+    520px 430px,
+    610px 470px;
+
+  animation:
+    starsNearMove
+    42s
+    linear
+    infinite;
+}
+
+
+@keyframes starsFarMove{
+
+  from{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate3d(-100px,70px,0)
+      scale(1.03);
+  }
 
 }
 
 
-@keyframes starsMove{
+@keyframes starsMidMove{
 
-  0%{
-
-    background-position:
-      0 0;
-
+  from{
+    transform:
+      translate3d(0,0,0);
   }
 
-  100%{
+  to{
+    transform:
+      translate3d(160px,-100px,0);
+  }
 
-    background-position:
-      160px 160px;
+}
 
+
+@keyframes starsNearMove{
+
+  from{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate3d(-220px,140px,0)
+      scale(1.06);
   }
 
 }
 
 
 /* =========================================================
-   FLOATING LIGHTS
+   STAR TWINKLE
 ========================================================= */
 
-.light{
+.stars-near::after{
 
-  position:fixed;
+  content:"";
 
-  width:190px;
+  position:absolute;
+  inset:0;
 
-  height:190px;
+  background:
+    radial-gradient(
+      circle at 18% 25%,
+      rgba(255,255,255,.9) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 73% 33%,
+      rgba(0,240,255,1) 0 1.5px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 83% 76%,
+      rgba(255,70,220,.9) 0 1.5px,
+      transparent 3px
+    );
+
+  animation:
+    twinkle
+    3.2s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes twinkle{
+
+  from{
+    opacity:.25;
+    transform:scale(.95);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1.08);
+  }
+
+}
+
+
+/* =========================================================
+   SPACE DUST
+========================================================= */
+
+.space-dust{
+
+  position:absolute;
+  inset:0;
+
+  opacity:.32;
+
+  background:
+    radial-gradient(
+      circle at 15% 35%,
+      rgba(0,240,255,.85) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 70% 22%,
+      rgba(255,255,255,.9) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(255,80,210,.75) 0 1px,
+      transparent 2px
+    );
+
+  background-size:
+    240px 220px,
+    310px 280px,
+    390px 340px;
+
+  animation:
+    dustMove
+    35s
+    linear
+    infinite;
+}
+
+
+@keyframes dustMove{
+
+  from{
+    transform:
+      translate(0,0);
+  }
+
+  to{
+    transform:
+      translate(-120px,80px);
+  }
+
+}
+
+
+/* =========================================================
+   DEEP SPACE GLOW
+========================================================= */
+
+.space-glow{
+
+  position:absolute;
 
   border-radius:50%;
 
-  filter:blur(65px);
+  pointer-events:none;
 
-  opacity:.25;
+  filter:blur(70px);
 
-  z-index:-3;
+  mix-blend-mode:screen;
+}
+
+
+.glow-cyan{
+
+  width:420px;
+  height:420px;
+
+  left:-180px;
+  top:35%;
+
+  background:
+    rgba(0,240,255,.12);
+
+  animation:
+    deepFloat1
+    18s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.glow-purple{
+
+  width:500px;
+  height:500px;
+
+  right:-220px;
+  top:45%;
+
+  background:
+    rgba(130,50,255,.13);
+
+  animation:
+    deepFloat2
+    23s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.glow-pink{
+
+  width:360px;
+  height:360px;
+
+  left:35%;
+  bottom:-180px;
+
+  background:
+    rgba(255,30,190,.10);
+
+  animation:
+    deepFloat3
+    20s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes deepFloat1{
+
+  from{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate3d(160px,-90px,0)
+      scale(1.3);
+  }
+
+}
+
+
+@keyframes deepFloat2{
+
+  from{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate3d(-140px,110px,0)
+      scale(1.25);
+  }
+
+}
+
+
+@keyframes deepFloat3{
+
+  from{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  to{
+    transform:
+      translate3d(90px,-100px,0)
+      scale(1.25);
+  }
+
+}
+
+
+/* =========================================================
+   COSMIC STREAM
+   JATUH DARI ATAS KE BAWAH
+========================================================= */
+
+.cosmic-stream{
+
+  position:absolute;
 
   pointer-events:none;
 
+  width:2px;
+  height:2px;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  box-shadow:
+    0 0 5px rgba(255,255,255,.9),
+    0 0 12px rgba(0,240,255,.8);
+
+  opacity:.7;
 }
 
 
-.light.one{
+.cosmic-stream::before,
+.cosmic-stream::after{
 
-  background:var(--cyan);
+  content:"";
 
-  top:8%;
+  position:absolute;
 
-  left:-70px;
+  width:1px;
+  height:90px;
+
+  left:0;
+  bottom:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,240,255,0),
+      rgba(0,240,255,.55),
+      transparent
+    );
+
+  filter:blur(1px);
+}
+
+
+.stream-1{
+
+  left:18%;
+  top:-20px;
 
   animation:
-    floatOne 13s ease-in-out infinite;
-
+    streamFall1
+    9s
+    linear
+    infinite;
 }
 
 
-.light.two{
+.stream-2{
 
-  background:var(--purple);
+  left:63%;
+  top:-50px;
 
-  right:-70px;
-
-  top:22%;
+  opacity:.5;
 
   animation:
-    floatTwo 16s ease-in-out infinite;
-
+    streamFall2
+    13s
+    linear
+    infinite;
 }
 
 
-.light.three{
+.stream-3{
 
-  background:var(--pink);
+  left:87%;
+  top:-100px;
 
-  left:22%;
-
-  bottom:-80px;
+  opacity:.65;
 
   animation:
-    floatThree 14s ease-in-out infinite;
+    streamFall3
+    11s
+    linear
+    infinite;
+}
+
+
+@keyframes streamFall1{
+
+  0%{
+    transform:
+      translate3d(0,-100px,0);
+
+    opacity:0;
+  }
+
+  10%{
+    opacity:.8;
+  }
+
+  90%{
+    opacity:.5;
+  }
+
+  100%{
+    transform:
+      translate3d(-80px,110vh,0);
+
+    opacity:0;
+  }
 
 }
 
 
-.light.four{
+@keyframes streamFall2{
 
-  background:var(--gold);
+  0%{
+    transform:
+      translate3d(0,-150px,0);
 
-  right:18%;
+    opacity:0;
+  }
 
-  bottom:18%;
+  15%{
+    opacity:.7;
+  }
+
+  100%{
+    transform:
+      translate3d(-120px,115vh,0);
+
+    opacity:0;
+  }
+
+}
+
+
+@keyframes streamFall3{
+
+  0%{
+    transform:
+      translate3d(0,-120px,0);
+
+    opacity:0;
+  }
+
+  12%{
+    opacity:.8;
+  }
+
+  100%{
+    transform:
+      translate3d(-70px,115vh,0);
+
+    opacity:0;
+  }
+
+}
+
+
+/* =========================================================
+   COSMIC ORBIT
+========================================================= */
+
+.cosmic-orbit{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+  border:
+    1px solid rgba(0,240,255,.08);
+
+  box-shadow:
+    0 0 25px rgba(0,180,255,.04);
 
   animation:
-    floatFour 18s ease-in-out infinite;
-
+    orbitFloat
+    24s
+    ease-in-out
+    infinite
+    alternate;
 }
 
 
-@keyframes floatOne{
+.orbit-1{
 
-  0%,100%{
+  width:520px;
+  height:180px;
+
+  left:-160px;
+  top:42%;
+
+  transform:
+    rotate(-22deg);
+}
+
+
+.orbit-2{
+
+  width:600px;
+  height:210px;
+
+  right:-230px;
+  bottom:12%;
+
+  border-color:
+    rgba(170,70,255,.08);
+
+  transform:
+    rotate(25deg);
+
+  animation-duration:
+    30s;
+}
+
+
+@keyframes orbitFloat{
+
+  from{
 
     transform:
-      translate(0,0)
+      rotate(-22deg)
+      translate3d(0,0,0)
       scale(1);
+  }
 
+  to{
+
+    transform:
+      rotate(-12deg)
+      translate3d(70px,-30px,0)
+      scale(1.08);
+  }
+
+}
+
+
+/* =========================================================
+   PLANETS
+========================================================= */
+
+.planet{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+
+.planet-one{
+
+  width:125px;
+  height:125px;
+
+  right:8%;
+  top:17%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #b8f8ff,
+      #3d65d2 34%,
+      #1c1254 68%,
+      #05030e
+    );
+
+  box-shadow:
+    inset -25px -20px 35px rgba(0,0,0,.68),
+    0 0 35px rgba(0,160,255,.28),
+    0 0 80px rgba(70,80,255,.12);
+
+  opacity:.72;
+
+  animation:
+    planetFloat
+    13s
+    ease-in-out
+    infinite;
+}
+
+
+.planet-two{
+
+  width:78px;
+  height:78px;
+
+  left:5%;
+  bottom:22%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffc4f2,
+      #8d3fc1 42%,
+      #20072c 76%
+    );
+
+  box-shadow:
+    inset -18px -14px 25px rgba(0,0,0,.68),
+    0 0 35px rgba(255,0,190,.25),
+    0 0 80px rgba(170,50,255,.12);
+
+  opacity:.52;
+
+  animation:
+    planetFloat
+    17s
+    ease-in-out
+    infinite
+    reverse;
+}
+
+
+@keyframes planetFloat{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+
+  50%{
+    transform:
+      translateY(-18px)
+      rotate(8deg);
+  }
+
+}
+
+
+/* =========================================================
+   RINGS
+========================================================= */
+
+.ring{
+
+  position:absolute;
+
+  border:
+    1px solid rgba(0,240,255,.30);
+
+  border-radius:50%;
+
+  transform:
+    rotate(-18deg);
+
+  pointer-events:none;
+
+  box-shadow:
+    0 0 14px rgba(0,240,255,.16);
+}
+
+
+.ring-one{
+
+  width:190px;
+  height:55px;
+
+  right:4%;
+  top:20%;
+
+  opacity:.55;
+
+  animation:
+    ringRotate
+    12s
+    linear
+    infinite;
+}
+
+
+.ring-two{
+
+  width:125px;
+  height:38px;
+
+  left:2%;
+  bottom:23%;
+
+  opacity:.35;
+
+  border-color:
+    rgba(255,80,220,.34);
+
+  box-shadow:
+    0 0 14px rgba(255,50,220,.16);
+
+  animation:
+    ringRotate
+    15s
+    linear
+    infinite
+    reverse;
+}
+
+
+@keyframes ringRotate{
+
+  from{
+
+    transform:
+      rotate(-18deg)
+      scale(1);
   }
 
   50%{
 
     transform:
-      translate(130px,90px)
-      scale(1.2);
+      rotate(-8deg)
+      scale(1.04);
+  }
 
+  to{
+
+    transform:
+      rotate(-18deg)
+      scale(1);
   }
 
 }
 
 
-@keyframes floatTwo{
+/* =========================================================
+   VIGNETTE
+========================================================= */
 
-  0%,100%{
+.vignette{
 
-    transform:
-      translate(0,0)
-      scale(1);
+  position:absolute;
 
-  }
+  inset:0;
 
-  50%{
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0,0,0,.15) 65%,
+      rgba(0,0,0,.48) 100%
+    );
 
-    transform:
-      translate(-110px,80px)
-      scale(1.15);
-
-  }
-
-}
-
-
-@keyframes floatThree{
-
-  0%,100%{
-
-    transform:
-      translate(0,0)
-      scale(1);
-
-  }
-
-  50%{
-
-    transform:
-      translate(100px,-100px)
-      scale(1.18);
-
-  }
-
-}
-
-
-@keyframes floatFour{
-
-  0%,100%{
-
-    transform:
-      translate(0,0)
-      scale(1);
-
-  }
-
-  50%{
-
-    transform:
-      translate(-90px,-70px)
-      scale(1.2);
-
-  }
-
+  pointer-events:none;
 }
 
 
@@ -466,83 +1181,76 @@ header{
   left:0;
   right:0;
 
-  z-index:1000;
+  z-index:100;
+
+  padding:
+    12px 18px;
 
   background:
-    rgba(5,7,25,.68);
+    linear-gradient(
+      180deg,
+      rgba(2,3,10,.95),
+      rgba(2,3,10,.62)
+    );
 
   backdrop-filter:
-    blur(20px);
-
-  -webkit-backdrop-filter:
-    blur(20px);
+    blur(18px);
 
   border-bottom:
-    1px solid
-    rgba(255,255,255,.08);
+    1px solid rgba(0,240,255,.10);
 
+  box-shadow:
+    0 8px 35px rgba(0,0,0,.25);
 }
 
 
 .header-inner{
 
-  width:min(1200px,92%);
-
+  max-width:1200px;
   margin:auto;
-
-  min-height:76px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:space-between;
 
   gap:20px;
-
 }
 
 
 .logo{
 
+  color:white;
   text-decoration:none;
 
-  color:#fff;
+  font-weight:950;
 
-  line-height:.9;
+  letter-spacing:2px;
 
-  font-weight:900;
+  font-size:16px;
 
-  letter-spacing:1.5px;
+  line-height:1.05;
 
   text-shadow:
-    0 0 15px
-    rgba(0,240,255,.35);
-
+    0 0 10px rgba(255,255,255,.12),
+    0 0 25px rgba(0,240,255,.15);
 }
 
 
-.logo-main{
+.logo span{
 
   display:block;
 
-  font-size:20px;
-
-}
-
-
-.logo-sub{
-
-  display:block;
+  color:var(--cyan);
 
   font-size:9px;
 
-  letter-spacing:5px;
+  letter-spacing:4px;
 
-  color:var(--gold);
+  margin-top:3px;
 
-  margin-top:7px;
-
+  text-shadow:
+    0 0 12px rgba(0,240,255,.65);
 }
 
 
@@ -552,72 +1260,151 @@ nav{
 
   align-items:center;
 
-  gap:6px;
-
+  gap:18px;
 }
 
 
 nav a{
 
-  color:#dce5ff;
+  position:relative;
+
+  color:#cbd5e8;
 
   text-decoration:none;
 
-  font-size:11px;
+  font-size:12px;
 
   font-weight:800;
 
-  letter-spacing:1px;
+  transition:.25s;
+}
 
-  padding:10px 11px;
 
-  border-radius:12px;
+nav a::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  bottom:-7px;
+
+  width:0;
+  height:2px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      var(--purple),
+      var(--pink)
+    );
+
+  box-shadow:
+    0 0 10px rgba(0,240,255,.7);
 
   transition:.25s;
-
 }
 
 
 nav a:hover{
 
-  color:#fff;
+  color:white;
 
-  background:
-    rgba(0,240,255,.08);
+  text-shadow:
+    0 0 12px rgba(0,240,255,.65);
+}
 
-  box-shadow:
-    0 0 20px
-    rgba(0,240,255,.08);
 
+nav a:hover::after{
+  width:100%;
 }
 
 
 /* =========================================================
-   GENERAL
+   SECTIONS
 ========================================================= */
 
 section{
 
-  width:min(1200px,92%);
+  position:relative;
+
+  max-width:1200px;
 
   margin:auto;
 
-  scroll-margin-top:100px;
+  padding:
+    90px 18px 35px;
+}
 
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:30px;
+}
+
+
+.section-title small{
+
+  display:block;
+
+  color:var(--cyan);
+
+  font-size:10px;
+
+  font-weight:950;
+
+  letter-spacing:4px;
+
+  margin-bottom:9px;
+
+  text-shadow:
+    0 0 12px rgba(0,240,255,.65);
+}
+
+
+.section-title h2{
+
+  font-size:
+    clamp(25px,5vw,42px);
+
+  line-height:1.1;
+
+  font-weight:950;
+
+  letter-spacing:-1px;
+}
+
+
+.section-title p{
+
+  max-width:650px;
+
+  margin:
+    12px auto 0;
+
+  color:var(--muted);
+
+  font-size:14px;
+
+  line-height:1.7;
 }
 
 
 /* =========================================================
-   HERO TENGAH
+   HERO
 ========================================================= */
 
 .hero{
 
   min-height:100vh;
-
-  width:min(1200px,92%);
-
-  margin:auto;
 
   display:flex;
 
@@ -625,166 +1412,75 @@ section{
 
   justify-content:center;
 
-  padding:
-    130px 0
-    80px;
-
   text-align:center;
 
-  position:relative;
-
+  padding:
+    120px 18px 70px;
 }
 
 
-/* HERO GLOW */
-
-.hero::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:650px;
-
-  height:400px;
-
-  left:50%;
-
-  top:50%;
-
-  transform:
-    translate(-50%,-50%);
-
-  background:
-
-    radial-gradient(
-      ellipse,
-      rgba(0,240,255,.15),
-      rgba(155,92,255,.11),
-      rgba(255,79,216,.08),
-      transparent 70%
-    );
-
-  filter:blur(35px);
-
-  pointer-events:none;
-
-  z-index:-1;
-
-  animation:
-    heroGlow 7s ease-in-out infinite alternate;
-
+.hero-inner{
+  max-width:920px;
 }
 
 
-@keyframes heroGlow{
-
-  0%{
-
-    opacity:.55;
-
-    transform:
-      translate(-50%,-50%)
-      scale(.9);
-
-  }
-
-  50%{
-
-    opacity:1;
-
-    transform:
-      translate(-50%,-50%)
-      scale(1.08);
-
-  }
-
-  100%{
-
-    opacity:.65;
-
-    transform:
-      translate(-50%,-50%)
-      scale(.96);
-
-  }
-
-}
-
-
-.hero-content{
-
-  max-width:900px;
-
-  width:100%;
-
-  margin:auto;
-
-  position:relative;
-
-  z-index:2;
-
-}
-
-
-.hero-label{
+.hero-badge{
 
   display:inline-flex;
 
   align-items:center;
 
-  justify-content:center;
-
   gap:8px;
 
   padding:
-    9px 15px;
-
-  border:
-    1px solid
-    rgba(0,240,255,.28);
+    9px 16px;
 
   border-radius:999px;
 
-  background:
-    rgba(0,240,255,.07);
+  border:
+    1px solid rgba(0,240,255,.28);
 
-  color:var(--cyan);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,240,255,.08),
+      rgba(145,80,255,.08),
+      rgba(255,50,210,.07)
+    );
+
+  color:#d2fbff;
 
   font-size:10px;
 
   font-weight:900;
 
-  letter-spacing:3px;
+  letter-spacing:2px;
 
-  margin-bottom:25px;
+  margin-bottom:23px;
 
   box-shadow:
-    0 0 25px
-    rgba(0,240,255,.08);
+    0 0 25px rgba(0,240,255,.08);
 
   animation:
-    labelGlow 4s ease-in-out infinite;
-
+    badgeGlow
+    2.8s
+    ease-in-out
+    infinite
+    alternate;
 }
 
 
-@keyframes labelGlow{
+@keyframes badgeGlow{
 
-  0%,100%{
-
+  from{
     box-shadow:
-      0 0 15px
-      rgba(0,240,255,.08);
-
+      0 0 12px rgba(0,240,255,.08);
   }
 
-  50%{
-
+  to{
     box-shadow:
-      0 0 30px
-      rgba(0,240,255,.22);
-
+      0 0 30px rgba(0,240,255,.18),
+      0 0 55px rgba(150,70,255,.08);
   }
 
 }
@@ -793,17 +1489,57 @@ section{
 .hero h1{
 
   font-size:
-    clamp(42px,8vw,88px);
+    clamp(38px,9vw,82px);
 
-  line-height:.94;
+  line-height:.95;
+
+  font-weight:950;
 
   letter-spacing:-3px;
 
-  margin-bottom:25px;
+  text-transform:uppercase;
 
-  text-shadow:
-    0 0 30px
-    rgba(0,240,255,.08);
+  background:
+    linear-gradient(
+      100deg,
+      #ffffff 0%,
+      #9ffaff 30%,
+      #ffffff 48%,
+      #c092ff 72%,
+      #ffffff 100%
+    );
+
+  background-size:220% auto;
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  color:transparent;
+
+  filter:
+    drop-shadow(
+      0 0 14px
+      rgba(0,240,255,.16)
+    );
+
+  animation:
+    titleShine
+    6s
+    linear
+    infinite;
+}
+
+
+@keyframes titleShine{
+
+  from{
+    background-position:0% center;
+  }
+
+  to{
+    background-position:220% center;
+  }
 
 }
 
@@ -812,17 +1548,24 @@ section{
 
   display:block;
 
-  background:
+  font-size:
+    clamp(13px,2.8vw,22px);
 
+  letter-spacing:
+    clamp(5px,1.5vw,11px);
+
+  margin-top:16px;
+
+  background:
     linear-gradient(
       90deg,
       var(--cyan),
-      var(--purple),
+      #ffffff,
       var(--pink),
-      var(--gold)
+      var(--cyan)
     );
 
-  background-size:300% 100%;
+  background-size:250% auto;
 
   -webkit-background-clip:text;
 
@@ -831,70 +1574,45 @@ section{
   color:transparent;
 
   animation:
-    titleGradient 7s ease infinite;
-
-}
-
-
-@keyframes titleGradient{
-
-  0%{
-
-    background-position:
-      0% 50%;
-
-  }
-
-  50%{
-
-    background-position:
-      100% 50%;
-
-  }
-
-  100%{
-
-    background-position:
-      0% 50%;
-
-  }
-
+    titleShine
+    5s
+    linear
+    infinite;
 }
 
 
 .hero p{
 
-  max-width:700px;
+  max-width:680px;
 
-  margin-left:auto;
+  margin:
+    26px auto 0;
 
-  margin-right:auto;
+  color:#bdc8dc;
 
-  color:var(--soft);
+  font-size:15px;
 
-  line-height:1.9;
-
-  font-size:16px;
-
+  line-height:1.8;
 }
 
 
-.hero-buttons{
+.hero-actions{
 
   display:flex;
 
-  flex-wrap:wrap;
-
   justify-content:center;
+
+  flex-wrap:wrap;
 
   gap:12px;
 
-  margin-top:30px;
-
+  margin-top:31px;
 }
 
 
 .btn{
+
+  position:relative;
 
   display:inline-flex;
 
@@ -902,10 +1620,10 @@ section{
 
   justify-content:center;
 
-  min-height:48px;
+  min-height:47px;
 
   padding:
-    0 20px;
+    0 23px;
 
   border-radius:14px;
 
@@ -913,31 +1631,80 @@ section{
 
   font-size:12px;
 
-  font-weight:900;
+  font-weight:950;
 
   letter-spacing:1px;
 
-  transition:.25s;
+  overflow:hidden;
 
+  transition:
+    transform .25s,
+    box-shadow .25s;
+}
+
+
+.btn::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-120%;
+
+  width:80%;
+  height:100%;
+
+  transform:
+    skewX(-22deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.65),
+      transparent
+    );
+
+  transition:
+    left .7s;
+}
+
+
+.btn:hover::before{
+  left:140%;
+}
+
+
+.btn:hover{
+  transform:
+    translateY(-4px);
 }
 
 
 .btn-primary{
 
-  color:#07101b;
+  color:#001014;
 
   background:
-
     linear-gradient(
       135deg,
+      #ffffff,
       var(--cyan),
-      #7af7ff
+      #8ff8ff
     );
 
   box-shadow:
-    0 0 30px
-    rgba(0,240,255,.18);
+    0 0 20px rgba(0,240,255,.22),
+    0 8px 30px rgba(0,0,0,.3);
+}
 
+
+.btn-primary:hover{
+
+  box-shadow:
+    0 0 30px rgba(0,240,255,.40),
+    0 0 60px rgba(0,180,255,.16);
 }
 
 
@@ -945,75 +1712,31 @@ section{
 
   color:#fff;
 
-  background:
-    rgba(255,255,255,.05);
-
   border:
-    1px solid
-    rgba(255,255,255,.12);
+    1px solid rgba(255,255,255,.14);
 
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.07),
+      rgba(140,80,255,.08)
+    );
 }
 
 
-.btn:hover{
+.btn-secondary:hover{
 
-  transform:
-    translateY(-3px);
+  border-color:
+    rgba(170,110,255,.40);
 
+  box-shadow:
+    0 0 25px rgba(140,80,255,.18);
 }
 
 
 /* =========================================================
    ABOUT
 ========================================================= */
-
-.about{
-
-  padding:
-    100px 0;
-
-}
-
-
-.section-label{
-
-  color:var(--cyan);
-
-  font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:4px;
-
-  margin-bottom:13px;
-
-}
-
-
-.about h2,
-.posts h2,
-.contact h2{
-
-  font-size:
-    clamp(30px,5vw,50px);
-
-  line-height:1.05;
-
-  margin-bottom:18px;
-
-}
-
-
-.about-text{
-
-  color:var(--soft);
-
-  line-height:1.9;
-
-  max-width:850px;
-
-}
-
 
 .about-grid{
 
@@ -1022,30 +1745,29 @@ section{
   grid-template-columns:
     repeat(3,1fr);
 
-  gap:18px;
-
-  margin-top:40px;
-
+  gap:17px;
 }
 
 
 .info-card{
 
-  padding:28px;
+  position:relative;
 
-  border:
-    1px solid
-    var(--border);
+  overflow:hidden;
 
-  border-radius:24px;
+  padding:25px;
+
+  border-radius:22px;
 
   background:
-
     linear-gradient(
       145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.025)
+      rgba(15,23,52,.78),
+      rgba(5,8,22,.72)
     );
+
+  border:
+    1px solid rgba(255,255,255,.10);
 
   box-shadow:
     var(--shadow);
@@ -1053,24 +1775,102 @@ section{
   backdrop-filter:
     blur(16px);
 
-  position:relative;
-
+  transition:
+    transform .3s,
+    border-color .3s,
+    box-shadow .3s;
 }
 
 
-.info-card-icon{
+.info-card::before{
 
-  font-size:28px;
+  content:"";
 
-  margin-bottom:17px;
+  position:absolute;
 
+  width:180px;
+  height:180px;
+
+  top:-100px;
+  right:-80px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,240,255,.15),
+      transparent 70%
+    );
+}
+
+
+.info-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:-100%;
+
+  top:0;
+
+  width:60%;
+  height:100%;
+
+  transform:
+    skewX(-22deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.06),
+      transparent
+    );
+
+  transition:left .8s;
+}
+
+
+.info-card:hover::after{
+  left:140%;
+}
+
+
+.info-card:hover{
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(0,240,255,.25);
+
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.45),
+    0 0 30px rgba(0,180,255,.08);
+}
+
+
+.info-card .icon{
+
+  font-size:30px;
+
+  margin-bottom:15px;
+
+  filter:
+    drop-shadow(
+      0 0 10px
+      rgba(0,240,255,.35)
+    );
 }
 
 
 .info-card h3{
 
-  margin-bottom:10px;
+  font-size:17px;
 
+  margin-bottom:9px;
 }
 
 
@@ -1078,10 +1878,9 @@ section{
 
   color:var(--muted);
 
-  line-height:1.75;
+  font-size:13px;
 
-  font-size:14px;
-
+  line-height:1.7;
 }
 
 
@@ -1089,169 +1888,195 @@ section{
    QUOTE
 ========================================================= */
 
-.quote-section{
-
-  width:min(1000px,92%);
-
-  margin:
-    20px auto 100px;
-
-}
-
-
-.quote-box{
+.quote{
 
   position:relative;
 
+  max-width:900px;
+
+  margin:
+    35px auto 0;
+
   padding:
-    50px 35px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.10);
-
-  border-radius:30px;
+    31px 25px;
 
   text-align:center;
 
-  background:
+  border-radius:24px;
 
+  background:
     linear-gradient(
       135deg,
-      rgba(0,240,255,.06),
-      rgba(155,92,255,.08),
-      rgba(255,79,216,.05)
+      rgba(0,240,255,.07),
+      rgba(150,70,255,.09),
+      rgba(255,50,190,.06)
     );
+
+  border:
+    1px solid rgba(255,255,255,.10);
 
   box-shadow:
-    var(--shadow);
+    0 0 45px rgba(90,70,255,.06);
 
+  overflow:hidden;
 }
 
 
-.quote-box p{
+.quote p{
 
   font-size:
-    clamp(22px,4vw,38px);
+    clamp(17px,3vw,25px);
 
-  line-height:1.35;
+  line-height:1.55;
 
-  font-weight:800;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #fff,
-      var(--cyan),
-      #fff,
-      var(--gold)
-    );
-
-  -webkit-background-clip:text;
-
-  background-clip:text;
-
-  color:transparent;
-
+  font-weight:750;
 }
 
 
-.quote-box small{
+.quote span{
 
   display:block;
 
-  margin-top:18px;
+  margin-top:12px;
 
-  color:var(--muted);
+  color:var(--gold);
 
-  letter-spacing:2px;
+  font-size:10px;
 
+  font-weight:950;
+
+  letter-spacing:3px;
+
+  text-shadow:
+    0 0 12px rgba(255,210,70,.35);
 }
 
 
 /* =========================================================
-   POSTS
+   POST GRID
 ========================================================= */
 
-.posts{
-
-  padding:
-    90px 0;
-
-}
-
-
-.section-description{
-
-  max-width:720px;
-
-  color:var(--muted);
-
-  line-height:1.8;
-
-  margin-bottom:30px;
-
-}
-
-
-#foto,
-#video,
-#cerita{
-
-  scroll-margin-top:100px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.05);
-
-}
-
-
-.posts-grid{
+.post-grid{
 
   display:grid;
 
   grid-template-columns:
     repeat(3,minmax(0,1fr));
 
-  gap:20px;
-
+  gap:18px;
 }
 
 
 .post-card{
 
-  overflow:hidden;
-
-  border:
-    1px solid
-    rgba(255,255,255,.10);
-
-  border-radius:24px;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.025)
-    );
-
-  box-shadow:
-    0 18px 50px
-    rgba(0,0,0,.30);
-
-  backdrop-filter:
-    blur(15px);
-
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
-
   position:relative;
 
+  overflow:hidden;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12,19,45,.88),
+      rgba(4,7,18,.84)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.10);
+
+  box-shadow:
+    0 18px 65px rgba(0,0,0,.38);
+
+  backdrop-filter:
+    blur(14px);
+
+  transition:
+    transform .35s,
+    border-color .35s,
+    box-shadow .35s;
+
+  animation:
+    cardAppear
+    .65s
+    ease both;
+}
+
+
+@keyframes cardAppear{
+
+  from{
+    opacity:0;
+
+    transform:
+      translateY(20px)
+      scale(.98);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+.post-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(0,240,255,.035),
+      transparent 50%,
+      rgba(170,70,255,.035),
+      transparent 80%
+    );
+}
+
+
+.post-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-120%;
+
+  width:65%;
+  height:100%;
+
+  transform:
+    skewX(-20deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.08),
+      transparent
+    );
+
+  pointer-events:none;
+
+  transition:left .8s;
+}
+
+
+.post-card:hover::after{
+  left:145%;
 }
 
 
@@ -1261,50 +2086,68 @@ section{
     translateY(-7px);
 
   border-color:
-    rgba(0,240,255,.30);
+    rgba(0,240,255,.27);
 
   box-shadow:
-    0 25px 60px
-    rgba(0,240,255,.08);
-
+    0 25px 80px rgba(0,0,0,.48),
+    0 0 30px rgba(0,180,255,.08);
 }
 
 
+/* =========================================================
+   POST MEDIA
+========================================================= */
+
 .post-media{
 
-  width:100%;
-
-  aspect-ratio:16/10;
+  position:relative;
 
   overflow:hidden;
 
+  background:#010208;
+
+  aspect-ratio:16/10;
+}
+
+
+.post-media::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
   background:
-    rgba(0,0,0,.30);
-
-  cursor:pointer;
-
+    linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(0,0,0,.25)
+    );
 }
 
 
 .post-media img,
 .post-media video{
 
-  width:100%;
-
-  height:100%;
-
   display:block;
 
-  object-fit:cover;
+  width:100%;
+  height:100%;
 
+  object-fit:cover;
 }
 
 
 .post-media img{
 
-  transition:
-    transform .5s ease;
+  cursor:pointer;
 
+  transition:
+    transform .6s,
+    filter .4s;
 }
 
 
@@ -1312,118 +2155,205 @@ section{
 .post-media img{
 
   transform:
-    scale(1.04);
+    scale(1.055);
 
+  filter:
+    brightness(1.08)
+    saturate(1.08);
 }
 
 
-.post-content{
+/* =========================================================
+   POST BODY
+========================================================= */
 
-  padding:22px;
+.post-body{
 
+  position:relative;
+
+  z-index:2;
+
+  padding:18px;
 }
 
 
-.post-content h3{
+.post-body h3{
 
-  font-size:18px;
+  font-size:16px;
 
-  margin-bottom:10px;
+  line-height:1.35;
 
-  line-height:1.3;
-
+  margin-bottom:8px;
 }
 
 
-.post-content p{
+.post-story{
 
-  color:var(--muted);
+  color:#c5d0e3;
+
+  font-size:13px;
 
   line-height:1.75;
 
-  font-size:14px;
-
   white-space:pre-wrap;
 
+  overflow-wrap:anywhere;
+
+  margin-top:3px;
 }
 
 
-.empty-post{
+.post-time{
+
+  margin-top:14px;
+
+  padding-top:11px;
+
+  border-top:
+    1px solid rgba(255,255,255,.07);
+
+  color:#7f8ca5;
+
+  font-size:10px;
+
+  font-weight:700;
+}
+
+
+/* =========================================================
+   TEXT POST
+========================================================= */
+
+.text-post{
+  min-height:190px;
+}
+
+
+.text-icon{
+
+  font-size:27px;
+
+  margin-bottom:15px;
+
+  color:var(--cyan);
+
+  text-shadow:
+    0 0 15px rgba(0,240,255,.65);
+}
+
+
+.text-post h3{
+  font-size:18px;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-box{
 
   grid-column:
     1 / -1;
 
-  min-height:150px;
+  padding:
+    45px 20px;
 
-  display:flex;
+  text-align:center;
 
-  align-items:center;
-
-  justify-content:center;
-
-  padding:30px;
+  border-radius:20px;
 
   border:
-    1px dashed
-    rgba(255,255,255,.13);
-
-  border-radius:22px;
-
-  color:var(--muted);
-
-  font-size:11px;
-
-  font-weight:900;
-
-  letter-spacing:2px;
+    1px dashed rgba(255,255,255,.13);
 
   background:
     rgba(255,255,255,.025);
+
+  color:#7f8ba1;
+
+  font-size:13px;
+}
+
+
+.loading{
+
+  animation:
+    loadingPulse
+    1.5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes loadingPulse{
+
+  0%,100%{
+    opacity:.4;
+  }
+
+  50%{
+    opacity:1;
+  }
 
 }
 
 
 /* =========================================================
-   CERITA / TEKS
+   LIVE
 ========================================================= */
 
-.text-post-card{
-
-  min-height:220px;
-
-}
-
-
-.text-only-content{
-
-  min-height:220px;
+.live-status{
 
   display:flex;
 
-  flex-direction:column;
-
   justify-content:center;
+  align-items:center;
 
-  align-items:flex-start;
+  gap:8px;
 
+  margin-top:20px;
+
+  color:#8491a9;
+
+  font-size:10px;
+
+  font-weight:800;
+
+  letter-spacing:1.5px;
 }
 
 
-.text-post-icon{
+.live-dot{
 
-  font-size:32px;
+  width:8px;
+  height:8px;
 
-  margin-bottom:15px;
+  border-radius:50%;
 
-  color:var(--gold);
+  background:#27ff91;
 
-  text-shadow:
+  box-shadow:
+    0 0 8px #27ff91,
+    0 0 22px rgba(39,255,145,.65);
 
-    0 0 10px
-    rgba(255,212,90,.7),
+  animation:
+    livePulse
+    1.5s
+    infinite;
+}
 
-    0 0 25px
-    rgba(255,212,90,.35);
+
+@keyframes livePulse{
+
+  0%,100%{
+    opacity:.45;
+    transform:scale(.8);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.2);
+  }
 
 }
 
@@ -1432,151 +2362,124 @@ section{
    CONTACT
 ========================================================= */
 
-.contact{
-
-  padding:
-    100px 0;
-
-}
-
-
 .contact-box{
-
-  display:grid;
-
-  grid-template-columns:
-    1.2fr .8fr;
-
-  gap:25px;
-
-  padding:35px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.10);
-
-  border-radius:30px;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(0,240,255,.06),
-      rgba(155,92,255,.06)
-    );
-
-  box-shadow:
-    var(--shadow);
 
   position:relative;
 
-}
+  max-width:900px;
 
+  margin:auto;
 
-.contact-info p{
+  padding:31px;
 
-  color:var(--muted);
+  text-align:center;
 
-  line-height:1.8;
-
-  margin-bottom:15px;
-
-}
-
-
-.contact-item{
-
-  padding:17px;
-
-  margin-top:12px;
-
-  border-radius:15px;
+  border-radius:26px;
 
   background:
-    rgba(255,255,255,.035);
+    linear-gradient(
+      135deg,
+      rgba(0,240,255,.07),
+      rgba(140,80,255,.10),
+      rgba(255,50,190,.07)
+    );
 
   border:
-    1px solid
-    rgba(255,255,255,.07);
+    1px solid rgba(255,255,255,.11);
 
+  box-shadow:
+    0 0 50px rgba(100,70,255,.08);
+
+  overflow:hidden;
 }
 
 
-.contact-item strong{
+.contact-box h2{
 
-  display:block;
+  position:relative;
 
-  color:#fff;
+  font-size:28px;
 
-  margin-bottom:5px;
-
+  margin-bottom:10px;
 }
 
 
-.contact-item span{
+.contact-box p{
 
-  color:var(--muted);
+  position:relative;
 
-  font-size:14px;
+  color:#aeb9cc;
 
+  font-size:13px;
+
+  line-height:1.7;
+
+  margin-bottom:20px;
 }
 
 
-.contact-actions{
+.contact-list{
+
+  position:relative;
 
   display:flex;
 
-  flex-direction:column;
+  flex-wrap:wrap;
 
   justify-content:center;
 
-  gap:14px;
-
+  gap:10px;
 }
 
 
-.contact-button{
+.contact-btn{
 
-  display:flex;
+  display:inline-flex;
 
   align-items:center;
-
   justify-content:center;
 
-  min-height:55px;
+  gap:8px;
 
-  padding:15px;
+  min-height:44px;
 
-  border-radius:16px;
+  padding:
+    0 18px;
+
+  border-radius:13px;
+
+  color:#fff;
 
   text-decoration:none;
 
-  font-weight:900;
-
-  letter-spacing:1px;
-
-  color:#fff;
-
   background:
-    rgba(255,255,255,.06);
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.06),
+      rgba(0,240,255,.045)
+    );
 
   border:
-    1px solid
-    rgba(255,255,255,.10);
+    1px solid rgba(255,255,255,.11);
+
+  font-size:12px;
+
+  font-weight:850;
 
   transition:.25s;
-
 }
 
 
-.contact-button:hover{
+.contact-btn:hover{
+
+  border-color:
+    rgba(0,240,255,.38);
+
+  box-shadow:
+    0 0 22px rgba(0,240,255,.12);
 
   transform:
     translateY(-3px);
-
-  border-color:
-    rgba(0,240,255,.30);
-
 }
 
 
@@ -1587,25 +2490,24 @@ section{
 footer{
 
   padding:
-    35px 20px;
+    35px 18px 30px;
 
   text-align:center;
 
-  border-top:
-    1px solid
-    rgba(255,255,255,.07);
+  color:#68748a;
 
-  color:var(--muted);
+  font-size:10px;
 
-  font-size:12px;
-
+  letter-spacing:1px;
 }
 
 
 footer strong{
 
-  color:#fff;
+  color:#aab5c9;
 
+  text-shadow:
+    0 0 10px rgba(0,240,255,.10);
 }
 
 
@@ -1617,20 +2519,17 @@ footer strong{
 
   position:fixed;
 
-  right:20px;
+  right:18px;
+  bottom:18px;
 
-  bottom:20px;
+  z-index:150;
 
-  z-index:1500;
-
-  width:58px;
-
-  height:58px;
+  width:56px;
+  height:56px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   border-radius:50%;
@@ -1639,15 +2538,44 @@ footer strong{
 
   text-decoration:none;
 
-  font-size:27px;
+  font-size:25px;
 
-  background:#25d366;
+  background:
+    linear-gradient(
+      135deg,
+      #20e06f,
+      #08a94f
+    );
 
   box-shadow:
-    0 10px 35px
-    rgba(0,0,0,.35);
+    0 8px 30px rgba(0,0,0,.35),
+    0 0 20px rgba(32,224,111,.28);
 
-  transition:.25s;
+  transition:
+    transform .25s;
+
+  animation:
+    whatsappPulse
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes whatsappPulse{
+
+  0%,100%{
+    box-shadow:
+      0 8px 30px rgba(0,0,0,.35),
+      0 0 20px rgba(32,224,111,.28);
+  }
+
+  50%{
+    box-shadow:
+      0 8px 30px rgba(0,0,0,.35),
+      0 0 32px rgba(32,224,111,.48),
+      0 0 65px rgba(32,224,111,.15);
+  }
 
 }
 
@@ -1655,90 +2583,75 @@ footer strong{
 .whatsapp-float:hover{
 
   transform:
-    translateY(-4px)
-    scale(1.04);
-
+    translateY(-5px)
+    scale(1.06);
 }
 
 
 /* =========================================================
-   MEDIA VIEWER
+   VIEWER
 ========================================================= */
 
-#mediaViewer{
+.viewer{
 
   position:fixed;
 
   inset:0;
 
-  z-index:3000;
+  z-index:500;
 
   display:none;
 
   align-items:center;
-
   justify-content:center;
 
   padding:20px;
 
   background:
-    rgba(0,0,0,.88);
+    rgba(0,0,0,.93);
 
   backdrop-filter:
     blur(14px);
-
 }
 
 
-#mediaViewer.show{
-
+.viewer.show{
   display:flex;
-
-}
-
-
-.viewer-box{
-
-  position:relative;
-
-  width:min(1000px,96vw);
-
-  max-height:92vh;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  gap:15px;
-
 }
 
 
 .viewer-content{
 
-  max-width:100%;
+  position:relative;
 
-  max-height:78vh;
+  max-width:1100px;
 
-  border-radius:18px;
+  max-height:90vh;
 
-  box-shadow:
-    0 30px 100px
-    rgba(0,0,0,.6);
+  width:100%;
 
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 }
 
 
-#viewerTitle{
+.viewer img,
+.viewer video{
 
-  color:#fff;
+  max-width:100%;
 
-  text-align:center;
+  max-height:85vh;
 
-  font-weight:800;
+  object-fit:contain;
 
+  border-radius:12px;
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.7),
+    0 0 35px rgba(0,240,255,.08);
 }
 
 
@@ -1746,27 +2659,25 @@ footer strong{
 
   position:absolute;
 
-  top:-45px;
+  right:-5px;
+  top:-48px;
 
-  right:0;
-
-  width:40px;
-
-  height:40px;
-
-  border:0;
+  width:38px;
+  height:38px;
 
   border-radius:50%;
 
-  cursor:pointer;
+  border:
+    1px solid rgba(255,255,255,.18);
+
+  background:
+    rgba(255,255,255,.08);
 
   color:#fff;
 
-  background:
-    rgba(255,255,255,.10);
-
   font-size:20px;
 
+  cursor:pointer;
 }
 
 
@@ -1776,56 +2687,21 @@ footer strong{
 
 @media(max-width:900px){
 
-  .header-inner{
+  .about-grid{
+    grid-template-columns:1fr;
+  }
 
-    min-height:70px;
-
+  .post-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
   }
 
   nav{
-
-    overflow-x:auto;
-
-    max-width:68vw;
-
-    scrollbar-width:none;
-
-  }
-
-  nav::-webkit-scrollbar{
-
-    display:none;
-
+    gap:10px;
   }
 
   nav a{
-
-    flex-shrink:0;
-
-    font-size:9px;
-
-    padding:
-      9px 8px;
-
-  }
-
-  .about-grid{
-
-    grid-template-columns:1fr;
-
-  }
-
-  .posts-grid{
-
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-
-  }
-
-  .contact-box{
-
-    grid-template-columns:1fr;
-
+    font-size:10px;
   }
 
 }
@@ -1833,225 +2709,206 @@ footer strong{
 
 @media(max-width:600px){
 
+  header{
+    padding:
+      11px 13px;
+  }
+
   .header-inner{
-
     gap:8px;
-
   }
 
-  .logo-main{
-
-    font-size:15px;
-
+  .logo{
+    font-size:13px;
+    letter-spacing:1.5px;
   }
 
-  .logo-sub{
-
+  .logo span{
     font-size:7px;
-
     letter-spacing:3px;
-
   }
 
   nav{
-
-    max-width:62vw;
-
+    gap:7px;
   }
 
   nav a{
-
     font-size:8px;
+  }
 
-    letter-spacing:.5px;
-
+  section{
     padding:
-      8px 7px;
-
+      75px 13px 25px;
   }
 
   .hero{
 
-    padding-top:125px;
+    min-height:92vh;
 
+    padding:
+      115px 15px 60px;
   }
 
   .hero h1{
-
     letter-spacing:-2px;
-
   }
 
   .hero p{
-
-    font-size:14px;
-
+    font-size:13px;
   }
 
-  .hero-buttons{
-
-    flex-direction:column;
-
+  .hero-badge{
+    font-size:8px;
+    letter-spacing:1.5px;
   }
 
-  .btn{
-
-    width:100%;
-
-  }
-
-  .posts-grid{
-
+  .post-grid{
     grid-template-columns:1fr;
+    gap:14px;
+  }
 
+  .post-card:hover{
+    transform:
+      translateY(-3px);
   }
 
   .contact-box{
-
-    padding:22px;
-
+    padding:
+      24px 16px;
   }
 
-  .quote-box{
+  .planet-one{
+    width:80px;
+    height:80px;
+    right:-10px;
+  }
 
-    padding:
-      40px 20px;
+  .planet-two{
+    width:55px;
+    height:55px;
+    left:-5px;
+  }
 
+  .ring-one{
+    width:120px;
+    height:35px;
+  }
+
+  .ring-two{
+    width:90px;
+    height:28px;
+  }
+
+  .space-glow{
+    filter:blur(55px);
+  }
+
+  .glow-cyan{
+    width:280px;
+    height:280px;
+  }
+
+  .glow-purple{
+    width:320px;
+    height:320px;
+  }
+
+  .glow-pink{
+    width:260px;
+    height:260px;
+  }
+
+  .cosmic-orbit{
+    opacity:.55;
   }
 
   .whatsapp-float{
-
-    width:53px;
-
-    height:53px;
-
-    right:15px;
-
-    bottom:15px;
-
-  }
-
-  .hero::before{
-
-    width:450px;
-
-    height:320px;
-
-  }
-
-  .light{
-
-    width:150px;
-
-    height:150px;
-
+    right:14px;
+    bottom:14px;
+    width:52px;
+    height:52px;
   }
 
 }
 
 
-@media(max-width:390px){
+@media(prefers-reduced-motion:reduce){
 
-  .logo-main{
+  *,
+  *::before,
+  *::after{
 
-    font-size:13px;
+    animation-duration:.001ms !important;
 
+    animation-iteration-count:1 !important;
+
+    scroll-behavior:auto !important;
   }
-
-  nav{
-
-    max-width:59vw;
-
-  }
-
-  nav a{
-
-    font-size:7px;
-
-    padding:
-      7px 5px;
-
-  }
-
-}
-
-
-/* =========================================================
-   EXTRA GLOW
-========================================================= */
-
-.post-card::before,
-.info-card::before,
-.contact-box::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  pointer-events:none;
-
-  border-radius:inherit;
-
-  background:
-
-    radial-gradient(
-      circle at 20% 0%,
-      rgba(0,240,255,.06),
-      transparent 35%
-    );
-
-}
-
-
-.posts h2{
-
-  text-shadow:
-    0 0 25px
-    rgba(0,240,255,.08);
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
-     BACKGROUND LIGHTS
-========================================================= -->
+<!-- =======================================================
+     COSMIC BACKGROUND
+======================================================= -->
 
-<div class="light one"></div>
+<div class="space-bg">
 
-<div class="light two"></div>
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+  <div class="nebula nebula-3"></div>
 
-<div class="light three"></div>
+  <div class="stars-far"></div>
+  <div class="stars-mid"></div>
+  <div class="stars-near"></div>
 
-<div class="light four"></div>
+  <div class="space-dust"></div>
+
+  <!-- DEEP SPACE LIGHT -->
+  <div class="space-glow glow-cyan"></div>
+  <div class="space-glow glow-purple"></div>
+  <div class="space-glow glow-pink"></div>
+
+  <!-- COSMIC STREAM - ATAS KE BAWAH -->
+  <div class="cosmic-stream stream-1"></div>
+  <div class="cosmic-stream stream-2"></div>
+  <div class="cosmic-stream stream-3"></div>
+
+  <!-- COSMIC ORBIT -->
+  <div class="cosmic-orbit orbit-1"></div>
+  <div class="cosmic-orbit orbit-2"></div>
+
+  <!-- PLANETS -->
+  <div class="planet planet-one"></div>
+  <div class="planet planet-two"></div>
+
+  <div class="ring ring-one"></div>
+  <div class="ring ring-two"></div>
+
+  <div class="vignette"></div>
+
+</div>
 
 
-<!-- =========================================================
+<!-- =======================================================
      HEADER
-========================================================= -->
+======================================================= -->
 
 <header>
 
   <div class="header-inner">
 
-    <a
-      href="#home"
-      class="logo"
-    >
+    <a href="#home" class="logo">
 
-      <span class="logo-main">
-        PRAN MUSIC
-      </span>
+      PRAN MUSIC
 
-      <span class="logo-sub">
+      <span>
         ENTERTAINMENT
       </span>
 
@@ -2060,29 +2917,12 @@ footer strong{
 
     <nav>
 
-      <a href="#home">
-        HOME
-      </a>
-
-      <a href="#about">
-        ABOUT
-      </a>
-
-      <a href="#foto">
-        FOTO
-      </a>
-
-      <a href="#video">
-        VIDEO
-      </a>
-
-      <a href="#cerita">
-        CERITA
-      </a>
-
-      <a href="#contact">
-        CONTACT
-      </a>
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#foto">FOTO</a>
+      <a href="#video">VIDEO</a>
+      <a href="#cerita">CERITA</a>
+      <a href="#contact">CONTACT</a>
 
     </nav>
 
@@ -2091,21 +2931,19 @@ footer strong{
 </header>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
-<section
-  class="hero"
-  id="home"
->
+<main>
 
-  <div class="hero-content">
 
-    <div class="hero-label">
+<section id="home" class="hero">
 
-      ✦ MUSIC • STORY • ENTERTAINMENT
+  <div class="hero-inner">
 
+    <div class="hero-badge">
+      ✦ PRAN MUSIC ENTERTAINMENT ✦
     </div>
 
 
@@ -2122,31 +2960,31 @@ footer strong{
 
     <p>
 
-      Setiap nada menyimpan cerita.
-      Setiap karya menghadirkan rasa.
-      PRAN MUSIC ENTERTAINMENT hadir
-      untuk menghadirkan sound system,
-      musik dan entertainment untuk
-      berbagai momen spesial.
+      Sound System & Event Entertainment
+      untuk wedding, ulang tahun, khitanan,
+      konser, gathering, acara desa dan
+      berbagai momen spesial lainnya.
 
     </p>
 
 
-    <div class="hero-buttons">
+    <div class="hero-actions">
 
       <a
         href="#foto"
-        class="btn btn-primary"
-      >
-        LIHAT FOTO
+        class="btn btn-primary">
+
+        LIHAT MOMEN
+
       </a>
 
 
       <a
-        href="#video"
-        class="btn btn-secondary"
-      >
-        LIHAT VIDEO
+        href="#contact"
+        class="btn btn-secondary">
+
+        HUBUNGI KAMI
+
       </a>
 
     </div>
@@ -2156,49 +2994,36 @@ footer strong{
 </section>
 
 
-<!-- =========================================================
-     ABOUT
-========================================================= -->
+<section id="about">
 
-<section
-  class="about"
-  id="about"
->
+  <div class="section-title">
 
-  <div class="section-label">
-    ABOUT PRAN
+    <small>
+      ABOUT US
+    </small>
+
+    <h2>
+      Music • Story • Memories
+    </h2>
+
+    <p>
+
+      Setiap acara mempunyai cerita.
+      PRAN MUSIC ENTERTAINMENT hadir
+      untuk membantu menciptakan suasana
+      yang berkesan.
+
+    </p>
+
   </div>
-
-
-  <h2>
-    Lebih dari sekadar suara.
-  </h2>
-
-
-  <p class="about-text">
-
-    PRAN MUSIC ENTERTAINMENT merupakan
-    layanan sound system dan event entertainment
-    yang hadir untuk berbagai kebutuhan acara.
-    Mulai dari wedding, ulang tahun, khitanan,
-    konser, gathering, acara desa dan berbagai
-    acara lainnya.
-
-    <br><br>
-
-    Kami percaya bahwa sebuah acara bukan hanya
-    tentang suara yang terdengar, tetapi juga
-    tentang suasana, kenangan dan cerita yang
-    tercipta di dalamnya.
-
-  </p>
 
 
   <div class="about-grid">
 
+
     <div class="info-card">
 
-      <div class="info-card-icon">
+      <div class="icon">
         🔊
       </div>
 
@@ -2207,8 +3032,11 @@ footer strong{
       </h3>
 
       <p>
-        Mendukung kebutuhan audio untuk
-        berbagai jenis acara.
+
+        Sistem suara untuk berbagai
+        kebutuhan acara dengan konsep
+        yang dapat disesuaikan.
+
       </p>
 
     </div>
@@ -2216,17 +3044,19 @@ footer strong{
 
     <div class="info-card">
 
-      <div class="info-card-icon">
-        🎵
+      <div class="icon">
+        🎤
       </div>
 
       <h3>
-        Entertainment
+        Event Entertainment
       </h3>
 
       <p>
-        Menghadirkan suasana musik dan
-        entertainment untuk momen spesial.
+
+        Mendukung suasana acara agar
+        lebih hidup, meriah dan berkesan.
+
       </p>
 
     </div>
@@ -2234,124 +3064,119 @@ footer strong{
 
     <div class="info-card">
 
-      <div class="info-card-icon">
+      <div class="icon">
         ✨
       </div>
 
       <h3>
-        Event
+        Music Story
       </h3>
 
       <p>
-        Mendukung berbagai acara,
-        dari acara keluarga hingga event besar.
+
+        Dokumentasi foto, video dan
+        cerita perjalanan PRAN MUSIC
+        ENTERTAINMENT.
+
       </p>
 
     </div>
 
+
   </div>
 
-</section>
 
-
-<!-- =========================================================
-     QUOTE
-========================================================= -->
-
-<section class="quote-section">
-
-  <div class="quote-box">
+  <div class="quote">
 
     <p>
-      “Biarkan karya menyampaikan
-      apa yang terkadang sulit
-      diucapkan oleh kata-kata.”
+
+      “Setiap nada mempunyai cerita,
+      setiap acara meninggalkan kenangan.”
+
     </p>
 
-    <small>
+    <span>
       PRAN MUSIC ENTERTAINMENT
-    </small>
+    </span>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
-     FOTO TERBARU
-========================================================= -->
+<section id="foto">
 
-<section
-  class="posts"
-  id="foto"
->
+  <div class="section-title">
 
-  <div class="section-label">
-    FOTO TERBARU
+    <small>
+      PHOTO STORY
+    </small>
+
+    <h2>
+      Foto
+    </h2>
+
+    <p>
+
+      Momen-momen yang dibagikan
+      dari PRAN MUSIC ENTERTAINMENT.
+
+    </p>
+
   </div>
-
-
-  <h2>
-    Foto Terbaru
-  </h2>
-
-
-  <p class="section-description">
-
-    Dokumentasi foto terbaru dari
-    PRAN MUSIC ENTERTAINMENT.
-
-  </p>
 
 
   <div
     id="photoGrid"
-    class="posts-grid"
-  >
+    class="post-grid">
 
-    <div class="empty-post">
-      MEMUAT FOTO...
+    <div class="empty-box loading">
+      Memuat foto...
     </div>
+
+  </div>
+
+
+  <div class="live-status">
+
+    <span class="live-dot"></span>
+
+    LIVE UPDATE
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
-     VIDEO TERBARU
-========================================================= -->
+<section id="video">
 
-<section
-  class="posts"
-  id="video"
->
+  <div class="section-title">
 
-  <div class="section-label">
-    VIDEO TERBARU
+    <small>
+      VIDEO STORY
+    </small>
+
+    <h2>
+      Video
+    </h2>
+
+    <p>
+
+      Saksikan dokumentasi acara
+      dan perjalanan PRAN MUSIC
+      ENTERTAINMENT.
+
+    </p>
+
   </div>
-
-
-  <h2>
-    Video Terbaru
-  </h2>
-
-
-  <p class="section-description">
-
-    Video terbaru dan dokumentasi kegiatan
-    PRAN MUSIC ENTERTAINMENT.
-
-  </p>
 
 
   <div
     id="videoGrid"
-    class="posts-grid"
-  >
+    class="post-grid">
 
-    <div class="empty-post">
-      MEMUAT VIDEO...
+    <div class="empty-box loading">
+      Memuat video...
     </div>
 
   </div>
@@ -2359,40 +3184,34 @@ footer strong{
 </section>
 
 
-<!-- =========================================================
-     CERITA
-========================================================= -->
+<section id="cerita">
 
-<section
-  class="posts"
-  id="cerita"
->
+  <div class="section-title">
 
-  <div class="section-label">
-    CERITA TERBARU
+    <small>
+      MUSIC STORY
+    </small>
+
+    <h2>
+      Cerita
+    </h2>
+
+    <p>
+
+      Cerita dan tulisan yang dibagikan
+      melalui panel admin.
+
+    </p>
+
   </div>
-
-
-  <h2>
-    Cerita &amp; Teks
-  </h2>
-
-
-  <p class="section-description">
-
-    Cerita, kabar, informasi dan tulisan
-    terbaru PRAN MUSIC ENTERTAINMENT.
-
-  </p>
 
 
   <div
     id="textGrid"
-    class="posts-grid"
-  >
+    class="post-grid">
 
-    <div class="empty-post">
-      MEMUAT CERITA...
+    <div class="empty-box loading">
+      Memuat cerita...
     </div>
 
   </div>
@@ -2400,171 +3219,120 @@ footer strong{
 </section>
 
 
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section
-  class="contact"
-  id="contact"
->
-
-  <div class="section-label">
-    CONTACT
-  </div>
-
-
-  <h2>
-    Mari buat momen bersama.
-  </h2>
-
+<section id="contact">
 
   <div class="contact-box">
 
-    <div class="contact-info">
-
-      <p>
-
-        Hubungi PRAN MUSIC ENTERTAINMENT
-        untuk kebutuhan sound system dan
-        entertainment acara Anda.
-
-      </p>
+    <h2>
+      Hubungi PRAN MUSIC ENTERTAINMENT
+    </h2>
 
 
-      <div class="contact-item">
+    <p>
 
-        <strong>
-          📍 ALAMAT
-        </strong>
+      Untuk informasi sound system,
+      entertainment dan kebutuhan acara,
+      silakan hubungi kami melalui WhatsApp.
 
-        <span>
-
-          Jl. Makmur Pasar 7 Tembung,
-          Gang Anggrek 18,
-          Sena, Sumatera Utara 20371
-
-        </span>
-
-      </div>
+    </p>
 
 
-      <div class="contact-item">
-
-        <strong>
-          📱 WHATSAPP
-        </strong>
-
-        <span>
-          +62 881-0247-46780
-        </span>
-
-      </div>
-
-
-      <div class="contact-item">
-
-        <strong>
-          📱 WHATSAPP 2
-        </strong>
-
-        <span>
-          +62 812-6017-5243
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="contact-actions">
+    <div class="contact-list">
 
       <a
-        class="contact-button"
+        class="contact-btn"
         href="https://wa.me/62881024746780"
         target="_blank"
-        rel="noopener noreferrer"
-      >
-        💬 WHATSAPP UTAMA
+        rel="noopener">
+
+        💬 +62 881-0247-46780
+
       </a>
 
 
       <a
-        class="contact-button"
+        class="contact-btn"
         href="https://wa.me/6281260175243"
         target="_blank"
-        rel="noopener noreferrer"
-      >
-        💬 WHATSAPP 2
+        rel="noopener">
+
+        💬 +62 812-6017-5243
+
       </a>
 
     </div>
+
+
+    <p
+      style="
+        margin-top:18px;
+        margin-bottom:0;
+      ">
+
+      📍 Jl. Makmur Pasar 7 Tembung,
+      Gang Anggrek 18, Sena,
+      Sumatera Utara 20371
+
+    </p>
 
   </div>
 
 </section>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+</main>
+
 
 <footer>
+
+  © <span id="year"></span>
 
   <strong>
     PRAN MUSIC ENTERTAINMENT
   </strong>
 
-  <br><br>
-
-  © 2026 PRAN MUSIC ENTERTAINMENT.
-  All Rights Reserved.
+  • All Rights Reserved
 
 </footer>
 
 
-<!-- =========================================================
-     FLOATING WHATSAPP
-========================================================= -->
+<!-- =======================================================
+     WHATSAPP
+======================================================= -->
 
 <a
   class="whatsapp-float"
   href="https://wa.me/62881024746780"
   target="_blank"
-  rel="noopener noreferrer"
-  aria-label="WhatsApp PRAN MUSIC ENTERTAINMENT"
->
-  ☎
+  rel="noopener"
+  aria-label="WhatsApp">
+
+  💬
+
 </a>
 
 
-<!-- =========================================================
-     MEDIA VIEWER
-========================================================= -->
+<!-- =======================================================
+     VIEWER
+======================================================= -->
 
 <div
-  id="mediaViewer"
-  onclick="closeMedia()"
->
+  id="viewer"
+  class="viewer"
+  aria-hidden="true">
 
-  <div
-    class="viewer-box"
-    onclick="event.stopPropagation()"
-  >
+  <div class="viewer-content">
 
     <button
+      id="viewerClose"
       class="viewer-close"
-      onclick="closeMedia()"
-      aria-label="Tutup"
-    >
+      type="button">
+
       ×
+
     </button>
 
-
-    <div id="viewerContent"></div>
-
-
-    <div id="viewerTitle"></div>
+    <div id="viewerMedia"></div>
 
   </div>
 
@@ -2578,12 +3346,10 @@ footer strong{
 ========================================================= */
 
 const SUPABASE_URL =
-  "https://uigwpcjhzbqfmwhvolbu.supabase.co";
-
+  "https://mgrywcipburehqdpvueh.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_BPLfeHPOBQ8aGqFx1IfcIQ_HO-J0vv0";
-
+  "sb_publishable_OO1F-zkqsrUhwrqL8QFPqw_7Jxi4FFd";
 
 const supabaseClient =
   window.supabase.createClient(
@@ -2598,164 +3364,523 @@ const supabaseClient =
 
 function escapeHtml(value){
 
-  return String(value ?? "")
+  if(
+    value === null ||
+    value === undefined
+  ){
+    return "";
+  }
+
+  return String(value)
 
     .replace(/&/g,"&amp;")
-
     .replace(/</g,"&lt;")
-
     .replace(/>/g,"&gt;")
-
     .replace(/"/g,"&quot;")
-
     .replace(/'/g,"&#039;");
 
 }
 
 
-function escapeAttribute(value){
+/* =========================================================
+   WAKTU POSTING
+========================================================= */
 
-  return escapeHtml(value);
+function formatPostTime(dateValue){
 
-}
+  if(!dateValue){
+    return "";
+  }
 
+  const date =
+    new Date(dateValue);
 
-function escapeJs(value){
+  if(
+    Number.isNaN(
+      date.getTime()
+    )
+  ){
+    return "";
+  }
 
-  return String(value ?? "")
+  const formatted =
+    new Intl.DateTimeFormat(
+      "id-ID",
+      {
+        timeZone:"Asia/Jakarta",
+        day:"2-digit",
+        month:"long",
+        year:"numeric",
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    ).format(date);
 
-    .replace(/\\/g,"\\\\")
-
-    .replace(/'/g,"\\'")
-
-    .replace(/"/g,'\\"')
-
-    .replace(/\r/g,"\\r")
-
-    .replace(/\n/g,"\\n");
+  return formatted + " WIB";
 
 }
 
 
 /* =========================================================
-   UPDATE IMAGE SEO
+   TIPE POST
 ========================================================= */
 
-function updateImageSEO(
-  imageUrl,
-  title,
-  description
+function getPostType(post){
+
+  const mediaType =
+    String(
+      post.media_type || ""
+    )
+    .toLowerCase()
+    .trim();
+
+
+  if(
+    mediaType === "video" ||
+    mediaType === "mp4" ||
+    mediaType === "webm" ||
+    mediaType === "mov"
+  ){
+    return "video";
+  }
+
+
+  if(
+    mediaType === "image" ||
+    mediaType === "foto" ||
+    mediaType === "photo" ||
+    mediaType === "jpg" ||
+    mediaType === "jpeg" ||
+    mediaType === "png" ||
+    mediaType === "webp"
+  ){
+    return "photo";
+  }
+
+
+  const url =
+    String(
+      post.media_url ||
+      post.file_url ||
+      post.url ||
+      ""
+    ).toLowerCase();
+
+
+  if(
+    /\.(mp4|webm|mov|m4v)(\?|$)/i
+      .test(url)
+  ){
+    return "video";
+  }
+
+
+  if(
+    /\.(jpg|jpeg|png|gif|webp)(\?|$)/i
+      .test(url)
+  ){
+    return "photo";
+  }
+
+
+  return "text";
+}
+
+
+/* =========================================================
+   MEDIA URL
+========================================================= */
+
+function getMediaUrl(post){
+
+  return (
+    post.media_url ??
+    post.file_url ??
+    post.url ??
+    ""
+  );
+
+}
+
+
+/* =========================================================
+   JUDUL
+========================================================= */
+
+function getTitle(post){
+
+  return (
+    post.judul ??
+    post.title ??
+    post.nama ??
+    "PRAN MUSIC ENTERTAINMENT"
+  );
+
+}
+
+
+/* =========================================================
+   KETERANGAN ADMIN
+========================================================= */
+
+function getStory(post){
+
+  const possibleFields = [
+
+    "keterangan",
+    "cerita",
+    "description",
+    "isi",
+    "content",
+    "caption",
+    "deskripsi",
+    "story",
+    "body",
+    "text"
+
+  ];
+
+
+  for(
+    const field of possibleFields
+  ){
+
+    if(
+      post[field] !== null &&
+      post[field] !== undefined &&
+      String(post[field]).trim() !== ""
+    ){
+
+      return String(
+        post[field]
+      );
+
+    }
+
+  }
+
+
+  return "";
+
+}
+
+
+/* =========================================================
+   PHOTO CARD
+========================================================= */
+
+function createPhotoCard(post){
+
+  const mediaUrl =
+    getMediaUrl(post);
+
+  const title =
+    escapeHtml(
+      getTitle(post)
+    );
+
+  const story =
+    escapeHtml(
+      getStory(post)
+    );
+
+  const time =
+    formatPostTime(
+      post.created_at
+    );
+
+
+  const card =
+    document.createElement(
+      "article"
+    );
+
+
+  card.className =
+    "post-card";
+
+
+  card.innerHTML = `
+
+    <div class="post-media">
+
+      <img
+        src="${escapeHtml(mediaUrl)}"
+        alt="${title}"
+        loading="lazy">
+
+    </div>
+
+
+    <div class="post-body">
+
+      <h3>
+        ${title}
+      </h3>
+
+
+      ${
+        story
+        ?
+        `
+        <div class="post-story">
+          ${story}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        time
+        ?
+        `
+        <div class="post-time">
+          🕐 ${escapeHtml(time)}
+        </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+
+  `;
+
+
+  const image =
+    card.querySelector(
+      "img"
+    );
+
+
+  image.addEventListener(
+    "click",
+    function(){
+
+      openViewer(
+        "image",
+        mediaUrl
+      );
+
+    }
+  );
+
+
+  image.addEventListener(
+    "error",
+    function(){
+
+      this.style.display =
+        "none";
+
+    }
+  );
+
+
+  return card;
+}
+
+
+/* =========================================================
+   VIDEO CARD
+========================================================= */
+
+function createVideoCard(post){
+
+  const mediaUrl =
+    getMediaUrl(post);
+
+  const title =
+    escapeHtml(
+      getTitle(post)
+    );
+
+  const story =
+    escapeHtml(
+      getStory(post)
+    );
+
+  const time =
+    formatPostTime(
+      post.created_at
+    );
+
+
+  const card =
+    document.createElement(
+      "article"
+    );
+
+
+  card.className =
+    "post-card";
+
+
+  card.innerHTML = `
+
+    <div class="post-media">
+
+      <video
+        controls
+        playsinline
+        preload="metadata">
+
+        <source
+          src="${escapeHtml(mediaUrl)}">
+
+        Browser Anda tidak
+        mendukung video HTML5.
+
+      </video>
+
+    </div>
+
+
+    <div class="post-body">
+
+      <h3>
+        ${title}
+      </h3>
+
+
+      ${
+        story
+        ?
+        `
+        <div class="post-story">
+          ${story}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        time
+        ?
+        `
+        <div class="post-time">
+          🕐 ${escapeHtml(time)}
+        </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+
+  `;
+
+
+  return card;
+}
+
+
+/* =========================================================
+   TEXT CARD
+========================================================= */
+
+function createTextCard(post){
+
+  const title =
+    escapeHtml(
+      getTitle(post)
+    );
+
+  const story =
+    escapeHtml(
+      getStory(post)
+    );
+
+  const time =
+    formatPostTime(
+      post.created_at
+    );
+
+
+  const card =
+    document.createElement(
+      "article"
+    );
+
+
+  card.className =
+    "post-card text-post";
+
+
+  card.innerHTML = `
+
+    <div class="post-body">
+
+      <div class="text-icon">
+        ✦
+      </div>
+
+
+      <h3>
+        ${title}
+      </h3>
+
+
+      ${
+        story
+        ?
+        `
+        <div class="post-story">
+          ${story}
+        </div>
+        `
+        :
+        `
+        <div class="post-story">
+          Belum ada keterangan.
+        </div>
+        `
+      }
+
+
+      ${
+        time
+        ?
+        `
+        <div class="post-time">
+          🕐 ${escapeHtml(time)}
+        </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+
+  `;
+
+
+  return card;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+function showEmpty(
+  element,
+  message
 ){
 
-  if(!imageUrl){
+  element.innerHTML = `
 
-    return;
+    <div class="empty-box">
 
-  }
+      ${escapeHtml(message)}
 
+    </div>
 
-  let ogImage =
-    document.querySelector(
-      'meta[property="og:image"]'
-    );
-
-
-  if(!ogImage){
-
-    ogImage =
-      document.createElement("meta");
-
-    ogImage.setAttribute(
-      "property",
-      "og:image"
-    );
-
-    document.head.appendChild(
-      ogImage
-    );
-
-  }
-
-
-  ogImage.setAttribute(
-    "content",
-    imageUrl
-  );
-
-
-  let twitterImage =
-    document.querySelector(
-      'meta[name="twitter:image"]'
-    );
-
-
-  if(!twitterImage){
-
-    twitterImage =
-      document.createElement("meta");
-
-    twitterImage.setAttribute(
-      "name",
-      "twitter:image"
-    );
-
-    document.head.appendChild(
-      twitterImage
-    );
-
-  }
-
-
-  twitterImage.setAttribute(
-    "content",
-    imageUrl
-  );
-
-
-  let imageSchema =
-    document.getElementById(
-      "dynamicImageSchema"
-    );
-
-
-  if(!imageSchema){
-
-    imageSchema =
-      document.createElement("script");
-
-    imageSchema.type =
-      "application/ld+json";
-
-    imageSchema.id =
-      "dynamicImageSchema";
-
-    document.head.appendChild(
-      imageSchema
-    );
-
-  }
-
-
-  imageSchema.textContent =
-    JSON.stringify({
-
-      "@context":
-        "https://schema.org",
-
-      "@type":
-        "ImageObject",
-
-      "contentUrl":
-        imageUrl,
-
-      "name":
-        title ||
-        "PRAN MUSIC ENTERTAINMENT",
-
-      "description":
-        description || ""
-
-    });
+  `;
 
 }
 
@@ -2764,19 +3889,30 @@ function updateImageSEO(
    LOAD POSTS
 ========================================================= */
 
+let loadingPosts =
+  false;
+
+
 async function loadPosts(){
+
+  if(loadingPosts){
+    return;
+  }
+
+
+  loadingPosts =
+    true;
+
 
   const photoGrid =
     document.getElementById(
       "photoGrid"
     );
 
-
   const videoGrid =
     document.getElementById(
       "videoGrid"
     );
-
 
   const textGrid =
     document.getElementById(
@@ -2789,471 +3925,166 @@ async function loadPosts(){
     const {
       data,
       error
-    } = await supabaseClient
+    } =
+      await supabaseClient
 
-      .from("posts")
+        .from("posts")
 
-      .select("*")
+        .select("*")
 
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
 
 
     if(error){
 
       console.error(
-        "Gagal mengambil posting:",
+        "LOAD POSTS ERROR:",
         error
       );
 
 
-      photoGrid.innerHTML =
-        `<div class="empty-post">
-          GAGAL MEMUAT FOTO
-        </div>`;
+      showEmpty(
+        photoGrid,
+        "Foto belum dapat dimuat."
+      );
 
 
-      videoGrid.innerHTML =
-        `<div class="empty-post">
-          GAGAL MEMUAT VIDEO
-        </div>`;
+      showEmpty(
+        videoGrid,
+        "Video belum dapat dimuat."
+      );
 
 
-      textGrid.innerHTML =
-        `<div class="empty-post">
-          GAGAL MEMUAT CERITA
-        </div>`;
+      showEmpty(
+        textGrid,
+        "Cerita belum dapat dimuat."
+      );
 
 
       return;
-
     }
 
 
-    const posts =
-      data || [];
+    photoGrid.innerHTML =
+      "";
+
+    videoGrid.innerHTML =
+      "";
+
+    textGrid.innerHTML =
+      "";
 
 
-    /* =====================================================
-       FILTER FOTO
-    ===================================================== */
+    let photoCount =
+      0;
 
-    const photos =
-      posts.filter(post => {
+    let videoCount =
+      0;
 
-        const type =
-          String(
-            post.type || ""
-          )
-          .trim()
-          .toLowerCase();
+    let textCount =
+      0;
 
 
-        return (
-
-          type === "foto" &&
-          !!post.media_url
-
-        );
-
-      });
-
-
-    /* =====================================================
-       FILTER VIDEO
-    ===================================================== */
-
-    const videos =
-      posts.filter(post => {
+    (data || []).forEach(
+      function(post){
 
         const type =
-          String(
-            post.type || ""
-          )
-          .trim()
-          .toLowerCase();
+          getPostType(post);
 
 
-        return (
+        if(
+          type === "photo"
+        ){
 
-          type === "video" &&
-          !!post.media_url
+          photoGrid.appendChild(
+            createPhotoCard(post)
+          );
 
-        );
+          photoCount++;
 
-      });
+        }
 
+        else if(
+          type === "video"
+        ){
 
-    /* =====================================================
-       FILTER TEKS
-    ===================================================== */
+          videoGrid.appendChild(
+            createVideoCard(post)
+          );
 
-    const texts =
-      posts.filter(post => {
+          videoCount++;
 
-        const type =
-          String(
-            post.type || ""
-          )
-          .trim()
-          .toLowerCase();
+        }
 
+        else{
 
-        return (
+          textGrid.appendChild(
+            createTextCard(post)
+          );
 
-          type === "teks"
+          textCount++;
 
-          ||
+        }
 
-          (
-            !post.media_url &&
-            type !== "foto" &&
-            type !== "video"
-          )
-
-        );
-
-      });
+      }
+    );
 
 
-    /* =====================================================
-       SEO FOTO PERTAMA
-    ===================================================== */
+    if(
+      photoCount === 0
+    ){
 
-    if(photos.length > 0){
-
-      const firstPhoto =
-        photos[0];
-
-
-      updateImageSEO(
-
-        firstPhoto.media_url,
-
-        firstPhoto.title ||
-        "PRAN MUSIC ENTERTAINMENT",
-
-        firstPhoto.description ||
-        ""
-
+      showEmpty(
+        photoGrid,
+        "Belum ada foto yang diposting."
       );
 
     }
 
 
-    /* =====================================================
-       RENDER FOTO
-    ===================================================== */
+    if(
+      videoCount === 0
+    ){
 
-    if(photos.length === 0){
-
-      photoGrid.innerHTML =
-        `<div class="empty-post">
-          BELUM ADA FOTO TERBARU
-        </div>`;
-
-    }else{
-
-      photoGrid.innerHTML =
-        photos.map(post => {
-
-          const title =
-            escapeHtml(
-              post.title ||
-              "Tanpa Judul"
-            );
-
-
-          const description =
-            escapeHtml(
-              post.description ||
-              ""
-            );
-
-
-          const url =
-            escapeAttribute(
-              post.media_url
-            );
-
-
-          const jsUrl =
-            escapeJs(
-              post.media_url
-            );
-
-
-          const jsTitle =
-            escapeJs(
-              post.title ||
-              "Foto"
-            );
-
-
-          return `
-
-            <article
-              class="post-card"
-            >
-
-              <div
-                class="post-media"
-                onclick="
-                  openMedia(
-                    'image',
-                    '${jsUrl}',
-                    '${jsTitle}'
-                  )
-                "
-              >
-
-                <img
-                  src="${url}"
-                  alt="${title}"
-                  loading="lazy"
-                >
-
-              </div>
-
-
-              <div
-                class="post-content"
-              >
-
-                <h3>
-                  ${title}
-                </h3>
-
-                ${
-                  description
-                  ?
-                  `<p>${description}</p>`
-                  :
-                  ""
-                }
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("");
+      showEmpty(
+        videoGrid,
+        "Belum ada video yang diposting."
+      );
 
     }
 
 
-    /* =====================================================
-       RENDER VIDEO
-    ===================================================== */
+    if(
+      textCount === 0
+    ){
 
-    if(videos.length === 0){
-
-      videoGrid.innerHTML =
-        `<div class="empty-post">
-          BELUM ADA VIDEO TERBARU
-        </div>`;
-
-    }else{
-
-      videoGrid.innerHTML =
-        videos.map(post => {
-
-          const title =
-            escapeHtml(
-              post.title ||
-              "Tanpa Judul"
-            );
-
-
-          const description =
-            escapeHtml(
-              post.description ||
-              ""
-            );
-
-
-          const url =
-            escapeAttribute(
-              post.media_url
-            );
-
-
-          const jsUrl =
-            escapeJs(
-              post.media_url
-            );
-
-
-          const jsTitle =
-            escapeJs(
-              post.title ||
-              "Video"
-            );
-
-
-          return `
-
-            <article
-              class="post-card"
-            >
-
-              <div
-                class="post-media"
-                onclick="
-                  openMedia(
-                    'video',
-                    '${jsUrl}',
-                    '${jsTitle}'
-                  )
-                "
-              >
-
-                <video
-                  src="${url}"
-                  controls
-                  playsinline
-                  preload="metadata"
-                  onclick="
-                    event.stopPropagation()
-                  "
-                ></video>
-
-              </div>
-
-
-              <div
-                class="post-content"
-              >
-
-                <h3>
-                  ${title}
-                </h3>
-
-                ${
-                  description
-                  ?
-                  `<p>${description}</p>`
-                  :
-                  ""
-                }
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("");
+      showEmpty(
+        textGrid,
+        "Belum ada cerita yang diposting."
+      );
 
     }
 
+  }
 
-    /* =====================================================
-       RENDER CERITA
-    ===================================================== */
-
-    if(texts.length === 0){
-
-      textGrid.innerHTML =
-        `<div class="empty-post">
-          BELUM ADA CERITA / TEKS
-        </div>`;
-
-    }else{
-
-      textGrid.innerHTML =
-        texts.map(post => {
-
-          const title =
-            escapeHtml(
-              post.title ||
-              "Cerita"
-            );
-
-
-          const description =
-            escapeHtml(
-              post.description ||
-              ""
-            );
-
-
-          return `
-
-            <article
-              class="
-                post-card
-                text-post-card
-              "
-            >
-
-              <div
-                class="
-                  post-content
-                  text-only-content
-                "
-              >
-
-                <div
-                  class="text-post-icon"
-                >
-                  ✦
-                </div>
-
-
-                <h3>
-                  ${title}
-                </h3>
-
-
-                ${
-                  description
-                  ?
-                  `<p>${description}</p>`
-                  :
-                  ""
-                }
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("");
-
-    }
-
-
-  }catch(error){
+  catch(error){
 
     console.error(
-      "ERROR LOAD POSTS:",
+      "LOAD POSTS EXCEPTION:",
       error
     );
 
+  }
 
-    photoGrid.innerHTML =
-      `<div class="empty-post">
-        TERJADI KESALAHAN MEMUAT FOTO
-      </div>`;
+  finally{
 
-
-    videoGrid.innerHTML =
-      `<div class="empty-post">
-        TERJADI KESALAHAN MEMUAT VIDEO
-      </div>`;
-
-
-    textGrid.innerHTML =
-      `<div class="empty-post">
-        TERJADI KESALAHAN MEMUAT CERITA
-      </div>`;
+    loadingPosts =
+      false;
 
   }
 
@@ -3261,60 +4092,128 @@ async function loadPosts(){
 
 
 /* =========================================================
-   MEDIA VIEWER
+   REALTIME SUPABASE
 ========================================================= */
 
-function openMedia(
+let realtimeChannel =
+  null;
+
+
+function startRealtime(){
+
+  if(realtimeChannel){
+    return;
+  }
+
+
+  realtimeChannel =
+
+    supabaseClient
+
+      .channel(
+        "public-posts-realtime"
+      )
+
+      .on(
+        "postgres_changes",
+
+        {
+          event:"*",
+          schema:"public",
+          table:"posts"
+        },
+
+        function(payload){
+
+          console.log(
+            "POSTS REALTIME:",
+            payload.eventType
+          );
+
+          loadPosts();
+
+        }
+
+      )
+
+      .subscribe(
+        function(status){
+
+          console.log(
+            "REALTIME STATUS:",
+            status
+          );
+
+        }
+      );
+
+}
+
+
+/* =========================================================
+   VIEWER
+========================================================= */
+
+const viewer =
+  document.getElementById(
+    "viewer"
+  );
+
+
+const viewerMedia =
+  document.getElementById(
+    "viewerMedia"
+  );
+
+
+const viewerClose =
+  document.getElementById(
+    "viewerClose"
+  );
+
+
+function openViewer(
   type,
-  url,
-  title
+  url
 ){
 
-  const viewer =
-    document.getElementById(
-      "mediaViewer"
-    );
+  if(!url){
+    return;
+  }
 
 
-  const content =
-    document.getElementById(
-      "viewerContent"
-    );
+  if(
+    type === "video"
+  ){
 
-
-  const titleBox =
-    document.getElementById(
-      "viewerTitle"
-    );
-
-
-  titleBox.textContent =
-    title || "";
-
-
-  if(type === "image"){
-
-    content.innerHTML = `
-
-      <img
-        class="viewer-content"
-        src="${escapeAttribute(url)}"
-        alt="${escapeAttribute(title)}"
-      >
-
-    `;
-
-  }else{
-
-    content.innerHTML = `
+    viewerMedia.innerHTML = `
 
       <video
-        class="viewer-content"
-        src="${escapeAttribute(url)}"
         controls
         autoplay
         playsinline
-      ></video>
+        style="
+          max-width:100%;
+          max-height:85vh;
+          border-radius:12px;
+        ">
+
+        <source
+          src="${escapeHtml(url)}">
+
+      </video>
+
+    `;
+
+  }
+
+  else{
+
+    viewerMedia.innerHTML = `
+
+      <img
+        src="${escapeHtml(url)}"
+        alt="PRAN MUSIC ENTERTAINMENT">
 
     `;
 
@@ -3326,36 +4225,32 @@ function openMedia(
   );
 
 
+  viewer.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
   document.body.style.overflow =
     "hidden";
 
 }
 
 
-/* =========================================================
-   CLOSE VIEWER
-========================================================= */
-
-function closeMedia(){
-
-  const viewer =
-    document.getElementById(
-      "mediaViewer"
-    );
-
-
-  const content =
-    document.getElementById(
-      "viewerContent"
-    );
-
+function closeViewer(){
 
   viewer.classList.remove(
     "show"
   );
 
 
-  content.innerHTML =
+  viewer.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  viewerMedia.innerHTML =
     "";
 
 
@@ -3365,17 +4260,37 @@ function closeMedia(){
 }
 
 
-/* =========================================================
-   ESC KEY
-========================================================= */
+viewerClose.addEventListener(
+  "click",
+  closeViewer
+);
+
+
+viewer.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target === viewer
+    ){
+
+      closeViewer();
+
+    }
+
+  }
+);
+
 
 document.addEventListener(
   "keydown",
   function(event){
 
-    if(event.key === "Escape"){
+    if(
+      event.key === "Escape"
+    ){
 
-      closeMedia();
+      closeViewer();
 
     }
 
@@ -3384,7 +4299,17 @@ document.addEventListener(
 
 
 /* =========================================================
-   START
+   YEAR
+========================================================= */
+
+document.getElementById(
+  "year"
+).textContent =
+  new Date().getFullYear();
+
+
+/* =========================================================
+   START WEBSITE
 ========================================================= */
 
 document.addEventListener(
@@ -3393,11 +4318,12 @@ document.addEventListener(
 
     loadPosts();
 
+    startRealtime();
+
   }
 );
 
 </script>
-
 
 </body>
 </html>
