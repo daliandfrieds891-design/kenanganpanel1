@@ -1447,6 +1447,7 @@ body{
         animation-iteration-count:1!important;
         scroll-behavior:auto!important;
     }
+
 }
 
 </style>
@@ -1504,7 +1505,7 @@ body{
 
         <div class="field">
 
-            <label>Username / Email</label>
+            <label>Username</label>
 
             <div class="inputWrap">
 
@@ -2171,12 +2172,12 @@ function updateAdminIdentity(){
 
 
 /* =========================================================
-   LOGIN
+   LOGIN — USERNAME ONLY
 ========================================================= */
 
 async function loginAdmin(){
 
-    const emailInput =
+    const usernameInput =
         document.getElementById(
             "loginEmail"
         );
@@ -2191,8 +2192,10 @@ async function loginAdmin(){
             "loginError"
         );
 
-    const emailRaw =
-        emailInput.value.trim();
+    const username =
+        usernameInput.value
+            .trim()
+            .toLowerCase();
 
     const password =
         passwordInput.value;
@@ -2204,12 +2207,12 @@ async function loginAdmin(){
         "";
 
     if(
-        !emailRaw ||
+        !username ||
         !password
     ){
 
         errorEl.textContent =
-            "Username/email dan password wajib diisi.";
+            "Username dan password wajib diisi.";
 
         errorEl.style.display =
             "block";
@@ -2217,59 +2220,129 @@ async function loginAdmin(){
         return;
     }
 
-    let email =
-        emailRaw;
-
-    if(
-        !email.includes("@")
-    ){
-
-        email =
-            email.toLowerCase() +
-            "@pranmusic.local";
-    }
-
     try{
+
+        /*
+         * Cari email Auth berdasarkan username
+         * melalui RPC Supabase.
+         */
+
+        const {
+            data: loginEmail,
+            error: lookupError
+        } =
+        await supabaseClient
+            .rpc(
+                "get_login_email",
+                {
+                    p_username:
+                        username
+                }
+            );
+
+        if(lookupError){
+
+            throw lookupError;
+        }
+
+        if(!loginEmail){
+
+            throw new Error(
+                "Username tidak ditemukan."
+            );
+        }
+
+
+        /*
+         * Login Supabase Auth menggunakan
+         * email hasil pencarian + password.
+         */
 
         const {
             data,
             error
         } =
-        await supabaseClient.auth
+        await supabaseClient
+            .auth
             .signInWithPassword({
-                email,
-                password
+
+                email:
+                    loginEmail,
+
+                password:
+                    password
+
             });
 
         if(error){
+
             throw error;
         }
+
 
         currentUser =
             data.user;
 
-        setRole();
+        /*
+         * Karena login sekarang memakai username,
+         * pastikan role mengikuti username yang diketik.
+         */
+
+        const typedUsername =
+            username;
+
+        if(
+            typedUsername ===
+            "daligroupmaster"
+        ){
+
+            currentRole =
+                "daligroupmaster";
+
+        }
+
+        else if(
+            typedUsername ===
+            "pranmusicentertainment"
+        ){
+
+            currentRole =
+                "pranmusicentertainment";
+
+        }
+
+        else{
+
+            setRole();
+        }
+
+        updateAdminIdentity();
+
 
         document.getElementById(
             "loginPage"
         ).style.display =
             "none";
 
+
         document.getElementById(
             "adminPage"
         ).style.display =
             "block";
 
+
         await loadPosts();
+
 
         showToast(
             "Login berhasil. " +
-            getUsername(currentUser) +
+            typedUsername +
             " siap mengelola PRAN MUSIC.",
             "success"
         );
 
     }
+
     catch(error){
 
         console.error(
@@ -3204,12 +3277,6 @@ async function savePost(){
         let mediaUrl = null;
         let mediaPath = null;
 
-        /*
-         * PENTING:
-         * Untuk teks media_type HARUS "text",
-         * bukan null.
-         */
-
         let mediaType =
             selectedPostType;
 
@@ -3250,10 +3317,6 @@ async function savePost(){
             saveButton.textContent =
                 "⬆️ MENGUPLOAD...";
 
-
-            /*
-             * UPLOAD DENGAN PROGRESS
-             */
 
             await uploadFileWithProgress(
                 file,
@@ -3301,9 +3364,6 @@ async function savePost(){
 
                 story:story,
 
-                /*
-                 * JANGAN PERNAH NULL
-                 */
                 media_type:
                     selectedPostType,
 
@@ -3371,12 +3431,6 @@ async function savePost(){
             }
 
 
-            /*
-             * Hapus media lama hanya kalau:
-             * - mengganti file
-             * - atau mengubah posting menjadi teks
-             */
-
             if(
                 (
                     file ||
@@ -3416,14 +3470,6 @@ async function savePost(){
                     currentUser
                 );
 
-
-            /*
-             * MEDIA TYPE SELALU ADA
-             *
-             * image -> image
-             * video -> video
-             * text  -> text
-             */
 
             const {
                 error
@@ -3659,13 +3705,6 @@ function createPostCard(post){
         uploader ===
         "daligroupmaster";
 
-    /*
-     * Teks sekarang dikenali secara eksplisit
-     * menggunakan media_type === "text".
-     *
-     * Data lama yang masih null juga tetap
-     * dianggap sebagai teks agar tidak rusak.
-     */
 
     const isTextPost =
         post.media_type === "text" ||
